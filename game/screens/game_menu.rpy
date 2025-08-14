@@ -31,18 +31,18 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
         add Parallax("menu_gg", 0.5)
 
-        add Parallax("hand_1", 0.55)
-        add Parallax("hand_2", 0.6)
-        add Parallax("hand_3", 0.65)
-        add Parallax("hand_4", 0.7)
-        add Parallax("hand_5", 0.75)
-        add Parallax("hand_6", 0.85)
-        add Parallax("hand_7", 0.95)
-        add Parallax("hand_8", 1.05)
-        add Parallax("hand_9", 1.15)
-        add Parallax("hand_10", 1.25)
-        add Parallax("hand_11", 1.35)
-        add Parallax("hand_12", 1.45)
+        add Parallax("hand_1", 0.55) at hand_bob(up_time=6.0, down_time=5.0, distance=20, stretch=0.03, delay=0.0)
+        add Parallax("hand_2", 0.6) at hand_bob(up_time=6.2, down_time=5.0, distance=22, stretch=0.03, delay=0.2)
+        add Parallax("hand_3", 0.65) at hand_bob(up_time=6.5, down_time=5.2, distance=24, stretch=0.035, delay=0.4)
+        add Parallax("hand_4", 0.7) at hand_bob(up_time=6.7, down_time=5.2, distance=26, stretch=0.035, delay=0.6)
+        add Parallax("hand_5", 0.75) at hand_bob(up_time=7.0, down_time=5.4, distance=18, stretch=0.04, delay=0.8)
+        add Parallax("hand_6", 0.85) at hand_bob(up_time=7.2, down_time=5.6, distance=25, stretch=0.04, delay=1.0)
+        add Parallax("hand_7", 0.95) at hand_bob(up_time=7.5, down_time=5.8, distance=27, stretch=0.045, delay=1.2)
+        add Parallax("hand_8", 1.05) at hand_bob(up_time=7.7, down_time=6.0, distance=20, stretch=0.045, delay=1.4)
+        add Parallax("hand_9", 1.15) at hand_bob(up_time=8.0, down_time=6.2, distance=31, stretch=0.05, delay=1.6)
+        add Parallax("hand_10", 1.25) at hand_bob(up_time=8.2, down_time=6.4, distance=38, stretch=0.05, delay=1.8)
+        add Parallax("hand_11", 1.35) at hand_bob(up_time=8.5, down_time=6.6, distance=20, stretch=0.055, delay=2.0)
+        add Parallax("hand_12", 1.45) at hand_bob(up_time=8.8, down_time=6.8, distance=34, stretch=0.06, delay=2.2)
 
     # add "gui/menu/frame_bg.png": 
     # #at menu_board_drop:
@@ -101,10 +101,10 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     textbutton _("Назад"):
         style "return_button"
-        action Return()
+        action ShowMenu(MAIN_MENU_SCREEN, from_game_menu=True)
 
     if main_menu:
-        key "game_menu" action ShowMenu("main_menu")
+        key "game_menu" action ShowMenu(MAIN_MENU_SCREEN, from_game_menu=True)
 
 
 style game_menu_outer_frame is empty:

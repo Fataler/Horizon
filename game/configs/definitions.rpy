@@ -2,7 +2,7 @@
 default persistent.first_start = True
 default persistent.game_completed = False
 
-define splash_enabled = True
+define splash_enabled = False
 
 default textbox_style = "gui/textbox.png"
 default character = "Taida"
