@@ -36,20 +36,6 @@ screen history():
         if not _history_list:
             label _("История диалогов пуста.")
 
-    add "gg_shadow":
-        anchor (0.5, 0.5)   
-        pos (1550, 577)
-        at delay_appear(0.3)
-
-    add Parallax("gg", 0.2):
-        anchor (0.5, 0.5)
-        at move_appear(1370, 695, 1558)
-
-    add "gg_chirkash":
-        anchor (0.5, 0.5)  
-        pos (1550, 575)
-        at delay_appear(0.3)
-
 ## Это определяет, какие теги могут отображаться на экране истории.
 
 define gui.history_allow_tags = { "alt", "noalt", "rt", "rb", "art" }

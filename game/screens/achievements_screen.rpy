@@ -150,24 +150,6 @@ screen achievements_screen():
                                 else:
                                     text ach.description style "achievement_description"
 
-                                
-
-    add "kazumi_shadow":
-        anchor (0.5, 0.5)   
-        pos (1605, 555)
-        at delay_appear(0.3)
-
-    add Parallax("kazumi", 0.2):
-        anchor (0.5, 0.5)
-        xpos 840
-        ypos 804
-        at move_appear(840,804)
-
-    add "kazumi_chirkash":
-        anchor (0.5, 0.5)  
-        pos (1615, 560)
-        at delay_appear(0.3)
-
 style achievements_stats_frame:
     background None #Frame("gui/frame.png", 40, 40)
     padding (20, 20)

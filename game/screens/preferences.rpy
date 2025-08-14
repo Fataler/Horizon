@@ -127,6 +127,7 @@ screen preferences():
                     cols 2
                     rows 2
                     xspacing 250
+                    yspacing 20
                     xsize 900
                     
                     if config.has_music:
@@ -230,20 +231,6 @@ screen preferences():
             style "reset_button"
             action Function(reset_preferences)
             tooltip "Сбросить настройки\nна значения по умолчанию"
-
-    add "umi_shadow":
-        anchor (0.5, 0.5)   
-        pos (1610, 540)
-        at delay_appear(0.3)
-
-    add Parallax("umi", 0.2):
-        anchor (0.5, 0.5)        
-        at move_appear(1368, 688)
-
-    add "umi_chirkash":
-        anchor (0.5, 0.5)  
-        pos (1610, 540)
-        at delay_appear(0.3)
 
     $ tooltip = GetTooltip()
 

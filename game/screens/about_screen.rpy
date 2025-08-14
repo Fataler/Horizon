@@ -26,23 +26,11 @@ screen about():
 
             text _("Сделано с помощью {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
-    add "den_shadow":
-        anchor (0.5, 0.5)   
-        pos (1590, 530)
-        at delay_appear(0.3)
-
-    add Parallax("denis", 0.2):
-        anchor (0.5, 0.5)
-        at move_appear(1370,762, 1548)
-
-    add "den_chirkash":
-        anchor (0.5, 0.5)  
-        pos (1590, 530)
-        at delay_appear(0.3)
-
 style about_label is gui_label
 style about_label_text is gui_label_text
-style about_text is text
+style about_text is text:
+    color gui.interface_text_color
+    font gui.interface_text_font
 
 style about_label_text:
     size gui.label_text_size

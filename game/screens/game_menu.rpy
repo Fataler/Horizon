@@ -7,17 +7,48 @@
 ## экран предназначен для использования с одним или несколькими дочерними
 ## элементами, которые трансклюдируются (помещаются) внутрь него.
 
+transform menu_move:
+    pause 0.3
+    parallel:
+        ease 0.5 xoffset -390
+
 screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
     
     style_prefix "game_menu"
-    
-    add "bg_menu_main"
 
-    add "gui/menu/frame_bg.png": 
-    #at menu_board_drop:
-        anchor (0.5, 0.5)
-        xpos 678
-        ypos 560
+    frame:
+        at menu_move
+        
+        add "bg_black"
+        add Parallax("menu_fon", 0.5)
+        add Parallax("menu_fon_2", 0.5)
+
+        add Parallax("menu_nimb", 1)at transform:
+            alpha 1.0
+            linear 2.0 alpha 0.5
+            linear 2.0 alpha 1.0
+            repeat
+
+        add Parallax("menu_gg", 0.5)
+
+        add Parallax("hand_1", 0.55)
+        add Parallax("hand_2", 0.6)
+        add Parallax("hand_3", 0.65)
+        add Parallax("hand_4", 0.7)
+        add Parallax("hand_5", 0.75)
+        add Parallax("hand_6", 0.85)
+        add Parallax("hand_7", 0.95)
+        add Parallax("hand_8", 1.05)
+        add Parallax("hand_9", 1.15)
+        add Parallax("hand_10", 1.25)
+        add Parallax("hand_11", 1.35)
+        add Parallax("hand_12", 1.45)
+
+    # add "gui/menu/frame_bg.png": 
+    # #at menu_board_drop:
+    #     anchor (0.5, 0.5)
+    #     xpos 678
+    #     ypos 560
 
     frame at menu_items_appear:
         top_margin 15
@@ -76,7 +107,11 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
         key "game_menu" action ShowMenu("main_menu")
 
 
-style game_menu_outer_frame is empty
+style game_menu_outer_frame is empty:
+    #background "#90909085"
+    xpos 0.37
+    yoffset -10
+    
 style game_menu_navigation_frame is empty
 style game_menu_content_frame is empty
 style game_menu_viewport is gui_viewport
@@ -90,7 +125,7 @@ style game_menu_label_text is gui_label_text
 # style return_button_text is main_menu_button_text
 
 style game_menu_content_frame:
-    #background "#00000085"
+    #background "#90909085"
     left_margin 220
     #right_margin 50
     top_margin 120

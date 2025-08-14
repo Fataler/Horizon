@@ -95,8 +95,8 @@ define config.main_menu_music = music_main_theme
 
 ## Вход и выход в игровое меню.
 
-define config.enter_transition = dissolve
-define config.exit_transition = dissolve
+define config.enter_transition = None
+define config.exit_transition = None
 
 
 ## Переход между экранами игрового меню.

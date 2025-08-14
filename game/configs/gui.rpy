@@ -26,35 +26,35 @@ define config.check_conflicting_properties = True
 ## Цвета текста в интерфейсе.
 
 ## Акцентный цвет используется в заголовках и подчёркнутых текстах.
-define gui.accent_color = '#b33b6b'
-define black_text_color = "#1E1E20"
+define gui.accent_color = '#ff0000'
+define black_text_color = "#ffffff"
 #hover = #c8ab5e
 ## Цвет, используемый в текстовой кнопке, когда она не выбрана и не наведена.
-define gui.idle_color = '#9e335e'
+define gui.idle_color = '#ffffff'
 
 ## Small_color используется в маленьком тексте, который должен быть ярче/темнее,
 ## для того, чтобы выделяться.
-define gui.idle_small_color = '#8f2f55'
+define gui.idle_small_color = '#ffffff'
 
 ## Цвет, используемых в кнопках и панелях, когда они наведены.
-define gui.hover_color = '#2f1922'
+define gui.hover_color = '#ff0000'
 
 ## Цвет, используемый текстовой кнопкой, когда она выбрана, но не наведена.
 ## Кнопка может быть выбрана, если это текущий экран или текущее значение
 ## настройки.
-define gui.selected_color = '#8f2f55' #6e3c52
+define gui.selected_color = '#ff0000' #6e3c52
 
 ## Цвет, используемый текстовой кнопкой, когда она не может быть выбрана.
-define gui.insensitive_color = '#8f2f55'
+define gui.insensitive_color = '#860000'
 
 ## Цвета, используемые для частей панелей, которые не заполняются. Они
 ## используются не напрямую, а только при воссоздании файлов изображений.
-define gui.muted_color = '#e0a366'
-define gui.hover_muted_color = '#eac199'
+define gui.muted_color = '#5e0000'
+define gui.hover_muted_color = '#860000'
 
 ## Цвета, используемые в E0E0E0 диалогов и выборов.
 define gui.text_color = '#1C1C1C'
-define gui.interface_text_color = '#8f2f55'
+define gui.interface_text_color = '#ffffff'
 
 
 ## Шрифты и их размеры #########################################################
@@ -66,7 +66,7 @@ define gui.text_font = "gui/fonts/Evolventa-Regular.ttf"
 define gui.name_text_font = "gui/fonts/BlackOpsOne.otf"
 
 ## Шрифт, используемый текстом вне игры.
-define gui.interface_text_font = "gui/fonts/BlackOpsOne.otf"
+define gui.interface_text_font = "gui/fonts/Bebas Neue.ttf"
 
 ## Размер нормального текста диалога.
 define gui.text_size = 36
@@ -217,7 +217,7 @@ define gui.choice_button_borders = Borders(150, 8, 150, 8)
 define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
-define gui.choice_button_text_idle_color = '#707070'
+define gui.choice_button_text_idle_color = '#ffffff'
 define gui.choice_button_text_hover_color = "#ffffff"
 define gui.choice_button_text_insensitive_color = '#7070707f'
 
