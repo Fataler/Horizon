@@ -110,19 +110,6 @@ screen file_slots(title):
                         textbutton _("Скачать Sync"):
                             action DownloadSync()
                             xalign 0.5
-    add "hikaru_shadow":
-        anchor (0.5, 0.5)   
-        pos (1610, 565)
-        at delay_appear(0.3)
-
-    add Parallax("hikaru", 0.2):
-        anchor (0.5, 0.5)
-        at move_appear(959,641)
-
-    add "hikaru_chirkash":
-        anchor (0.5, 0.5)  
-        pos (1610, 555)
-        at delay_appear(0.3)
 
 
 style page_label is gui_label
