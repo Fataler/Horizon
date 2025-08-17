@@ -12,7 +12,7 @@
 ##
 ## Символы "_()", окружающие название, отмечают его как пригодное для перевода.
 
-define config.name = _("Мой кибер-двойник опять всё испортил")
+define config.name = _("Beyound the event horizon")
 define config.image_cache_size_mb = 512
 
 define config.developer = True
