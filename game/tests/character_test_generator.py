@@ -2,6 +2,9 @@ import re
 import os
 import argparse
 
+not_emotion_attributes = ['talk', 'right', 'left']
+not_state_groups = ['pose', 'direction', 'emotion', 'mouth', 'effects']
+
 def parse_layeredimage(layeredimage_string):
     """
     Парсит строку с определением layeredimage и извлекает состояния персонажа.
@@ -25,40 +28,32 @@ def parse_layeredimage(layeredimage_string):
     current_group_name = None
     current_group_conditions = []
     
-    # Регулярное выражение для поиска атрибутов
     attribute_re = re.compile(r'^\s+attribute\s+(\w+)')
 
     for line in lines:
         stripped_line = line.strip()
 
         if stripped_line.startswith('group '):
-            # Определяем условия для группы (например, if_any "pose")
             if_any_match = re.search(r'if_any\s+"([^"]+)"', stripped_line)
             if if_any_match:
                 current_group_conditions = [c.strip() for c in if_any_match.group(1).split(',')]
             else:
-                # Если это группа без if_any, но не 'pose' или 'direction',
-                # считаем ее самостоятельной позой.
                 group_name_match = re.search(r'group\s+(\w+):', stripped_line)
                 if group_name_match:
                     group_name = group_name_match.group(1)
-                    if group_name not in ['pose', 'direction', 'emotion', 'mouth', 'effects']:
-                        # Это группа, которая сама является позой, например 'crazy'
+                    if group_name not in not_state_groups:
                         states[group_name] = []
                         current_group_conditions = [group_name]
                     else:
                         current_group_conditions = []
         
-        # Ищем атрибуты внутри текущей группы
         attr_match = attribute_re.match(line)
         if attr_match:
             attribute = attr_match.group(1)
-            # Применяем атрибут ко всем условиям текущей группы
             for condition in current_group_conditions:
                 if condition not in states:
                     states[condition] = []
-                # Игнорируем атрибуты, которые, скорее всего, не являются эмоциями
-                if attribute not in ['talk', 'right', 'left']:
+                if attribute not in not_emotion_attributes:
                     states[condition].append(attribute)
 
     return image_name, states
@@ -94,7 +89,6 @@ def generate_test_script(image_name, states, character_id=None, background="bg b
     for pose in sorted_poses:
         emotions = sorted(states[pose])
         if not emotions:
-            # Для поз без отдельных эмоций (хотя парсер их обычно не создает)
             script_lines.append(f'    show {image_name} {pose}')
             script_lines.append(f'    {character_id} "{pose}"')
             script_lines.append('')
@@ -147,7 +141,6 @@ def main():
         print(f"Ошибка: Файл не найден по пути {args.input}")
         return
 
-    # Ищем конкретное определение layeredimage
     layeredimage_regex = re.compile(
         r"layeredimage\s+" + re.escape(args.name) + r"\s*:\s*\n([\s\S]*?)(?=\n\w|#endregion|\Z)", 
         re.DOTALL
