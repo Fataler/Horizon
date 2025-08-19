@@ -1,6 +1,7 @@
 #region characters
-define r_f = Character("Райан", image="r", callback=speaker('r_f'))
+define r = Character("Райан", image="r", callback=speaker('r'))
 define r_t = Character(None, image="r")
+define r_f = Character("Райан", image="r_f", callback=speaker('r_f'))
 define i = Character("Ирис")
 define v = Character("Виктор")
 define d = Character("Дэвид")
@@ -74,7 +75,7 @@ layeredimage r_f:
         attribute surprised:
             "images/Rayan/Rayan_yxo_surprised.png"
     
-    group crazy:
+    group emotion if_any "crazy":
         attribute mnogo:
             "images/Rayan/Rayan_crazy_mnogo.png"
         attribute nemnogo:
@@ -82,7 +83,7 @@ layeredimage r_f:
         attribute pizdec:
             "images/Rayan/Rayan_crazy_pizdec.png"
 
-    group mouth if_any "serious":
+    group mouth if_any "serious" if_not "fainting_blood":
         attribute talk:
             WhileSpeaking('r_f', 'rayan_talk_seryoznii', Null())
 
