@@ -2,7 +2,7 @@
 define r = Character("Райан", image="r", callback=speaker('r'))
 define r_t = Character(None, image="r")
 define r_f = Character("Райан", image="r_f", callback=speaker('r_f'))
-define i = Character("Ирис")
+define i = Character("Ирис", image="i", callback=speaker('i'))
 define v = Character("Виктор")
 define d = Character("Дэвид")
 define s = Character("Софи")
@@ -126,6 +126,89 @@ image rayan_talk_ear:
 #endregion
 
 #region Iris
+layeredimage i:
+    yoffset 2
+    at auto_flip("i")
+
+    group pose:
+        attribute normal default:
+            Null()
+        attribute pen:
+            Null()
+        attribute profile:
+            Null()
+        attribute smoke:
+            Null()
+
+    group emotion if_any "normal":
+        attribute angry:
+            "images/Iris/Iris_neutral_angry.png"
+        attribute bychit:
+            "images/Iris/Iris_neutral_bychit.png"
+        attribute crazy:
+            "images/Iris/Iris_neutral_crazy.png"
+        attribute neutral_happy:
+            "images/Iris/Iris_neutral_neutral_happy.png"
+        attribute neutral default:
+            "images/Iris/Iris_neutral_neutral.png"
+        attribute ridicule:
+            "images/Iris/Iris_neutral_ridicule.png"
+
+    group emotion if_any "pen":
+        attribute nervous_laughter:
+            "images/Iris/Iris_pen_nervous_laughter.png"
+        attribute nervous:
+            "images/Iris/Iris_pen_nervous.png"
+        attribute neutral default:
+            "images/Iris/Iris_pen_neutral.png"
+        attribute ozadachen:
+            "images/Iris/Iris_pen_ozadachen.png"
+        attribute sad:
+            "images/Iris/Iris_pen_sad.png"
+
+    group emotion if_any "profile":
+        attribute ahui:
+            "images/Iris/Iris_profile_ahui.png"
+        attribute angry:
+            "images/Iris/Iris_profile_angry.png"
+        attribute neutral default:
+            "images/Iris/Iris_profile_neutral.png"
+        attribute oooops:
+            "images/Iris/Iris_profile_oooops.png"
+        attribute osharashen:
+            "images/Iris/Iris_profile_osharashen.png"
+        attribute tricky:
+            "images/Iris/Iris_profile_tricky.png"
+
+    group emotion if_any "smoke":
+        attribute calm default:
+            "images/Iris/Iris_smoke_calm.png"
+        attribute cry:
+            "images/Iris/Iris_smoke_cry.png"
+        attribute happy:
+            "images/Iris/Iris_smoke_happy.png"
+        attribute puzzled:
+            "images/Iris/Iris_smoke_puzzled.png"
+        attribute surprised:
+            "images/Iris/Iris_smoke_surprised.png"
+        attribute tricky:
+            "images/Iris/Iris_smoke_tricky.png"
+
+    group mouth if_any "normal":
+        attribute talk:
+            Null()
+
+    group mouth if_any "pen":
+        attribute talk:
+            Null()
+
+    group mouth if_any "profile":
+        attribute talk:
+            Null()
+
+    group mouth if_any "smoke":
+        attribute talk:
+            Null()
 #endregion
 
 #region Victor
@@ -135,6 +218,76 @@ image rayan_talk_ear:
 #endregion
 
 #region Sophie
+layeredimage s:
+    at auto_flip("s")
+
+    group pose:
+        attribute profile default:
+            Null()
+        attribute ruki:
+            Null()
+        attribute shy:
+            Null()
+
+    group emotion if_any "profile":
+        attribute annoyed:
+            "images/Sofi/Sofi_profile_annoyed.png"
+        attribute cry:
+            "images/Sofi/Sofi_profile_cry.png"
+        attribute despair:
+            "images/Sofi/Sofi_profile_despair.png"
+        attribute fainting:
+            "images/Sofi/Sofi_profile_fainting.png"
+        attribute happy:
+            "images/Sofi/Sofi_profile_happy.png"
+        attribute neutral default:
+            "images/Sofi/Sofi_profile_neutral.png"
+        attribute sad:
+            "images/Sofi/Sofi_profile_sad.png"
+
+    group emotion if_any "ruki":
+        attribute calm default:
+            "images/Sofi/Sofi_ruki_calm.png"
+        attribute crazy:
+            "images/Sofi/Sofi_ruki_crazy.png"
+        attribute cry:
+            "images/Sofi/Sofi_ruki_cry.png"
+        attribute happy:
+            "images/Sofi/Sofi_ruki_happy.png"
+        attribute hurt:
+            "images/Sofi/Sofi_ruki_hurt.png"
+        attribute neutral:
+            "images/Sofi/Sofi_ruki_neutral.png"
+        attribute ozadachen:
+            "images/Sofi/Sofi_ruki_ozadachen.png"
+
+    group emotion if_any "shy":
+        attribute angry:
+            "images/Sofi/Sofi_shy_angry.png"
+        attribute fainting:
+            "images/Sofi/Sofi_shy_fainting.png"
+        attribute happy:
+            "images/Sofi/Sofi_shy_happy.png"
+        attribute nedovolen:
+            "images/Sofi/Sofi_shy_nedovolen.png"
+        attribute neutral default:
+            "images/Sofi/Sofi_shy_neutral.png"
+        attribute surprised:
+            "images/Sofi/Sofi_shy_surprised.png"
+        attribute worried:
+            "images/Sofi/Sofi_shy_worried.png"
+    
+    group mouth if_any "profile":
+        attribute talk:
+            Null()
+            
+    group mouth if_any "ruki":
+        attribute talk:
+            Null()
+
+    group mouth if_any "shy":
+        attribute talk:
+            Null()
 #endregion
 
 
