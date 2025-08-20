@@ -36,10 +36,10 @@ transform crt_effects:
 
 image crt = At("crt.png", crt_effects)
 
-transform hover_effect(opac=0.3):
+transform hover_effect(opac=1):
     on show:
         alpha 0.0
     on hover:
-        ease 0.15 alpha opac
+        ease 0.25 alpha opac
     on idle:
-        ease 0.05 alpha 0.0 blend "add"
+        ease 0.25 alpha 0.0 blend "add"

@@ -1,7 +1,7 @@
 label test_r_f_states:
     "Тестирование всех состояний персонажа r_f"
 
-    scene black
+    scene bg_room_rayan
 
     window show
 
