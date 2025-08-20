@@ -2,18 +2,24 @@
 
 ## Определения фоновых изображений
 # Фоны из папки Backgrounds
-image bg_amusement_park = "images/Backgrounds/Amusement Park.jpg"
-image bg_backyard = "images/Backgrounds/Backyard.jpg"
-image bg_class_room = "images/Backgrounds/Class Room.jpg"
-image bg_garage_dirty = "images/Backgrounds/Garage Durty.jpg"
-image bg_garage = "images/Backgrounds/Garage.jpg"
-image bg_living_room = "images/Backgrounds/Living Room.jpg"
-image bg_monitor = "images/Backgrounds/Monitor.jpg"
-image bg_near_home = "images/Backgrounds/Near Home.jpg"
-image bg_near_school = "images/Backgrounds/Near School.jpg"
-image bg_robo_class_room = "images/Backgrounds/Robo-class Room.jpg"
-image bg_school_entrance = "images/Backgrounds/School Entrance.jpg"
-image bg_square = "images/Backgrounds/Square.jpg"
+image bg safe_open = "images/Backgrounds/Safe_open.jpg"
+image bg commander_block_default = "images/Backgrounds/Commander Block_default.jpg"
+image bg commander_block_red = "images/Backgrounds/Commander Block_red.jpg"
+image bg coridor1_dark = "images/Backgrounds/Coridor1_dark.jpg"
+image bg coridor1_default = "images/Backgrounds/Coridor1_default.jpg"
+image bg coridor1_red = "images/Backgrounds/Coridor1_red.jpg"
+image bg coridor2_dark = "images/Backgrounds/Coridor2_dark.jpg"
+image bg coridor2_default = "images/Backgrounds/Coridor2_default.jpg"
+image bg coridor2_red = "images/Backgrounds/Coridor2_red.jpg"
+image bg coridor3_dark = "images/Backgrounds/Coridor3_dark.jpg"
+image bg coridor3_default = "images/Backgrounds/Coridor3_default.jpg"
+image bg coridor3_red = "images/Backgrounds/Coridor3_red.jpg"
+image bg dinner_block = "images/Backgrounds/Dinner_Block.jpg"
+image bg med_block = "images/Backgrounds/Med_Block.jpg"
+image bg room_rayan = "images/Backgrounds/Room_Rayan.jpg"
+image bg room_viktor_dark = "images/Backgrounds/Room_Viktor_dark.jpg"
+image bg room_viktor_default = "images/Backgrounds/Room_Viktor_default.jpg"
+image bg safe = "images/Backgrounds/Safe.jpg"
 
 
 # credits images

@@ -1,61 +1,7 @@
 label test_talking_system:
     "Тестирование системы говорящих персонажей"
-
-    call test_izumi_states from _call_test_izumi_states
-    
-    show dad
-    dad "Привет!"
-    dad "Как дела?"
-    hide dad
-    show mom
-    mom "Привет!"
-    mom "Как дела?"
-    hide mom
-
-    call test_umi_states from _call_test_umi_states
-    
-    call test_dzinzo_states from _call_test_dzinzo_states
-    
-    call test_taida_states from _call_test_taida_states
-
-    t "Я думаю."
-    t "Я думаю о том, что я думаю."
-    t "Я думаю о том, что я думаю о том, что я думаю."
-    t "Я думаю о том, что я думаю о том, что я думаю о том, что я думаю."
-    t "Я думаю о том, что я думаю о том, что я думаю о том, что я думаю. Я думаю о том, что я думаю о том, что я думаю о том, что я думаю."
     
     "Конец"
-    return
-
-label test_binary_text:
-    show bg_white
-    $ set_character_dzinzo()
-    robot_bin "Привет, мир!"
-    robot_bin "Произвожу проверку состояния системы..."
-    robot_bin "Состояние аккумулятора: 99 процентов. Циклов заряда: 2"
-    robot_bin "Все ключевые системы в норме. Продолжаю выполнение задачи."
-    robot_bin "Я шел в направлении школы со скоростью 7,8 километра в час."
-
-    robot_bin "По моим расчётам, прибуду в класс №25 в 8:23."
-    robot_bin "Через 50 метров нужно перейти дорогу и повернуть направо."
-
-    robot_bin "Пунктуальность важна, чтобы не подвести господина Тайду."
-
-    robot_bin "По дороге я удивлялся многим вещам. Зачем птицы поют о грядущем конце света?"
-
-    robot_bin "Почему люди идут сонными, ведь можно лечь в 22:00 и проснуться в 6:00 бодрым и отдохнувшим?"
-
-    robot_bin "Почему на улице есть бездомные люди, если можно просто купить дом?"
-
-    robot_bin "Несмотря на то, что в мою память заложено много баз данных, некоторые вещи я не могу объяснить."
-
-    $ set_character_taida()
-    robot_bin "Предположение: стоит прекратить транслировать бинарный текст в логи."
-    robot_bin "Это усложнит их чтение и анализ, если они будут использоваться в будущем."
-    robot_bin "Произвожу правку конфигурации Ввода и вывода."
-    robot "Так то лучше."
-    robot "До пункта назначения осталось 100 метров."
-
     return
 
 label test_simple_conditions:
@@ -71,52 +17,64 @@ label test_simple_conditions:
 
     return
 
-label test_kazumi_states:
-    "Тестирование всех состояний персонажа Kazumi"
+label test_rayan_states:
+    "Тестирование всех состояний персонажа Rayan"
     
-    show bg_amusement_park
+    show bg room_rayan
 
-    show k pose1 neutral
-    k "k pose1 neutral"
+    show r_f serious think
+    r_f serious think "r serious think"
 
-    show k pose1 happy
-    k "k pose1 happy"
+    show r_f serious angry
+    r_f serious angry "r serious angry"
 
-    show k pose1 worried
-    k "k pose1 worried"
+    show r_f serious very_angry
+    r_f serious very_angry "r serious very_angry"
 
-    show k pose1 confused
-    k "k pose1 confused"
+    show r_f serious fainting
+    r_f serious fainting "r serious fainting"
 
-    show k pose1 angry
-    k "k pose1 angry"
+    show r_f serious fainting_blood
+    r_f serious fainting_blood "r serious fainting_blood"
 
-    show k pose1 cunning
-    k "k pose1 cunning"
+    show r_f thinking neutral
+    r_f thinking neutral "r thinking neutral"
 
-    show k pose1 neutral_4stena
-    k "k pose1 neutral_4stena"
+    show r_f thinking not_sure
+    r_f thinking not_sure "r thinking not_sure"
 
-    show k pose2 neutral
-    k "k pose2 neutral"
+    show r_f thinking ne_ponyal
+    r_f thinking ne_ponyal "r thinking ne_ponyal"
 
-    show k pose2 annoyed
-    k "k pose2 annoyed"
+    show r_f thinking osharashen
+    r_f thinking osharashen "r thinking osharashen"
 
-    show k pose2 cunning
-    k "k pose2 cunning"
+    show r_f thinking suspicious
+    r_f thinking suspicious "r thinking suspicious"
 
-    show k pose2 asharashen
-    k "k pose2 asharashen"
+    show r_f ear neutral
+    r_f ear neutral "r ear neutral"
 
-    show k pose2 didnt_understand
-    k "k pose2 didnt_understand"
+    show r_f ear dissatisfied
+    r_f ear dissatisfied "r ear dissatisfied"
 
-    show k pose2 smug right
-    k "k pose2 smug"
+    show r_f ear hehe
+    r_f ear hehe "r ear hehe"
 
-    show k pose2 neutral_4stena left
-    k "k pose2 neutral_4stena"
+    show r_f ear sick
+    r_f ear sick "r ear sick"
+
+    show r_f ear surprised
+    r_f ear surprised "r ear surprised"
+    
+    show r_f crazy mnogo
+    r_f crazy mnogo "r crazy mnogo"
+
+    show r_f crazy nemnogo
+    r_f crazy nemnogo "r crazy nemnogo"
+
+    show r_f crazy pizdec
+    r_f crazy pizdec "r crazy pizdec"
     
     return
 

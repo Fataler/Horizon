@@ -12,7 +12,7 @@
 ##
 ## Символы "_()", окружающие название, отмечают его как пригодное для перевода.
 
-define config.name = _("Мой кибер-двойник опять всё испортил")
+define config.name = _("Beyound the event horizon")
 define config.image_cache_size_mb = 512
 
 define config.developer = True
@@ -57,7 +57,7 @@ define gui.about = _p("""
 ## постройке дистрибутивов. Оно должно содержать текст формата ASCII и не должно
 ## содержать пробелы, двоеточия и точки с запятой.
 
-define build.name = "MyCyberClone"
+define build.name = "Beyond_the_event_horizon"
 
 
 ## Звуки и музыка ##############################################################
@@ -172,7 +172,7 @@ define config.has_sync = False
 ## Этот параметр обычно не должен изменяться, а если и изменился, должен быть
 ## текстовой строчкой, а не выражением.
 
-define config.save_directory = "MyCyberClone-10082024"
+define config.save_directory = "Beyond_the_event_horizon-19082025"
 
 
 ## Иконка ######################################################################
@@ -210,6 +210,8 @@ init python:
 
     build.classify('**~', None)
     build.classify('**.bak', None)
+    build.classify('**.bat', None)
+    build.classify('**/tests/**', None)
     build.classify('**/.**', None)
     build.classify('**/#**', None)
     build.classify('**/thumbs.db', None)
