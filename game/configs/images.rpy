@@ -15,10 +15,13 @@ image bg_coridor3_dark = "images/Backgrounds/Coridor3_dark.jpg"
 image bg_coridor3_default = "images/Backgrounds/Coridor3_default.jpg"
 image bg_coridor3_red = "images/Backgrounds/Coridor3_red.jpg"
 image bg_dinner_block = "images/Backgrounds/Dinner_Block.jpg"
+image bg_dinner_block_dark = "images/Backgrounds/Dinner_Block_dark.jpg"
 image bg_med_block = "images/Backgrounds/Med_Block.jpg"
 image bg_room_rayan = "images/Backgrounds/Room_Rayan.jpg"
 image bg_room_viktor_dark = "images/Backgrounds/Room_Viktor_dark.jpg"
 image bg_room_viktor_default = "images/Backgrounds/Room_Viktor_default.jpg"
+image bg_generator = "images/Backgrounds/Generator.jpg"
+image bg_Engine = "images/Backgrounds/Engine.jpg"
 image bg_safe = "images/Backgrounds/Safe.jpg"
 
 
