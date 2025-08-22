@@ -1,12 +1,12 @@
 #region characters
-define r = Character("Райан", image="r", callback=speaker('r'))
-define r_t = Character(None, image="r")
-define r_f = Character("Райан", image="r_f", callback=speaker('r_f'))
-define i = Character("Ирис", image="i", callback=speaker('i'))
-define v = Character("Виктор")
-define d = Character("Дэвид")
-define s = Character("Софи")
-define n = Character("Неизвестный голос")
+define R = Character("Райан", image="r", callback=speaker('r'))
+define R_t = Character(None, image="r")
+define R_f = Character("Райан", image="r_f", callback=speaker('r_f'))
+define I = Character("Ирис", image="i", callback=speaker('i'))
+define V = Character("Виктор")
+define D = Character("Дэвид")
+define S = Character("Софи", image="s", callback=speaker('s'))
+define N = Character("Неизвестный голос")
 define story_teller = Character(None, kind=nvl, color="#1a1a1f")
 
 #универсальный перс
