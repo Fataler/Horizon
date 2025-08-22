@@ -84,7 +84,7 @@ define config.default_music_volume = 0.3
 ## проигрываться в главном меню. Этот файл продолжит проигрываться во время
 ## игры, если не будет остановлен, или не начнёт проигрываться другой аудиофайл.
 
-define config.main_menu_music = music_main_theme
+define config.main_menu_music = None #music_main_theme
 
 
 ## Переходы ####################################################################

@@ -18,7 +18,7 @@ init python:
 
 #region Ryan
 
-image side r = LayeredImageProxy("r_f", Transform(crop=(0, 0, 640, 460), xoffset=-80))
+image side r = LayeredImageProxy("r_f", Transform(crop=(0, 0, 800, 490), xoffset=-80, zoom=0.8))
 
 layeredimage r_f:
     at auto_flip("r_f")
