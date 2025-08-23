@@ -1,6 +1,6 @@
 ﻿label start:
     menu:
             "Начало игры":
-                jump chapter1
+                jump prologue
             "room_1":
                 jump room_1

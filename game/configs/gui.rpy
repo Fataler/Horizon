@@ -53,14 +53,14 @@ define gui.muted_color = '#5e0000'
 define gui.hover_muted_color = '#860000'
 
 ## Цвета, используемые в E0E0E0 диалогов и выборов.
-define gui.text_color = '#1C1C1C'
+define gui.text_color = '#ECECEC'
 define gui.interface_text_color = '#ffffff'
 
 
 ## Шрифты и их размеры #########################################################
 
 ## Шрифт, используемый внутриигровым текстом.
-define gui.text_font = "gui/fonts/Evolventa-Regular.ttf"
+define gui.text_font = "gui/fonts/Lora-Regular.ttf"
 
 ## Шрифт, используемый именами персонажей.
 define gui.name_text_font = "gui/fonts/BlackOpsOne.otf"

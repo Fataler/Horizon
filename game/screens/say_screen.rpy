@@ -78,6 +78,7 @@ style say_label:
 style say_dialogue:
     properties gui.text_properties("dialogue")
     adjust_spacing True
+    outlines [(2, "000000AA", 0, 0)]
 
 style say_textframe:
     background None

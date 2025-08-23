@@ -207,7 +207,7 @@ screen skip_indicator():
         hbox:
             spacing 9
 
-            text _("Пропускаю")
+            text _("Не пропускай меня :(")
 
             text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
             text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
