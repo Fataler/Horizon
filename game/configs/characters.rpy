@@ -21,7 +21,7 @@ init python:
 image side r = LayeredImageProxy("r_f", Transform(crop=(0, 0, 800, 490), xoffset=-80, zoom=0.8))
 
 layeredimage r_f:
-    at auto_flip("r_f")
+    at auto_flip("r_f", "right")
 
     group direction:
         attribute right default:
@@ -128,7 +128,13 @@ image rayan_talk_ear:
 #region Iris
 layeredimage i:
     yoffset 2
-    at auto_flip("i")
+    at auto_flip("i", "left")
+
+    group direction:
+        attribute right:
+            Null()
+        attribute left default:
+            Null()
 
     group pose:
         attribute normal default:
@@ -213,7 +219,13 @@ layeredimage i:
 
 #region Viktor
 layeredimage v:
-    at auto_flip("v")
+    at auto_flip("v", "left")
+
+    group direction:
+        attribute right:
+            Null()
+        attribute left default:
+            Null()
 
     group pose:
         attribute profile default:
@@ -295,7 +307,13 @@ layeredimage v:
 
 #region Sophie
 layeredimage s:
-    at auto_flip("s")
+    at auto_flip("s", "left")
+
+    group direction:
+        attribute right:
+            Null()
+        attribute left default:
+            Null()
 
     group pose:
         attribute profile default:
