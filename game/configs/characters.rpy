@@ -3,7 +3,7 @@ define R = Character("Райан", image="r", callback=speaker('r'))
 define R_t = Character(None, image="r")
 define R_f = Character("Райан", image="r_f", callback=speaker('r_f'))
 define I = Character("Ирис", image="i", callback=speaker('i'))
-define V = Character("Виктор")
+define V = Character("Виктор", image="v", callback=speaker('v'))
 define D = Character("Дэвид")
 define S = Character("Софи", image="s", callback=speaker('s'))
 define N = Character("Неизвестный голос")
@@ -211,7 +211,83 @@ layeredimage i:
             Null()
 #endregion
 
-#region Victor
+#region Viktor
+layeredimage v:
+    at auto_flip("v")
+
+    group pose:
+        attribute profile default:
+            Null()
+        attribute ruki:
+            Null()
+        attribute pockets:
+            Null()
+
+    group emotion if_any "profile":
+        attribute angry:
+            "images/Viktor/Viktor_profile_angry.png"
+        attribute crazy:
+            "images/Viktor/Viktor_profile_crazy.png"
+        attribute neutral:
+            "images/Viktor/Viktor_profile_neutral.png"
+        attribute sad:
+            "images/Viktor/Viktor_profile_sad.png"
+        attribute scared:
+            "images/Viktor/Viktor_profile_scared.png"
+        attribute smile default:
+            "images/Viktor/Viktor_profile_smile.png"
+        attribute serious:
+            "images/Viktor/Viktor_profile_suspects.png"
+        attribute tricky:
+            "images/Viktor/Viktor_profile_tricky.png"
+
+    group emotion if_any "ruki":
+        attribute calm default:
+            "images/Viktor/Sofi_ruki_calm.png"
+        attribute crazy:
+            "images/Viktor/Viktor_2yxa_crazy.png"
+        attribute crazy_down:
+            "images/Viktor/Viktor_2yxa_crazy_down.png"
+        attribute cunning:
+            "images/Viktor/Viktor_2yxa_cunning.png"
+        attribute osharashen:
+            "images/Viktor/Viktor_2yxa_osharashen.png"
+        attribute puzzled:
+            "images/Viktor/Viktor_2yxa_puzzled.png"
+        attribute sad:
+            "images/Viktor/Viktor_2yxa_puzzled_sad.png"
+
+    group emotion if_any "pockets":
+        attribute angry:
+            "images/Viktor/Viktor_sutuliy_angry.png"
+        attribute dream:
+            "images/Viktor/Viktor_sutuliy_dream.png"
+        attribute fainting:
+            "images/Viktor/Viktor_sutuliy_fainting.png"
+        attribute happy:
+            "images/Viktor/Viktor_sutuliy_happy.png"
+        attribute nedovolen:
+            "images/Viktor/Viktor_sutuliy_nedovolen.png"
+        attribute sad:
+            "images/Viktor/Viktor_sutuliy_sad.png"
+        attribute sorry:
+            "images/Viktor/Viktor_sutuliy_sorry.png"
+        attribute suspects:
+            "images/Viktor/Viktor_sutuliy_suspects.png"
+        attribute think default:
+            "images/Viktor/Viktor_sutuliy_think.png"
+    
+    group mouth if_any "profile":
+        attribute talk:
+            Null()
+            
+    group mouth if_any "ruki":
+        attribute talk:
+            Null()
+
+    group mouth if_any "pockets":
+        attribute talk:
+            Null()
 #endregion
 
 #region David
