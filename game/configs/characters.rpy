@@ -240,13 +240,13 @@ layeredimage v:
             "images/Viktor/Viktor_profile_angry.png"
         attribute crazy:
             "images/Viktor/Viktor_profile_crazy.png"
-        attribute neutral:
+        attribute neutral default:
             "images/Viktor/Viktor_profile_neutral.png"
         attribute sad:
             "images/Viktor/Viktor_profile_sad.png"
         attribute scared:
             "images/Viktor/Viktor_profile_scared.png"
-        attribute smile default:
+        attribute smile:
             "images/Viktor/Viktor_profile_smile.png"
         attribute serious:
             "images/Viktor/Viktor_profile_suspects.png"
@@ -254,8 +254,8 @@ layeredimage v:
             "images/Viktor/Viktor_profile_tricky.png"
 
     group emotion if_any "ruki":
-        attribute calm default:
-            "images/Viktor/Sofi_ruki_calm.png"
+        attribute sad:
+            "images/Viktor/Viktor_2yxa_sad.png"
         attribute crazy:
             "images/Viktor/Viktor_2yxa_crazy.png"
         attribute crazy_down:
@@ -266,8 +266,12 @@ layeredimage v:
             "images/Viktor/Viktor_2yxa_osharashen.png"
         attribute puzzled:
             "images/Viktor/Viktor_2yxa_puzzled.png"
-        attribute sad:
+        attribute puzzled_sad default:
             "images/Viktor/Viktor_2yxa_puzzled_sad.png"
+        attribute shy:
+            "images/Viktor/Viktor_2yxa_shy.png"
+        attribute tricky:
+            "images/Viktor/Viktor_2yxa_tricky.png"
 
     group emotion if_any "pockets":
         attribute angry:
@@ -303,16 +307,17 @@ layeredimage v:
 #endregion
 
 #region David
+
 #endregion
 
 #region Sophie
 layeredimage s:
-    at auto_flip("s", "left")
+    at auto_flip("s", "right")
 
     group direction:
-        attribute right:
+        attribute right default:
             Null()
-        attribute left default:
+        attribute left:
             Null()
 
     group pose:

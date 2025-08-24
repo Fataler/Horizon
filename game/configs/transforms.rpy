@@ -164,6 +164,15 @@ transform move_on_scene(time=2.0, xalign=0.95):
             ease 0.2 yoffset 0
             repeat (int(time * 2.5))
 
+transform move_on_scene_slow(time=6.0, xalign=2.0):
+    parallel:
+        ease time xalign xalign
+    parallel:
+        block:
+            ease 0.4 yoffset 20
+            ease 0.4 yoffset 0
+            repeat (int(time * 5.0))
+
 #как листочек типа падает
 transform fall_like_leaf(time=5.0, yalign=25.0):
     parallel:
@@ -385,3 +394,27 @@ transform take_out(start=0, end=100, time=0.5):
 transform txt_up(start=-0.9, end=2.4, time=40.0):
     yalign start
     linear time yalign end
+
+#тряска медленная
+transform shaky(time=3.0):
+    block:
+        ease 0.9 xoffset 30
+        ease 0.9 xoffset 0
+        repeat (int(time * 0.5))
+
+#плавно присел
+transform down_little:
+    xalign 0.5
+    yalign 1.0
+    linear 0.6 yoffset 50  
+
+#и встал
+transform up_little:
+    xalign 0.5
+    yalign 1.0
+    linear 0.6 yoffset 50
+
+transform move_down:
+    #xalign 0.5
+    #yalign 1.0
+    linear 0.5 yoffset 50 
