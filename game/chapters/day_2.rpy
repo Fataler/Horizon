@@ -624,6 +624,9 @@ label day_2:
     scene black with dissolve
     
     "И снова этот уже знакомый голос:"
+
     play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0
+
+    #возможно цг
     N "Опять… Ну что же ты, давай, давай… Ты же слышишь меня?.."
     jump day_3
