@@ -4,7 +4,7 @@ define R_t = Character(None, image="r")
 define R_f = Character("Райан", image="r_f", callback=speaker('r_f'))
 define I = Character("Ирис", image="i", callback=speaker('i'))
 define V = Character("Виктор", image="v", callback=speaker('v'))
-define D = Character("Дэвид")
+define D = Character("Дэвид", image="d", callback=speaker('d'))
 define S = Character("Софи", image="s", callback=speaker('s'))
 define N = Character("Неизвестный голос")
 define story_teller = Character(None, kind=nvl, color="#1a1a1f")
@@ -323,7 +323,78 @@ image viktor_talk_pockets:
 #endregion
 
 #region David
+layeredimage d:
+    at auto_flip("d", "left")
 
+    group direction:
+        attribute right:
+            Null()
+        attribute left default:
+            Null()
+
+    group pose:
+        attribute serious default:
+            Null()
+        attribute fist:
+            Null()
+
+    group emotion if_any "serious":
+        attribute neutral default:
+            "images/David/David_delovoi_neutral.png"
+        attribute crazy:
+            "images/David/David_delovoi_angry.png"
+        attribute osharashen:
+            "images/David/David_delovoi_asharashen.png"
+        attribute calm:
+            "images/David/David_delovoi_calm.png"
+        attribute angry:
+            "images/David/David_delovoi_crazy.png"
+        attribute smile:
+            "images/David/David_delovoi_dovolen.png"
+        attribute fear:
+            "images/David/David_delovoi_fear.png"
+        attribute happy:
+            "images/David/David_delovoi_happy.png"
+
+    group emotion if_any "fist":
+        attribute neutral default:
+            "images/David/David_kulak_neutral.png"
+        attribute angry:
+            "images/David/David_kulak_angry.png"
+        attribute smug:
+            "images/David/David_kulak_calm.png"
+        attribute confused:
+            "images/David/David_kulak_confused.png"
+        attribute happy:
+            "images/David/David_kulak_happy.png"
+        attribute annoyed:
+            "images/David/David_kulak_irritated.png"
+        attribute fainting:
+            "images/David/David_kulak_obmorok.png"
+
+    group mouth if_any "serious":
+        attribute talk:
+            WhileSpeaking('d', 'david_talk_serious', Null())
+
+    group mouth if_any "fist":
+        attribute talk:
+            WhileSpeaking('d', 'david_talk_fist', Null())
+
+image david_talk_serious:
+    'images/David/David_delovoi_rot1.png'
+    pause 0.1
+    'images/David/David_delovoi_rot2.png'
+    pause 0.1
+    'images/David/David_delovoi_rot3.png'
+    repeat
+
+image david_talk_fist:
+    'images/David/David_kulak_rot1.png'
+    pause 0.1
+    'images/David/David_kulak_rot2.png'
+    pause 0.1
+    'images/David/David_kulak_rot3.png'
+    repeat
 #endregion
 
 #region Sophie
