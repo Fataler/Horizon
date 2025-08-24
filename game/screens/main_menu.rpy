@@ -1,4 +1,3 @@
-default MAIN_MENU_SCREEN = "main_menu"
 ## Экран главного меню
 init:
     default hand_zoom = 1.09
@@ -109,7 +108,6 @@ transform menu_move_back(from_game_menu=False):
         ease 0.5 xoffset 0
     parallel:
         ease 0.5 alpha 1.0
-
     
 transform hand_bob(up_time=6.0, down_time=5.0, distance=30, stretch=0.04, delay=0.0):
     yoffset -distance
@@ -128,7 +126,12 @@ transform hand_bob(up_time=6.0, down_time=5.0, distance=30, stretch=0.04, delay=
 screen main_menu(from_game_menu=False):
     tag menu
 
+    $ elements_apperar_time = 2.0 if not from_game_menu else 1.0
+
+    add "bg_black"
+
     frame:
+        background None
         at menu_move_back(from_game_menu)
         
         add "bg_black"
@@ -156,24 +159,23 @@ screen main_menu(from_game_menu=False):
         add Parallax("hand_11", 1.35) at hand_bob(up_time=8.5, down_time=6.6, distance=20, stretch=0.055, delay=2.0)
         add Parallax("hand_12", 1.45) at hand_bob(up_time=8.8, down_time=6.8, distance=34, stretch=0.06, delay=2.2)
 
-    add Parallax("logo_anim", 0):
-        pos (1400, 570)
-        anchor (0.5, 0.5)
+    add "logo_anim":
+        at delay_appear(1, elements_apperar_time)
+        pos (1000, 44)
 
-    # imagebutton:
-    #     idle Transform("avatar_circle", size=(160, 160))
-    #     action OpenURL('https://t.me/viendesu_official')
-    #     anchor (0.5, 0.5)
-    #     xpos 0.09
-    #     ypos 0.87
-    #     at hover_scale
+    textbutton "Игра создана\nв рамках Джема\nста цветов 2025":
+        at jam_logo_transform, delay_appear(1, elements_apperar_time)
+        pos (0.865, 0.87)
+        text_size 40
+        text_align 0.5
+        action OpenURL(URL_JAM)
+        hover_mouse "inspect"
 
     style_prefix "main_menu"
 
-    vbox at delay_appear(0):
+    vbox at delay_appear(1, elements_apperar_time):
         spacing 10
-        anchor (0.5, 1.3)
-        xpos 2150
+        align (0.92, 0.75)
     
         textbutton _("Начать") action Start():
             text_size 90
@@ -200,7 +202,6 @@ screen main_menu(from_game_menu=False):
         timer 1 action SetVariable("show_main_menu_fade", False)
 
 style main_menu_button:
-    xfill True
     properties gui.button_properties("main_menu")
 
 style main_menu_button_text is gui_button_text
@@ -212,6 +213,7 @@ style main_menu_button_text:
     text_align 0.0
     xalign 0.0
     font gui.interface_text_font
+    outlines [(2, "000000AA", 0, 0)]
 
 style main_menu_vbox is vbox:
     xalign 1.0
@@ -250,3 +252,9 @@ transform alpha_in(time=0.5):
 transform alpha_out(time=0.5):
     alpha 1
     linear time alpha 0
+
+transform jam_logo_transform:
+    on hover:
+        matrixcolor HueMatrix(0)
+        linear 5 matrixcolor HueMatrix(360)
+        repeat
