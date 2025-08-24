@@ -1,14 +1,16 @@
 #constants
 default persistent.first_start = True
 default persistent.game_completed = False
+define URL_JAM = "https://vk.com/jamof100flowers"
+
+#screens
+default MAIN_MENU_SCREEN = "main_menu"
+default PAUSE_MENU_SCREEN = "pause_menu"
 
 define splash_enabled = False
 
 default textbox_style = "gui/textbox.png"
-default character = "Taida"
-
-define TEXTBOX_NORMAL = "gui/textbox.png"
-define TEXTBOX_ROBOT = "gui/textbox_robot.png"
+default came_from_pause_menu = False
 
 init python:    
     def set_character(mouse, current_character, textbox_style_image):

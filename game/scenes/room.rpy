@@ -50,7 +50,7 @@ label room_1:
 
     elif inspect == "computer":
         if room1["puzzle"] == 0:
-            call screen puzzle_grid_pure("images/test_puzzle_2.png", grid=5, size=1030)
+            call screen puzzle_grid_pure("images/test_puzzle_2.png", grid=5, size=1000)
             if _return:
                 "Паззл собран!"
                 $ room1["puzzle"] += 1
