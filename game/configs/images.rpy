@@ -6,6 +6,12 @@ image bg_safe_open = "images/Backgrounds/Safe_open.jpg"
 image bg_commander_block_default = "images/Backgrounds/Commander Block_default.jpg"
 image bg_commander_block_red = "images/Backgrounds/Commander Block_red.jpg"
 image bg_commander_block_dark = "images/Backgrounds/Commander Block_dark.jpg"
+
+image bg_commander_block_transparent_default = "images/Backgrounds/Commander Block_transparent_default.jpg"
+image bg_commander_block_transparent_red = "images/Backgrounds/Commander Block_transparent_red.jpg"
+image bg_commander_block_transparent_dark = "images/Backgrounds/Commander Block_transparent_dark.jpg"
+image bg_commander_block_transparent_chair = "images/Backgrounds/Commander Block_transparent_chair.jpg"
+
 image bg_coridor1_dark = "images/Backgrounds/Coridor1_dark.jpg"
 image bg_coridor1_default = "images/Backgrounds/Coridor1_default.jpg"
 image bg_coridor1_red = "images/Backgrounds/Coridor1_red.jpg"
