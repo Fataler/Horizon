@@ -1,5 +1,5 @@
 #region characters
-define R = Character("Райан", image="r", callback=speaker('r'))
+define R = Character("Райан", image="r", callback=speaker('r_f'))
 define R_t = Character(None, image="r")
 define R_f = Character("Райан", image="r_f", callback=speaker('r_f'))
 define I = Character("Ирис", image="i", callback=speaker('i'))
@@ -299,11 +299,27 @@ layeredimage v:
             
     group mouth if_any "ruki":
         attribute talk:
-            Null()
+            WhileSpeaking('v', 'viktor_talk_ruki', Null())
 
     group mouth if_any "pockets":
         attribute talk:
-            Null()
+            WhileSpeaking('v', 'viktor_talk_pockets', Null())
+
+image viktor_talk_ruki:
+    'images/Viktor/Viktor_2yxa_rot1.png'
+    pause 0.1
+    'images/Viktor/Viktor_2yxa_rot2.png'
+    pause 0.1
+    'images/Viktor/Viktor_2yxa_rot3.png'
+    repeat
+
+image viktor_talk_pockets:
+    'images/Viktor/Viktor_sutuliy_rot1.png'
+    pause 0.1
+    'images/Viktor/Viktor_sutuliy_rot2.png'
+    pause 0.1
+    'images/Viktor/Viktor_sutuliy_rot3.png'
+    repeat
 #endregion
 
 #region David

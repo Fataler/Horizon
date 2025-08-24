@@ -188,6 +188,9 @@ transform move_vertically(time=1.0, x=0.5, yalign1=0, yalign2=1.0):
         yalign yalign1
         ease time yalign yalign2
 
+transform collapse:
+    ease 0.5 yalign 2.0
+
 transform move_on_scene_repeat(easey=0, offsety=0):
     parallel:
         block:
@@ -412,7 +415,7 @@ transform down_little:
 transform up_little:
     xalign 0.5
     yalign 1.0
-    linear 0.6 yoffset 50
+    linear 1.0 yoffset 50
 
 transform move_down:
     #xalign 0.5

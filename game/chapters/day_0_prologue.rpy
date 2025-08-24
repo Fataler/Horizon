@@ -1,4 +1,4 @@
-label prologue:
+label day_0_prologue:
 
     # Пролог
 
