@@ -5,9 +5,15 @@ label day_2:
     pause 1.0
     scene bg_room_rayan_dark
     with dissolve
+    pause 1.0
 
     R_t ear sick "По ощущениям я проснулся довольно рано."
     R_t "С трудом разлепил глаза — получилось лишь после нескольких попыток протереть веки пальцами."
+
+    play sfx click2
+    pause 0.2
+    play sfx click2
+
     R_t surprised "Ночник не работал."
     R_t serious think "Я сел на кровати и уставился на стену, с которой на меня в ответ смотрели многочисленные плакаты."
     R "Музыка, которую я слушал в прошлой жизни."
@@ -35,16 +41,23 @@ label day_2:
     R_t "Этот запах всегда щекотал мне нос, но был, по-своему, родным."
     R_t thinking ne_ponyal "Что ж, когда-нибудь, может быть, я вернусь туда."
     R_t suspicious "Ну а пока с домом меня разделяет бесконечная космическая пустота."
-    R_t thinking think "Пора приниматься за работу."
+    R_t serious think "Пора приниматься за работу."
     R_t "В комнате было довольно душно — нужно было немного освежиться."
 
     #цг гг смотрит в зеркало
-    R_t ear neutral "Поэтому как обычно я решил начать утро с созерцания своего хмурого лица."
+    R_t ear neutral "Поэтому, как обычно, я решил начать утро с созерцания своего хмурого лица."
+    play sfx click2
     R_t "Но лампа у зеркала с умывальником не работала."
+    play sfx click2
+    pause 0.2
+    play sfx click2
     R_t thinking suspicious "Я проверил остальные приборы — никаких признаков жизни."
-    R_f ne_ponyal "Опять выбило генератор."
-    R_t "Бывает."
+    R_t ne_ponyal "Опять выбило генератор."
+    R_t neutral "Бывает."
 
+    scene black with dissolve
+    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    pause 1.0
     scene bg_coridor1_dark with dissolve
 
     R_t serious think "Толком не умывшись, не причёсываясь и собравшись впотьмах, я вышел в коридор."
@@ -53,21 +66,31 @@ label day_2:
     R_t "Значит, ребята уже собрались."
     R_t hehe "Об этом также говорил и запах разогретой пищи."
 
-    show bg_dinner_block_dark with dissolve
+    stop sfx fadeout 2.0
+    scene black with dissolve
+    pause 0.5
+    scene bg_dinner_block_dark with dissolve
     show i profile neutral right at left
-    show v profile smile left at right
+    show v profile neutral left at right
 
     R_t neutral "За столом уже сидели Виктор и Ирис."
     R_t "Дэвида и Софи нигде не было видно."
     R_t "Между коллегами уже завязался разговор."
+
+    show v smile
+
     R_t "Радист увлечённо что-то рассказывал, тыкая пальцем в экран планшета, а врач внимательно слушала и кивала."
+    
+    show i tricky at giggle
+    show v at fear
+    play sfx sfx_laugh_people
     R_t "Периодически они смеялись."
     R_t serious think "Я подошёл к столу."
 
-    show i normal neutral
+    show i pen nervous_laughter
 
     R_t "Ирис обратила на меня внимание."
-    I neutral_happy "Ну привет, засоня!"
+    I "Ну привет, засоня!"
     I "Проспал свою очередь включать генератор."
     R ear hehe "Доброго утречка."
 
@@ -77,6 +100,9 @@ label day_2:
     V think "Дэв повёл Софи устранять поломку и теперь стоит там у неё над душой!"
     I normal ridicule "Наконец-то никто не воняет здесь своими спиртовыми растворами."
     R_t thinking neutral "Мне даже показалось, что я почувствовал этот щекочущий ноздри запах, но это было лишь наваждение."
+    
+    show i pen neutral
+    
     V happy "Ладно тебе, расслабься!"
     V "Скоро мы выйдем из темноты на свет, нужно всего лишь немного подождать."
 
@@ -84,36 +110,40 @@ label day_2:
 
     R_t "Он закинул руки на затылок и откинулся на стуле."
 
-    show i neutral
-    show v puzzled
-    show bg_dinner_block
-    play sfx light_on
-    $ renpy.music.set_volume(0.5, delay=0, channel="sfx2")
-    play sfx2 fon_generator2 fadein 0.5 fadeout 1.0 loop
+    scene bg_dinner_block
+    show i pen ozadachen right at left
+    show v ruki puzzled left at right
+    play sfx sfx_light_on
+    #$ renpy.music.set_volume(0.5, delay=0, channel="sfx2")
+    play sfx2 sfx_fon_generator2 fadein 0.5 fadeout 1.0 loop
+    pause 1.0
 
     R_t not_sure "В этот момент появилось электричество, и в помещении снова стало приятно находиться."
     
-    show i neutral_happy
+    show i normal neutral_happy
     V tricky "Вот видишь?"
+    pause 1.5
 
-    stop sfx2 fadeout 0.5
-    $ renpy.music.set_volume(1.0, delay=0, channel="sfx2")
+    scene bg_dinner_block_dark
+    show i profile ahui right at left
+    show v ruki osharashen left at right
+    stop sfx2
+    #$ renpy.music.set_volume(1.0, delay=0, channel="sfx2")
     play sfx sfx_electrisity1
+    pause 1.5
+    play sfx2 sfx_power_down fadein 0.5
+
     pause 1.0
-    play sfx sfx_power_down fadeout 2.0
-    show bg_dinner_block_dark
-    show i profile ahui
-    show v osharashen
 
     R_t thinking osharashen "Не успел Виктор победно оскалиться, как энергия снова пропала."
     R_t "С громким, страшным треском."
     I osharashen "Кажется, там что-то бахнуло внизу."
     I "Может, стоит глянуть?"
-    V profile serious "Думаю, они смогут разобраться сами."
+    V pockets nedovolen "Думаю, они смогут разобраться сами."
 
     show i normal neutral
 
-    V neutral "Нам тоже необходимо заниматься своими делами."
+    V ruki puzzled "Нам тоже необходимо заниматься своими делами."
     #sfx водичька
     R_t serious think "Я налил себе невкусного пресного кофе и потягивал его маленькими глотками."
     V pockets dream "Райан, представляешь, я сегодня поймал сигнал."
@@ -129,45 +159,48 @@ label day_2:
 
     I ridicule "Ты и вчера слышал, что «кто-то звал». Это был холодильник."
 
-    show v ruki tricky
-    show i neutral_happy
-
+    show v ruki tricky at giggle
+    show i neutral_happy at fear
+    play sfx sfx_laugh_people
     #r smile
     R_t "Коллеги заулыбались."
     R serious think "Не забивай этим голову, я уверен, мы найдём базу и без точных координат."
-    R smile "Ведь с вами я."
+    R ear hehe "Ведь с вами я."
 
     show i profile neutral
 
-    V profile neutral "Да, естественно. Тем более я пока не могу его проанализировать."
+    V pockets sorry "Да, естественно. Тем более я пока не могу его проанализировать."
     R_t thinking ne_ponyal "Виктор показал пальцем на чёрный экран планшета:"
-    V serious "Он разряжен, и я не могу заряжать с резервного источника энергии нежизненно важные устройства."
+    V "Он разряжен, и я не могу заряжать с резервного источника энергии нежизненно важные устройства."
     R_t serious think "Мне оставалось только пожать плечами."
     R "Уверен, скоро всё починят."
-    V neutral "Ах да, я должен передать новости."
-    V "Основного сигнала я так и не смог поймать. Всё ещё движемся по изначальным координатам."
+    V ruki puzzled "Ах да, я должен передать новости."
+    V sad "Основного сигнала я так и не смог поймать. Всё ещё движемся по изначальным координатам."
     R thinking suspicious "Правильно ли понимаю, что с аварийным питанием мы можем двигаться только на автопилоте?"
-    I normal neutral "Да, командир сказал, что на данный момент мы ничего не можем сделать."
+    I pen sad "Да, командир сказал, что на данный момент мы ничего не можем сделать."
     R neutral "Что ж… Схожу, навещу Дэвида и Софи."
-    R_t "Я попрощался с коллегами, взял свою чашку с кофе и направился в сторону генераторной."
-
+    R_t serious think "Я попрощался с коллегами, взял свою чашку с кофе и направился в сторону генераторной."
+    
+    play sfx steps
     #фон бокового коридора
     scene black with dissolve
-    play sfx steps
     pause 1.0
-    play sfx sfx_metal_hits_grinding
-    #"…"
 
+    #"…"
     "…"
+
     scene bg_coridor3_red_cylinders with dissolve
+    play sfx2 sfx_metal_hits_grinding fadein 0.5 fadeout 0.5
 
     R_t serious neutral "Ещё на подходе к отсеку с генератором я услышал стук металла, скрежет и тихие разговоры."
 
-    scene bg_generator_red 
+    scene bg_generator_dark
     show s ruki ozadachen left at right
     #d serious
     show d right at left
     with dissolve
+    stop sfx fadeout 1.0
+    stop sfx2 fadeout 1.0
 
     R_t "Внутри, при красном свете аварийной лампочки, находились механик и командир."
     #R_t "Всё помещение было заставлено разного вида баллонами, банками, бутылками с разными жидкостями, а рядом с членами экипажа на полу лежали инструменты."
@@ -207,11 +240,14 @@ label day_2:
     R_t neutral "Люк выглядел вполне заполненным, но даже сквозь обувь я чувствовал, как пол обжигает ступни."
     R not_sure "Думаю, нам необходимо открыть люк и взять пробу для проверки."
 
-    show s ruki crazy at angry
+    show s shy nedovolen
     #show d osharashen
 
     S "Ни в коем случае!"
     S "Нельзя часто открывать люк, иначе нарушатся условия эксплуатации жидкости."
+
+    show s shy nedovolen
+
     S "Только я могу открывать его — и только для дозаполнения."
     
     #show d serious
@@ -223,7 +259,10 @@ label day_2:
     R serious think "Хорошо. В таком случае скажи, чем я могу тебе помочь?"
     R "Пока нет основного источника энергии, я, как навигатор, бесполезен."
     R_t "Софи покачала головой."
-    S profile neutral "Увы, сейчас мне нужно просто немного времени."
+    S ruki calm "Увы, сейчас мне нужно просто немного времени."
+
+    show s profile neutral
+
     R_t "Она взяла тряпку, окунула её в небольшой баллон и принялась протирать внешний корпус генератора."
     R_t thinking ne_ponyal "Я потянулся к баллону, чтобы посмотреть его состав, но девушка внезапно вспылила."
 
@@ -231,12 +270,13 @@ label day_2:
     #show d osharashen
 
     S "Перестаньте следить за мной! Я просто делаю свою работу."
-    #R_t "Лицо её выражало ярость."
+    R_t "Лицо её выражало ярость."
     R_t thinking osharashen "Я опешил от такой реакции."
     R_t "Возможно, некоторые люди не любят, когда наблюдают за их действиями — это можно понять."
 
-
     #show d right at exit_right(time=2.0)
+
+    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
 
     R_t serious think "Пожав плечами, я пошёл на выход. Дэвид догнал меня."
     R_t "Мы ничего не сказали друг другу, но обменялись многозначительными взглядами."
@@ -246,9 +286,8 @@ label day_2:
     scene black with dissolve
     pause 0.5
     #show d right
-    scene Coridor3_dark 
+    scene bg_coridor3_dark_cylinders 
     with dissolve
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
 
     R_t serious think "Уже двигаясь по коридору, кэп нарушил тишину."
     #d neutral
@@ -278,10 +317,12 @@ label day_2:
     R_t "Я решил подыграть и вскинул руку к виску."
     R ear hehe "Есть, сэр!"
     R_t "На этом моменте каждый пошёл своим путём."
-
+    
+    scene black with dissolve
+    pause 0.5
+    scene bg_dinner_block
     show i profile neutral right at left
     show v profile smile left at right
-    scene bg_dinner_block
     with dissolve
 
     R_t serious think "На кухне всё ещё сидели Ирис и Виктор."
@@ -290,20 +331,17 @@ label day_2:
     R_t "Ещё некоторое время я наблюдал за их игрой, затем долил себе кофе и вернулся на своё рабочее место."
 
     scene black with dissolve
-    pause 0.5
-    play sfx sfx_power_up fadeout 2.0
-    scene bg_commander_block_dark with dissolve
     pause 1.0
-    show bg_commander_block_default
-    pause 0.1
-    show bg_commander_block_dark
-    pause 0.1
-    show bg_commander_block_default
-    pause 0.1
-    show bg_commander_block_dark
-    pause 0.1
-    show bg_commander_block_default
-    pause 0.1
+    scene bg_commander_block_transparent_dark with dissolve
+    pause 1.0
+    play sfx sfx_power_up fadeout 2.0
+    scene bg_commander_block_transparent_default
+    pause 0.3
+    scene bg_commander_block_transparent_dark
+    pause 0.3
+    play sfx2 fon_generator2 fadein 0.5 fadeout 0.5 loop
+    scene bg_commander_block_transparent_default
+    pause 0.3
 
     R_t thinking ne_ponyal "Свет в кабине пару раз моргнул и наконец устаканился. Похоже, Софи справилась."
     R_t suspicious "Сверив показания приборов с картами, я убедился, что мы движемся в верном направлении."
@@ -313,10 +351,17 @@ label day_2:
     #фон космос
     scene bg_black_t_90
     with dissolve
+    stop sfx
+    stop sfx2 fadeout 2.0
 
     #музыка Anxious space ambient
+    $ renpy.music.set_volume(0.3, delay=0.5, channel="sfx")
+    play sfx music_waves fadein 1.0 fadeout 0.5 loop
 
     R_t "Сегодня космическая гладь была особенно завораживающей. Она переливалась из одного цвета в другой, и чем больше я вглядывался в неё, тем чаще казалось, что за окном кабины видно волны."
+    
+    $ renpy.music.set_volume(1.0, delay=0.5, channel="sfx")
+
     R_t thinking ne_ponyal "Большие волны, полные пены и морской соли."
     R_t "Свежий лёгкий запах тины и мокрого песка."
     R_t neutral "Сделав очередной глоток разбавленного ароматного кофе, я вспомнил брата."
@@ -349,22 +394,27 @@ label day_2:
     R_t "Она захлестнула его с головой, как волны, что разбивались о берег у нашего дома и тащили всё, до чего могли дотянуться, в тёмные глубины океана."
     R_t "Как и эти звёзды, зовущие меня окунуться и плыть в просторах космоса."
 
-    scene bg_commander_block_default with dissolve
+    scene bg_commander_block_transparent_default with dissolve
+    stop sfx fadeout 1.0
 
-    R_t ne_ponyal "За всеми этими размышлениями я не заметил, как в помещении стало очень жарко."
+    R_t thinking ne_ponyal "За всеми этими размышлениями я не заметил, как в помещении стало очень жарко."
     R_t "По ощущениям, воздух нагрелся градусов на десять."
     R_t "Становилось трудно дышать."
     R_t "Необходимо было проверить, что происходит."
 
     #анимация аварийной тревоги commander_block
     scene bg_commander_block_red
-    play sfx sfx_alarm2 fadein 0.5 fadeout 0.5 loop
+    play sound sfx_alarm2 fadein 0.5 fadeout 0.5 loop
 
-    R_t osharashen "Только я встал со своего кресла, как включилась аварийная тревога."
+    R_t thinking osharashen "Только я встал со своего кресла, как включилась аварийная тревога."
+
+    play sfx2 sfx_steps_fast fadein 0.5 fadeout 2.0 loop
+
     R_t "Ускорив шаг, я выбежал в коридор."
 
     scene black with dissolve
-    $ renpy.music.set_volume(0.5, delay=0.5, channel="sfx")
+    $ renpy.music.set_volume(0.3, delay=0.5, channel="sound")
+    stop sfx2 fadeout 1.0
     pause 0.5
     #анимация аварийной тревоги coridor1
     scene bg_coridor1_red with dissolve
@@ -372,28 +422,41 @@ label day_2:
     R_t serious angry "Сразу на выходе я заметил Ирис."
     show i at center, shaky
     pause 2.0
-    show i oooops at down_little with dissolve(1.0)
+    show i oooops at down_little with dissolve
     R_t "Лицо её покраснело, девушка держалась рукой за стену, ноги подкосились."
     R thinking osharashen "Ирис!.. Всё в порядке?"
-    show i up_little left with dissolve(1.0)
+
+    show i at center
+    show i normal bychit at move_vertically(yalign1=1.1) with dissolve
+
     R_t serious angry "Я подхватил её под локоть, стараясь удержать, но она уже не стояла на ногах."
+    
+    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+
     R_t "Перекинув её руку через своё плечо, я потащил её к ближайшему аварийному пункту."
     R_t very_angry "Некоторое время мы передвигались так. Я старался реже вдыхать раскалённый воздух, чтобы не обжечь гортань и лёгкие."
+    
+    stop sfx
+    
     R_t think "Лишь добравшись до ближайшего пункта, я смог раздобыть для себя и Ирис по маске с баллонами с более-менее прохладным воздухом."
+    
+    play sfx sfx_steps_fast fadein 0.5 fadeout 0.5 loop
+    
     R_t "После этого я побежал в сторону генератора."
-
-    show i normal neutral right at move_on_scene_slow
 
     R_t "Ирис, пришедшая в сознание, медленно двинулась за мной."
 
+    hide i with dissolve
+
     #фон генераторная анимация тревоги
     scene bg_generator_red
-    show s shy angry right at quad_left_center
+    show s shy angry right at center
     #d
     show i angry left at right
     show v profile angry right at Transform(xalign=-0.1, yalign=1.0)
     with dissolve
-    $ renpy.music.set_volume(1.0, delay=0.5, channel="sfx")
+    stop sfx
+    $ renpy.music.set_volume(1.0, delay=0.5, channel="sound")
     #show i normal neutral right at quad_left with dissolve
 
     R_t serious think "Здесь уже находились остальные члены экипажа."
@@ -433,13 +496,13 @@ label day_2:
     R_t "Немудрено, что он мгновенно испарялся."
 
     #show d at angry, step_up
-    show i at angry, move_step(-50, 0.2)
+    show i at angry, move_step(-100, 0.2)
     pause 0.15
     show s surprised at fear, move_step(-50, 0.2)
 
     R_t "В какой-то момент командир замахнулся рукой, чтобы ударить Софи, та попыталась уклониться."
 
-    show v fainting
+    show v nedovolen
     R_t serious fainting "От жара становилось плохо, маска не помогала."
 
     #show d right at step_up
@@ -457,29 +520,33 @@ label day_2:
 
     #show d angry at step_left
     show i angry left at move_step(50), angry
-    show s at move_step(-50)
+    show s ruki hurt at move_step(-50), fear
 
     R_t "Разъярённый капитан резко отмахнулся от неё."
 
     #show d angry at step_left
-    show i angry at move_step(-50)
-    show s at move_step(-50)
+    show i at move_step(-50)
+    show s shy surprised at Transform(xalign=0.65, yalign=1.0), move_step(-50), fear
 
     R_t "Шаг. Ещё шаг."
 
     show i angry at move_step(-50)
-    show s at move_step(-50)
-    pause 0.3
-    show s at move_down with Dissolve(1.0)
-    #pause 0.5
-    #show s surprised at move_down with Dissolve(1.0)
-
+    show s ruki hurt at Transform(xalign=0.6, yalign=1.0), move_step(-50), fear
+    pause 1.0
+    #У МЕНЯ НЕ РАБОТАЕТ НИКАКАЯ ВЕРТИКАЛЬНАЯ АНИМАЦИЯ, НАДОЕЛО
+    show s shy surprised at move_vertically(yalign1=1.0, yalign2=2.0)
+    pause 0.5
+    play sfx sfx_water_splash
+    hide s with dissolve
+    show v ruki osharashen
+    
     R_t angry "И девушка упала в открытый люк."
 
-    show v ruki osharashen
+    show v profile angry at move_step(300), fear
 
     R_t "Медлить было нельзя. Мы с Виктором бросились к люку."
 
+    $ renpy.music.set_volume(0.3, delay=0.5, channel="sound")
     #цг Софи в люке
 
     R_t serious angry "Внутри было темно, но мы видели, как девушка пытается держаться на плаву."
@@ -489,40 +556,77 @@ label day_2:
     R_t "Перчатка с левой руки девушки ушла ко дну резервуара, правой рукой она пыталась удерживать при себе сумку с важными инструментами."
     R_t angry "Я мгновенно перегнулся через край люка, чтобы подать ей руку."
     R_t "Она несколько раз пыталась схватиться за неё, но сделать этого не удавалось."
-    R_t "Виктор схватился за меня, чтобы помочь удержаться."
+
+    show v profile crazy at Transform(xalign=-0.1, yalign=1.0), joy
+
+    R_t very_angry "Виктор схватился за меня, чтобы помочь удержаться."
     R_t "Я опускал руку всё ниже и ниже."
-    R_t "И вот наши руки почти соприкоснулись."
+    R_t angry "И вот наши руки почти соприкоснулись."
     R_t "Но в этот момент я увидел брезгливость на её лице."
     R_t "Почти коснувшись моей кисти, она резко одёрнула руку."
-    R_t "Она потеряла самообладание и мгновенно начала задыхаться."
+    R_t very_angry "Она потеряла самообладание и мгновенно начала задыхаться."
     R_t "Я видел, как жидкость попадает ей в рот и ноздри, как она то всплывала, то вновь пропадала в толще воды."
-    R_t "Дэвид резко откинул нас с Виктором от люка и запер крышку."
-    R "Что ты делаешь?"
+    
+    show i at move_step(-400), angry
+    show v pockets angry at Transform(xalign=0.1, yalign=1.0), move_step(-100), fear
+    pause 0.5
+    play sfx sfx_heat_metal
+
+    R_t think "Дэвид резко откинул нас с Виктором от люка и запер крышку."
+    R angry "Что ты делаешь?"
+
+    show i at Transform(xalign=1.0, yalign=1.0), angry
+
     D "Она нас всех убьёт!"
-    V "Что?.."
+    V ruki osharashen "Что?.."
+
+    show i at Transform(xalign=1.0, yalign=1.0), angry
+
     D "Генератор! Помогите мне, нам нужно его охладить!"
+    play sfx sfx_evaporating_water
+
     R_t "Он вскрыл баллон с составом и попытался вылить его прямо на огромную, пышущую жаром машину."
-    V "Ты уверен, что это поможет?!"
+    V pockets nedovolen "Ты уверен, что это поможет?!"
     D "Я… Я уже ни в чём не уверен!"
+
+    play sfx sfx_evaporating_water
+
     R_t "Я вскрыл второй баллон и вылил его с другой стороны генератора."
-    R_t "На мгновение показалось, что это помогло."
+    R_t think "На мгновение показалось, что это помогло."
     R_t "Возможно, мы хотели, чтобы это было так."
-    R_t "Температура в помещении всё росла и росла."
+    R_t ear dissatisfied "Температура в помещении всё росла и росла."
+
+    play sfx sfx_alarm3 fadein 0.5 fadeout 0.5 loop
+
     R_t "На датчике генератора она достигла критической отметки."
-    R_t "Не сразу, но мы почувствовали запах гари."
+
+    show v ruki osharashen
+    show d osharashen
+
+    R_t thinking osharashen "Не сразу, но мы почувствовали запах гари."
     R_t "Огонь?.."
-    R_t "Секунда, две."
+    R_t "Секунда{w}, две."
+
+    play sfx sfx_explosion
     R_t "И генератор вспыхнул ярким огнём."
 
+    play sfx2 sfx_burning_fire
     #цг огонь взрыв
+    call scene_fire
 
-    R_t "Жаркий воздух и вентиляция мгновенно разнесли искры по помещению."
-    R_t "Я больше не мог сдерживаться и зашелся в удушающем кашле."
+    R_t serious fainting_blood "Жаркий воздух и вентиляция мгновенно разнесли искры по помещению."
+    R_t  "Я больше не мог сдерживаться и зашелся в удушающем кашле."
     R_t "Кажется, мы не успели…"
-    R_t "Я потерял сознание."
+    R_t serious fainting_blood "Я потерял сознание."
 
-    #фон темнота
+    stop sound fadeout 1.0
+    play sfx sfx_fall_body
+    scene black with dissolve
+    
+    "И снова этот уже знакомый голос:"
 
-    R_t "И снова этот уже знакомый голос:"
+    play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0
+
+    #возможно цг
     N "Опять… Ну что же ты, давай, давай… Ты же слышишь меня?.."
     jump day_3

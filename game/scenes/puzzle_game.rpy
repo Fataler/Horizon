@@ -62,10 +62,10 @@ screen puzzle_grid_pure(image, grid=4, size=720):
         frame:
             background Solid(PZ_COL_BG)
             padding (PZ_PAD, PZ_PAD, PZ_PAD, PZ_PAD)
-            xmaximum size
-            ymaximum size
-            xminimum size
-            yminimum size
+            xmaximum size + PZ_PAD * 2
+            ymaximum size + PZ_PAD * 2
+            xminimum size + PZ_PAD * 2
+            yminimum size + PZ_PAD * 2
 
             add Solid(PZ_COL_FIELD)
 
@@ -138,7 +138,6 @@ screen puzzle_grid_pure(image, grid=4, size=720):
             add Solid(col) xpos 0 ypos 0 xsize w ysize size
             add Solid(col) xpos (size - w) ypos 0 xsize w ysize size
 
-            # ПОДСВЕТКА ВЫБРАННОГО: всегда поверх линий
             if selection is not None:
                 $ rs = selection // g
                 $ cs = selection % g
@@ -159,13 +158,18 @@ screen puzzle_grid_pure(image, grid=4, size=720):
         hbox:
             spacing 12
             xalign 0.5
-            textbutton _("Сбросить") action [
-                SetScreenVariable("order", renpy.random.sample(range(n), n)),
-                SetScreenVariable("selection", None),
-                SetScreenVariable("lock_hits", []),
-                SetScreenVariable("was_complete", False),
-                SetScreenVariable("win_fade", False),
-            ]
+
+            if not is_complete:
+                textbutton _("Уйти") action Return(False)
+
+                textbutton _("Сбросить") action [
+                    SetScreenVariable("order", renpy.random.sample(range(n), n)),
+                    SetScreenVariable("selection", None),
+                    SetScreenVariable("lock_hits", []),
+                    SetScreenVariable("was_complete", False),
+                    SetScreenVariable("win_fade", False),
+                ]
+
             if is_complete:
                 textbutton _("Окей") action Return(True)
 

@@ -123,7 +123,7 @@ style input:
 ## Дополнительные экраны
 ################################################################################
 
-
+#region Confirm
 ## Экран подтверждения #########################################################
 ##
 ## Экран подтверждения вызывается, когда Ren'Py хочет спросить у игрока вопрос
@@ -188,8 +188,10 @@ style confirm_button:
 
 style confirm_button_text:
     properties gui.text_properties("confirm_button")
+    hover_color gui.muted_color
+#endregion
 
-
+#region Skip
 ## Экран индикатора пропуска ###################################################
 ##
 ## Экран индикатора пропуска появляется для того, чтобы показать, что идёт
@@ -207,11 +209,11 @@ screen skip_indicator():
         hbox:
             spacing 9
 
-            text _("Не пропускай меня :(")
+            text _("МММ... СКИПАЕШ...  ")
 
-            text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
-            text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
-            text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
+            text "-_-" at delayed_blink(0.0, 1.0)
+            text "-_-" at delayed_blink(0.2, 1.0)
+            text "-_-" at delayed_blink(0.4, 1.0)
 
 
 ## Эта трансформация используется, чтобы мигать стрелками одна за другой.
@@ -231,9 +233,12 @@ transform delayed_blink(delay, cycle):
 style skip_frame is empty
 style skip_text is gui_text:
     color black_text_color
+    textalign 0.5
+
 style skip_triangle is skip_text
 
 style skip_frame:
+    textalign 0.5
     ypos gui.skip_ypos
     background Frame("gui/skip.png", gui.skip_frame_borders, tile=gui.frame_tile)
     padding gui.skip_frame_borders.padding
@@ -241,11 +246,9 @@ style skip_frame:
 style skip_text:
     size gui.notify_text_size
 
-style skip_triangle:
-    ## Нам надо использовать шрифт, имеющий в себе символ U+25B8 (стрелку выше).
-    font "DejaVuSans.ttf"
+#endregion
 
-
+#region Notify
 ## Экран уведомлений ###########################################################
 ##
 ## Экран уведомлений используется, чтобы показать игроку оповещение. (Например,
@@ -285,7 +288,10 @@ style notify_text:
     properties gui.text_properties("notify")
     color black_text_color
 
+#endregion
 
+
+#region NVL
 ## Экран NVL ###################################################################
 ##
 ## Этот экран используется в диалогах и меню режима NVL.
@@ -402,7 +408,7 @@ style nvl_button:
 
 style nvl_button_text:
     properties gui.text_properties("nvl_button")
-
+#endregion
 
 ## Пузырьковый экран ###########################################################
 ##

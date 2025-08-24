@@ -188,6 +188,9 @@ transform move_vertically(time=1.0, x=0.5, yalign1=0, yalign2=1.0):
         yalign yalign1
         ease time yalign yalign2
 
+transform collapse:
+    ease 0.5 yalign 2.0
+
 transform move_on_scene_repeat(easey=0, offsety=0):
     parallel:
         block:
@@ -412,9 +415,32 @@ transform down_little:
 transform up_little:
     xalign 0.5
     yalign 1.0
-    linear 0.6 yoffset 50
+    linear 1.0 yoffset 50
 
 transform move_down:
     #xalign 0.5
     #yalign 1.0
     linear 0.5 yoffset 50 
+
+transform hover_shake_x(dx=4, speed=0.05):
+    on hover:
+        block:
+            linear speed xoffset dx
+            linear speed xoffset -dx
+            repeat
+    on idle:
+        ease speed xoffset 0
+
+transform hover_shake_y(dy=4, speed=0.05):
+    on hover:
+        block:
+            linear speed yoffset dy
+            linear speed yoffset -dy
+            repeat
+    on idle:
+        ease speed yoffset 0
+
+transform hue_cycle(time=10.0):
+    matrixcolor HueMatrix(0)
+    linear time matrixcolor HueMatrix(360)
+    repeat

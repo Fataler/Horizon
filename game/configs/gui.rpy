@@ -27,7 +27,7 @@ define config.check_conflicting_properties = True
 
 ## Акцентный цвет используется в заголовках и подчёркнутых текстах.
 define gui.accent_color = '#ff0000'
-define black_text_color = "#ffffff"
+define black_text_color = "#ECECEC"
 #hover = #c8ab5e
 ## Цвет, используемый в текстовой кнопке, когда она не выбрана и не наведена.
 define gui.idle_color = '#ffffff'
@@ -81,7 +81,7 @@ define gui.interface_text_size = 33
 define gui.label_text_size = 36
 
 ## Размер текста на экране уведомлений.
-define gui.notify_text_size = 24
+define gui.notify_text_size = 36
 
 ## Размер заголовка игры.
 define gui.title_text_size = 85
@@ -293,7 +293,7 @@ define gui.main_menu_text_xalign = 1.0
 define gui.frame_borders = Borders(60, 75, 60, 60)
 
 ## Рамки, используемые в частях экрана подтверждения.
-define gui.confirm_frame_borders = Borders(60, 75, 60, 60)
+define gui.confirm_frame_borders = Borders(80, 40, 80, 40)
 
 ## Рамки, используемые в частях экрана пропуска.
 define gui.skip_frame_borders = Borders(24, 8, 75, 8)

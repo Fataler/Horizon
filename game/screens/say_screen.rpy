@@ -51,12 +51,13 @@ style namebox is default
 style namebox_label is say_label
 
 style say_window:
+    subpixel True
     xalign 0.5
     xsize 1280
     align (0.5, 0.98)
     xpadding 30
     ypadding 20
-    background Frame(textbox_style, Borders(39,99, 39, 90), tile=True)
+    background Frame(textbox_style, Borders(0,0, 0, 0), tile=False)
     yminimum gui.textbox_height
     xfill False
     yfill False

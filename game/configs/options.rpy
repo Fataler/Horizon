@@ -12,7 +12,7 @@
 ##
 ## Символы "_()", окружающие название, отмечают его как пригодное для перевода.
 
-define config.name = _("Beyound the event horizon")
+define config.name = _("BEyONd thE event horizon")
 define config.image_cache_size_mb = 512
 
 define config.developer = True
@@ -39,18 +39,17 @@ define config.mouse = { 'default' : [ ("gui/Cursor.png", 0, 0)], 'inspect' : [ (
 ## Для отделения абзацев оставляйте между ними пустую строку.
 
 define gui.about = _p("""
-Визуальная новелла разработана в рамках игрового джема {a=https://vk.com/chapel_jam}Повидло джем 2{/a} 
+Визуальная новелла разработана в рамках игрового джема {a=%(jam)s}Джем ста цветов 2025{/a} 
 
-Дата релиза: 15.08.2025
+Дата релиза: 01.09.2025
 
 Использованные сторонние ресурсы лежат в файле {i}external_resources.txt{/i}.
 
 Авторы: \n
-{w=0}     - Remi Prochet ({a=https://vk.com/remiprochet}ВК{/a}) - музыка, звуки\n
 {w=0}     - Featharine ({a=https://vk.com/sweet_sour_figures}ВК{/a}) - сценарий, концепт, персонажи, CG\n
 {w=0}     - Fataler ({a=https://steamcommunity.com/id/fataler}Steam{/a}) - код, мини-игры, редактура, анимации\n
 {w=0}     - Kapushishin ({a=https://steamcommunity.com/id/Kapushishin}Steam{/a}) - фоны, сборка новеллы, макеты UI, сбор референсов, режиссура\n
-""")
+"""% {"jam": URL_JAM})
 
 
 ## Короткое название игры, используемое для исполняемых файлов и директорий при
@@ -172,7 +171,7 @@ define config.has_sync = False
 ## Этот параметр обычно не должен изменяться, а если и изменился, должен быть
 ## текстовой строчкой, а не выражением.
 
-define config.save_directory = "Beyond_the_event_horizon-19082025"
+define config.save_directory = "Beyond_the_event_horizon-10_08_2024"
 
 
 ## Иконка ######################################################################

@@ -15,8 +15,10 @@ transform menu_move:
 screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
     
     style_prefix "game_menu"
+    add "bg_black"
 
     frame:
+        background None
         at menu_move
         
         add "bg_black"
@@ -43,12 +45,6 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
         add Parallax("hand_10", 1.25) at hand_bob(up_time=8.2, down_time=6.4, distance=38, stretch=0.05, delay=1.8)
         add Parallax("hand_11", 1.35) at hand_bob(up_time=8.5, down_time=6.6, distance=20, stretch=0.055, delay=2.0)
         add Parallax("hand_12", 1.45) at hand_bob(up_time=8.8, down_time=6.8, distance=34, stretch=0.06, delay=2.2)
-
-    # add "gui/menu/frame_bg.png": 
-    # #at menu_board_drop:
-    #     anchor (0.5, 0.5)
-    #     xpos 678
-    #     ypos 560
 
     frame at menu_items_appear:
         top_margin 15
@@ -101,10 +97,18 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     textbutton _("Назад"):
         style "return_button"
-        action ShowMenu(MAIN_MENU_SCREEN, from_game_menu=True)
+        action (
+            ShowMenu(MAIN_MENU_SCREEN, from_game_menu=True)
+            if main_menu
+            else [
+                Return() if not came_from_pause_menu else [SetVariable("came_from_pause_menu", False), ShowMenu(PAUSE_MENU_SCREEN, from_game_menu=True)]
+            ]
+        )
 
     if main_menu:
         key "game_menu" action ShowMenu(MAIN_MENU_SCREEN, from_game_menu=True)
+    else:
+        key "game_menu" action (Return() if not came_from_pause_menu else [SetVariable("came_from_pause_menu", False), ShowMenu(PAUSE_MENU_SCREEN, from_game_menu=True)])
 
 
 style game_menu_outer_frame is empty:
