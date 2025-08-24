@@ -6,23 +6,27 @@
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#save 
 
+define save_type = _("Сохранить")
+define load_type = _("Загрузить")
+
 screen save():
 
     tag menu
 
-    use file_slots(_("Сохранить"))
+    use file_slots(save_type)
 
 
 screen load():
 
     tag menu
 
-    use file_slots(_("Загрузить"))
+    use file_slots(load_type)
 
 
 screen file_slots(title):
+    on "show" action FilePage(1)
 
-    default page_name_value = FilePageNameInputValue(pattern=_("Основные сохранения"), auto=_("Автосохранения"), quick=_("Быстрые сохранения"), default=False)
+    default page_name_value = FilePageNameInputValue(pattern=_("Сохранения"), auto=_("Автосохранения"), quick=_("Быстрые сохранения"), default=False)
 
     use game_menu(title):
 
@@ -88,15 +92,16 @@ screen file_slots(title):
                     # textbutton _("<=") action FilePagePrevious()
                     # key "save_page_prev" action FilePagePrevious()
 
-                    if config.has_autosave:
+                    if config.has_autosave and title == load_type:
                         textbutton _("{#auto_page}Авто") action FilePage("auto")
 
-                    if config.has_quicksave:
+                    if config.has_quicksave and title == load_type:
                         textbutton _("{#quick_page}Быстрые") action FilePage("quick")
 
                     ## range(1, 2) задаёт диапазон значений от 1 до 2.
-                    for page in range(1, max_save_pages + 1):
-                        textbutton "Основные" action FilePage(page)
+                    if title == load_type:
+                        for page in range(1, max_save_pages + 1):
+                            textbutton "Основные" action FilePage(page)
 
                     # textbutton _("=>") action FilePageNext(max = max_save_pages)
                     # key "save_page_next" action FilePageNext(max = max_save_pages)
