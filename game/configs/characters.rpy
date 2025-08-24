@@ -202,19 +202,52 @@ layeredimage i:
 
     group mouth if_any "normal":
         attribute talk:
-            Null()
+            WhileSpeaking('i', 'iris_talk_normal', Null())
 
     group mouth if_any "pen":
         attribute talk:
-            Null()
+            WhileSpeaking('i', 'iris_talk_pen', Null())
 
     group mouth if_any "profile":
         attribute talk:
-            Null()
+            WhileSpeaking('i', 'iris_talk_profile', Null())
 
     group mouth if_any "smoke":
         attribute talk:
-            Null()
+            WhileSpeaking('i', 'iris_talk_smoke', Null())
+
+image iris_talk_normal:
+    'images/Iris/Iris_neutral_rot1.png'
+    pause 0.1
+    'images/Iris/Iris_neutral_rot2.png'
+    pause 0.1
+    'images/Iris/Iris_neutral_rot3.png'
+    repeat
+
+image iris_talk_pen:
+    'images/Iris/Iris_pen_rot1.png'
+    pause 0.1
+    'images/Iris/Iris_pen_rot2.png'
+    pause 0.1
+    'images/Iris/Iris_pen_rot3.png'
+    repeat
+
+image iris_talk_profile:
+    'images/Iris/Iris_profile_rot1.png'
+    pause 0.1
+    'images/Iris/Iris_profile_rot2.png'
+    pause 0.1
+    'images/Iris/Iris_profile_rot3.png'
+    repeat
+
+image iris_talk_smoke:
+    'images/Iris/Iris_smoke_rot1.png'
+    pause 0.1
+    'images/Iris/Iris_smoke_rot2.png'
+    pause 0.1
+    'images/Iris/Iris_smoke_rot3.png'
+    repeat
+
 #endregion
 
 #region Viktor
@@ -469,11 +502,27 @@ layeredimage s:
             
     group mouth if_any "ruki":
         attribute talk:
-            Null()
+            WhileSpeaking('s', 'sofi_talk_ruki', Null())
 
     group mouth if_any "shy":
         attribute talk:
-            Null()
+            WhileSpeaking('s', 'sofi_talk_shy', Null())
+
+image sofi_talk_ruki:
+    'images/Sofi/Sofi_ruki_rot1.png'
+    pause 0.1
+    'images/Sofi/Sofi_ruki_rot2.png'
+    pause 0.1
+    'images/Sofi/Sofi_ruki_rot3.png'
+    repeat
+
+image sofi_talk_shy:
+    'images/Sofi/Sofi_shy_rot1.png'
+    pause 0.1
+    'images/Sofi/Sofi_shy_rot2.png'
+    pause 0.1
+    'images/Sofi/Sofi_shy_rot3.png'
+    repeat
 #endregion
 
 
