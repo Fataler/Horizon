@@ -38,16 +38,7 @@ screen file_slots(title):
 
             ## Номер страницы, который может быть изменён посредством клика на
             ## кнопку.
-            button:
-                style "page_label"
-
-                key_events True
-                xalign 0.5
-                #action page_name_value.Toggle()
-
-                input:
-                    style "page_label_text"
-                    value page_name_value
+            label title style "page_label"
 
             ## Таблица слотов.
             grid gui.file_slot_cols gui.file_slot_rows:
@@ -117,8 +108,11 @@ screen file_slots(title):
                             xalign 0.5
 
 
-style page_label is gui_label
-style page_label_text is gui_label_text
+style page_label is gui_label:
+    xalign 0.5
+style page_label_text is gui_label_text:
+    xalign 0.5
+
 style page_button is gui_button
 style page_button_text is gui_button_text:
     size 40

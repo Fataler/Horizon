@@ -5,22 +5,22 @@ init -1 python:
     talk_key = 'talk_'
     speaking = None
 
-    def while_speaking(char, speak_d, done_d, st, at):
-        if speaking == char:
+    def while_speaking(character_name, speak_d, done_d, st, at):
+        if speaking == character_name:
             return speak_d, .1
         else:
             return done_d, None
 
     curried_while_speaking = curry(while_speaking)
 
-    def WhileSpeaking(char, speaking_d, done_d=Null()):
-        return DynamicDisplayable(curried_while_speaking(char, speaking_d, done_d))
+    def WhileSpeaking(character_name, speaking_d, done_d=Null()):
+        return DynamicDisplayable(curried_while_speaking(character_name, speaking_d, done_d))
 
-    def speaker_callback(char, event, **kwargs):        
+    def speaker_callback(character_name, event, **kwargs):        
         global speaking
         
         if event == "show" or event == "begin":
-            speaking = char
+            speaking = character_name
         elif event == 'slow_done':
             speaking = None
         elif event == "end":

@@ -8,7 +8,7 @@ init offset = -1
 ################################################################################
 ## Стили
 ################################################################################
-
+#region styles
 style default:
     properties gui.text_properties()
     language gui.language
@@ -78,12 +78,12 @@ style frame:
     padding gui.frame_borders.padding
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
 
-
+#endregion
 
 ################################################################################
 ## Внутриигровые экраны
 ################################################################################
-
+#region Input
 ## Экран ввода #################################################################
 ##
 ## Этот экран используется, чтобы показывать renpy.input. Это параметр запроса,
@@ -118,6 +118,8 @@ style input:
     xalign gui.dialogue_text_xalign
     xmaximum gui.dialogue_width
 
+#endregion
+
 
 ################################################################################
 ## Дополнительные экраны
@@ -140,26 +142,29 @@ screen confirm(message, yes_action, no_action):
 
     style_prefix "confirm"
 
-    add "bg_black":
-        alpha 0.5
+    fixed:
+        at screen_fade_effect(0.5)
 
-    frame:
+        add "bg_black":
+            alpha 0.5
 
-        vbox:
-            xalign .5
-            yalign .5
-            spacing 45
+        frame:
 
-            label _(message):
-                style "confirm_prompt"
-                xalign 0.5
+            vbox:
+                xalign .5
+                yalign .5
+                spacing 45
 
-            hbox:
-                xalign 0.5
-                spacing 150
+                label _(message):
+                    style "confirm_prompt"
+                    xalign 0.5
 
-                textbutton _("Да") action yes_action
-                textbutton _("Нет") action no_action
+                hbox:
+                    xalign 0.5
+                    spacing 150
+
+                    textbutton _("Да") action yes_action
+                    textbutton _("Нет") action no_action
 
     ## Правый клик и esc, как ответ "Нет".
     key "game_menu" action no_action
@@ -410,6 +415,7 @@ style nvl_button_text:
     properties gui.text_properties("nvl_button")
 #endregion
 
+#region Bubble
 ## Пузырьковый экран ###########################################################
 ##
 ## Экран пузырьков используется для отображения диалога игроку при использовании
@@ -497,3 +503,4 @@ define bubble.expand_area = {
     "top_right" : (0, 22, 0, 0),
     "thought" : (0, 0, 0, 0),
 }
+#endregion

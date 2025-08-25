@@ -55,33 +55,38 @@ style say_window:
     xalign 0.5
     xsize 1280
     align (0.5, 0.98)
-    xpadding 30
-    ypadding 20
-    background Frame(textbox_style, Borders(0,0, 0, 0), tile=False)
-    yminimum gui.textbox_height
+    xpadding 10
+    ypadding 10
+    background Frame(textbox_style, Borders(0,0, 0, 0), tile=False) #textbox_style
+    yminimum 240
     xfill False
     yfill False
 
 style namebox:
-    xpos gui.name_xpos
-    xanchor gui.name_xalign
-    xsize gui.namebox_width
-    ypos gui.name_ypos
-    ysize gui.namebox_height
-    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
-    padding gui.namebox_borders.padding
+    subpixel True
+    xpos 0.2845
+    xanchor 0.5
+    xminimum 740
+    ypos -0.072
+    ysize 68
+    background Frame("gui/namebox.png", Borders(80, 0, 690, 0), tile=False) #gui/namebox.png
+    left_padding 60
+    right_padding 490
+    #padding gui.namebox_borders.padding
 
 style say_label:
     properties gui.text_properties("name", accent=True)
-    xalign gui.name_xalign
-    yalign 0.5
+    xalign 0.5
+    yalign -0.5
+    color gui.text_color
+    outlines [(2, "000000AA", 0, 0)]
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
     adjust_spacing True
     outlines [(2, "000000AA", 0, 0)]
-
+    
 style say_textframe:
     background None
     xfill True
-    padding (140, 50, 140, 20)
+    padding (140, 30, 140, 30)

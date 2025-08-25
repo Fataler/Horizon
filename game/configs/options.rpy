@@ -151,6 +151,10 @@ default preferences.afm_time = 15
 define config.default_text_cps = 60
 define config.default_afm_time = 15
 
+define config.enter_transition = Dissolve(0.5)
+define config.exit_transition = Dissolve(0.5)
+define config.intra_transition = Dissolve(0.5)
+
 ## Максимальное количество страниц сохранений
 
 define max_save_pages = 1
