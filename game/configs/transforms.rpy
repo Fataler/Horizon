@@ -451,3 +451,11 @@ transform hue_cycle(time=10.0):
     matrixcolor HueMatrix(0)
     linear time matrixcolor HueMatrix(360)
     repeat
+
+transform screen_fade_effect(time=0.5):
+    on show:
+        alpha 0
+        linear time alpha 1.0
+    on hide:
+        alpha 1.0
+        linear time alpha 0.0
