@@ -72,47 +72,14 @@ image bg_black_t_80 = Solid("#000000cc")
 image bg_black_t_90 = Solid("#000000e6")
 
 ## цгшки
-image suhariki:
-    "images/Prochee/emelyan.png"
-    anchor (0.5, 0.5)
+image mirror_default:
+    "images/CG/CG_mirror/CG_mirror.png"
 
-image energy_drink:
-    "images/Prochee/imba.png"
-    anchor (0.5, 0.5)
+image mirror_dark:
+    "images/CG/CG_mirror/CG_mirror_dark.png"
 
-image pizza:
-    "images/Prochee/pizza.png"
-    anchor (0.5, 0.5)
-
-image umi_on_floor:
-    "images/CG/Robo-class Room.png"
-
-image guitar_solo:
-    "images/CG/Garage.png"
-
-image squid:
-    "images/CG/Square.png"
-
-image all_shocked:
-    "images/CG/CG RGG.png"
-
-image novel_end:
-    "images/CG/cg_novel_end_stars-.png"
-
-image novel_end_stars:
-    "images/CG/cg_novel_end_stars+.png"
-
-image bush1:
-    "images/Prochee/Kust.png"
-
-image bush2:
-    "images/Prochee/Kust2.png"
-
-image bush3:
-    "images/Prochee/Kust3.png"
-
-image bush4:
-    "images/Prochee/Kust5.png"
+image mirror_water:
+    "images/CG/CG_mirror/CG_mirror_water.png"
 
 image bg_menu_main = "gui/menu/bg.png"
 

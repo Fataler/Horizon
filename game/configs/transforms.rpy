@@ -405,6 +405,13 @@ transform shaky(time=3.0):
         ease 0.9 xoffset 0
         repeat (int(time * 0.5))
 
+#тряска быстрая
+transform shaky_fast(time=15.0):
+    block:
+        ease 0.05 xoffset 10
+        ease 0.05 xoffset 0
+        repeat (int(time * 0.5))
+
 #плавно присел
 transform down_little:
     xalign 0.5
