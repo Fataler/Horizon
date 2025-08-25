@@ -83,6 +83,16 @@ layeredimage r_f:
         attribute pizdec:
             "images/Rayan/Rayan_crazy_pizdec.png"
 
+    group beard:
+        attribute beard_off default:
+            Null()
+        attribute beard_on if_any "serious":
+            "images/Rayan/Rayan_seryoznii_boroda.png"
+        attribute beard_on if_any "thinking":
+            "images/Rayan/Rayan_thinking_boroda.png"
+        attribute beard_on if_any "ear":
+            "images/Rayan/Rayan_yxo_boroda.png"
+
     group mouth if_any "serious" if_not "fainting_blood":
         attribute talk:
             WhileSpeaking('r_f', 'rayan_talk_seryoznii', Null())
@@ -252,6 +262,7 @@ image iris_talk_smoke:
 
 #region Viktor
 layeredimage v:
+    zoom 1.04
     at auto_flip("v", "left")
 
     group direction:

@@ -339,7 +339,7 @@ label day_2:
     pause 0.3
     scene bg_commander_block_transparent_dark
     pause 0.3
-    play sfx2 fon_generator2 fadein 0.5 fadeout 0.5 loop
+    play sfx2 sfx_fon_generator2 fadein 0.5 fadeout 0.5 loop
     scene bg_commander_block_transparent_default
     pause 0.3
 

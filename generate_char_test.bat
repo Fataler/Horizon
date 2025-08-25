@@ -24,6 +24,7 @@ set DEFAULT_BG=black
 REM --------------------
 
 set "CHARACTER_NAME=%~1"
+set "CHARACTER_LABLE=%~2"
 
 if not defined CHARACTER_NAME (
     echo.
@@ -39,9 +40,11 @@ set "OUTPUT_FILE=%OUTPUT_DIR%\test_%CHARACTER_NAME%_states.rpy"
 
 echo.
 echo =================================================
-echo  Генерация теста для персонажа: %CHARACTER_NAME%
+echo  Генерация теста для персонажа: %CHARACTER_LABLE%
 echo =================================================
 echo.
+echo  - Имя персонажа: %CHARACTER_NAME%
+echo  - Имя персонажа в скрипте: %CHARACTER_LABLE%
 echo  - Скрипт: %SCRIPT_PATH%
 echo  - Файл персонажей: %CHAR_CONFIG_PATH%
 echo  - Выходной файл: %OUTPUT_FILE%
@@ -58,7 +61,7 @@ if not exist "%CHAR_CONFIG_PATH%" (
 )
 
 
-python "%SCRIPT_PATH%" -i "%CHAR_CONFIG_PATH%" -n "%CHARACTER_NAME%" -o "%OUTPUT_FILE%" -c "%CHARACTER_NAME%" -bg "%DEFAULT_BG%"
+python "%SCRIPT_PATH%" -i "%CHAR_CONFIG_PATH%" -n "%CHARACTER_NAME%" -o "%OUTPUT_FILE%" -c "%CHARACTER_LABLE%" -bg "%DEFAULT_BG%"
 
 if %errorlevel% neq 0 (
     echo.
