@@ -24,10 +24,10 @@ label day_1:
     scene black with dissolve
     pause 1.0
     scene bg_dinner_block
-    show i smoke puzzled right at Transform(xalign=0.7, yalign=1.0)
-    show s ruki ozadachen right at quad_left_center
-    show d right at Transform(xalign=-0.1, yalign=1.0)
-    show v profile smile left at Transform(xalign=1.15, yalign=1.0)
+    show i smoke puzzled left at quad_left_center
+    show s ruki ozadachen left at Transform(xalign=0.7, yalign=1.0)
+    show d left at Transform(xalign=1.15, yalign=1.0)
+    show v profile smile right at Transform(xalign=-0.1, yalign=1.0)
     with dissolve
     stop sfx fadeout 0.5
     play sfx2 sfx_talk_people fadein 0.5 fadeout 0.5 loop
@@ -87,6 +87,7 @@ label day_1:
     V think "Словно кто-то специально прятал голос в плазме."
 
     play sfx sfx_push_button
+    show v happy
 
     R_t "Он нажал «Play»."
 
@@ -107,7 +108,7 @@ label day_1:
     pause 0.5
     
     play sfx sfx_cup_on_table
-    show i profile oooops at shaky_fast
+    show i normal crazy at shaky_fast
 
     R_t "Она схватилась за стол так, что костяшки пальцев побелели."
 
@@ -115,11 +116,11 @@ label day_1:
 
     R_t "Мы привыкли к этому: такова была особенность её организма, что-то связанное с болезнями в прошлом."
 
-    show i tricky
+    show i ridicule
     play sfx sfx_laugh_female3
 
     R_t serious think "Она усмехнулась:"
-    I normal ridicule "Как по мне, похоже на какой-то колокольный звон."
+    I normal very_ridicule "Как по мне, похоже на какой-то колокольный звон."
     S ruki neutral "По ком звонил колокол?"
 
     show d happy at giggle
@@ -184,7 +185,6 @@ label day_1:
     show i profile tricky left at move_on_scene(time=3.0, xalign=-1.0)
     play sfx sfx_steps_short
     play sfx2 sfx_whistling
-    pause 1.2
     show s shy worried left 
     show d osharashen left
 
@@ -193,17 +193,12 @@ label day_1:
     stop sfx fadeout 0.5
     stop sfx2 fadeout 0.5
     show v pockets suspects
-    show d right
-    show s right
     
     R_t serious think "Лицо Виктора помрачнело."
 
     play sfx sfx_steps_short 
     show d neutral 
-    show v profile sad left at move_on_scene(time=2.5, xalign=-1.0)
-    pause 1.2
-    show d left
-    show s left
+    show v profile sad left at move_on_scene(time=4.0.0, xalign=-1.0)
     pause 1.0
 
     R_t "Быстрым шагом он вышел из кухни и скрылся в коридоре."
@@ -298,7 +293,8 @@ label day_1:
     R_t "Прежде чем направиться в лазарет, было необходимо осмотреть кресло."
     R_t ne_ponyal "Как я объясню характер этого недоразумения?"
 
-    #цг стул с иглами
+    scene commander_block_chair with dissolve
+
     R_t thinking osharashen "Увы, увиденное не обрадовало меня."
     R_t "Ряд мелких игл был воткнут по всему периметру кресла в хаотичном порядке."
     R_t ear dissatisfied "Я пригнулся, чтобы осмотреть сиденье со всех сторон."
@@ -315,7 +311,8 @@ label day_1:
     R_t ear dissatisfied "Я аккуратно раздвинул края рваной ткани и, зацепив двумя пальцами, вытащил то, что находилось под обшивкой."
     R_t surprised "Это был предмет, который, пожалуй, я ожидал там обнаружить меньше всего."
 
-    #цг разрезанное фото
+    #раян фото девушки
+    
     R thinking osharashen "Ч-что?.."
     R_t "У меня в руке находилось фото моей девушки, оставшейся на Земле."
     R_t "Это было единственное её фото, которое я взял с собой в полёт."
@@ -325,12 +322,15 @@ label day_1:
     R_t "Какого чёрта кто-то копался в моих вещах? В моей каюте?!"
     R_t "Это фото явно не лежало на самом видном месте."
     R_t angry "С камнем на сердце, раной на руке и тихой яростью я вышел из навигационной рубки."
-    R_t "Первым делом — лазарет для фиксации, а там будем решать ситуацию."
 
     play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
     scene black with dissolve
     pause 0.5
     scene bg_coridor2_default with dissolve
+
+    R_t "Первым делом — лазарет для фиксации, а там будем решать ситуацию."
+
+    pause 1.5
 
     R_t serious angry "Это происшествие заставило меня почувствовать напряжение — на корабле всего пять человек; за вычетом меня — четыре."
     R_t thinking suspicious "Зачем кому-то было нужно поступать таким образом?"
@@ -385,13 +385,13 @@ label day_1:
     R_t "Нужно было действовать."
     R serious think "Я собираюсь доложить об этом капитану."
     I pen neutral "На твоём месте я бы не спешила."
-    I "Как и у капитана, у меня хранятся досье на всех членов экспедиции."
+    I normal neutral_happy "Как и у капитана, у меня хранятся досье на всех членов экспедиции."
     R_t ear dissatisfied "Я напрягся."
     R "К чему ты клонишь?"
 
     show s ruki ozadachen
 
-    I normal neutral "Кое-кто из нашей команды много лет увлекался оккультной тематикой, собрал у себя приличную библиотеку, изучал историю оккультизма."
+    I normal angry "Кое-кто из нашей команды много лет увлекался оккультной тематикой, собрал у себя приличную библиотеку, изучал историю оккультизма."
     I bychit "И даже пару лет состоял в секте."
     R thinking osharashen "Как такое вообще может быть?"
     I profile neutral "В первую очередь необходимо пообщаться с Виктором."
@@ -399,7 +399,7 @@ label day_1:
     R_t thinking suspicious "Предложение звучало резонно."
     S shy worried "Я помню свой первый день на этом судне и, кажется, замечала знаки, нарисованные мелом на стенах возле кают и склада…"
     S "Но я никогда не придавала этому значения."
-    I pen neutral "Мало ли что это могло быть."
+    I normal bychit "Мало ли что это могло быть."
     R thinking neutral "Но теперь я начинаю догадываться."
     R suspicious "Всё здесь было ненормально с самого начала."
 
@@ -417,6 +417,8 @@ label day_1:
     I "Нужно идти вдвоём. Сейчас опасно разделяться."
     R_t ear smile "Я усмехнулся."
     R ear neutral "Мы можем пойти вдвоём, но лазарет с Софи необходимо закрыть на ключ. Она сейчас не в состоянии двигаться."
+
+    show i neutral
     S ruki neutral "Нет, всё в порядке, я пойду с вами!"
 
     show s hurt at move_step(30)
@@ -431,7 +433,7 @@ label day_1:
     R_t "Ирис мгновенно скривилась."
     I "Оно тебе не нужно. Мы должны наблюдать динамику твоей раны."
     I bychit "Тем более, обезболив рану, ты станешь менее аккуратной и будешь на неё наступать."
-    I "Однозначно нет."
+    I angry "Однозначно нет."
 
     show s ruki calm
 
@@ -460,10 +462,13 @@ label day_1:
     R_t "Не этого я ожидал от рядового полёта."
 
     scene bg_coridor3_default
-    show i profile osharashen right at Transform(xalign=0.4, yalign=1.0)
-    show s profile despair right at Transform(xalign=0, yalign=1.0)
+    show i profile neutral right at Transform(xalign=0.4, yalign=1.0)
+    show s profile neutral right at Transform(xalign=0, yalign=1.0)
     with dissolve
     stop sfx fadeout 1.0
+    pause 1.0
+    show i profile osharashen right at Transform(xalign=0.4, yalign=1.0)
+    show s profile despair right at Transform(xalign=0, yalign=1.0)
 
     R_t serious think "Мы уже приблизились к развилке коридоров, один из путей которой вёл к радиорубке, как вдалеке показалась фигура."
 
@@ -557,10 +562,12 @@ label day_1:
     I profile oooops "Я не вижу его."
     R ear dissatisfied "Мы должны поспешить."
 
+    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
     scene bg_coridor3_default
     show i profile neutral right at Transform(xalign=0.4, yalign=1.0)
     show s profile sad right at Transform(xalign=0, yalign=1.0)
     with dissolve
+    pause 1.0
 
     R_t thinking neutral "Капитана нигде не было видно."
 
@@ -568,6 +575,7 @@ label day_1:
     show i profile neutral left at Transform(xalign=0.6, yalign=1.0)
     show s profile neutral left at Transform(xalign=1.0, yalign=1.0)
     with dissolve
+    pause 1.0
 
     R_t serious think "Мы обошли все ближайшие коридоры."
 
@@ -575,6 +583,7 @@ label day_1:
     show i profile neutral right at Transform(xalign=0.4, yalign=1.0)
     show s profile sad right at Transform(xalign=0, yalign=1.0)
     with dissolve
+    pause 1.0
 
     R_t "Поднялись обратно к основным блокам. Ни на своём рабочем месте, ни на кухне, ни в курилке его не было."
     R_t ear dissatisfied "Я собрался с духом, взял в руки шокер и направился в сторону комнаты видеонаблюдения."
@@ -584,6 +593,8 @@ label day_1:
     show i profile neutral left at Transform(xalign=0.6, yalign=1.0)
     show s profile neutral left at Transform(xalign=1.0, yalign=1.0)
     with dissolve
+    stop sfx fadeout 1.0
+    pause 1.0
 
     R_t "Мы стояли перед входом в помещение."
 
@@ -606,6 +617,7 @@ label day_1:
     show v pockets angry right at Transform(xalign=-0.1, yalign=1.0), angry
     show i profile osharashen 
     show s shy surprised
+    play sfx sfx_door_open
 
     R_t "Дверь распахнулась, и радист выскочил изнутри." with hpunch
 
@@ -637,7 +649,7 @@ label day_1:
     show s profile sad at move_on_scene(time=2.0, xalign=-0.1)
     play sfx sfx_steps_two
     pause 2.5
-    show s profile despair with dissolve
+    show s profile cry with dissolve
 
     R_t "Софи неожиданно остановилась у входа в комнату."
     R_t surprised "По её взгляду было понятно, что ничего хорошего внутри мы не увидим."
@@ -655,67 +667,105 @@ label day_1:
     R_t "Дэвид лежал на полу в луже крови, вяло пытаясь вынуть нож из груди."
     R_t "Алые брызги окропили всё вокруг. Аппаратура радиста была сломана; в комнате — следы схватки."
     R_t "Капитан увидел нас помутневшим взглядом."
+
+    show i at Transform(xalign=0.8, yalign=1.0), fear 
+    show s at Transform(xalign=1.1, yalign=1.0)
+    with dissolve
+
     R_t "Ирис бросилась к нему:"
+
+    show i at angry
+
     I "Дэв, что случилось? Он напал на тебя?"
     R serious angry "Окажи ему помощь, срочно!"
-    R_t "Софи сделала пару шагов назад от помещения. Лицо её позеленело."
-    I "Оцениваю ситуацию!"
-    D "Он… Он сошёл… с ума…"
-    R_t "Я наклонился к капитану."
+
+    show s at move_step(50), fear
+    play sfx sfx_steps_two
+    pause 0.5
+    show s despair at Transform(xalign=1.15, yalign=1.0), move_step(50), fear
+
+    R_t "Софи сделала пару шагов назад. Лицо её позеленело."
+    I osharashen "Оцениваю ситуацию!"
+    D very_angry "Он… Он сошёл… с ума…"
+    R_t angry "Я наклонился к капитану."
     R thinking not_sure "Расскажи мне, что произошло?"
     D "Он говорил о каком-то шёпоте по радио… О том, что ты всё испортил…"
+
+    play sfx sfx_cough_man
+
     R_t "Дэвид начал кашлять. Изо рта потекла струйка крови."
     I "Дело плохо, у него пробито лёгкое. Он потерял уже очень много крови!"
-    I "К сожалению, он не жилец."
+    I normal angry "К сожалению, он не жилец."
     R serious very_angry "Дай ему медикаменты, чтобы он смог протянуть ещё немного! Мы должны хотя бы выяснить…"
+
+    show i normal crazy with dissolve
+    pause 1.0
+
     R_t "Ирис резко прервала меня."
 
-    #цг злая Ирис
+    call scene_Iris_zlaya
+
     I "Запрещено по протоколу."
-    R_t "Я удивлённо взглянул на неё."
-    R serious very_angry "Ты шутишь?"
+    R_t thinking osharashen "Я удивлённо взглянул на неё."
+    R serious angry "Ты шутишь?"
     R serious very_angry "Мы должны бороться за жизни экипажа и за любую информацию!"
+
+    scene bg_monitors_block
+    show i normal crazy left at Transform(xalign=0.8, yalign=1.0)
+    show s shy surprised left at Transform(xalign=1.2, yalign=1.0)
+    with dissolve
+    play sfx sfx_cough_man
+
     R_t "В это время командир прокашлялся ещё сильнее, рука его отпустила нож."
+
+    show i smoke tricky
+
     R_t "Я был зол на Ирис."
     R_t "У него был шанс."
     R_t "Но сейчас вся судьба экспедиции под угрозой."
-    R_t "Разбираться будем после."
-    R_t "Дэв неожиданно открыл глаза."
+    R_t thinking suspicious "Разбираться будем после."
+    R_t osharashen "Дэв неожиданно открыл глаза."
     D "Райан, я передаю тебе свои полномочия… Теперь ты командир этого отряда."
-    R serious think "Так точно, капитан…"
+    R ear dissatisfied "Так точно, капитан…"
 
     #цг Дэвид потрачено
-    R_t "Я держал его за руку."
+    R_t ear surprised "Я держал его за руку."
     R_t "Мы были знакомы совсем немного и лишь последние несколько недель провели на одном корабле, но я не мог сглотнуть горький ком, застрявший в горле."
-    R_t very_angry "Я смотрел, как в нём угасала жизнь, и наполнялся яростью."
-    R_t "Если бы мы не потратили время…"
+    R_t serious angry "Я смотрел, как в нём угасала жизнь, и наполнялся яростью."
+    R_t very_angry "Если бы мы не потратили время…"
+
+    show i calm
+
     R_t "Ирис холодно наблюдала за Дэвидом, лежавшим на полу."
+
     #цг время в блокноте
-    I "Констатирую смерть, время — 17:34."
+    I surprised "Констатирую смерть, время — 17:34."
     R_t "Я вздохнул."
     R_t "Забрал карточку доступа из кармана капитана, а также небольшой пистолет."
     R_t "Мы вышли из комнаты видеонаблюдения. Я бросил последний взгляд на Дэвида."
     R ear neutral "Мы вернёмся, дружище…"
 
-    #фон коридор
+    scene black with dissolve
+    pause 0.5
     scene bg_coridor2_default
-    show i profile neutral right at Transform(xalign=-0.1, yalign=1.0)
+    show i smoke calm right at Transform(xalign=-0.1, yalign=1.0)
     show s profile despair right at Transform(xalign=0.4, yalign=1.0)
     with dissolve
-
-    R_t serious think "Следующие несколько минут мы провели в тишине."
-
     play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
 
+    R_t serious think "Следующие несколько минут мы провели в тишине."
     R_t "Слышны были лишь наши шаги: я шёл уверенно и быстро, Ирис кралась сзади, Софи старалась спешить, но хромала."
+
+    show i puzzled
+
     R_t ear dissatisfied "Заранее я передал свой электрошокер Софи, указав глазами на Ирис."
 
     show s ruki ozadachen
     pause 1.0
-    show calm
+    show s calm with dissolve
 
     R_t "Механик испуганно взглянула на меня и кивнула."
-    R angry "При любой странности — поняла?"
+    R serious angry "При любой странности — поняла?"
 
     R_t thinking suspicious "Судя по камерам, Виктор бежал в сторону отсека с главным двигателем."
     R_t "По протоколу там разрешено находиться только механику и командиру."
@@ -733,7 +783,7 @@ label day_1:
     R_t "На первый взгляд никого видно не было. Но стоило мне посветить фонариком, как я увидел его."
 
     #цг Виктор у панели
-    show v ruki crazy_down left at Transform(xalign=0.9, yalign=1.0) with dissolve
+    show v ruki crazy_down left at Transform(xalign=1.1, yalign=1.0) with dissolve
 
     R_t serious angry "Виктор сидел, сжавшись, у панели калибровки двигателя."
     R_t "Лицо его выражало полное безумие."
@@ -755,15 +805,21 @@ label day_1:
     V "Мы всё равно не сможем выжить…"
 
     show v pockets angry at fear
+    show s ruki ozadachen
 
-    V crazy_down "Ты!.."
+    V pockets angry "Ты!.."
     R_t thinking osharashen "Виктор указал на меня окровавленным пальцем. Рука его дрожала, но во взгляде будто на секунду мелькнул проблеск разума."
     
     show v ruki crazy_down at fear
 
     V "Всё началось с тебя!.."
     R_t thinking calm "Я почти не слушал его. Напряжение нарастало, нужно было обдумать план действий."
+
+    show v at angry
+
     V "Ты один… Один и натворил всё это!.."
+
+    show s shy surprised
     R_t "Софи недоумённо посмотрела на радиста, потом на меня."
     V crazy "Колокольный звон… Шёпот… Скрип колёс… Все эти звуки…"
 
@@ -779,10 +835,14 @@ label day_1:
     menu:
         "Побежать и обезвредить Виктора":
             R_t serious angry "Я резко двинулся в сторону безумца."
+
+            show v crazy_down
+
             R_t ear dissatisfied "Лезвие блеснуло во мраке. Инстинктивно я уклонился, но это было ошибкой."
             R_t surprised "Он не целился в меня."
             
             play sfx sfx_hit
+            show v at angry
 
             R_t "С размаху Виктор ударил ножом в открытый отсек двигателя с множеством разноцветных проводов."
             
@@ -791,18 +851,21 @@ label day_1:
             play sfx sfx_explosion
             pause 1.0
             scene bg_white with dissolve
-
+            pause 1.0
+            
             R_t serious fainting_blood "Я успел услышать лишь жуткий треск и увидеть яркую вспышку, как в глазах потемнело."
 
             scene bg_black
             with fade
             #возможно цг
 
-            R_t "Сквозь темноту я услышал тихий женский голос:"
+            R_t serious fainting_blood "Сквозь темноту я услышал тихий женский голос:"
 
             play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0
-            
+
             N "Нет, так не должно быть… Необходимо вернуть в исходную точку…"
+
+            stop sfx fadeout 1.0
 
         "Выстрелить":
             R_t serious angry "Я резко достал пистолет из кобуры."
@@ -831,8 +894,14 @@ label day_1:
             play sfx sfx_steps_two
 
             R_t think "Он не проявлял агрессии. Уже на подходе я выдохнул и ослабил внимание."
+
+            show v crazy_down
+
             R_t "Радист сидел на полу, растирая кровь по рукам."
             R_t crazy "Он поднял голову."
+
+            show v crazy
+
             R_t "Казалось, я никогда не забуду этот взгляд."
             R_t "Взгляд, полный отчаяния."
             R_t angry "Рука дрогнула — разбираться не было времени: так или иначе, передо мной был убийца."
@@ -842,6 +911,7 @@ label day_1:
             R_t surprised "Он не целился в меня."
             
             play sfx sfx_hit
+            show v crazy_down at angry
 
             R_t "С размаху радист ударил ножом в открытый отсек двигателя с множеством разноцветных проводов."
             
@@ -850,16 +920,19 @@ label day_1:
             play sfx sfx_explosion
             pause 1.0
             scene bg_white with dissolve
+            pause 1.0
 
             R_t serious fainting_blood "Я успел услышать лишь жуткий треск и увидеть яркую вспышку, как в глазах потемнело."
             
             scene bg_black
             with fade
 
-            R_t "Сквозь темноту я услышал тихий женский голос:"
+            R_t serious fainting_blood "Сквозь темноту я услышал тихий женский голос:"
 
             play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0
 
             N "Нет, так не должно быть… Необходимо вернуть в исходную точку…"
+
+            stop sfx fadeout 1.0
 
     jump day_2

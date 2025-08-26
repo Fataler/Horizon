@@ -90,6 +90,9 @@ image room_viktor2:
 image room_viktor3:
     "images/CG/CG_Victor_room/cg_Room Viktor3.jpg"
 
+image commander_block_chair:
+    "images/CG/Commander_Block_transparent_chair/Commander_Block_transparent_chair.jpg"
+
 image bg_menu_main = "gui/menu/bg.png"
 
 init:
