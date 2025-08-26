@@ -7,7 +7,7 @@ label day_3:
     with dissolve
 
     #фон светлая каюта
-    scene bg_room_rayan
+    scene bg_room_rayan_default
     with dissolve
 
     R_t "Очнуться мне пришлось в холодном поту."
@@ -235,7 +235,7 @@ label day_3:
     R_t "Я сделаю то, что всегда помогало мне."
 
     #фон каюта
-    scene bg_room_rayan
+    scene bg_room_rayan_default
     with dissolve
 
     R_t "Уже в своей комнате я решил принять лекарство."
@@ -271,7 +271,7 @@ label day_3:
     R_t "…"
 
     #фон каюта
-    scene bg_room_rayan
+    scene bg_room_rayan_default
     with dissolve
 
     S "Райан!"
