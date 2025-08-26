@@ -44,7 +44,8 @@ label day_2:
     R_t serious think "Пора приниматься за работу."
     R_t "В комнате было довольно душно — нужно было немного освежиться."
 
-    #цг гг смотрит в зеркало
+    scene mirror_dark with dissolve
+    pause 2.0
     R_t ear neutral "Поэтому, как обычно, я решил начать утро с созерцания своего хмурого лица."
     play sfx click2
     R_t "Но лампа у зеркала с умывальником не работала."
@@ -534,11 +535,12 @@ label day_2:
     show s ruki hurt at Transform(xalign=0.6, yalign=1.0), move_step(-50), fear
     pause 1.0
     #У МЕНЯ НЕ РАБОТАЕТ НИКАКАЯ ВЕРТИКАЛЬНАЯ АНИМАЦИЯ, НАДОЕЛО
-    show s shy surprised at move_vertically(yalign1=1.0, yalign2=2.0)
+    show s shy surprised at jump(height=800)
     pause 0.5
     play sfx sfx_water_splash
     hide s with dissolve
     show v ruki osharashen
+    play sfx sfx_scream_women_ah
     
     R_t angry "И девушка упала в открытый люк."
 

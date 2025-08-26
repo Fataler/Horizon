@@ -35,9 +35,9 @@ label day_0_prologue:
     scene bg_dinner_block
     stop sfx fadeout 1.0
     show i smoke puzzled left at Transform(xalign=0.8, yalign=1.0)
-    show s profile neutral left at Transform(xalign=1.2, yalign=1.0)
+    show s profile neutral right at Transform(xalign=-0.1, yalign=1.0)
     show v pockets suspects left at quad_left_center
-    show d serious osharashen right at Transform(xalign=-0.1, yalign=1.0)
+    show d serious osharashen left at Transform(xalign=1.2, yalign=1.0)
     with dissolve
 
     R_t serious think "Остальные члены экипажа уже ждали меня."

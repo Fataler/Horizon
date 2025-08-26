@@ -50,6 +50,8 @@ layeredimage r_f:
             "images/Rayan/Rayan_seryoznii_fainting.png"
         attribute fainting_blood:
             "images/Rayan/Rayan_seryoznii_fainting_blood.png"
+        attribute happy:
+            "images/Rayan/Rayan_seryoznii_happy.png"
 
     group emotion if_any "thinking":
         attribute neutral default:
@@ -62,6 +64,8 @@ layeredimage r_f:
             "images/Rayan/Rayan_thinking_osharashen.png"
         attribute suspicious:
             "images/Rayan/Rayan_thinking_suspicious.png"
+        attribute happy:
+            "images/Rayan/Rayan_thinking_happy.png"
 
     group emotion if_any "ear":
         attribute neutral default:
@@ -70,6 +74,8 @@ layeredimage r_f:
             "images/Rayan/Rayan_yxo_dissatisfied.png"
         attribute hehe:
             "images/Rayan/Rayan_yxo_hehe.png"
+        attribute smile:
+            "images/Rayan/Rayan_yxo_double_hehe.png"
         attribute sick:
             "images/Rayan/Rayan_yxo_sick.png"
         attribute surprised:
@@ -169,6 +175,9 @@ layeredimage i:
             "images/Iris/Iris_neutral_neutral.png"
         attribute ridicule:
             "images/Iris/Iris_neutral_ridicule.png"
+        attribute very_ridicule:
+            "images/Iris/Iris_neutral_Very_ridicule.png"
+            
 
     group emotion if_any "pen":
         attribute nervous_laughter:

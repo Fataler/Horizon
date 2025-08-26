@@ -234,7 +234,7 @@ transform background_step(start=-1920, offset=100, time=0.5, yoffset=0):
 #             ease 0.2 yoffset 0
 #             repeat (int(time * 2.5))
 
-transform jumping(times = 1, height = 20, speed = 0.3):
+transform jump(times = 1, height = 100, speed = 0.3):
     yoffset 0
     linear speed yoffset height
     repeat times

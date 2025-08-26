@@ -81,6 +81,15 @@ image mirror_dark:
 image mirror_water:
     "images/CG/CG_mirror/CG_mirror_water.png"
 
+image room_viktor1:
+    "images/CG/CG_Victor_room/cg_Room Viktor1.jpg"
+
+image room_viktor2:
+    "images/CG/CG_Victor_room/cg_Room Viktor2.jpg"
+
+image room_viktor3:
+    "images/CG/CG_Victor_room/cg_Room Viktor3.jpg"
+
 image bg_menu_main = "gui/menu/bg.png"
 
 init:
