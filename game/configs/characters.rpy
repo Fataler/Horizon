@@ -18,7 +18,7 @@ init python:
 
 #region Ryan
 
-image side r = LayeredImageProxy("r_f", Transform(crop=(0, 0, 800, 490), xoffset=-80, zoom=0.8))
+image side r = LayeredImageProxy("r_f", Transform(crop=(0, 0, 800, 550), xoffset=-80, zoom=0.8))
 
 layeredimage r_f:
     at auto_flip("r_f", "right")
@@ -68,6 +68,7 @@ layeredimage r_f:
             "images/Rayan/Rayan_thinking_happy.png"
 
     group emotion if_any "ear":
+        xoffset -20
         attribute neutral default:
             "images/Rayan/Rayan_yxo_neutral.png"
         attribute dissatisfied:
@@ -97,6 +98,7 @@ layeredimage r_f:
         attribute beard_on if_any "thinking":
             "images/Rayan/Rayan_thinking_boroda.png"
         attribute beard_on if_any "ear":
+            xoffset -20
             "images/Rayan/Rayan_yxo_boroda.png"
 
     group mouth if_any "serious" if_not "fainting_blood":
@@ -108,6 +110,7 @@ layeredimage r_f:
             WhileSpeaking('r_f', 'rayan_talk_thinking', Null())
 
     group mouth if_any "ear":
+        xoffset -20
         attribute talk:
             WhileSpeaking('r_f', 'rayan_talk_ear', Null())
 
@@ -144,6 +147,7 @@ image rayan_talk_ear:
 #region Iris
 layeredimage i:
     yoffset 2
+    zoom 0.95
     at auto_flip("i", "left")
 
     group direction:
@@ -271,7 +275,7 @@ image iris_talk_smoke:
 
 #region Viktor
 layeredimage v:
-    zoom 1.04
+    zoom 0.98
     at auto_flip("v", "left")
 
     group direction:
@@ -377,6 +381,7 @@ image viktor_talk_pockets:
 
 #region David
 layeredimage d:
+    zoom 0.95
     at auto_flip("d", "left")
 
     group direction:
@@ -452,6 +457,7 @@ image david_talk_fist:
 
 #region Sophie
 layeredimage s:
+    zoom 0.95
     at auto_flip("s", "right")
 
     group direction:
