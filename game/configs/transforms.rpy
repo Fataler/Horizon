@@ -459,3 +459,19 @@ transform screen_fade_effect(time=0.5):
     on hide:
         alpha 1.0
         linear time alpha 0.0
+
+transform fade_in_out(fade_time=2.0, max_alpha=1.0, min_alpha=0.0):
+    alpha 0
+    block:
+        linear fade_time alpha max_alpha
+        linear fade_time alpha min_alpha
+        repeat
+
+#blend - max, min, add, multiply
+transform fade_in_out_blend(fade_time=2.0, max_alpha=1.0, min_alpha=0.0, from_zero = True, blend_type = "max"):
+    blend blend_type
+    alpha (0 if from_zero else min_alpha)
+    block:
+        linear fade_time alpha max_alpha
+        linear fade_time alpha min_alpha
+        repeat

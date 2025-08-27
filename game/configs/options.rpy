@@ -128,6 +128,7 @@ define config.end_game_transition = Dissolve(1)
 
 define config.window = "auto"
 
+#define config.layers = [ 'master', 'transient', 'screens', 'overlay']
 
 ## Переходы, используемые при показе и скрытии диалогового окна
 
