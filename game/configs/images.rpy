@@ -18,15 +18,18 @@ image bg_coridor1_red = "images/Backgrounds/Coridor1_red.jpg"
 image bg_coridor2_dark = "images/Backgrounds/Coridor2_dark.jpg"
 image bg_coridor2_default = "images/Backgrounds/Coridor2_default.jpg"
 image bg_coridor2_red = "images/Backgrounds/Coridor2_red.jpg"
+image bg_coridor2_red_smoke = "images/Backgrounds/Coridor2_red_smoke.png"
 image bg_coridor3_dark = "images/Backgrounds/Coridor3_dark.jpg"
 image bg_coridor3_default = "images/Backgrounds/Coridor3_default.jpg"
 image bg_coridor3_red = "images/Backgrounds/Coridor3_red.jpg"
 image bg_coridor3_default_cylinders = "images/Backgrounds/Coridor3_default_cylinders.jpg"
 image bg_coridor3_red_cylinders = "images/Backgrounds/Coridor3_red_cylinders.jpg"
+image bg_coridor3_red_cylinders_smoke = "images/Backgrounds/Coridor3_red_cylinders_smoke.png"
 image bg_coridor3_dark_cylinders = "images/Backgrounds/Coridor3_dark_cylinders.jpg"
 image bg_dinner_block = "images/Backgrounds/Dinner_Block.jpg"
 image bg_dinner_block_dark = "images/Backgrounds/Dinner_Block_dark.jpg"
 image bg_med_block = "images/Backgrounds/Med_Block.jpg"
+image bg_med_block_red = "images/Backgrounds/Med_Block_red.jpg"
 image bg_room_rayan_default = "images/Backgrounds/Room_Rayan.jpg"
 image bg_room_rayan_dark = "images/Backgrounds/Room_Rayan_dark.jpg"
 image bg_room_viktor_dark = "images/Backgrounds/Room_Viktor_dark.jpg"
@@ -91,7 +94,7 @@ image room_viktor3:
     "images/CG/CG_Victor_room/cg_Room Viktor3.jpg"
 
 image commander_block_chair:
-    "images/CG/Commander_Block_transparent_chair/Commander_Block_transparent_chair.jpg"
+    "images/CG/CG_Commander_Block_transparent_chair/Commander_Block_transparent_chair.jpg"
 
 image bg_menu_main = "gui/menu/bg.png"
 

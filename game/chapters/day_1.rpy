@@ -778,6 +778,7 @@ label day_1:
     R_t "Раздвижная дверь со скрипом открылась."
 
     scene bg_engine
+    play sfx3 sfx_fon_generator2 fadein 0.5 fadeout 0.5 loop
     with dissolve
     R_t "На первый взгляд никого видно не было. Но стоило мне посветить фонариком, как я увидел его."
 
@@ -847,6 +848,7 @@ label day_1:
 
             R_t "С размаху Виктор ударил ножом в открытый отсек двигателя с множеством разноцветных проводов."
             
+            stop sfx3 fadeout 0.5
             play sfx sfx_electrisity1 fadeout 0.5
             pause 1.0
             play sfx sfx_explosion
@@ -921,6 +923,7 @@ label day_1:
 
             R_t "С размаху радист ударил ножом в открытый отсек двигателя с множеством разноцветных проводов."
             
+            stop sfx3 fadeout 0.5
             play sfx sfx_electrisity1 fadeout 0.5
             pause 1.0
             scene bg_white with dissolve
