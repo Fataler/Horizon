@@ -475,3 +475,26 @@ transform fade_in_out_blend(fade_time=2.0, max_alpha=1.0, min_alpha=0.0, from_ze
         linear fade_time alpha max_alpha
         linear fade_time alpha min_alpha
         repeat
+
+transform light_hurt:
+    alpha 0
+    linear 1.0 alpha 0.9
+    pause 0.5
+    linear 1.0 alpha 0.4
+
+transform alpha_mask(a=0.4):
+    alpha a
+
+transform alpha_mask_fade(a=0.4, time=1.0):
+    alpha 0
+    linear time alpha a
+
+transform alpha_mask_fade_inverse(a=0.4, time=1.0):
+    alpha a
+    linear time alpha 0
+
+transform screen_shake(dx=7, dy=0, t=0.05):
+    xoffset 0 yoffset 0
+    linear t xoffset dx yoffset dy
+    linear t xoffset -dx yoffset -dy
+    linear t xoffset 0 yoffset 0
