@@ -35,6 +35,7 @@ image bg_room_rayan_dark = "images/Backgrounds/Room_Rayan_dark.jpg"
 image bg_room_viktor_dark = "images/Backgrounds/Room_Viktor_dark.jpg"
 image bg_room_viktor_default = "images/Backgrounds/Room_Viktor_default.jpg"
 image bg_generator = "images/Backgrounds/Generator.jpg"
+image bg_generator_blue_screen = "images/Backgrounds/Generator_default_blue_screen.jpg"
 image bg_generator_red = "images/Backgrounds/Generator_red.jpg"
 image bg_generator_dark = "images/Backgrounds/Generator_dark.jpg"
 image bg_engine = "images/Backgrounds/Engine.jpg"
@@ -63,6 +64,7 @@ image credits_img_7:
 image bg_black = Solid("#000")
 image bg_white = Solid("#fff")
 image bg_paper = Solid("#FFE7CE")
+image pulse_mask = "gui/masks/eye_mask2.png"
 
 image bg_black_t_10 = Solid("#0000001a")
 image bg_black_t_20 = Solid("#00000033")

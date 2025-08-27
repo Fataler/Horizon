@@ -1,5 +1,3 @@
-image pulse_mask = "gui/masks/eye_mask2.png"
-
 transform headache_pulse(period=1.85, zoom_str=0.01, shift=1):
     anchor (0.5, 0.5)   
     align (0.5, 0.5)
