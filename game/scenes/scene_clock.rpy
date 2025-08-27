@@ -176,10 +176,9 @@ transform clock_screen_fade(fade_in=0.3, fade_out=0.3):
 
 
 screen clock_screen(from_time=(18, 0), 
-                    hours_to_move=12, 
-                    delay=1, 
-                    include_end=True, 
-                    clockwise=False,
+                    hours_to_move=-12, 
+                    delay=0.8, 
+                    include_end=True,
                     auto_hide=False,
                     loop=False
 ):
@@ -192,6 +191,7 @@ screen clock_screen(from_time=(18, 0),
     fixed at clock_screen_fade(0.3, 0.3):
         add "cklock_fon"
         add "clock_base"
+        add "cklock_black_arrow"
 
         if seq:
             add seq[step_index]

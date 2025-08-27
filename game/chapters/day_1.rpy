@@ -777,8 +777,8 @@ label day_1:
     play sfx sfx_metal_door
     R_t "Раздвижная дверь со скрипом открылась."
 
-    #фон двигательная
     scene bg_engine
+    play sfx3 sfx_fon_generator2 fadein 0.5 fadeout 0.5 loop
     with dissolve
     R_t "На первый взгляд никого видно не было. Но стоило мне посветить фонариком, как я увидел его."
 
@@ -838,6 +838,8 @@ label day_1:
 
             show v crazy_down
 
+            call scene_viktor_dal_ebu
+
             R_t ear dissatisfied "Лезвие блеснуло во мраке. Инстинктивно я уклонился, но это было ошибкой."
             R_t surprised "Он не целился в меня."
             
@@ -846,13 +848,14 @@ label day_1:
 
             R_t "С размаху Виктор ударил ножом в открытый отсек двигателя с множеством разноцветных проводов."
             
+            stop sfx3 fadeout 0.5
             play sfx sfx_electrisity1 fadeout 0.5
             pause 1.0
             play sfx sfx_explosion
             pause 1.0
             scene bg_white with dissolve
             pause 1.0
-            
+
             R_t serious fainting_blood "Я успел услышать лишь жуткий треск и увидеть яркую вспышку, как в глазах потемнело."
 
             scene bg_black
@@ -870,6 +873,8 @@ label day_1:
         "Выстрелить":
             R_t serious angry "Я резко достал пистолет из кобуры."
             R_t "Пистолет Дэвида."
+
+            #цг CG Victor shooting
             R_t "Наставив дуло на радиста, я процедил:"
             R serious very_angry "Сложи руки за головой, иначе я буду вынужден выстрелить!"
             R serious angry "Я не хочу этого, но не позволю тебе сорвать нашу экспедицию."
@@ -907,6 +912,9 @@ label day_1:
             R_t angry "Рука дрогнула — разбираться не было времени: так или иначе, передо мной был убийца."
             R_t "Я снова направил на него оружие."
             R_t "Но Виктор был быстрее."
+
+            call scene_viktor_dal_ebu
+
             R_t ear dissatisfied "Лезвие блеснуло во мраке. Инстинктивно я уклонился, но это была ошибка."
             R_t surprised "Он не целился в меня."
             
@@ -915,9 +923,8 @@ label day_1:
 
             R_t "С размаху радист ударил ножом в открытый отсек двигателя с множеством разноцветных проводов."
             
+            stop sfx3 fadeout 0.5
             play sfx sfx_electrisity1 fadeout 0.5
-            pause 1.0
-            play sfx sfx_explosion
             pause 1.0
             scene bg_white with dissolve
             pause 1.0

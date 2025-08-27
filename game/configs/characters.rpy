@@ -7,6 +7,7 @@ define V = Character("Виктор", image="v", callback=speaker('v'))
 define D = Character("Дэвид", image="d", callback=speaker('d'))
 define S = Character("Софи", image="s", callback=speaker('s'))
 define N = Character("Неизвестный голос")
+define E = Character("Элис")
 define story_teller = Character(None, kind=nvl, color="#1a1a1f")
 
 #универсальный перс
