@@ -42,6 +42,7 @@ image bg_engine = "images/Backgrounds/Engine.jpg"
 image bg_safe = "images/Backgrounds/Safe.jpg"
 image bg_monitors_block = "images/Backgrounds/Monitors_Block.jpg"
 image bg_warehouse = "images/Backgrounds/Warehouse.jpg"
+image bg_exit = "images/Backgrounds/Exit.png"
 
 
 # credits images
