@@ -64,8 +64,8 @@ style say_window:
 
 style namebox:
     subpixel True
-    xpos 0.2845
-    xanchor 0.5
+    xpos -0.008
+    xanchor 0.0
     xminimum 740
     ypos -0.072
     ysize 68

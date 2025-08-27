@@ -238,7 +238,7 @@ screen preferences():
         nearrect:
             focus "tooltip"
             prefer_top True
-            has frame padding 15,5,15,5
+            has frame padding 15,15,15,15
             xalign 0.3
             text tooltip style "tooltip"
 
