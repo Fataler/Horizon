@@ -11,7 +11,7 @@ label day_5:
     R_t "Снова она, моя каюта."
     R_t neutral "И никаких следов газа в воздухе."
 
-    scene mirror_default
+    call scene_mirror
     with dissolve
 
     R_t "Казалось, всё в порядке."
@@ -51,7 +51,7 @@ label day_5:
     play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
     scene bg_coridor2_default
     with dissolve
-    pause 2.0
+    pause 1.0
 
     stop sfx fadeout 0.5
 
@@ -119,10 +119,8 @@ label day_5:
     show expression Solid("#fff") as overlay_light at light_hurt
     pause 2.0
     show expression Solid("#fff") as overlay_light at alpha_mask_fade_inverse
-    pause 1.0
+    pause 0.5
     stop sfx3 fadeout 2.0
-    show expression Solid("#000000") as overlay_light at alpha_mask_fade
-    pause 1.0
 
     R_t ear sick "Резкий свет мониторов в тёмной комнате на мгновение ослепил меня."
     R_t "Их было так много."
@@ -196,7 +194,7 @@ label day_5:
     R_t sick "Мне пришлось буквально силой разогнать все свои мысли, чтобы я мог прислушаться."
 
     scene bg_black
-    with dissolve
+    with eye_off
     #голос
     N "Райан, приём! Ты меня слышишь?"
     N "Райан?"
@@ -246,7 +244,7 @@ label day_5:
     N "Уже два года мы наблюдаем за тобой по камерам."
     N "В твоей экспедиции не числилось никого с именем Дэвид."
 
-    scene bg_room_rayan_dark
+    scene bg_room_rayan_dark with eye_on
     play sfx sfx_heart_beat1 fadein 0.5 fadeout 0.5 loop
     
     R_t serious angry "Я резко открыл глаза. Сердце яростно застучало, словно хотело вырваться из груди."
@@ -255,7 +253,7 @@ label day_5:
 
     R_t serious fainting "На дрожащих ногах я подошёл к зеркалу."
     #цг бородатого
-    scene mirror_dark
+    call scene_mirror_beard
     with dissolve
     R_t beard ear surprised "Оттуда на меня смотрел уставший мужчина, обзаведшийся некоторыми морщинами, парой шрамов и щетиной."
     R_t serious angry "Неужели это всё правда…"

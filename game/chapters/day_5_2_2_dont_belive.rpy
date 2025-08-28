@@ -5,7 +5,7 @@ label day_5_2_2_dont_belive:
     with dissolve
     R_t serious think "Я снова вернулся на койку."
     R_t thinking neutral "Закрыл глаза и попытался сосредоточиться."
-    scene bg_black with dissolve
+    scene bg_black with eye_off
     pause 1.0
     R_t "Спустя некоторое время у меня получилось настроиться."
     N "Ты вернулся!"
@@ -72,6 +72,7 @@ label day_5_2_2_dont_belive:
     pause 1.0
     scene bg_commander_block_transparent_default
     with dissolve
+    pause 1.0
     R_t thinking suspicious "Впереди был лишь бесконечный космос."
     R_t "Пространство, наполненное рождающимися и погибающими звёздами."
     R_t "Яркими точками на чёрной бархатной ткани."
@@ -96,11 +97,11 @@ label day_5_2_2_dont_belive:
     pause 1.0
     R_t "Это фото."
     call scene_photo
-    R_t "Фото моей семьи."
-    R_t "Дедушка, брат, тётя. Сестрёнка…"
-    R_t "Теперь я понимаю."
-    R_t "Они все остались на Земле."
-    R_t "У моей смерти было много лиц, но все они — мои."
+    cutscene "Фото моей семьи."
+    cutscene "Дедушка, брат, тётя. Сестрёнка…"
+    cutscene "Теперь я понимаю."
+    cutscene "Они все остались на Земле."
+    cutscene "У моей смерти было много лиц, но все они — мои."
     pause 1.0
     scene bg_commander_block_transparent_default
     with dissolve
@@ -117,7 +118,7 @@ label day_5_2_2_dont_belive:
     R_t "Мне не нужен был скафандр."
     R_t "Он помешал бы мне дрейфовать в волнах."
     R_t "Последний раз окинул базу взглядом."
-    play sfx sfx_hit
+    play sfx sfx_heat_metal
     R_t "И нажал на рычаг."
     play sfx sfx_metal_door
     R_t "С медленным звуком большая железная дверь шлюза начала отворяться."
