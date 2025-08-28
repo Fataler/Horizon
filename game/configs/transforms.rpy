@@ -493,8 +493,30 @@ transform alpha_mask_fade_inverse(a=0.4, time=1.0):
     alpha a
     linear time alpha 0
 
-transform screen_shake(dx=7, dy=0, t=0.05):
+transform alpha_mask_fade_inverse1(a=0.4, time=1.0):
+    alpha 1.0
+    linear time alpha a
+
+transform screen_shake(dx=10, dy=0, t=0.05):
     xoffset 0 yoffset 0
     linear t xoffset dx yoffset dy
     linear t xoffset -dx yoffset -dy
     linear t xoffset 0 yoffset 0
+
+transform screen_step(dx=10, dy=5, t=0.2):
+    xoffset 0 yoffset 0
+    linear t xoffset dx yoffset dy
+    linear t xoffset -dx yoffset dy
+    linear t xoffset 0 yoffset 0
+
+transform screen_step_zoom(dx=10, dy=5, t=0.2, period=1.85, zoom_str=0.025, zoom1=1.0):
+    anchor (1.0, 0.5)   
+    align (0.8, 0.5)
+    parallel:
+        zoom zoom1
+        linear period/2 zoom (zoom1 + zoom_str)
+    parallel:
+        xoffset 0 yoffset 0
+        linear t xoffset dx yoffset dy
+        linear t xoffset -dx yoffset dy
+        linear t xoffset 0 yoffset 0

@@ -2,7 +2,7 @@ label day_0_prologue:
 
     scene bg_black
     with dissolve
-    pause 1.0
+    pause 2.0
     play sfx sfx_click2
     # Пролог
     call scene_shelk
@@ -19,10 +19,10 @@ label day_0_prologue:
     pause 0.5
     scene bg_dinner_block
     stop sfx fadeout 1.0
-    show i smoke puzzled left at Transform(xalign=0.8, yalign=1.0)
+    show i smoke puzzled left at Transform(xalign=0.7, yalign=1.0)
     show s profile neutral right at Transform(xalign=-0.1, yalign=1.0)
-    show v pockets suspects left at quad_left_center
-    show d serious osharashen left at Transform(xalign=1.2, yalign=1.0)
+    show v pockets suspects left at Transform(xalign=0.25, yalign=1.0)
+    show d serious osharashen left at Transform(xalign=1.1, yalign=1.0)
     with dissolve
 
     R_t serious think "Остальные члены экипажа уже ждали меня."
@@ -44,7 +44,6 @@ label day_0_prologue:
     R "Приступим к ужину или будем продолжать попытки переложить ответственность?"
 
     play sfx sfx_kitchen fadein 0.5 fadeout 0.5 loop
-    show i normal neutral
     show s profile neutral
     show v pockets sad
     show d neutral
@@ -58,8 +57,8 @@ label day_0_prologue:
 
     show i smoke surprised
     show s ruki ozadachen
-    show v ruki puzzled left
-    show d calm
+    show v ruki puzzled right
+    show d calm 
     stop sfx fadeout 0.5
 
     D "Что ж… Вы, наверное, хотите узнать, какие у нас дальнейшие планы?"
@@ -83,18 +82,19 @@ label day_0_prologue:
     D confused "Это относится ко всем тем, кто по какой-то причине не уверен в коллегах."
     D serious neutral "На этом всё, ужин окончен. Всем спокойного сна."
 
-    hide d with dissolve
+    show d serious neutral at move_on_scene(time=3.0, xalign=-1.7)
     play sfx sfx_kitchen_table fadein 0.5 fadeout 1.0
-    play sfx2 sfx_steps fadein 0.5 fadeout 1.0 loop
+    play sfx2 sfx_steps_short
 
     R_t "Экипаж неспешно прибрал за собой столы и начал расходиться по своим каютам."
 
     scene black with dissolve
+    stop sfx2 fadeout 0.5
+    stop sfx fadeout 1.0
     pause 0.5
+    play sfx2 sfx_steps fadein 0.5 fadeout 1.0 loop
     scene bg_coridor1_default
     with dissolve
-    stop sfx2
-    stop sfx fadeout 1.0
 
     R_t thinking not_sure "Экспедиция словно не задалась с самого начала."
     R_t "Надежды на дружный экипаж не оправдались, но это было не так важно."

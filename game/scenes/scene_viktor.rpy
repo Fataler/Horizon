@@ -14,6 +14,7 @@ label scene_viktor:
             hide viktor_scene
             with dissolve
 
+            show layer master at screen_step_zoom(zoom1=1.0)
             R_t serious angry "Я резко двинулся в сторону безумца."
 
             show v crazy_down
@@ -36,25 +37,25 @@ label scene_viktor:
 
             R_t "Виктор лишь рассмеялся и продолжил бормотать какие-то несвязные вещи."
             
-            #тряска экрана для ходьбы
+            show layer master at screen_step_zoom(zoom1=1.0)
             play sfx sfx_steps_two
 
-            R_t "Я начал медленно приближаться к нему."
+            R_t very_angry "Я начал медленно приближаться к нему." 
 
-            #тряска экрана для ходьбы
+            show layer master at screen_step_zoom(zoom1=1.025)
             play sfx sfx_steps_two
 
             R_t "Шаг за шагом."
 
-            #тряска экрана для ходьбы
+            show layer master at screen_step_zoom(zoom1=1.05)
             play sfx sfx_steps_two
 
-            R_t think "Он не проявлял агрессии. Уже на подходе я выдохнул и ослабил внимание."
+            R_t angry "Он не проявлял агрессии. Уже на подходе я выдохнул и ослабил внимание."
 
             show v crazy_down
 
             R_t "Радист сидел на полу, растирая кровь по рукам."
-            R_t crazy "Он поднял голову."
+            R_t "Он поднял голову."
 
             show v crazy
 
@@ -64,8 +65,9 @@ label scene_viktor:
             R_t "Я снова направил на него оружие."
             R_t "Но Виктор был быстрее."
 
-    R_t ear dissatisfied "Лезвие блеснуло во мраке. Инстинктивно я уклонился, но это было ошибкой."
-    R_t surprised "Он не целился в меня."
+    show layer master at screen_shake
+    R_t very_angry "Лезвие блеснуло во мраке. Инстинктивно я уклонился, но это было ошибкой."
+    R_t "Он не целился в меня."
     
     play sfx sfx_hit
     show v at angry
