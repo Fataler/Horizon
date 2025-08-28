@@ -181,5 +181,5 @@ label test_puzzle_grid_safe:
     $ img_path = "images/test_puzzle_2.png"
     call screen puzzle_grid_pure(img_path, grid=2, size=1050)
     if _return:
-        "Паззл собран!"
+        "Пазл собран!"
     return

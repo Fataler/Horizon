@@ -41,7 +41,7 @@ label scene_photo:
     show scene_photo_light_for_scale at fade_in_out(1.0)
     show scene_photo_hand_2 at hand_appear_from_bottom
 
-    "Так же, там было её фото"
+    "Также там было её фото."
     show scene_photo_hand_1 at hand_appear_from_bottom
 
     show scene_photo_tear_1 at hand_shake

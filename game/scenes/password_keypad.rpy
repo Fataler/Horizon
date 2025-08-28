@@ -41,8 +41,8 @@ label test_password_keypad:
     $ expected = "1008"
     $ hints = [
         "Подсказка 1: В дневнике что-то было про свадьбу 10.08",
-        "Подсказка 2: Интересно, какой пароль, если не 10.08",
-        "Подсказка 3: Вероятнее всего, пароль это {b}1008{/b}."
+        "Подсказка 2: Интересно, какой пароль, если не 10.08?",
+        "Подсказка 3: Вероятнее всего, пароль — {b}1008{/b}."
     ]
     $ result = renpy.call_screen("password_keypad", expected_code=expected, hints=hints, title="Введите код", mask_input=False)
     if result:

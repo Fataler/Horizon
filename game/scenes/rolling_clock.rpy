@@ -206,6 +206,6 @@ screen hud_with_clock():
 label test_clock:
     scene black
     show screen hud_with_clock
-    "Часеки"
+    "Часики"
     pause
     return
