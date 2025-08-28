@@ -22,7 +22,7 @@ from typing import Optional
 
 # Absolute path to the Ren'Py executable. Leave as ``None`` to fall back to
 # the RENPY environment variable or to searching ``renpy`` in ``PATH``.
-RENPY_PATH: Optional[str] = None
+RENPY_PATH: Optional[str] = "C:/Users/r.kucherenko/Downloads/renpy-8.3.4-sdk/renpy.exe"
 
 
 def main() -> int:

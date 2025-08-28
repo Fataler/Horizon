@@ -12,7 +12,7 @@ screen achievements_screen():
 
             if (config.developer):
                 textbutton _("Cброс") action Function(reset_achievements)
-                textbutton _("Test") action Function(unlock_achievement, ACHIEVEMENT_FUTURE_HISTORIAN)
+                textbutton _("Test") action Function(unlock_achievement, ACHIEVEMENT_ATTACK)
                 textbutton _("Unlock All") action Function(unlock_all_achievements)
             
             frame:

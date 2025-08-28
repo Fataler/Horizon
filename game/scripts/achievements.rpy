@@ -1,5 +1,5 @@
 init -2 python:
-    ACHIEVEMENTS_VERSION = 1
+    ACHIEVEMENTS_VERSION = 2
 
     if not hasattr(persistent, '_achievements_version') or persistent._achievements_version != ACHIEVEMENTS_VERSION:
         persistent._achievements_version = ACHIEVEMENTS_VERSION
@@ -12,15 +12,20 @@ init -1 python:
         persistent._achievement_unlocked = {}
 
 # ID достижений
-define ACHIEVEMENT_FUTURE_HISTORIAN = "future_historian" #
-define ACHIEVEMENT_MAX_DAMAGE = "max_damage" #
-define ACHIEVEMENT_STRATEGIST = "strategist" #
-define ACHIEVEMENT_PIG_SLAYER = "pig_slayer" #
-define ACHIEVEMENT_GENIUS = "genius" #
-define ACHIEVEMENT_FIRST_CHAPTER = "first_chapter" #
-define ACHIEVEMENT_SECOND_CHAPTER = "second_chapter" #
-define ACHIEVEMENT_THIRD_CHAPTER = "third_chapter" #
-define ACHIEVEMENT_THANK_YOU = "thank_you" #
+define ACHIEVEMENT_PROLOGUE = "prologue"
+define ACHIEVEMENT_ATTACK = "attack"
+define ACHIEVEMENT_PEACEMAKER = "peacemaker"
+define ACHIEVEMENT_ELECTRIC = "electric"
+define ACHIEVEMENT_HELL = "hell"
+define ACHIEVEMENT_SHERLOCK = "sherlock"
+define ACHIEVEMENT_OMLET = "omlet"
+define ACHIEVEMENT_HACKER = "hacker"
+define ACHIEVEMENT_DYSPNEA = "dyspnea"
+define ACHIEVEMENT_CHANCE = "chance"
+define ACHIEVEMENT_CRITICAL_MIND = "critical"
+define ACHIEVEMENT_DREAM = "dream"
+define ACHIEVEMENT_CREW = "crew"
+define ACHIEVEMENT_COMPLETE = "complete"
 
 init python:
     class Achievement(object):
@@ -49,68 +54,103 @@ init python:
 
     # Список достижений
     achievements = {
-        ACHIEVEMENT_FIRST_CHAPTER: Achievement(
-            ACHIEVEMENT_FIRST_CHAPTER,
-            "Пройти 1 акт",
-            "",
+        ACHIEVEMENT_PROLOGUE: Achievement(
+            ACHIEVEMENT_PROLOGUE,
+            "Пройти Пролог",
+            "Пройти Пролог",
             False,
-            "gui/menu/Achievements/1.png"
+            "gui/achievements/1.png"
         ),
-        ACHIEVEMENT_SECOND_CHAPTER: Achievement(
-            ACHIEVEMENT_SECOND_CHAPTER,
-            "Пройти 2 акт",
-            "",
-            False,
-            "gui/menu/Achievements/2.png"
+        ACHIEVEMENT_ATTACK: Achievement(
+            ACHIEVEMENT_ATTACK,
+            "Лучшая защита - нападение",
+            "Выстрелить в Виктора",
+            True,
+            "gui/achievements/2.png"
         ),
-        ACHIEVEMENT_THIRD_CHAPTER: Achievement(
-            ACHIEVEMENT_THIRD_CHAPTER,
-            "Пройти 3 акт",
-            "",
-            False,
-            "gui/menu/Achievements/3.png"
+        ACHIEVEMENT_PEACEMAKER: Achievement(
+            ACHIEVEMENT_PEACEMAKER,
+            "Миротворец",
+            "Не выстрелить в Виктора",
+            True,
+            "gui/achievements/3.png"
         ),
-        ACHIEVEMENT_THANK_YOU: Achievement(
-            ACHIEVEMENT_THANK_YOU,
-            "Спасибо, что прошёл игру. От всего сердца :)",
+        ACHIEVEMENT_ELECTRIC: Achievement(
+            ACHIEVEMENT_ELECTRIC,
+            "Электрический ток",
+            "Умереть в 1 день",
+            True,
+            "gui/achievements/4.png"
+        ),
+        ACHIEVEMENT_HELL: Achievement(
+            ACHIEVEMENT_HELL,
+            "Я в аду?",
+            "Умереть во 2 день",
+            True,
+            "gui/achievements/5.png"
+        ),
+        ACHIEVEMENT_SHERLOCK: Achievement(
+            ACHIEVEMENT_SHERLOCK,
+            "Шерлок Холмс",
+            "Разгадать загадку в сейфе",
+            True,
+            "gui/achievements/6.png"
+        ),
+        ACHIEVEMENT_OMLET: Achievement(
+            ACHIEVEMENT_OMLET,
+            "Омлет был несвежим",
+            "Умереть в 3 день",
+            True,
+            "gui/achievements/7.png"
+        ),
+        ACHIEVEMENT_HACKER: Achievement(
+            ACHIEVEMENT_HACKER,
+            "Хакер",
+            "Взломать дверь лазарета",
+            True,
+            "gui/achievements/8.png"
+        ),
+        ACHIEVEMENT_DYSPNEA: Achievement(
+            ACHIEVEMENT_DYSPNEA,
+            "Одышка",
+            "Умереть в 4 день",
+            True,
+            "gui/achievements/9.png"
+        ),
+        ACHIEVEMENT_CHANCE: Achievement(
+            ACHIEVEMENT_CHANCE,
+            "У меня есть шанс?",
+            "Поверить голосу",
+            True,
+            "gui/achievements/10.png"
+        ),
+        ACHIEVEMENT_CRITICAL_MIND: Achievement(
+            ACHIEVEMENT_CRITICAL_MIND,
+            "Критическое мышление",
+            "Не поверить голосу",
+            True,
+            "gui/achievements/11.png"
+        ),
+        ACHIEVEMENT_DREAM: Achievement(
+            ACHIEVEMENT_DREAM,
+            "Исполнить мечту",
+            "Умереть в 5 день",
+            True,
+            "gui/achievements/12.png"
+        ),
+        ACHIEVEMENT_CREW: Achievement(
+            ACHIEVEMENT_CREW,
+            "Навестить \"членов экипажа\"",
+            "Вернуться домой",
+            True,
+            "gui/achievements/13.png"
+        ),
+        ACHIEVEMENT_COMPLETE: Achievement(
+            ACHIEVEMENT_COMPLETE,
             "Пройти игру",
+            "",
             False,
-            "gui/menu/Achievements/Heart.png"
-        ),
-        ACHIEVEMENT_FUTURE_HISTORIAN: Achievement(
-            ACHIEVEMENT_FUTURE_HISTORIAN,
-            "Историк будущего",
-            "Добро пожаловать в эпоху Эдо 2.0 — теперь с киберимплантами и корпоративным сёгунатом",
-            True,
-            "gui/menu/Achievements/Samurai.png"
-        ),
-        ACHIEVEMENT_MAX_DAMAGE: Achievement(
-            ACHIEVEMENT_MAX_DAMAGE,
-            "Почти получилось, ты просто поддавался",
-            "Нанести Дзиндзо максимальное количество урона",
-            True,
-            "gui/menu/Achievements/Pokeball.png"
-        ),
-        ACHIEVEMENT_STRATEGIST: Achievement(
-            ACHIEVEMENT_STRATEGIST,
-            "Трус? Нет, стратег",
-            "Попытаться сбежать из боя",
-            True,
-            "gui/menu/Achievements/Chess.png"
-        ),
-        ACHIEVEMENT_PIG_SLAYER: Achievement(
-            ACHIEVEMENT_PIG_SLAYER,
-            "Кабанье проклятье",
-            "Одержи победу над Ужасным Вепрем",
-            True,
-            "gui/menu/Achievements/Pig.png"
-        ),
-        ACHIEVEMENT_GENIUS: Achievement(
-            ACHIEVEMENT_GENIUS,
-            "Гений поневоле",
-            "Ты ответил правильно на всё. Системе не оставили выбора. Тебе — тоже",
-            True,
-            "gui/menu/Achievements/Gears.png"
+            "gui/achievements/Heart.png"
         ),
     }
 

@@ -72,7 +72,7 @@ label scene_viktor:
     play sfx sfx_hit
     show v at angry
 
-    R_t "С размаху Виктор ударил ножом в открытый отсек двигателя с множеством разноцветных проводов."
+    R_t "Виктор с размаху ударил ножом в открытый отсек двигателя, где тянулись разноцветные провода."
     
     stop sfx3 fadeout 0.5
     play sfx sfx_electrisity1 fadeout 0.5
@@ -82,7 +82,7 @@ label scene_viktor:
     scene bg_white with dissolve
     pause 1.0
 
-    R_t serious fainting_blood "Я успел услышать лишь жуткий треск и увидеть яркую вспышку, как в глазах потемнело."
+    R_t serious fainting_blood "Я успел лишь услышать жуткий треск и увидеть яркую вспышку — и в глазах потемнело."
 
     scene bg_black
     with fade
