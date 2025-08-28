@@ -45,4 +45,6 @@ transform parametric_blink(open_img, closed_img, min_wait=2.0, max_wait=4.0, bli
 
 init python:
     eye_on = ImageDissolve("gui/masks/eye_mask.png", 0.3, 10, reverse=False)
-    eye_off = ImageDissolve("gui/masks/eye_mask.png", 0.3, 10, reverse=True)
+    #eye_off = ImageDissolve("gui/masks/eye_mask.png", 0.3, 10, reverse=True)
+    def eye_off(duration=0.3):
+        return ImageDissolve("gui/masks/eye_mask.png", duration, 10, reverse=True)
