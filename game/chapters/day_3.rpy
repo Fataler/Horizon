@@ -3,6 +3,7 @@ label day_3:
 
     scene bg_black
     with dissolve
+    pause 2.0
     scene bg_room_rayan_default
     with dissolve
 
@@ -17,7 +18,7 @@ label day_3:
     R_t thinking calm "Неприятно, но ничего особенного — такое мы тоже уже проходили."
     R_t ne_ponyal "Судя по всему, я немного проспал: нужно спешить."
 
-    show layer master at screen_shake
+    show layer master at screen_step
     R_t serious fainting "Я резко поднялся с кровати, но ноги сразу подкосились."
 
     play sfx sfx_fall_body
@@ -26,12 +27,13 @@ label day_3:
     R_t "Хватаясь руками за холодный металл пола, я подполз к зеркалу."
 
     play sfx sfx_hit
-
-    R_t ear sick "Костяшки пальцев побелели от того, как крепко я сжал края умывальника в попытке подняться." with vpunch
+    show layer master at screen_step
+    R_t ear sick "Костяшки пальцев побелели от того, как крепко я сжал края умывальника в попытке подняться."
     
     #цг зеркало с ожогами
     show scene_mirror_red
     show scene_mirror_cherk
+    play sfx2 sfx_burning_fire fadein 0.5 fadeout 0.5 loop
     with dissolve
     
     cutscene "С той стороны зеркала на меня смотрел я… но покрытый ожогами."
@@ -51,6 +53,7 @@ label day_3:
     with eye_off
 
     cutscene "Я крепко зажмурил глаза, подождал пару секунд и снова взглянул на своё отражение."
+    stop sfx2 fadeout 0.5
 
     scene scene_mirror_water
     with eye_on
@@ -81,10 +84,10 @@ label day_3:
     scene bg_black with dissolve
     pause 0.5
     scene bg_dinner_block
-    show i smoke happy left at Transform(xalign=0.7, yalign=1.0)
+    show i smoke happy left at Transform(xalign=1.1, yalign=1.0)
     show s ruki neutral right at Transform(xalign=-0.1, yalign=1.0)
     show v ruki tricky left at quad_left_center
-    show d serious neutral left at Transform(xalign=1.1, yalign=1.0)
+    show d serious neutral left at Transform(xalign=0.7, yalign=1.0)
     with dissolve
     stop sfx fadeout 1.0
     pause 0.5
@@ -103,13 +106,13 @@ label day_3:
     show d osharashen
     show v ruki osharashen
 
-    show layer master at screen_shake
+    show layer master at screen_step
     R_t ear sick "Я попытался кивнуть им в ответ, но слегка пошатнулся."
     V ruki puzzled "Неважно себя чувствуешь сегодня?"
     I pen ozadachen "Может быть, мне посмотреть, что с тобой?"
     R ear hehe "Нет, всё в порядке. Спасибо."
 
-    show s ruki ozadachen left at move_step(-30)
+    show s ruki ozadachen at move_step(30)
 
     R_t serious think "Софи помогла мне присесть за стол."
 
@@ -156,7 +159,7 @@ label day_3:
     #R_t "Я проследил за ней."
 
     show s profile happy left at move_step(-50)
-    pause 2.0
+    pause 1.0
     play sfx sfx_click2
 
     R_t "Она подошла к магнитофону у стены, протёрла его и нажала кнопку."
@@ -185,7 +188,7 @@ label day_3:
     I "Обращайтесь."
 
     pause 1.0
-    stop sfx2 fadeout 1.0
+    stop sfx2 fadeout 3.0
 
 
     R_t "Народ начал потихоньку расходиться."
@@ -281,14 +284,8 @@ label day_3:
     R_t "Я чувствовал, как моя кожа обугливается изнутри."
 
     play sfx sfx_door_open
-    show d serious neutral at right
-    show expression Solid("#fff") as overlay_light at light_hurt
-    pause 2.0
-    show expression Solid("#fff") as overlay_light at alpha_mask_fade_inverse
-    pause 1.0
-    show expression Solid("#000000") as overlay_light at alpha_mask_fade
-    stop sfx2 fadeout 1.0
-    with dissolve
+    show d serious neutral at enter_scene()
+
 
     R_t ear sick "В этот момент в помещение зашёл Дэвид."
     D osharashen "Райан, ты в порядке?"
@@ -296,6 +293,7 @@ label day_3:
     D "Что с тобой? Тебе нужна помощь?"
 
     show d fist angry at move_step(-200)
+    pause 0.3
     play sfx3 sfx_stun
     show expression Solid("#fff") as overlay_light at light_hurt
     pause 2.0
@@ -550,137 +548,165 @@ label day_3:
     R_t dissatisfied "Я посмотрел на свои руки."
     R_t "Они были абсолютно обычными, без каких-либо признаков ожогов."
 
-    S "С тобой всё хорошо."
-    S "В отличие от Ирис…"
+    S shy worried "С тобой всё хорошо."
+    S ruki ozadachen "В отличие от Ирис…"
     S "Мы подозреваем, что у неё началась ломка."
+    show s shy nedovolen with dissolve
     R_t "Софи указала на вскрытые шкафы. Вокруг на полу валялись пустые блистеры от обезболивающих."
     R_t "Их было так много, что трудно было ступить, не раздавив очередной."
-    S shy angry "Запас на полгода… пуст?"
+    S shy surprised "Запас на полгода… пуст?"
 
     show s profile despair right at move_on_scene(time=1.0, xalign=-0.05)
-
     R_t "Софи метнулась к шкафам."
 
-    show s shy worried at step_up, fear
+    show s shy nedovolen at step_up, fear
     pause 1.0
     play sfx sfx_falling_objects
 
     R_t "Она открывала створку за створкой, заглядывала на полки и выдвигала ящики."    
 
-    show s shy worried at fear
+    show s shy nedovolen at fear
     play sfx sfx_falling_objects
 
     R_t "Пустые блистеры звякали об металл."
-    S shy surprised "Здесь пусто…"
-    S "Обезболивающих нет."
-    V "Мы обыскали всё в надежде найти что-то, что поможет."
-    V "Голова кружится…"
-    D "Единственное место, которое мы не смогли осмотреть — этот сейф."
-    R_t "На нём кодовый замок."
-    S "Ты знаешь, каким может быть код?"
-    V "Пробовали дату её рождения, дату начала экспедиции…"
-    D "Никто не знает, что у неё на уме. И найдём ли мы хоть что-то внутри."
-    R "Может быть, нам стоит посмотреть в её журнале?"
+    S ruki crazy "Здесь пусто…"
+    S shy nedovolen "Обезболивающих нет."
+    V pockets sad "Мы обыскали всё в надежде найти что-то, что поможет."
+    V fainting "Голова кружится…"
+    D fist angry "Единственное место, которое мы не смогли осмотреть — этот сейф."
+    R_t thinking ne_ponyal "На нём кодовый замок."
+    S ruki ozadachen "Ты знаешь, каким может быть код?"
+    V suspects "Пробовали дату её рождения, дату начала экспедиции…"
+    D serious calm "Никто не знает, что у неё на уме. И найдём ли мы хоть что-то внутри."
+    R not_sure "Может быть, нам стоит посмотреть в её журнале?"
+    R_t serious think "Я подошёл к столу."
 
-    show s ruki ozadachen with dissolve
+    show i at angry
+    pause 0.5
+    show d fist angry at shaky_fast
+    pause 0.3
+    show i profile angry with dissolve
 
-    R_t "Я подошёл к столу."
     R_t "Ирис снова дёрнулась, пытаясь высвободиться, но капитан пнул койку, и она притихла."
     R_t "Журнал лежал в одном из ящиков стола."
     R_t "Я без труда нашёл его."
     S shy worried "Смотри — журнал."
     R_t thinking osharashen "В нём действительно были некоторые заметки."
+    show d serious osharashen left
+    show v sad left
+    show s shy surprised
+    with dissolve
+    pause 1.0
     R_t "В полном молчании члены экипажа читали записи, заглядывая через моё плечо."
+    call scene_dnevnik
     R_t "Никто не ожидал такого от Ирис…"
 
-
-    show i at angry
+    show i normal angry at angry
     play sfx sfx_heat_metal
 
-    R_t "Ирис резко дёрнула наручник, заскрежетал металл."
+    R_t serious thinking "Ирис резко дёрнула наручник, заскрежетал металл."
+    show i normal crazy with dissolve
     R_t "Глаза её стекленели."
+    show i normal crazy at angry
     I "Сдохните! Вы все!.."
+    show i normal crazy at angry
     I "Запаса лекарств хватит только на меня."
 
-    show i at angry
+    show i at giggle
+    play sfx sfx_Iris_laught
 
     R_t "Внезапно Ирис пробрал приступ истерического смеха."
     I "Я избавилась от вас."
     R_t "Мы переглянулись между собой."
+    show v fainting at jump with dissolve
+    pause 0.3
+    play sfx sfx_fall_body
     R_t "Виктор, который и так чувствовал себя плохо, осел на пол."
-    S "Как ты?!"
+    S worried "Как ты?!"
     V "Я…"
     R_t "Радист еле сдерживал тошноту. Казалось, что он вот-вот потеряет сознание."
-    D "Кажется, мне тоже нехорошо…"
-    S "Она что, нас отравила?.."
-
+    D fist fainting "Кажется, мне тоже нехорошо…"
+    S shy surprised "Она что, нас отравила?.."
     R serious think "Единственное место, которое мы не проверили — сейф под столом."
+    hide i
+    hide s
+    hide d
+    hide v
+    with dissolve
     
 #     Выбор:
 # 		Попытаться взломать сейф
 # 		Я понял, что медлить нельзя. 
-# Необходимо было найти лекарство или антидот.
-# Не было ни малейшего понимания, чем именно мы были отравлены. Пока что я держался крепче всех.
-# Я просто обязан попытаться вскрыть этот сейф, что бы там ни было внутри.
-# R Ну же, Райан… Вспоминай…
+# R_t serious think Необходимо было найти лекарство или антидот.
+# R_t Не было ни малейшего понимания, чем именно мы были отравлены. Пока что я держался крепче всех.
+# R_t Я просто обязан попытаться вскрыть этот сейф, что бы там ни было внутри.
+# R thinhing not_sure Ну же, Райан… Вспоминай…
 # R Что это может быть?
-# R Всего 4 цифры…
-# R Вот они, даже кнопки продавлены…
+# R neutral Всего 4 цифры…
+# R suspicious Вот они, даже кнопки продавлены…
 # R Но у меня всего 3 попытки…
 # #мини игра, ответ 1734 из прошлой главы - время констатации смерти дэвида
 # 	#3 неправильных - проигрыш
 # #1734 
-# Сейф замигал зеленым светом и открылся.
-# Внутри не было никаких лекарств… Только фото. Это было фото… Моего близкого человека. Как оно оказалось здесь. В сейфе Ирис?..
+# R_t thinking osharashen Сейф замигал зеленым светом и открылся.
+# R_t serious angry Внутри не было никаких лекарств… Только фото. Это было фото… Моего близкого человека. Как оно оказалось здесь. В сейфе Ирис?..
 
 # #Неправильный ответ.
-# R Чёрт возьми!..
+# R serious very_angry Чёрт возьми!..
 # R Это был наш шанс…
-# Я оглянулся. 
-# Никого из членов экипажа больше не было в сознании. 
-# Голова Ирис поникла и упала на грудь.
-# Всё, что помогало ей держаться сидя — рука, прикованная к кровати.
-# Софи, Виктор, Дэвид… Все они лежали на полу с широко открытыми глазами. 
-# Пена шла изо рта…
-# Я почувствовал лёгкое головокружение и присел на кровать.
-# Больше спешить было некуда.
-# Часы показывают 20:59…
+# R_t angry Я оглянулся. 
+# R_t Никого из членов экипажа больше не было в сознании. 
+# R_t Голова Ирис поникла и упала на грудь.
+# R_t Всё, что помогало ей держаться сидя — рука, прикованная к кровати.
+# R_t Софи, Виктор, Дэвид… Все они лежали на полу с широко открытыми глазами. 
+# R_t Пена шла изо рта…
+# R_t ear sick Я почувствовал лёгкое головокружение и присел на кровать.
+# R_t Больше спешить было некуда.
+# R_t Часы показывают 20:59…
 # #цг часы
-# Но движутся… В обратную сторону?
-# Мой разум начал медленно отключаться, но сквозь глухую темноту я смог расслышать:
+# R_t ear surprised Но движутся… В обратную сторону?
+# R_t serious fainting Мой разум начал медленно отключаться, но сквозь глухую темноту я смог расслышать:
 # N Ты должен понять. Никто не поможет тебе кроме себя самого.
 
 # Не пытаться взломать сейф
-# Я не мог терять время на глупости.
-# Необходимо было ещё раз прошерстить кабинет на предмет лекарств.
-# Неужели во всём медблоке не будет ничего, что сможет нам помочь?
+# R_t Я не мог терять время на глупости.
+# R_t Необходимо было ещё раз прошерстить кабинет на предмет лекарств.
+# R_t Неужели во всём медблоке не будет ничего, что сможет нам помочь?
 
 
-    play sfx3 sfx_stun fadein 0.5 fadeout 0.5 loop
-    show bg_white at light_hurt
-    pause 2.0
+
+
+    R_t serious think "Один за другим были проверены все шкафчики."
+    R_t "Полки, ящики. Контейнеры."
+    R_t ear dissatisfied "Мне не хватало медицинского образования, чтобы понять, что подойдёт в данном случае."
+    R_t "Но и бездействие было равно смерти."
+    R_t serious think "Я оглянулся."
+
+    show i normal bychit left at Transform(xalign=1.15, yalign=3.0)
+    show d fist fainting right at Transform(xalign=0.2, yalign=4.0)
+    show s shy fainting right at Transform(xalign=-0.15, yalign=4.0)
+    show v pockets fainting right at Transform(xalign=0.7, yalign=4.0)
+    with dissolve
+
+    R_t serious angry "Никого из членов экипажа больше не было в сознании."
+    R_t "Голова Ирис поникла и упала на грудь."
+    R_t "Всё, что помогало ей держаться сидя — рука, прикованная к кровати."
+    R_t "Софи, Виктор, Дэвид… Все они лежали на полу с широко открытыми глазами."
+    R_t "Пена шла изо рта…"
+
     show bg_white at alpha_mask_fade_inverse
     play sfx2 sfx_heart_beat_neutral loop
     call scene_pulse
     pause 1.0
     show bg_black at alpha_mask_fade
 
-    R_t "Один за другим были проверены все шкафчики."
-    R_t "Полки, ящики. Контейнеры."
-    R_t "Мне не хватало медицинского образования, чтобы понять, что подойдёт в данном случае."
-    R_t "Но и бездействие было равно смерти."
-    R_t "Я оглянулся."
-    R_t "Никого из членов экипажа больше не было в сознании."
-    R_t "Голова Ирис поникла и упала на грудь."
-    R_t "Всё, что помогало ей держаться сидя — рука, прикованная к кровати."
-    R_t "Софи, Виктор, Дэвид… Все они лежали на полу с широко открытыми глазами."
-    R_t "Пена шла изо рта…"
-    R_t "Я почувствовал лёгкое головокружение и присел на кровать."
+    R_t ear sick "Я почувствовал лёгкое головокружение и присел на кровать."
     R_t "Больше спешить было некуда."
     R_t "Часы показывали 20:59…"
-    R_t "Но движутся… В обратную сторону?"
+    call scene_clock
+    R_t ear surprised "Но движутся… В обратную сторону?"
 
-    show bg_black at alpha_mask_fade(a=0.7)
+    show bg_black at alpha_mask_fade(a=0.8)
     R_t serious fainting "Мой разум начал медленно отключаться, но сквозь глухую темноту я смог расслышать:"
     
     #голос девушки
@@ -691,4 +717,5 @@ label day_3:
     stop sfx2 fadeout 1.0
     stop sfx3 fadeout 1.0
     scene bg_black with dissolve
-    return
+    
+    jump day_4

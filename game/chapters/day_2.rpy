@@ -46,8 +46,8 @@ label day_2:
     R_t serious think "Пора приниматься за работу."
     R_t "В комнате было довольно душно — нужно было немного освежиться."
 
-    scene mirror_dark with dissolve
-    pause 2.0
+    call scene_mirror_dark
+
     R_t ear neutral "Поэтому, как обычно, я решил начать утро с созерцания своего хмурого лица."
     play sfx click2
     R_t "Но лампа у зеркала с умывальником не работала."
@@ -61,7 +61,8 @@ label day_2:
     scene black with dissolve
     play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
     pause 1.0
-    scene bg_coridor1_dark with dissolve
+    scene bg_coridor1_dark
+    show expression Solid("#000000") as overlay_light at alpha_mask_fade_inverse1(0.6)
 
     R_t serious think "Толком не умывшись, не причёсываясь и собравшись впотьмах, я вышел в коридор."
     R_t ear sick "Если бы не фонарь, который я ношу с собой, пришлось бы двигаться, перебирая руками по стене."
@@ -194,36 +195,46 @@ label day_2:
 
     R_t serious neutral "Ещё на подходе к отсеку с генератором я услышал стук металла, скрежет и тихие разговоры."
 
-    scene bg_generator_dark
+    scene bg_generator_red
     show s ruki ozadachen left at right
-    #d serious
-    show d right at left
+    show d serious neutral right at Transform(xalign=0.5, yalign=1.0)
     with dissolve
     stop sfx fadeout 1.0
     stop sfx2 fadeout 1.0
 
     R_t "Внутри, при красном свете аварийной лампочки, находились механик и командир."
     #R_t "Всё помещение было заставлено разного вида баллонами, банками, бутылками с разными жидкостями, а рядом с членами экипажа на полу лежали инструменты."
-    #show d left at move_on_scene()
+    show d serious calm left at move_on_scene(1.5, 0)
+    play sfx sfx_steps_two
     R_t "Софи перебирала бутыли с очень озадаченным видом, а Дэвид ходил из стороны в сторону, сердито хмурясь."
-    #show d right at move_on_scene()
+    show d right at move_on_scene(1.5, 0.5)
+    play sfx sfx_steps_two
     R_t "Они ещё не заметили моего присутствия."
-    #show d angry left at move_on_scene()
+    show d neutraly left at move_on_scene(1.5, 0)
+    play sfx sfx_steps_two
     D "Ну как же так получилось, что мы до сих пор не определили, в чём неисправность?"
-    #show d right at move_on_scene()
+    show d right at move_on_scene(1.5, 0.5)
+    play sfx sfx_steps_two
     S shy worried "Судя по показателям, генератор перегревается и переходит в режим минимальной аварийной поддержки, но почему…"
-    #show d serious left at move_on_scene()
+    show d serious calm left at move_on_scene(1.5, 0)
+    play sfx sfx_steps_two
     D "Я всё проверил: вентиляция работает исправно, охлаждающей жидкости достаточно."
-    #show d right at move_on_scene()
+    show d fear right at move_on_scene(1.5, 0.5)
+    play sfx sfx_steps_two
     D "Если мы не исправим это в ближайшее время, можем не долететь до точки назначения. Это очень важно."
-    #show d think left at move_on_scene()
+    show d calm left at move_on_scene(1.5, 0)
+    play sfx sfx_steps_two
     D "Единственная странность, которую я заметил, — жидкость слишком быстро испаряется."
-    #show d right at move_on_scene()
+    show d right at move_on_scene(1.5, 0.5)
+    play sfx sfx_steps_two
     R_t "К тому моменту, как он это сказал, я уже подошёл к ним вплотную."
-    #show d surprised left at move_on_scene(не до конца), fear
-    D "Тьфу ты, в этой темноте ничего не разглядишь."
-    #d neutral
-    D "Привет, Райан."
+    show d left at move_on_scene(0.75, 0.25)
+    play sfx sfx_steps_two
+    pause 0.5
+    show d serious osharashen at fear
+    pause 1.0
+    D serious osharashen "Тьфу ты, в этой темноте ничего не разглядишь."
+    D fist smug "Привет, Райан."
     R_t ear hehe "Я забавно помахал ему рукой."
     R "Здравствуй, кэп."
     R thinking ne_ponyal "Вижу, у вас здесь какие-то трудности?"
@@ -231,8 +242,8 @@ label day_2:
     show s ruki calm with dissolve
 
     R_t "Софи горько вздохнула."
-    #d serious
-    D "Кто бы мог дать мне ответ, почему испарение жидкости в камере охлаждения происходит так быстро?"
+    show d right
+    D angry "Кто бы мог дать мне ответ, почему испарение жидкости в камере охлаждения происходит так быстро?"
     R "Давайте проверим."
     R_t suspicious "Я взглянул на прозрачный люк рядом с местом, где стояла Софи."
     R_t "Где-то внизу, в слегка освещённой камере, плескалась вода."
@@ -240,8 +251,8 @@ label day_2:
     R_t neutral "Люк выглядел вполне заполненным, но даже сквозь обувь я чувствовал, как пол обжигает ступни."
     R not_sure "Думаю, нам необходимо открыть люк и взять пробу для проверки."
 
-    show s shy nedovolen
-    #show d osharashen
+    show s shy nedovolen at fear
+    show d serious osharashen
 
     S "Ни в коем случае!"
     S "Нельзя часто открывать люк, иначе нарушатся условия эксплуатации жидкости."
@@ -250,7 +261,7 @@ label day_2:
 
     S "Только я могу открывать его — и только для дозаполнения."
     
-    #show d serious
+    show d serious calm
     
     R_t thinking osharashen "Дэв нахмурился, но промолчал."
 
@@ -267,16 +278,18 @@ label day_2:
     R_t thinking ne_ponyal "Я потянулся к баллону, чтобы посмотреть его состав, но девушка внезапно вспылила."
 
     show s ruki crazy at angry
-    #show d osharashen
+    show d serious osharashen
 
     S "Перестаньте следить за мной! Я просто делаю свою работу."
     R_t "Лицо её выражало ярость."
     R_t thinking osharashen "Я опешил от такой реакции."
     R_t "Возможно, некоторые люди не любят, когда наблюдают за их действиями — это можно понять."
 
-    #show d right at exit_right(time=2.0)
+    show d calm with dissolve
+    pause 0.5
+    show d left at exit_left
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_short
 
     R_t serious think "Пожав плечами, я пошёл на выход. Дэвид догнал меня."
     R_t "Мы ничего не сказали друг другу, но обменялись многозначительными взглядами."
@@ -284,31 +297,30 @@ label day_2:
     scene black with dissolve
     pause 0.5
     #show d right
+    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
     scene bg_coridor3_dark_cylinders 
+    show d serious neutral right at left
     with dissolve
 
     R_t serious think "Уже двигаясь по коридору, кэп нарушил тишину."
-    #d neutral
-    D "Я немного припугнул её этим «не долетим»."
-    D "Долетим, конечно, запас пока есть. Если проблема только в нём, конечно."
+    D calm "Я немного припугнул её этим «не долетим»."
+    D neutral "Долетим, конечно, запас пока есть. Если проблема только в нём, конечно."
     R_t "Я кивнул."
     R thinking suspicious "Тебе не кажется странным её поведение?"
     R "Я не склонен обвинять людей, но она выглядит совершенно некомпетентной."
     R "Если бы это была не космическая миссия, а, скажем, обычная работа, я бы предположил, что она дочка начальника, устроенная по блату."
-    
-    #show d sad
-    
+    show d calm with dissolve
+    pause 0.5
     R_t "Дэв вздохнул."
-    #d serious
     D "По досье у неё всё в порядке. Она механик с очень большим стажем."
-    D "Предполагаю, проблема в характере — с этим ничего не поделать."
-    stop sfx
+    D neutral "Предполагаю, проблема в характере — с этим ничего не поделать."
+    stop sfx fadeout 0.5
     R_t serious think "Мы дошли до развилки."
-    #d neutral
     D "Я пойду в командный отсек, мне нужно заполнить бортовой журнал."
     R thinking not_sure "А у меня снова разыгрался аппетит. Не отказался бы от большого прожаренного стейка… ну или хотя бы пасты с его вкусом."
     
-    #show d happy at giggle
+    play sfx2 sfx_laugh_men1
+    show d happy at giggle
     
     R_t "Дэвид рассмеялся."
     D "Шагом марш на кухню!"
@@ -318,8 +330,8 @@ label day_2:
     
     scene black with dissolve
     pause 0.5
-    scene bg_dinner_block
-    show i profile neutral right at left
+    scene bg_dinner_block_dark
+    show i smoke calm right at left
     show v profile smile left at right
     with dissolve
 
@@ -328,7 +340,9 @@ label day_2:
     R_t thinking ne_ponyal "Предметом их азартного спора стал единственный оставшийся тюбик со вкусом оливье."
     R_t "Ещё некоторое время я наблюдал за их игрой, затем долил себе кофе и вернулся на своё рабочее место."
 
+    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
     scene black with dissolve
+    stop sfx fadeout 0.5
     pause 1.0
     scene bg_commander_block_transparent_dark with dissolve
     pause 1.0
@@ -337,7 +351,6 @@ label day_2:
     pause 0.3
     scene bg_commander_block_transparent_dark
     pause 0.3
-    play sfx2 sfx_fon_generator2 fadein 0.5 fadeout 0.5 loop
     scene bg_commander_block_transparent_default
     pause 0.3
 
@@ -353,7 +366,6 @@ label day_2:
     stop sfx2 fadeout 2.0
 
     #музыка Anxious space ambient
-    $ renpy.music.set_volume(0.3, delay=0.5, channel="sfx")
     play sfx music_waves fadein 1.0 fadeout 0.5 loop
 
     R_t "Сегодня космическая гладь особенно завораживала: она переливалась цветами, и чем дольше я вглядывался, тем отчётливее видел за иллюминатором волны."
@@ -432,6 +444,7 @@ label day_2:
     R_t serious angry "Сразу на выходе я заметил Ирис."
     show i at center, shaky
     pause 2.0
+    play sfx sfx_fall_body
     show i oooops at down_little with dissolve
     R_t "Лицо её покраснело, девушка держалась рукой за стену, ноги подкосились."
     R thinking osharashen "Ирис!.. Всё в порядке?"
@@ -442,7 +455,7 @@ label day_2:
     R_t serious angry "Я подхватил её под локоть, стараясь удержать, но она уже не стояла на ногах."
     
     play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
-
+    show i profile oooops with dissolve
     R_t "Перекинув её руку через своё плечо, я потащил её к ближайшему аварийному пункту."
     R_t very_angry "Некоторое время мы передвигались так. Я старался реже вдыхать раскалённый воздух, чтобы не обжечь гортань и лёгкие."
     
@@ -459,21 +472,20 @@ label day_2:
     hide i with dissolve
 
     #фон генераторная анимация тревоги
+    stop sfx fadeout 0.5
     scene bg_generator_red
     show s shy angry right at center
-    #d
-    show i angry left at right
-    show v profile angry right at Transform(xalign=-0.1, yalign=1.0)
+    show d serious angry left at Transform(xalign=1.0, yalign=1.0)
+    show v profile angry right at Transform(xalign=0.15, yalign=1.0)
     with dissolve
-    stop sfx
     $ renpy.music.set_volume(1.0, delay=0.5, channel="sound")
-    #show i normal neutral right at quad_left with dissolve
+    show i profile osharashen right at Transform(xalign=-0.2, yalign=1.0) with dissolve
 
     R_t serious think "Здесь уже находились остальные члены экипажа."
 
     show s ruki crazy at angry
     #show d at fear
-    show i at fear
+    show d at fear
 
     R_t angry "В середине помещения происходила жаркая перепалка."
     R_t "Из-за громкого звука аварийной тревоги я едва мог расслышать слова."
@@ -484,17 +496,11 @@ label day_2:
     
     R_t "Софи кричала на Дэвида и активно жестикулировала."
 
-    #show d at angry
-    show i at move_step(-50, 0.15)
-    pause 0.15
-    show i at angry
+    show d at angry
 
     R_t "Он же грубо пытался схватить девушку и показывал пальцем в сторону генератора."
     R_t "До меня доносились обрывки их речи:"
-
-    show s nedovolen at angry
-
-    S shy angry "Грязный… Обезвредить… Вирус… Очистить…"
+    S ruki crazy "Грязный… {w=1.0} Обезвредить… {w=1.0} Вирус… {w=1.0} Очистить…"
     R_t "Виктор тоже был здесь."
 
     show v pockets suspects
@@ -506,9 +512,9 @@ label day_2:
     R_t "Немудрено, что он мгновенно испарялся."
 
     #show d at angry, step_up
-    show i at angry, move_step(-100, 0.2)
+    show d fist angry at angry, move_step(-100, 0.2)
     pause 0.15
-    show s surprised at fear, move_step(-50, 0.2)
+    show s shy surprised at fear, move_step(-50, 0.2)
 
     R_t "В какой-то момент командир замахнулся рукой, чтобы ударить Софи, та попыталась уклониться."
 
@@ -516,7 +522,7 @@ label day_2:
     R_t serious fainting "От жара становилось плохо, маска не помогала."
 
     #show d right at step_up
-    show i right at move_step(50, 0.3)
+    show d annoyed right at move_step(50, 0.3)
 
     R_t "Дэвид развернулся и попытался пойти в сторону генератора."
 
@@ -524,33 +530,33 @@ label day_2:
     pause 1.0
     show s at Transform(xalign=0.7, yalign=1.0), move_step(-30)
     #show d at step_left
-    show i at move_step(-30)
+    show d at move_step(-30)
 
     R_t think "Софи вцепилась в его руку и старалась тащить назад."
 
     #show d angry at step_left
-    show i angry left at move_step(50), angry
+    show d angry left at move_step(50), angry
     show s ruki hurt at move_step(-50), fear
 
     R_t "Разъярённый капитан резко отмахнулся от неё."
 
     #show d angry at step_left
-    show i at move_step(-50)
+    show d at move_step(-50)
     show s shy surprised at Transform(xalign=0.65, yalign=1.0), move_step(-50), fear
 
     R_t "Шаг. Ещё шаг."
 
-    show i angry at move_step(-50)
+    show d angry at move_step(-50)
     show s ruki hurt at Transform(xalign=0.6, yalign=1.0), move_step(-50), fear
+    pause 1.5
+    show s shy surprised at jump(height=1000)
     pause 1.0
-    #У МЕНЯ НЕ РАБОТАЕТ НИКАКАЯ ВЕРТИКАЛЬНАЯ АНИМАЦИЯ, НАДОЕЛО
-    show s shy surprised at jump(height=800)
-    pause 0.5
     play sfx sfx_water_splash
     hide s with dissolve
     show v ruki osharashen
-    play sfx sfx_scream_women_ah
+    play sfx2 sfx_scream_women_ah
     
+    show d serious osharashen
     R_t angry "И девушка упала в открытый люк."
 
     show v profile angry at move_step(300), fear
@@ -563,30 +569,33 @@ label day_2:
     call scene_sofi_tonet
 
     scene bg_generator_red 
+    show i profile ahui right at Transform(xalign=-0.15, yalign=1.0)
+    show v profile crazy right at Transform(xalign=0.4, yalign=1.0)
+    show d serious osharashen left at Transform(xalign=0.9, yalign=1.0)
     with dissolve
-    show v profile crazy at Transform(xalign=-0.1, yalign=1.0), joy
-    
-    show i at move_step(-400), angry
-    show v pockets angry at Transform(xalign=0.1, yalign=1.0), move_step(-100), fear
-    pause 0.5
+    pause 1.0
+    show d fist angry at move_step(-200), angry
+    show v pockets angry at move_step(-100), fear
+    pause 1.0
     play sfx sfx_heat_metal
 
     R_t think "Дэвид резко откинул нас с Виктором от люка и запер крышку."
+    show v at fear
     R angry "Что ты делаешь?"
 
-    show i at Transform(xalign=1.0, yalign=1.0), angry
+    show d at Transform(xalign=0.9, yalign=1.0), angry
 
-    D "Она нас всех убьёт!"
+    D serious fear "Она нас всех убьёт!"
     V ruki osharashen "Что?.."
 
-    show i at Transform(xalign=1.0, yalign=1.0), angry
+    show d at Transform(xalign=0.9, yalign=1.0), angry
 
     D "Генератор! Помогите мне, нам нужно его охладить!"
     play sfx sfx_evaporating_water
-
+    show d fist angry at move_step(50)
     R_t "Он вскрыл баллон с составом и попытался вылить его прямо на огромную, пышущую жаром машину."
     V pockets nedovolen "Ты уверен, что это поможет?!"
-    D "Я… Я уже ни в чём не уверен!"
+    D serious calm "Я… Я уже ни в чём не уверен!"
 
     play sfx sfx_evaporating_water
 
@@ -606,20 +615,25 @@ label day_2:
     R_t "Огонь?.."
     R_t "Секунда{w}, две."
 
-    play sfx sfx_explosion
     R_t "И генератор вспыхнул ярким огнём."
+    
+    stop sound fadeout 1.0
+    show expression Solid("#b12300") as overlay_light at alpha_mask_fade(1.0)
+    play sfx sfx_explosion
+    pause 2.5
+    play sfx2 sfx_burning_fire fadein 0.5 fadeout 1.0 loop
 
-    play sfx2 sfx_burning_fire
     #цг огонь взрыв
     call scene_fire
 
     R_t serious fainting_blood "Жаркий воздух и вентиляция мгновенно разнесли искры по помещению."
-    R_t  "Я больше не мог сдерживаться и зашелся в удушающем кашле."
+    play sfx3 sfx_cough_man2
+    R_t "Я больше не мог сдерживаться и зашелся в удушающем кашле."
     R_t "Кажется, мы не успели…"
     R_t serious fainting_blood "Я потерял сознание."
 
-    stop sound fadeout 1.0
     play sfx sfx_fall_body
+    stop sfx2 fadeout 1.0
     scene bg_red with dissolve
     pause 1.0
     show scene_talk_in_end_18
@@ -635,5 +649,7 @@ label day_2:
 
     N "Опять… Ну что же ты, давай, давай… Ты же слышишь меня?.."
     hide screen waveform_show
+    stop sfx fadeout 1.0
+
     with dissolve
     jump day_3
