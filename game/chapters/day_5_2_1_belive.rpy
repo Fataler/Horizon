@@ -5,7 +5,7 @@ label day_5_2_1_belive:
     with dissolve
     R_t serious think "Я снова вернулся на койку."
     R_t thinking neutral "Закрыл глаза и попытался сосредоточиться."
-    scene bg_black with dissolve
+    scene bg_black with eye_off
     pause 1.0
     R_t "Спустя некоторое время у меня получилось настроиться."
     N "Ты вернулся!"
@@ -47,7 +47,7 @@ label day_5_2_1_belive:
     
     scene bg_black with dissolve
     pause 1.0
-    scene bg_generator_dark
+    scene bg_generator_blue_screen
     with dissolve
     R serious think "Так…"
     R thinking not_sure "Что там нужно было сделать в первую очередь?"
@@ -123,4 +123,5 @@ label day_5_2_1_belive:
     $ renpy.music.set_volume(1.0, delay=0.5, channel="sfx3")
     scene bg_black
     with fade
+    pause 2.0
     jump epilogue

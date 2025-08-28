@@ -55,7 +55,7 @@ label day_3:
     cutscene "Я крепко зажмурил глаза, подождал пару секунд и снова взглянул на своё отражение."
     stop sfx2 fadeout 0.5
 
-    scene scene_mirror_water
+    call scene_mirror
     with eye_on
     with dissolve
 
@@ -296,7 +296,6 @@ label day_3:
     play sfx sfx_door_open
     show d serious neutral at enter_scene()
 
-
     R_t ear sick "В этот момент в помещение зашёл Дэвид."
     D osharashen "Райан, ты в порядке?"
     R serious fainting "Я… Я думаю, мне нужно в лазарет…"
@@ -313,7 +312,7 @@ label day_3:
     show expression Solid("#000000") as overlay_light at alpha_mask_fade
     pause 1.0
     call scene_pulse
-    play sfx2 sfx_heart_beat_neutral loop
+    play sfx sfx_heart_beat_neutral loop
 
     R_t ear sick "Он поддержал меня под локоть, но от этого боль только усилилась."
     show expression Solid("#000000") at alpha_mask
@@ -326,7 +325,8 @@ label day_3:
     R_t "Дэвид посмотрел на меня с сомнением, но останавливать не стал."
     R_t "Мне предстояло преодолеть несколько коридоров."
 
-    play sfx sfx_steps_slow loop
+    stop sfx2 fadeout 1.5
+    play sfx3 sfx_steps_slow loop
     scene black with dissolve
     pause 0.5
     scene bg_coridor1_default
@@ -347,8 +347,7 @@ label day_3:
     R_t ear sick "Шаг. Ещё шаг."
     R_t "Я уговаривал себя сделать каждое движение."
     R_t serious fainting "Почти потеряв сознание, я добрался до медблока."
-
-    stop sfx fadeout 0.5
+    stop sfx3 fadeout 0.5
     scene bg_black with dissolve
     pause 0.5
     scene bg_med_block
@@ -363,7 +362,7 @@ label day_3:
     R_t "Врач обернулась на мой зов."
     I "Райан, всё в порядке?!"
 
-    stop sfx2 fadeout 1.0
+    stop sfx fadeout 0.5
 
     R_t ear sick "Я с трудом присел на койку. Боль немного утихла."
     R "Мне кажется… Ты знаешь, такое чувство, как будто…"
@@ -409,6 +408,7 @@ label day_3:
 
     show i at fear
 
+    play sfx sfx_heat_metal
     R_t "Она, не глядя, вынула из шкафа блистер и кинула мне."
     R_t serious very_angry "Я взглянул на неё волком и понял, что здесь помощи искать не стоит."
 
@@ -499,7 +499,7 @@ label day_3:
     R_t thinking suspicious "Я приоткрыл глаза."
     R_t "Боли больше не было."
 
-    show s shy surprised with dissolve
+    show s shy surprised left with dissolve
 
     S "Райан, помоги!"
     S "С Ирис что-то случилось…"
@@ -528,9 +528,11 @@ label day_3:
     pause 0.5
     scene bg_med_block
     show i profile angry left at Transform(xalign=1.15, yalign=3.0)
-    show d serious neutral right at Transform(xalign=0.2, yalign=1.0)
-    show s ruki ozadachen right at Transform(xalign=-0.15, yalign=1.0)
+    show d serious neutral right at Transform(xalign=0.3, yalign=1.0)
+    
     show v pockets sad right at Transform(xalign=0.7, yalign=1.0)
+    with dissolve
+    show s ruki ozadachen right at Transform(xalign=-0.15, yalign=1.0) 
     with dissolve
 
     R_t serious think "В лазарете уже находились все оставшиеся члены экипажа."
@@ -547,7 +549,7 @@ label day_3:
 
     D fist angry "Что ты делаешь?! Прекрати это сейчас же!"
 
-    show i angry at angry
+    show i normal angry at angry
 
     I "Ненавижу…"
     R_t serious think "Виктор сидел, скорчившись, на койке."
@@ -559,6 +561,8 @@ label day_3:
     R_t "Они были абсолютно обычными, без каких-либо признаков ожогов."
 
     S shy worried "С тобой всё хорошо."
+
+    show i profile angry
     S ruki ozadachen "В отличие от Ирис…"
     S "Мы подозреваем, что у неё началась ломка."
     show s shy nedovolen with dissolve
@@ -593,6 +597,7 @@ label day_3:
 
     show i at angry
     pause 0.5
+    play sfx sfx_heat_metal
     show d fist angry at shaky_fast
     pause 0.3
     show i profile angry with dissolve
@@ -609,12 +614,19 @@ label day_3:
     pause 1.0
     R_t "В полном молчании члены экипажа читали записи, заглядывая через моё плечо."
     call scene_dnevnik
-    R_t "Никто не ожидал такого от Ирис…"
+    cutscene "Никто не ожидал такого от Ирис…"
 
+    scene bg_med_block
+    show i profile angry left at Transform(xalign=1.15, yalign=3.0)
+    show d serious osharashen right at Transform(xalign=0.3, yalign=1.0)
+    show s shy surprised right at Transform(xalign=-0.15, yalign=1.0) 
+    show v sad right at Transform(xalign=0.7, yalign=1.0)
+    with dissolve
+    pause 1.0
     show i normal angry at angry
     play sfx sfx_heat_metal
 
-    R_t serious thinking "Ирис резко дёрнула наручник, заскрежетал металл."
+    R_t serious think "Ирис резко дёрнула наручник, заскрежетал металл."
     show i normal crazy with dissolve
     R_t "Глаза её стекленели."
     show i normal crazy at angry
@@ -623,13 +635,16 @@ label day_3:
     I "Запаса лекарств хватит только на меня."
 
     show i at giggle
-    play sfx sfx_Iris_laught
+    play sfx sfx_laugh_iris1
 
     R_t "Внезапно Ирис пробрал приступ истерического смеха."
     I "Я избавилась от вас."
+    show d fear left
+    show v pockets nedovolen left
+    with dissolve
     R_t "Мы переглянулись между собой."
-    show v fainting at jump with dissolve
-    pause 0.3
+    show d fear right
+    show v pockets fainting at jump with dissolve
     play sfx sfx_fall_body
     R_t "Виктор, который и так чувствовал себя плохо, осел на пол."
     S worried "Как ты?!"
@@ -719,7 +734,7 @@ label day_3:
     show bg_black at alpha_mask_fade(a=0.8)
     R_t serious fainting "Мой разум начал медленно отключаться, но сквозь глухую темноту я смог расслышать:"
     
-    #голос девушки
+    play sfx3 sfx_hiss_with_voice1
     N "Ты должен понять."
     N "Никто не поможет тебе, кроме тебя самого."
 
