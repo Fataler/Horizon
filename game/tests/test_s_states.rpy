@@ -1,72 +1,72 @@
 label test_s_states:
-    "Тестирование всех состояний персонажа s"
+    "Тестирование всех состояний персонажа S"
 
-    scene bg_room_viktor_default
+    scene black
 
     window show
 
     show s profile annoyed
-    s "profile annoyed"
+    S "profile annoyed"
 
     show s profile cry
-    s "profile cry"
+    S "profile cry"
 
     show s profile despair
-    s "profile despair"
+    S "profile despair"
 
     show s profile fainting
-    s "profile fainting"
+    S "profile fainting"
 
     show s profile happy
-    s "profile happy"
+    S "profile happy"
 
     show s profile neutral
-    s "profile neutral"
+    S "profile neutral"
 
     show s profile sad
-    s "profile sad"
+    S "profile sad"
 
     show s ruki calm
-    s "ruki calm"
+    S "ruki calm"
 
     show s ruki crazy
-    s "ruki crazy"
+    S "ruki crazy"
 
     show s ruki cry
-    s "ruki cry"
+    S "ruki cry"
 
     show s ruki happy
-    s "ruki happy"
+    S "ruki happy"
 
     show s ruki hurt
-    s "ruki hurt"
+    S "ruki hurt"
 
     show s ruki neutral
-    s "ruki neutral"
+    S "ruki neutral"
 
     show s ruki ozadachen
-    s "ruki ozadachen"
+    S "ruki ozadachen"
 
     show s shy angry
-    s "shy angry"
+    S "shy angry"
 
     show s shy fainting
-    s "shy fainting"
+    S "shy fainting"
 
     show s shy happy
-    s "shy happy"
+    S "shy happy"
 
     show s shy nedovolen
-    s "shy nedovolen"
+    S "shy nedovolen"
 
     show s shy neutral
-    s "shy neutral"
+    S "shy neutral"
 
     show s shy surprised
-    s "shy surprised"
+    S "shy surprised"
 
     show s shy worried
-    s "shy worried"
+    S "shy worried"
 
     window hide
     return

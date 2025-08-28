@@ -1,6 +1,6 @@
-image scene_pogrom_v_lazarete_fon = "CG/CG_pogrom_v_lazarete/CG_pogrom_v_lazarete_0002_fon.png"
-image scene_pogrom_v_lazarete_glaza = "CG/CG_pogrom_v_lazarete/CG_pogrom_v_lazarete_0000_glaza.png"
-image scene_pogrom_v_lazarete_cherkash = "CG/CG_pogrom_v_lazarete/CG_pogrom_v_lazarete_0001_cherkash.png"
+image scene_pogrom_v_lazarete_fon = "CG/CG_pogrom_v_lazarete/CG_pogrom_v_lazarete_fon.png"
+image scene_pogrom_v_lazarete_glaza = "CG/CG_pogrom_v_lazarete/CG_pogrom_v_lazarete_glaza.png"
+image scene_pogrom_v_lazarete_cherkash = "CG/CG_pogrom_v_lazarete/CG_pogrom_v_lazarete_cherkash.png"
 
 label scene_pogrom_v_lazarete:
     show scene_pogrom_v_lazarete_fon

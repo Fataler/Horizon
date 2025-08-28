@@ -20,7 +20,9 @@ transform door_effect:
 label scene_vhod_v_lazaret:
     show scene_vhod_v_lazaret_fon
     
-    show scene_vhod_v_lazaret_dver at door_effect
+    show scene_vhod_v_lazaret_dver at door_effect:
+        anchor(0.5, 0.5)
+        pos(0.5, 0.5)
     
     show scene_vhod_v_lazaret_bryzgash at fade_in_out(fade_time=1.5, max_alpha=0.6, min_alpha=0.2)
     
@@ -28,5 +30,6 @@ label scene_vhod_v_lazaret:
     show scene_vhod_v_lazaret_cherkash at soot_drift_bottom(speed=0.8, amplitude=2, x_amplitude=-1)
     with dissolve
 
-    pause
+    cutscene "Софи и Ирис испуганно взглянули на меня."
+    cutscene "Уверенности нам всем не добавляло то, что я стоял с горсткой металлических игл в руке."
     return

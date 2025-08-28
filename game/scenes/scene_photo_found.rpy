@@ -15,7 +15,21 @@ layeredimage scene_photo_full:
         at fade_in_out()
     
 
-label scene_photo_found:
+label scene_photo_found_cut:
+    show scene_photo_full
+    with dissolve
+
+    cutscene "Ч-что?.."
+    cutscene "У меня в руке находилось фото моей девушки, оставшейся на Земле."
+    cutscene "Это было единственное её фото, которое я взял с собой в полёт."
+    cutscene "В середине портрета красовалась приличная дыра."
+    cutscene "Она была такой величины, что черты лица по краям уже не удавалось разобрать."
+    
+    hide scene_photo_full
+    with dissolve
+    return
+
+label scene_photo_found_full:
     show scene_photo_full
     with dissolve
 

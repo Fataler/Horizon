@@ -1,31 +1,16 @@
 label day_0_prologue:
 
-    # Пролог
-
     scene bg_black
     with dissolve
     pause 1.0
     play sfx sfx_click2
-
-    R_t "Щёлк."
-
-    play sfx sfx_click2
-    pause 0.2
-    play sfx sfx_click2
-
-    R_t "Щёлк-щёлк."
-
-    #цг гг лицом в экран
-
-    R_t thinking not_sure "Фух, вроде работает."
-    R_t thinking ne_ponyal "Ну и ну."
-    R_t serious think "Запишу в следующем докладе, что у нас неполадки с основным генератором."
-
+    # Пролог
+    call scene_shelk
+    
     scene bg_coridor2_default
     with dissolve
 
     R_t serious think "При всей педантичности нашего механика, видать, ей недостаёт знаний или опыта для починки этого недоразумения."
-    
     play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
 
     R_t ear neutral "Пора возвращаться в общий зал."

@@ -30,27 +30,42 @@ label day_3:
     R_t ear sick "Костяшки пальцев побелели от того, как крепко я сжал края умывальника в попытке подняться." with vpunch
     
     #цг зеркало с ожогами
+    show scene_mirror_red
+    show scene_mirror_cherk
+    with dissolve
     
-    R_t thinking osharashen "С той стороны зеркала на меня смотрел я… но покрытый ожогами."
+    cutscene "С той стороны зеркала на меня смотрел я… но покрытый ожогами."
 
     play sfx sfx_heart_beat_fast fadein 0.5 fadeout 0.5 loop
 
-    R_t serious angry "Какого чёрта?.."
-    R_t "Это был не сон."
-    R_t ear dissatisfied "Сердце колотилось как бешеное." 
+    cutscene "Какого чёрта?.."
+    cutscene "Это был не сон."
+    cutscene "Сердце колотилось как бешеное." 
 
     play sfx sfx_heart_beat_slow fadein 0.5 fadeout 0.5
 
-    R_t "Я попытался восстановить дыхание."
-    R_t "С такими ожогами не живут. Я всё ещё сплю, не иначе."
-    R_t ear sick "Я крепко зажмурил глаза, несколько раз поморгал и снова взглянул на своё отражение."
+    cutscene "Я попытался восстановить дыхание."
+    cutscene "С такими ожогами не живут. Я всё ещё сплю, не иначе."
+    
+    show bg_black
+    with eye_off
+
+    cutscene "Я крепко зажмурил глаза, подождал пару секунд и снова взглянул на своё отражение."
+
+    scene scene_mirror_water
+    with eye_on
+    with dissolve
 
     #цг зеркало нормальное
 
-    R_t surprised "Спокойно, это всего лишь наваждение."
-    R_t "Я стал совсем плохо спать."
-    R_t dissatisfied "Головная боль накатывала волнами."
-    R_t "Никак не получалось собраться с мыслями."
+    cutscene "Спокойно, это всего лишь наваждение."
+    cutscene "Я стал совсем плохо спать."
+    cutscene "Головная боль накатывала волнами."
+    cutscene "Никак не получалось собраться с мыслями."
+
+    scene bg_room_rayan_default
+    with dissolve
+
     R_t "Я неспешно оделся, не глядя отметил в терминале начало рабочего дня и вышел в коридор."
 
     scene bg_coridor1_default
@@ -414,11 +429,14 @@ label day_3:
     R_t serious angry "Витамины… Чёртова упёртая психопатка."    
     R_t ear sick "Я медленно прилёг на свою кровать и закрыл глаза."
 
-    scene bg_black with dissolve
+    scene bg_black
+    with eye_off
+
     pause 0.5
 
     R_t ear sick "Всегда, когда мне было плохо, я находил укромное место — уголок, где никто не потревожит меня."
     R_t thinking neutral "Закрывал глаза и слушал."
+
     R_t "Звук моря всегда успокаивал меня."
     R_t "Он словно смывал боль, волна за волной — понемногу, но становилось легче."
     R_t "Сейчас же я мог слышать только шум вентиляции и редкий металлический стук."
@@ -427,6 +445,10 @@ label day_3:
 
     #голос девушки
     R_t "Но вместо этого услышал голос."
+
+    show scene_talk_in_end_17
+    show screen waveform_show()
+    with Dissolve(2.0)
     R_t "Это были обрывки слов."
     R_t "Ненадолго я перестал ощущать что-либо и сосредоточился ещё сильнее."
 
@@ -442,9 +464,20 @@ label day_3:
     R_t "Незнакомка звучала растерянно, но настойчиво."
     R_t "Голос был подозрительно знакомым…"
     R_t "Но я не смог разобрать личность говорящей."
+    hide screen waveform_show
+    show scene_talk_in_end_19
+    with dissolve
     R_t thinking neutral "В растерянности я провалился в сон."
+
+    
+
+    # hide screen waveform_show
+    # hide scene_talk_in_end_17
+    # with dissolve
+    
+    scene bg_black
+    with eye_off(0.5)
     pause 3.0
-    #R_t "…"
 
     S "Райан!"
 

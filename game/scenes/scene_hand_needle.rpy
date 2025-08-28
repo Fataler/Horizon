@@ -33,10 +33,12 @@ label scene_hand_needle:
     show scene_hand_needle_tochkash:
         anchor(0.5, 0.5)
         pos(0.5, 0.5)
+        alpha 0.3
     show scene_hand_needle_cherkash:
         anchor(0.5, 0.5)
         pos(0.5, 0.5)
     with dissolve
 
-    pause
+    cutscene "Я поднял руку к лицу и увидел, как кровь стекает по моей ладони."
+    cutscene "В глазах потемнело."
     return

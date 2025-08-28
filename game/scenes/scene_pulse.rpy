@@ -1,12 +1,12 @@
 transform headache_pulse(period=1.85, zoom_str=0.01, shift=1):
     anchor (0.5, 0.5)   
     align (0.5, 0.5)
-    parallel:                          # дыхание-зум
+    parallel:
         zoom 1.0
         linear period/2 zoom (1.0 + zoom_str)
         linear period/2 zoom 1.0
         repeat
-    parallel:                          # лёгкий "толчок" в момент удара
+    parallel:
         xoffset 0 yoffset 0
         linear 0.04 xoffset shift
         linear 0.04 xoffset -shift

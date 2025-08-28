@@ -15,14 +15,27 @@ transform shelk_hand(speed=0.18, repeat_time=1):
         repeat repeat_time
 
 label scene_shelk:
+    
+    window hide
     show scene_shelk
     show scene_shelk_cherk_chelik
     show scene_shelk_hand at shelk_hand
     with dissolve
 
-    pause
+    cutscene "Щёлк."
+    show scene_shelk_hand at shelk_hand
 
-    show scene_shelk_hand at shelk_hand(repeat_time=2)
+    play sfx sfx_click2
+    pause 0.2
+    play sfx sfx_click2
 
-    pause
+    cutscene "Щёлк-щёлк."
+    
+    #show scene_shelk_hand at shelk_hand(repeat_time=2)
+
+    #цг гг лицом в экран
+
+    cutscene "Фух, вроде работает."
+    cutscene "Ну и ну."
+    cutscene "Запишу в следующем докладе, что у нас неполадки с основным генератором."
     return

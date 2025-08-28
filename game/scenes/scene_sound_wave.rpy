@@ -79,14 +79,13 @@ screen waveform_show(
     base=10,
     max_h=220,
     bpm=0,
-    speed=1.0,
+    speed=3.0,
     glow_px=10,
-    seed=515155151,
+    seed=1,
     yalign_val=0.5
 ):
     default viewport_w = width if width is not None else config.screen_width
     default time_sec = 0.0
-
     
     timer 0.016 repeat True action SetScreenVariable("time_sec", time_sec + 0.016 * speed)
 
@@ -109,7 +108,7 @@ screen waveform_show(
             add Solid(col) xysize (bar_w, h) xpos x ypos y
 
 label wave_demo:
-    show bg_commander_block_dark at fade_in_out
+    show screen waveform_show()
     "Пу-пу-пу"
     hide screen waveform_show
     return

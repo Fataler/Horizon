@@ -16,6 +16,8 @@ define config.name = _("BEyONd thE event horizon")
 define config.image_cache_size_mb = 512
 
 define config.developer = True
+define config.fast_skipping = True if config.developer else False
+
 define config.menu_include_disabled = True
 
 ## Определяет, показывать ли заголовок, данный выше, на экране главного меню.
@@ -94,8 +96,10 @@ define config.main_menu_music = None #music_main_theme
 
 ## Вход и выход в игровое меню.
 
-define config.enter_transition = None
-define config.exit_transition = None
+define config.enter_transition = Dissolve(0.5)
+define config.exit_transition = Dissolve(0.5)
+define config.intra_transition = Dissolve(0.5)
+
 
 
 ## Переход между экранами игрового меню.
@@ -151,11 +155,6 @@ default preferences.afm_time = 15
 
 define config.default_text_cps = 60
 define config.default_afm_time = 15
-
-define config.enter_transition = Dissolve(0.5)
-define config.exit_transition = Dissolve(0.5)
-define config.intra_transition = Dissolve(0.5)
-
 ## Максимальное количество страниц сохранений
 
 define max_save_pages = 1
