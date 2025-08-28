@@ -18,7 +18,9 @@ label day_1:
     cutscene "Из него на меня уставшим взглядом смотрел обычный парень лет двадцати пяти."
     cutscene "Капли воды стекали по лицу, охлаждая кожу. Вода всегда напоминала мне о доме."
     cutscene "Больше нельзя было мешкать — по протоколу рабочий день начинается строго в восемь утра."
-    cutscene "Быстро натянув костюм, я отметился в терминале и направился в кухонный модуль."
+    scene bg_room_rayan_default
+    with dissolve
+    R_t "Быстро натянув костюм, я отметился в терминале и направился в кухонный модуль."
 
     play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
     scene black with dissolve
@@ -62,16 +64,14 @@ label day_1:
     show i normal angry at shaky_fast
 
     I "Странно — это как?"
-
-    pause 0.5
-    
-    play sfx sfx_radist_hit_table
-    pause 0.15
-    play sfx sfx_radist_hit_table
-    pause 0.15
-    play sfx sfx_radist_hit_table
-
     R_t "Радист постучал пальцем по диаграмме."
+
+    play sfx sfx_radist_hit_table
+    pause 0.2
+    play sfx sfx_radist_hit_table
+    pause 0.2
+    play sfx sfx_radist_hit_table
+    pause 0.5
     V ruki puzzled "Частота не наша, четыреста двенадцать мегагерц."
     V "Формально — помехи. Но пакет чётко повторился три раза с паузой ровно 4,2 секунды."
     R_t "Командир отхлебнул из кружки и прислушался:"
@@ -198,7 +198,7 @@ label day_1:
 
     play sfx sfx_steps_short 
     show d neutral 
-    show v profile sad left at move_on_scene(time=4.0.0, xalign=-1.0)
+    show v profile sad left at move_on_scene(time=2.0, xalign=-1.0)
     pause 1.0
 
     R_t "Быстрым шагом он вышел из кухни и скрылся в коридоре."
@@ -234,11 +234,16 @@ label day_1:
     with dissolve
     #музыка Anxious space ambient
 
+    #цг 7 начало
     R_t thinking ne_ponyal "Напротив, находиться здесь было приятно."
     R_t thinking osharashen "Вид, который открывался из нашего большого окна, был просто потрясающим."
     R_t "Мимо проносились огоньки сгорающих и снова зажигающихся звёзд, целые системы, пути."
-    R_t thinking not_sure "Возможно, созерцание этого необъятного пространства было одной из причин, почему я решился стать членом экспедиции и совершить полёт в эту холодную бесконечную пустошь."
+    R_t thinking not_sure "Возможно, созерцание этого необъятного пространства было одной из причин..." 
+    R_t thinking not_sure "...Почему я решился стать членом экспедиции и совершить полёт в эту холодную бесконечную пустошь."
     R_t suspicious "Конечно, было немного жаль, что не повезло с командой."
+    #цг 7 конец
+    
+    #цг 6 начало
     R_t thinking neutral "Я планировал попасть в заранее сработавшийся коллектив и стать в нём тихим, не привлекающим особого внимания аутсайдером."
     R_t not_sure "Но что ни день — какое-то событие, не соскучишься."
     R_t ear neutral "Я откинулся на кресле и закинул руки за голову. Всего лишь месяц."
@@ -246,8 +251,9 @@ label day_1:
     R_t "Поэтому нет разницы в персонале: главное — все они отличные специалисты, которые знают своё дело и были хорошо подготовлены."
     R_t surprised "Приключение туда-обратно не должно было доставить проблем."
     R_t thinking not_sure "Я прищурил глаза и всмотрелся в тёмную даль."
+     #цг 6 конец
 
-    #цг полёт анимация
+    #цг 12 начало
     R_t thinking neutral "Полёт внутри корабля почти не ощущался."
     R_t "Это ощущение лёгкости в теле и изредка небольшая дрожь."
     R_t thinking ne_ponyal "Она не сравнится с ощущением полёта вне гравитации."
@@ -258,12 +264,14 @@ label day_1:
     R_t "В скафандре и за пределами корабля."
     R_t ear neutral "Отчасти это можно назвать моей мечтой."
     R_t surprised "Все экспедиции, членом которых мне удалось побывать, проходили без инцидентов, потому для меня не было острой необходимости покидать корабль."
-
-    #цг чинит корабль анимация 
+    #цг 12 конец
+    
+    #цг 5 начало
     R_t thinking suspicious "По протоколу мы имеем право делать это лишь в исключительных случаях — для устранения поломки или определения неполадок."
     R_t ear sick "Более того, являясь навигатором, вряд ли мне когда-либо удастся осуществить это небольшое желание — в починке механических повреждений или устранении неполадок электроники я, увы, ничего не смыслю."
     R_t thinking not_sure "Но у меня всегда было ощущение, что рано или поздно я познаю эти ощущения."
     R_t neutral "Они были так знакомы где-то в глубине сознания, будто я уже много раз их испытывал."
+    #цг 5 конец
 
     scene bg_commander_block_transparent_default with dissolve
 
@@ -288,11 +296,11 @@ label day_1:
     R_t thinking suspicious "Но что-то не складывалось."
     R_t "Прежде чем направиться в лазарет, было необходимо осмотреть кресло."
     R_t ne_ponyal "Как я объясню характер этого недоразумения?"
-
+    R_t thinking osharashen "Увы, увиденное не обрадовало меня."
+    #цг стул с иглами
     scene commander_block_chair with dissolve
 
-    R_t thinking osharashen "Увы, увиденное не обрадовало меня."
-    R_t "Ряд мелких игл был воткнут по всему периметру кресла в хаотичном порядке."
+    R_t thinking osharashen "Ряд мелких игл был воткнут по всему периметру кресла в хаотичном порядке."
     R_t ear dissatisfied "Я пригнулся, чтобы осмотреть сиденье со всех сторон."
     R_t "Мебель была безнадёжно испорчена и совершенно небезопасна для использования."
     R_t "Помимо металлических штырей в самой обшивке, некоторое их количество лежало вокруг."
@@ -310,6 +318,8 @@ label day_1:
     #раян фото девушки
     call scene_photo_found_cut
 
+    scene bg_commander_block_transparent_default
+    with dissolve
     R_t serious very_angry "Внутри меня росла злость."
     R_t "Какого чёрта кто-то копался в моих вещах? В моей каюте?!"
     R_t "Это фото явно не лежало на самом видном месте."
@@ -320,7 +330,7 @@ label day_1:
     pause 0.5
     scene bg_coridor2_default with dissolve
 
-    R_t "Первым делом — лазарет для фиксации, а там будем решать ситуацию."
+    R_t serious angry "Первым делом — лазарет для фиксации, а там будем решать ситуацию."
 
     pause 1.5
 
@@ -337,13 +347,13 @@ label day_1:
     R_t thinking ne_ponyal "Очень сомневаюсь, что совершить это мог кто-то из них."
     R_t ear dissatisfied "Собравшись с духом, я вошёл внутрь."
 
+    stop sfx fadeout 1.0
     call scene_vhod_v_lazaret
 
-    stop sfx fadeout 1.0
     #цг вход в лазарет
     scene bg_med_block
-    show i pen ozadachen left at right
-    show s shy surprised right at left
+    show i pen ozadachen right at left
+    show s shy surprised left at right
     with dissolve
 
     #цг руки вверх
@@ -375,7 +385,7 @@ label day_1:
     R_t ne_ponyal "А ещё его не сразу получилось вынуть — поэтому стопа сильно покраснела и отекла."
     R_t "Нужно было действовать."
     R serious think "Я собираюсь доложить об этом капитану."
-    I pen neutral "На твоём месте я бы не спешила."
+    I normal neutral "На твоём месте я бы не спешила."
     I normal neutral_happy "Как и у капитана, у меня хранятся досье на всех членов экспедиции."
     R_t ear dissatisfied "Я напрягся."
     R "К чему ты клонишь?"
@@ -402,7 +412,7 @@ label day_1:
 
     R_t serious think "Я уже было развернулся обратно к двери, как Ирис схватила меня за плечо."
 
-    show i pen ozadachen at move_step(-50)
+    show i pen ozadachen at move_step(50)
 
     I "Нужно идти вдвоём. Сейчас опасно разделяться."
     R_t ear smile "Я усмехнулся."
@@ -411,7 +421,7 @@ label day_1:
     show i neutral
     S ruki neutral "Нет, всё в порядке, я пойду с вами!"
 
-    show s hurt at move_step(30)
+    show s hurt at move_step(-30)
 
     R_t ear surprised "Тихонько ругаясь, она встала на ноги. Одной ногой опиралась на носок, чтобы не тревожить рану."
     R_t "Идти можно, но медленно."
@@ -500,7 +510,7 @@ label day_1:
 
     R_t thinking osharashen "Мы услышали шум падающих вещей."
     R_t neutral "Скрываться дальше смысла не было. Я включил свет."
-
+    play sfx sfx_click2
     scene bg_room_viktor_default
     show i profile osharashen left at right
     show s shy surprised right at left
@@ -545,6 +555,8 @@ label day_1:
     R ear dissatisfied "Мы должны поспешить."
 
     play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    scene bg_black with dissolve
+    pause 0.5
     scene bg_coridor3_default
     show i profile neutral right at Transform(xalign=0.4, yalign=1.0)
     show s profile sad right at Transform(xalign=0, yalign=1.0)
@@ -610,6 +622,8 @@ label day_1:
 
     play sfx sfx_hit
 
+    show expression Solid("#000000") as overlay_light at alpha_mask_fade(0.6)
+
     R_t serious fainting "Я ударился затылком о стену, и в глазах на миг потемнело." with hpunch
     play sfx sfx_steps_fast
     scene bg_black
@@ -648,15 +662,18 @@ label day_1:
     #цг Дэвид с ножом +
     hide i
     hide s
+    scene bg_monitors_block
     call scene_david_potracheno
 
-    show i profile ahui left at Transform(xalign=0.8, yalign=1.0), fear 
+    
+    show i profile ahui left at Transform(xalign=0.7, yalign=1.0)
     show s profile cry left at Transform(xalign=1.1, yalign=1.0)
+    show d fist fainting right at Transform(xalign=0, yalign=4.0)
     with dissolve
 
     R_t "Ирис бросилась к нему:"
 
-    show i at angry
+    show i at move_step(-300), fear
 
     I "Дэв, что случилось? Он напал на тебя?"
     R serious angry "Окажи ему помощь, срочно!"
@@ -668,12 +685,13 @@ label day_1:
 
     R_t "Софи сделала пару шагов назад. Лицо её позеленело."
     I osharashen "Оцениваю ситуацию!"
-    D very_angry "Он… {w=0.4} Он сошёл… {w=0.4} C ума…"
+    D "Он… {w=0.4} Он сошёл… {w=0.4} C ума…"
     R_t angry "Я наклонился к капитану."
     R thinking not_sure "Расскажи мне, что произошло?"
     D "Он говорил о каком-то шёпоте по радио… О том, что ты всё испортил…"
 
     play sfx sfx_cough_man
+    show d at fear
 
     R_t "Дэвид начал кашлять. Изо рта потекла струйка крови."
     I "Дело плохо, у него пробито лёгкое. Он потерял уже очень много крови!"
@@ -681,6 +699,7 @@ label day_1:
     R serious very_angry "Дай ему медикаменты, чтобы он смог протянуть ещё немного! Мы должны хотя бы выяснить…"
 
     show i normal crazy with dissolve
+    show s shy surprised
     pause 1.0
 
     R_t "Ирис резко прервала меня."
@@ -695,12 +714,14 @@ label day_1:
     scene bg_monitors_block
     show i normal crazy left at Transform(xalign=0.8, yalign=1.0)
     show s shy surprised left at Transform(xalign=1.2, yalign=1.0)
+    show d fist fainting right at Transform(xalign=0, yalign=4.0)
     with dissolve
     play sfx sfx_cough_man
-
+    show d at fear
     R_t "В это время командир прокашлялся ещё сильнее, рука его отпустила нож."
 
     show i smoke tricky
+    show s profile despair
 
     R_t "Я был зол на Ирис."
     R_t "У него был шанс."
@@ -712,8 +733,7 @@ label day_1:
 
     #цг Дэвид потрачено +
     call scene_david_potracheno_2
-
-    R_t very_angry "Если бы мы не потратили время…"
+    R_t serious very_angry "Если бы мы не потратили время…"
 
     show i calm
 
@@ -721,8 +741,9 @@ label day_1:
 
     #цг время в блокноте +
     call scene_password
+    show s cry with dissolve
    
-    R_t "Забрал карточку доступа из кармана капитана, а также небольшой пистолет."
+    R_t serious think "Забрал карточку доступа из кармана капитана, а также небольшой пистолет."
     R_t "Мы вышли из комнаты видеонаблюдения. Я бросил последний взгляд на Дэвида."
     R ear neutral "Мы вернёмся, дружище…"
 
@@ -747,11 +768,11 @@ label day_1:
 
     R_t "Механик испуганно взглянула на меня и кивнула."
     R serious angry "При любой странности — поняла?"
-
+    show s profile sad
     R_t thinking suspicious "Судя по камерам, Виктор бежал в сторону отсека с главным двигателем."
     R_t "По протоколу там разрешено находиться только механику и командиру."
     R_t neutral "Поэтому ничего хорошего я не ожидал."
-
+    pause 1.0
     play sfx sfx_pisk_one
     R_t serious think "Я нажал на кнопку входа в отсек."
 
@@ -767,7 +788,7 @@ label day_1:
 
     call scene_viktor_dal_ebu
 
-    show v ruki crazy_down left at Transform(xalign=1.1, yalign=1.0) with dissolve
+    show v ruki crazy_down left at Transform(xalign=1.1, yalign=4.0) with dissolve
     show i profile osharashen right at Transform(xalign=0.1, yalign=1.0)
     show s profile despair right at Transform(xalign=-0.1, yalign=1.0) 
     with dissolve
