@@ -1,11 +1,11 @@
 label day_5_2_1_belive:
     scene bg_black with dissolve
     pause 2.0
-    scene bg_room_rayan_dark
+    $ show_space_bg("bg_room_rayan_dark")
     with dissolve
     R_t serious think "Я снова вернулся на койку."
     R_t thinking neutral "Закрыл глаза и попытался сосредоточиться."
-    scene bg_black with eye_off
+    scene bg_black with eye_off()
     pause 1.0
     R_t "Спустя некоторое время у меня получилось настроиться."
     N "Ты вернулся!"
@@ -91,10 +91,10 @@ label day_5_2_1_belive:
     stop sfx fadeout 0.5
 
     scene bg_black with dissolve
-    call scene_earthquake 
+    call scene_earthquake
     pause 0.5
-    scene bg_commander_block_transparent_red
-    call scene_earthquake 
+    $ show_space_bg("bg_commander_block_transparent_red")
+    call scene_earthquake
     with dissolve
     R_t serious think "Наконец-то дело сделано."
     R_t thinking ne_ponyal "Весь корабль трясло, но я был уверен: всё идёт так, как должно быть."

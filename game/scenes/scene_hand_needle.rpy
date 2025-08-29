@@ -41,4 +41,7 @@ label scene_hand_needle:
 
     cutscene "Я поднял руку к лицу и увидел, как кровь стекает по моей ладони."
     cutscene "В глазах потемнело."
+
+    scene bg_black
+    with dissolve
     return

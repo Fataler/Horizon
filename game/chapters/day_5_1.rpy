@@ -3,7 +3,7 @@ label day_5:
     scene bg_black
     with dissolve
     pause 2.0
-    scene bg_room_rayan_default
+    $ show_space_bg("bg_room_rayan_default")
     with dissolve
 
     R_t thinking osharashen "Я резко открыл глаза и сел на кровати."
@@ -20,7 +20,7 @@ label day_5:
     R_t "Глупо скрывать, необходимо обсудить это с экипажем."
     R_t serious think "Пусть они лучше примут меня за сумасшедшего, но мы все вместе найдём решение."
 
-    scene bg_room_rayan_default
+    $ show_space_bg("bg_room_rayan_default")
     with dissolve
 
     R_t serious think "Впопыхах набросив на себя форму, полный решимости, я направился навстречу нелёгкому разговору с командой."
@@ -84,8 +84,7 @@ label day_5:
     R_t ear hehe "А я ведь уже успел не на шутку взволноваться."
 
     stop sfx fadeout 1.0
-    scene bg_commander_block_transparent_default
-    with dissolve
+    $ show_space_bg("bg_commander_block_transparent_default")
     R_t serious think "Но… И здесь я никого не застал."
     R_t "Медленным шагом я подошёл к своему рабочему месту."
     R_t thinking suspicious "Координаты те же."
@@ -134,32 +133,29 @@ label day_5:
     R_t ear dissatisfied "Говорил, что все мы — бесполезные неразумные дети, не способные выполнять указания."
     R_t hehe "Я усмехнулся про себя."
     #цг 18 начало
-    show screen cosmos_background_screen("18")
-    with dissolve
+    $ show_scene_cosmos("18")
     cutscene "Это пробудило во мне воспоминания о моём дедушке."
     cutscene "В солидном возрасте с ним случилось то, чего мы все так боимся."
     cutscene "Разум начал ослабевать, деменция взяла своё."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 18 конец
     #цг 17 начало
-    show screen cosmos_background_screen("17")
-    with dissolve
+    $ show_scene_cosmos("17")
     cutscene "В периоды обострения своего недуга он начинал видеть в каждом человече своего врага."
     cutscene "Подозревал нас во всех смертных грехах."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 17 конец
     #цг 14 начало
-    show screen cosmos_background_screen("14")
-    with dissolve
+    $ show_scene_cosmos("14")
     cutscene "Одним из его любимых занятий было найти особенный повод для того, чтобы лишить нас того, что мы любим."
     cutscene "Трудно спорить с человеком, не контролирующим ход своих мыслей и не обладающим критическим мышлением."
     cutscene "Итак. Как мне помогла эта информация?"
     cutscene "Думаю, вряд ли в этом есть хоть какой-то смысл."
-    hide screen cosmos_background_screen
-    with dissolve
+    $ hide_scene_cosmos()
     #цг 14 конец
 
     play sfx sfx_morse fadein 0.5 fadeout 0.5 loop
+    scene bg_monitors_block with dissolve
 
     R_t thinking osharashen "Внезапно ход моих мыслей прервал писк."
     R_t "Это было пищание приборной панели видеонаблюдения."
@@ -187,7 +183,7 @@ label day_5:
     scene bg_black
     with dissolve
     pause 0.5
-    scene bg_room_rayan_dark
+    $ show_space_bg("bg_room_rayan_dark")
     with dissolve
     R_t thinking neutral "Я всё думал о том, кто же мог пытаться связаться со мной."
     R_t "Это не похоже на наше обычное общение с диспетчерской на Земле."
@@ -204,7 +200,7 @@ label day_5:
     R_t sick "Мне пришлось буквально силой разогнать все свои мысли, чтобы я мог прислушаться."
 
     scene bg_black
-    with eye_off
+    with eye_off()
     #голос
     N "Райан, приём! Ты меня слышишь?"
     N "Райан?"
@@ -254,7 +250,7 @@ label day_5:
     N "Уже два года мы наблюдаем за тобой по камерам."
     N "В твоей экспедиции не числилось никого с именем Дэвид."
 
-    scene bg_room_rayan_dark with eye_on
+    $ show_space_bg("bg_room_rayan_dark")
     play sfx sfx_heart_beat1 fadein 0.5 fadeout 0.5 loop
     
     R_t serious angry "Я резко открыл глаза. Сердце яростно застучало, словно хотело вырваться из груди."

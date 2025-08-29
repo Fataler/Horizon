@@ -4,9 +4,8 @@ label day_3:
     scene bg_black
     with dissolve
     pause 2.0
-    scene bg_room_rayan_default
-    with dissolve
-
+    $ show_space_bg("bg_room_rayan_default")
+    
     R_t serious angry "Очнуться мне пришлось в холодном поту."
     R_t ear sick "Очередной неприятный сон."
     R_t serious think "Я поднялся на локтях."
@@ -50,7 +49,7 @@ label day_3:
     cutscene "С такими ожогами не живут. Я всё ещё сплю, не иначе."
     
     show bg_black
-    with eye_off
+    with eye_off()
 
     cutscene "Я крепко зажмурил глаза, подождал пару секунд и снова взглянул на своё отражение."
     stop sfx2 fadeout 0.5
@@ -66,9 +65,8 @@ label day_3:
     cutscene "Головная боль накатывала волнами."
     cutscene "Никак не получалось собраться с мыслями."
 
-    scene bg_room_rayan_default
-    with dissolve
-
+    $ show_space_bg("bg_room_rayan_default")
+    
     R_t "Я неспешно оделся, не глядя отметил в терминале начало рабочего дня и вышел в коридор."
 
     scene bg_coridor1_default
@@ -224,8 +222,7 @@ label day_3:
     stop sfx fadeout 1.0
     scene black with dissolve
     pause 0.5
-    scene bg_commander_block_transparent_default
-    with dissolve
+    $ show_space_bg("bg_commander_block_transparent_default")
 
     R_t serious think "Я добрался до своего рабочего места."
     R_t ear sick "В глазах двоилось от головной боли."
@@ -235,12 +232,8 @@ label day_3:
     R_t serious think "Это помогло мне немного успокоиться."
     R_t thinking ne_ponyal "Я взглянул в своё огромное окно — этот вид умиротворяет."
 
-    #фон космос
-    scene bg_black_t_90
-    with dissolve
     #цг 15 начало
-    show screen cosmos_background_screen("15")
-    with dissolve
+    $ show_scene_cosmos("15")
     cutscene "Мне сразу вспомнилась моя сестра."
     cutscene "Моя любимая младшая сестрёнка."
     cutscene "Она всегда была очень болезненной. С самого детства мне приходилось ухаживать за ней."
@@ -248,11 +241,10 @@ label day_3:
     cutscene "Любой сквозняк обеспечивал ей простуду на неделю или две."
     cutscene "А сколько раз мы заболевали на пару после купания в небольшом скалистом заливе у дома — не счесть."
     cutscene "Поэтому она всегда была тревожной."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 15 конец
     #цг 19 начало
-    show screen cosmos_background_screen("19")
-    with dissolve
+    $ show_scene_cosmos("19")
     cutscene "За её лёгкой улыбкой часто скрывались боль и беспокойство."
     cutscene "Панический страх грязи, бактерий и чужих прикосновений сопровождал её жизнь с самого раннего возраста."
     cutscene "Я всегда старался быть рядом, но не в моих силах было ей помочь."
@@ -261,20 +253,18 @@ label day_3:
     cutscene "Она оставалась всё такой же добродушной, но странной девочкой."
     cutscene "В какой-то момент мы отдалились друг от друга."
     cutscene "Даже проживая под одной крышей."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 19 конец
     #цг 16 начало
-    show screen cosmos_background_screen("16")
-    with dissolve
+    $ show_scene_cosmos("16")
     cutscene "Когда мне стукнуло семнадцать, я просто сбежал."
     cutscene "Мне нужно было учиться и строить свою жизнь."
     cutscene "Во время нашей последней встречи она выглядела особенно слабой и грустной."
     cutscene "И только сейчас, находясь в бескрайнем космосе вдали от дома, я понял, что просто обязан вернуться."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 16 конец
 
-    scene bg_commander_block_transparent_default
-    with dissolve
+    $ show_space_bg("bg_commander_block_transparent_default")
 
     play sfx3 sfx_stun
     
@@ -432,7 +422,7 @@ label day_3:
     stop sfx fadeout 0.5
     scene bg_black with dissolve
     pause 0.5
-    scene bg_room_rayan_default
+    $ show_space_bg("bg_room_rayan_default")
     call scene_pulse
     show expression Solid("#000000") at alpha_mask(a=0.6)
 
@@ -442,7 +432,7 @@ label day_3:
     R_t ear sick "Я медленно прилёг на свою кровать и закрыл глаза."
 
     scene bg_black
-    with eye_off
+    with eye_off()
 
     pause 0.5
 
@@ -493,9 +483,8 @@ label day_3:
 
     S "Райан!"
 
-    scene bg_room_rayan_default
-    with dissolve
-
+    $ show_space_bg("bg_room_rayan_default")
+    
     R_t thinking suspicious "Я приоткрыл глаза."
     R_t "Боли больше не было."
 

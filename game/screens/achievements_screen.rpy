@@ -1,7 +1,3 @@
-init :
-    image check = "gui/check.png"
-    image check_bg = "gui/check_bg.png"
-
 screen achievements_screen():
     tag menu
     
@@ -86,8 +82,8 @@ screen achievements_screen():
                                             xalign 0.5
                                             yalign 0.5
                                         add "check":
-                                            xalign 1.0
-                                            yalign -0.7
+                                            xalign 0.5
+                                            yalign 0.5
 
                                 text ach.description style "achievement_description"
                             
@@ -158,7 +154,6 @@ style achievements_stats_frame:
 
 style achievements_stats_text is gui_text:
     color gui.interface_text_color
-    size 24
     xalign 0.5
     text_align 0.5
 
@@ -183,7 +178,7 @@ style achievement_name is gui_text:
 
 style achievement_description is gui_text:
     color gui.text_color
-    size 24
+    #size 24
     xalign 0.5
 
 style achievements_group_header is gui_text:
@@ -193,18 +188,18 @@ style achievements_group_header is gui_text:
 style achievement_popup_frame:
     xalign 1.0
     yalign 0.0
-    xsize 500
-    background Frame("gui/frame_achievement.png", 25, 25, 25, 25)
-    padding (30, 30)
+    xsize 800
+    background Frame("gui/frame_achievement.png", 80, 80, 80, 80)
+    padding (80, 40)
 
 style achievement_popup_title:
-    color "#55880d"
+    color "#ffffff"
     size 30
     xalign 0.5
     text_align 0.5
 
 style achievement_popup_name:
-    color gui.accent_color
+    color "#ffffff"
     size 35
 
 style achievement_popup_description:
@@ -241,14 +236,14 @@ screen achievement_popup(achievement):
         yalign 0.1
         
         vbox:
-            spacing 15
+            spacing 20
 
             hbox:
                 xfill True
                 text "Получено достижение!" style "achievement_popup_title"
                 
             hbox:
-                spacing 15
+                spacing 20
                 
                 frame:
                     style "achievement_icon_frame"
@@ -262,11 +257,12 @@ screen achievement_popup(achievement):
                         yalign 0.5
                 
                 vbox:
-                    spacing 5
+                    spacing 10
                     text achievement.name style "achievement_popup_name"
                     text achievement.description style "achievement_popup_description"
 
 transform achievement_popup_appear:
+    subpixel True
     xoffset 400
     alpha 0.0
     parallel:

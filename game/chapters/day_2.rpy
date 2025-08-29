@@ -3,8 +3,7 @@ label day_2:
     scene bg_black
     with dissolve
     pause 1.0
-    scene bg_room_rayan_dark
-    with dissolve
+    $ show_space_bg("bg_room_rayan_dark")
     pause 1.0
 
     R_t ear sick "По ощущениям я проснулся довольно рано."
@@ -341,14 +340,14 @@ label day_2:
     scene black with dissolve
     stop sfx fadeout 0.5
     pause 1.0
-    scene bg_commander_block_transparent_dark with dissolve
+    $ show_space_bg("bg_commander_block_transparent_dark")
     pause 1.0
     play sfx sfx_power_up fadeout 2.0
-    scene bg_commander_block_transparent_default
+    $ show_space_bg("bg_commander_block_transparent_default")
     pause 0.3
-    scene bg_commander_block_transparent_dark
+    $ show_space_bg("bg_commander_block_transparent_dark")
     pause 0.3
-    scene bg_commander_block_transparent_default
+    $ show_space_bg("bg_commander_block_transparent_default")
     pause 0.3
 
     R_t thinking ne_ponyal "Свет в кабине пару раз моргнул и наконец устаканился. Похоже, Софи справилась."
@@ -370,47 +369,42 @@ label day_2:
     $ renpy.music.set_volume(1.0, delay=0.5, channel="sfx")
 
     #цг 11 начало
-    show screen cosmos_background_screen("11")
-    with dissolve
+    $ show_scene_cosmos("11")
     cutscene "Большие волны, полные пены и морской соли."
     cutscene "Свежий лёгкий запах тины и мокрого песка."
     cutscene "Сделав очередной глоток разбавленного ароматного кофе, я вспомнил брата."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 11 конец
     #цг 4 начало
-    show screen cosmos_background_screen("4")
-    with dissolve
+    $ show_scene_cosmos("4")
     cutscene "Он всегда был для меня эдакой отцовской фигурой."
     cutscene "Большей частью своего воспитания я обязан ему."
     cutscene "Отец и мать часто были заняты на работе. На матери также лежали все хлопоты по дому и забота о моей болезненной младшей сестре."
     cutscene "Им было совсем не до маленького меня — я был предоставлен самому себе."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 4 конец
     #цг 3 начало
-    show screen cosmos_background_screen("3")
-    with dissolve
+    $ show_scene_cosmos("3")
     cutscene "Первая поездка на велосипеде, первая пойманная рыба, первая двойка в школе, первый морской узел…"
     cutscene "Он всегда был рядом и помогал, чем мог."
     cutscene "До определённого момента."
     cutscene "Я зажмурился и потер рукой переносицу."
     cutscene "Мне неприятно вспоминать этот этап жизни нашей семьи."
     cutscene "Но слов из песни не выкинешь."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 3 конец 
     #цг 2 начало
-    show screen cosmos_background_screen("2")
-    with dissolve
+    $ show_scene_cosmos("2")
     cutscene "Когда брату исполнилось девятнадцать, он попал под дурное влияние."
     cutscene "Так же, как и я, он нуждался в наставнике — крепком мужском плече, которое вовремя наставит на путь истинный."
     cutscene "Такой человек нашёлся, но верным этот путь назвать сложно."
     cutscene "Брат с головой ушёл в оккультизм."
     cutscene "Всё чаще мы находили у себя дома странные предметы: кости животных, клочки волос."
     cutscene "На все вопросы брат лишь раздражённо отнекивался."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 2 конец 
     #цг 1 начало
-    show screen cosmos_background_screen("1")
-    with dissolve
+    $ show_scene_cosmos("1")
     cutscene "Всё чаще он стал пропадать вне дома, и всё чаще я замечал, как он прячет руки."
     cutscene "Однажды, подглядев за ним в щель двери его комнаты, я увидел, что его тело покрыто ранами и ссадинами."
     cutscene "Он словно превратился в совсем другого человека."
@@ -421,18 +415,16 @@ label day_2:
     cutscene "Лишь спустя несколько месяцев после его исчезновения мы получили письмо."
     cutscene "Он просил нас не беспокоиться о нём: работает при общине."
     cutscene "На благо их собственной веры."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 1 конец
     #цг 10 начало
-    show screen cosmos_background_screen("10")
-    with dissolve
+    $ show_scene_cosmos("10")
     cutscene "Она захлестнула его с головой, как волны, что разбивались о берег у нашего дома и тащили всё, до чего могли дотянуться, в тёмные глубины океана."
     cutscene "Как и эти звёзды, зовущие меня окунуться и плыть в просторах космоса."
-    hide screen cosmos_background_screen
-    with dissolve
+    $ hide_scene_cosmos()
     #цг 10 конец
 
-    scene bg_commander_block_transparent_default with dissolve
+    $ show_space_bg("bg_commander_block_transparent_default")
     stop sfx fadeout 1.0
 
     R_t thinking ne_ponyal "За всеми этими размышлениями я не заметил, как в помещении стало очень жарко."
@@ -441,7 +433,7 @@ label day_2:
     R_t "Необходимо было проверить, что происходит."
 
     #анимация аварийной тревоги commander_block
-    scene bg_commander_block_red
+    $ show_space_bg("bg_commander_block_red")
     play sound sfx_alarm2 fadein 0.5 fadeout 0.5 loop
 
     R_t thinking osharashen "Только я встал со своего кресла, как включилась аварийная тревога."
@@ -450,7 +442,9 @@ label day_2:
 
     R_t "Ускорив шаг, я выбежал в коридор."
 
-    scene black with dissolve
+    $ hide_space_bg
+    scene black 
+    with dissolve
     $ renpy.music.set_volume(0.3, delay=0.5, channel="sound")
     stop sfx2 fadeout 1.0
     pause 0.5
