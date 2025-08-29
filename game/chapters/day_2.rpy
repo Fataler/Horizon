@@ -666,7 +666,7 @@ label day_2:
     pause 1.0
     show scene_talk_in_end_18
     with Dissolve(2)
-    pause 2
+    pause 2.0
 
     show screen waveform_show()
     with dissolve
@@ -677,7 +677,10 @@ label day_2:
 
     N "Опять… Ну что же ты, давай, давай… Ты же слышишь меня?.."
     hide screen waveform_show
+    scene bg_black with dissolve
     stop sfx fadeout 1.0
-
+    $ renpy.pause(0.5, hard=True)
+    $ unlock_achievement(ACHIEVEMENT_ELECTRIC)
+    $ renpy.pause(1.0, hard=True)
     with dissolve
     jump day_3

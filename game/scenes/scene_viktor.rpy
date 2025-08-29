@@ -15,6 +15,7 @@ label scene_viktor:
             with dissolve
 
             play sfx sfx_steps_two
+            $ unlock_achievement(ACHIEVEMENT_PEACEMAKER)
             show layer master at screen_step_zoom(zoom1=1.0)
             R_t serious angry "Я резко двинулся в сторону безумца."
 
@@ -23,7 +24,7 @@ label scene_viktor:
         "Выстрелить":
             hide viktor_scene
             with dissolve
-
+            $ unlock_achievement(ACHIEVEMENT_ATTACK)
             R_t serious angry "Я резко достал пистолет из кобуры."
             R_t "Пистолет Дэвида."
 
@@ -87,6 +88,7 @@ label scene_viktor:
 
     scene bg_black
     with fade
+    pause 1.0
     #возможно цг
 
     show screen waveform_show()
@@ -99,7 +101,10 @@ label scene_viktor:
     hide screen waveform_show
 
     stop sfx fadeout 1.0
+    $ unlock_achievement(ACHIEVEMENT_ELECTRIC)
+
     scene bg_black
     with dissolve
+    pause 0.5
 
     return

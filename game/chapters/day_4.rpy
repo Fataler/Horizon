@@ -436,6 +436,7 @@ label day_4:
 # Пароль 1734.
 
 # Удачно:
+#$ unlock_achievement(ACHIEVEMENT_SHERLOCK)
 # R_t Внутри пусто… и достаточно пыльно.
 # R_t Но в середине сейфа я увидел место, не покрытое пылью.
 # R_t Очень похоже, что недавно здесь что-то лежало.
@@ -454,6 +455,7 @@ label day_4:
 # R_t Софи мило смутилась.
 # S Немножко.
 # Открывается игра «сбор квадратиков».
+#$ unlock_achievement(ACHIEVEMENT_HACKER)
 
 # Выход:
 # R Ладно, поищем альтернативу.
@@ -469,7 +471,7 @@ label day_4:
 # R Надеюсь, это не пригодится.
 
     scene bg_black with dissolve
-    pause 0.5
+    pause 1.0
     scene bg_coridor2_red_smoke
     play sfx3 sfx_noise_banging fadein 0.5 fadeout 0.5 loop
     show i profile neutral left at Transform(xalign=1.15, yalign=1.0)
@@ -523,4 +525,8 @@ label day_4:
     N "Возвращаем назад… Он почти смог… Ещё раз…"
     N "Это последний шанс для него!.. Дайте мне попробовать! Пустите!.."
     stop sfx fadeout 0.5
+    scene bg_black with dissolve
+    pause 1.0
+    $ unlock_achievement(ACHIEVEMENT_DYSPNEA)
+    pause 0.5
     jump day_5

@@ -741,5 +741,8 @@ label day_3:
     stop sfx2 fadeout 1.0
     stop sfx3 fadeout 1.0
     scene bg_black with dissolve
+    pause 1.0
+    $ unlock_achievement(ACHIEVEMENT_OMLET)
+    pause 0.5
     
     jump day_4

@@ -127,4 +127,5 @@ label day_0_prologue:
 
     scene bg_black
     with fade
+    $ unlock_achievement(ACHIEVEMENT_PROLOGUE)
     jump day_1

@@ -1,6 +1,8 @@
 label day_5_2_1_belive:
     scene bg_black with dissolve
-    pause 2.0
+    pause 1.0
+    $ unlock_achievement(ACHIEVEMENT_CHANCE)
+    pause 1.0
     $ show_space_bg("bg_room_rayan_dark")
     with dissolve
     R_t beard_on serious think "Я снова вернулся на койку."
@@ -132,5 +134,7 @@ label day_5_2_1_belive:
     $ renpy.music.set_volume(1.0, delay=0.5, channel="sfx3")
     scene bg_black
     with fade
-    pause 2.0
+    pause 1.0
+    $ unlock_achievement(ACHIEVEMENT_CREW)
+    pause 1.0
     jump epilogue
