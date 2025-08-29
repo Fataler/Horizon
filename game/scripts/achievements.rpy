@@ -59,98 +59,98 @@ init python:
             "Пройти Пролог",
             "Пройти Пролог",
             False,
-            "gui/achievements/1.png"
+            "gui/achievements/prologue.png"
         ),
         ACHIEVEMENT_ATTACK: Achievement(
             ACHIEVEMENT_ATTACK,
             "Лучшая защита - нападение",
             "Выстрелить в Виктора",
             True,
-            "gui/achievements/2.png"
+            "gui/achievements/shot.png"
         ),
         ACHIEVEMENT_PEACEMAKER: Achievement(
             ACHIEVEMENT_PEACEMAKER,
             "Миротворец",
-            "Не выстрелить в Виктора",
+            "Не стрелять в Виктора",
             True,
-            "gui/achievements/3.png"
+            "gui/achievements/peacemaker.png"
         ),
         ACHIEVEMENT_ELECTRIC: Achievement(
             ACHIEVEMENT_ELECTRIC,
             "Электрический ток",
             "Умереть в 1 день",
             True,
-            "gui/achievements/4.png"
+            "gui/achievements/electricity.png"
         ),
         ACHIEVEMENT_HELL: Achievement(
             ACHIEVEMENT_HELL,
             "Я в аду?",
             "Умереть во 2 день",
             True,
-            "gui/achievements/5.png"
+            "gui/achievements/hell.png"
         ),
         ACHIEVEMENT_SHERLOCK: Achievement(
             ACHIEVEMENT_SHERLOCK,
             "Шерлок Холмс",
             "Разгадать загадку в сейфе",
             True,
-            "gui/achievements/6.png"
+            "gui/achievements/sherlock.png"
         ),
         ACHIEVEMENT_OMLET: Achievement(
             ACHIEVEMENT_OMLET,
             "Омлет был несвежим",
             "Умереть в 3 день",
             True,
-            "gui/achievements/7.png"
+            "gui/achievements/omlet.png"
         ),
         ACHIEVEMENT_HACKER: Achievement(
             ACHIEVEMENT_HACKER,
             "Хакер",
             "Взломать дверь лазарета",
             True,
-            "gui/achievements/8.png"
+            "gui/achievements/hacker.png"
         ),
         ACHIEVEMENT_DYSPNEA: Achievement(
             ACHIEVEMENT_DYSPNEA,
             "Одышка",
             "Умереть в 4 день",
             True,
-            "gui/achievements/9.png"
+            "gui/achievements/dyspnea.png"
         ),
         ACHIEVEMENT_CHANCE: Achievement(
             ACHIEVEMENT_CHANCE,
             "У меня есть шанс?",
             "Поверить голосу",
             True,
-            "gui/achievements/10.png"
+            "gui/achievements/chance.png"
         ),
         ACHIEVEMENT_CRITICAL_MIND: Achievement(
             ACHIEVEMENT_CRITICAL_MIND,
             "Критическое мышление",
             "Не поверить голосу",
             True,
-            "gui/achievements/11.png"
+            "gui/achievements/brain.png"
         ),
         ACHIEVEMENT_DREAM: Achievement(
             ACHIEVEMENT_DREAM,
             "Исполнить мечту",
             "Умереть в 5 день",
             True,
-            "gui/achievements/12.png"
+            "gui/achievements/dream.png"
         ),
         ACHIEVEMENT_CREW: Achievement(
             ACHIEVEMENT_CREW,
             "Навестить \"членов экипажа\"",
             "Вернуться домой",
             True,
-            "gui/achievements/13.png"
+            "gui/achievements/crew.png"
         ),
         ACHIEVEMENT_COMPLETE: Achievement(
             ACHIEVEMENT_COMPLETE,
             "Пройти игру",
             "",
             False,
-            "gui/achievements/Heart.png"
+            "gui/achievements/done.png"
         ),
     }
 
