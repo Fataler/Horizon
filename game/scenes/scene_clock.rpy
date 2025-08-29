@@ -161,8 +161,9 @@ init python:
 
 
 label scene_clock:
+    play sfx sfx_tik_tak2 loop
     call screen clock_screen
-
+    stop sfx
     pause
     return
 
@@ -193,6 +194,8 @@ screen clock_screen(from_time=(18, 0),
         add "clock_base"
         add "cklock_black_arrow"
 
+        add "cklock_cherkash" at soot_drift_bottom(speed=1.0, amplitude=3, x_amplitude=-1)
+        add "cklock_effect" at soot_drift_bottom(speed=0.5, amplitude=1, x_amplitude=0)
         if seq:
             add seq[step_index]
 

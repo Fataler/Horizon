@@ -113,7 +113,7 @@ label day_5:
     pause 0.5
     scene bg_coridor1_default
     with dissolve
-    R_t beard_on ear dissatisfied "Но что-то внутри подсказывало мне, что я не увижу там ничего хорошего."
+    R_t ear dissatisfied "Но что-то внутри подсказывало мне, что я не увижу там ничего хорошего."
 
     stop sfx2 fadeout 0.5   
     scene bg_black

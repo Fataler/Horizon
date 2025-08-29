@@ -671,7 +671,7 @@ label day_2:
     show screen waveform_show()
     with dissolve
     
-    "И снова этот уже знакомый голос:"
+    R_t serious fainting_blood "И снова этот уже знакомый голос:"
 
     play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0
 
