@@ -680,7 +680,7 @@ label day_1:
     
     show i profile ahui left at Transform(xalign=0.7, yalign=1.0)
     show s profile cry left at Transform(xalign=1.1, yalign=1.0)
-    show d fist fainting right at Transform(xalign=0, yalign=4.0)
+    show d fist fainting_blood right at Transform(xalign=0, yalign=4.0)
     with dissolve
     stop sfx fadeout 1.0
     R_t "Ирис бросилась к нему:"
@@ -700,7 +700,7 @@ label day_1:
     D "Он… {w=0.4} Он сошёл… {w=0.4} C ума…"
     R_t angry "Я наклонился к капитану."
     R thinking not_sure "Расскажи мне, что произошло?"
-    D "Он говорил о каком-то шёпоте по радио… О том, что ты всё испортил…"
+    D "Он говорил о каком-то шёпоте по радио… {w=0.4}О том, что ты всё испортил…"
 
     play sfx sfx_cough_man
     show d at fear
@@ -727,7 +727,7 @@ label day_1:
     scene bg_monitors_block
     show i normal crazy left at Transform(xalign=0.8, yalign=1.0)
     show s shy surprised left at Transform(xalign=1.2, yalign=1.0)
-    show d fist fainting right at Transform(xalign=0, yalign=4.0)
+    show d fist fainting_blood right at Transform(xalign=0, yalign=4.0)
     with dissolve
     play sfx sfx_cough_man
     show d at fear
@@ -741,7 +741,7 @@ label day_1:
     R_t "Но сейчас вся судьба экспедиции под угрозой."
     R_t thinking suspicious "Разбираться будем после."
     R_t osharashen "Дэв неожиданно открыл глаза."
-    D "Райан, я передаю тебе свои полномочия… Теперь ты командир этого отряда."
+    D "Райан,{w=0.4} я передаю тебе свои полномочия… {w=0.4}Теперь ты командир этого отряда."
     R ear dissatisfied "Так точно, капитан…"
 
     #цг Дэвид потрачено +
