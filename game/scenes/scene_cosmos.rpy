@@ -7,6 +7,15 @@ image cosmos_fon_2 = At("images/CG/CG_fon_cosmos/fon/potato/CG_fon_cosmos_potato
 image cosmos_fon_3 = At("images/CG/CG_fon_cosmos/fon/potato/CG_fon_cosmos_potato_0000s_0002_2.png", fade_in_out(delay=3, fade_time=3.0))
 image cosmos_fon_4 = "images/CG/CG_fon_cosmos/fon/potato/CG_fon_cosmos_potato_0000s_0003_1.png"
 
+layeredimage cosmos_fon:
+    always:
+        "cosmos_fon_4"
+    always:
+        "cosmos_fon_3"
+    always:
+        "cosmos_fon_2"
+    always:
+        "cosmos_fon_1"
 
 label show_cosmos_background(image_number, frame_count=2):
     $ show_scene_cosmos(image_name=image_number, frame_count=frame_count)
@@ -28,6 +37,11 @@ label test_cosmos:
     $ show_scene_cosmos("3")
     cutscene "tessss"
 
+    $ hide_scene_cosmos()
+    
+    show cosmos_fon with Dissolve(0.5)
+    "empty"
+
     pause
     return
 
@@ -35,10 +49,7 @@ screen cosmos_background_screen(image_name, frame_count=2):
     zorder 0
 
     fixed:
-        add "cosmos_fon_4"
-        add "cosmos_fon_3"
-        add "cosmos_fon_2"
-        add "cosmos_fon_1"
+        add "cosmos_fon"
 
         default current_frame = 1
         
