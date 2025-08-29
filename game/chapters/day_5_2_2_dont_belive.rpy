@@ -49,7 +49,7 @@ label day_5_2_2_dont_belive:
     R_t suspicious "Был один способ проверить."
     R_t serious angry"Я без сожаления прервал контакт, встал с постели и пошёл в комнату видеонаблюдения."
     
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_black with dissolve
     pause 1.0
     stop sfx fadeout 1.0

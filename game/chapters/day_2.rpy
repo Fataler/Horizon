@@ -17,12 +17,9 @@ label day_2:
     R_t serious think "Я сел на кровати и уставился на стену, с которой на меня в ответ смотрели многочисленные плакаты."
     R "Музыка, которую я слушал в прошлой жизни."
 
-    play sfx sfx_steps
+    play sfx sfx_steps_short fadeout 1.0
 
     R_t "Со стороны коридора то и дело были слышны шаги коллег, которые тоже проснулись и спешили на кухню."
-    
-    stop sfx fadeout 1.0
-
     R_t ear sick "Почему-то я не мог собраться с мыслями."
     R_t "Всю ночь мне снились странные сновидения."
     R_t surprised "Диверсия, тотемы, убийство капитана…"
@@ -58,7 +55,7 @@ label day_2:
     R_t neutral "Бывает."
 
     scene black with dissolve
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     pause 1.0
     scene bg_coridor1_dark
     show expression Solid("#000000") as overlay_light at alpha_mask_fade_inverse1(0.6)
@@ -296,7 +293,7 @@ label day_2:
     scene black with dissolve
     pause 0.5
     #show d right
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_coridor3_dark_cylinders 
     show d serious neutral right at left
     with dissolve
@@ -339,7 +336,7 @@ label day_2:
     R_t thinking ne_ponyal "Предметом их азартного спора стал единственный оставшийся тюбик со вкусом оливье."
     R_t "Ещё некоторое время я наблюдал за их игрой, затем долил себе кофе и вернулся на своё рабочее место."
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene black with dissolve
     stop sfx fadeout 0.5
     pause 1.0

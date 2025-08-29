@@ -83,7 +83,7 @@ label day_5_2_1_belive:
     R_t "Система не могла распознать, почему двигатель перешёл на дополнительные мощности."
     $ renpy.music.set_volume(0.5, delay=0.5, channel="sfx3")
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_black with dissolve
     pause 0.5
     scene bg_coridor2_red

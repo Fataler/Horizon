@@ -25,7 +25,7 @@ label day_5:
 
     R_t serious think "Впопыхах набросив на себя форму, полный решимости, я направился навстречу нелёгкому разговору с командой."
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_black
     with dissolve
     pause 0.5
@@ -48,7 +48,7 @@ label day_5:
     R_t ear surprised "Неужели я проспал завтрак, и все уже разошлись?"
     R_t "Почему не разбудили меня?"
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_coridor2_default
     with dissolve
     pause 1.0
@@ -73,7 +73,7 @@ label day_5:
 
     stop sfx3 fadeout 1.0
     scene bg_coridor1_default
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     with dissolve
     R_t ear dissatisfied "Члены экипажа словно сквозь землю провалились."
     R_t thinking osharashen "Точно! Дэвид наверняка созвал собрание в командном центре."
@@ -102,7 +102,7 @@ label day_5:
     R_t "У меня оставался единственный план. Камеры видеонаблюдения."
 
     stop sfx fadeout 1.0
-    play sfx2 sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx2 sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_black
     with dissolve
     pause 0.5
@@ -168,7 +168,7 @@ label day_5:
     R_t ne_ponyal "Некоторое время мне пришлось потратить, чтобы расшифровать послание."
     R_t "Кто-то пытался связаться со мной."
     stop sfx fadeout 0.5
-    play sfx2 sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx2 sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_black
     with dissolve
     pause 0.5
