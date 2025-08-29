@@ -67,7 +67,7 @@ label day_2:
 
     R_t serious think "Толком не умывшись, не причёсываясь и собравшись впотьмах, я вышел в коридор."
     R_t ear sick "Если бы не фонарь, который я ношу с собой, пришлось бы двигаться, перебирая руками по стене."
-    R_t neutral "Благо, вдалеке уже был виден лёгкий свет на кухне."
+    R_t neutral "Благо, вдалеке был виден лёгкий свет на кухне."
     R_t "Значит, ребята уже собрались."
     R_t hehe "Об этом говорил и запах разогретой пищи."
 
@@ -78,7 +78,7 @@ label day_2:
     show i profile neutral right at left
     show v profile neutral left at right
     play sfx2 sfx_talk_people fadein 0.5 fadeout 0.5 loop
-    R_t neutral "За столом уже сидели Виктор и Ирис."
+    R_t neutral "За столом сидели Виктор и Ирис."
     R_t "Дэвида и Софи нигде не было видно."
     R_t "Между коллегами уже завязался разговор."
 
@@ -614,7 +614,7 @@ label day_2:
 
     show d at Transform(xalign=0.9, yalign=1.0), angry
 
-    D serious fear "Она нас всех убьёт!"
+    D serious fear "Мы не можем терять время! Иначе мы все погибнем! Забудь про неё!"
     V ruki osharashen "Что?.."
 
     show d at Transform(xalign=0.9, yalign=1.0), angry
