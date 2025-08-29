@@ -12,8 +12,7 @@ label day_1:
     R_t neutral "Впечатлило? Ни капли."
     R_t "Умывшись прохладной водой, я взглянул в своё отражение в зеркале."
 
-    scene mirror_water with dissolve
-    pause 2.0
+    call scene_mirror_water
 
     cutscene "Из него на меня уставшим взглядом смотрел обычный парень лет двадцати пяти."
     cutscene "Капли воды стекали по лицу, охлаждая кожу. Вода всегда напоминала мне о доме."
@@ -21,8 +20,9 @@ label day_1:
     scene bg_room_rayan_default
     with dissolve
     R_t "Быстро натянув костюм, я отметился в терминале и направился в кухонный модуль."
+    play sfx2 sfx_push_button
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene black with dissolve
     pause 1.0
     scene bg_dinner_block
@@ -37,21 +37,21 @@ label day_1:
     R_t "На удивление, в помещении было шумно."
     R_t "Команда что-то активно обсуждала."
 
-    stop sfx2 fadeout 0.5
-
+    play sfx sfx_steps_two
     R_t "Я подошёл ближе."
     R_t "В воздухе чувствовалось волнение."
     R_t thinking ne_ponyal "Кажется, наконец у нас выйдет получить указания от командного центра и более точные координаты базы, к которой мы движемся."
     R_t "Экипаж склонился над столом, в центре которого был расположен планшет."
     R_t "Радист сидел перед ним, руками цепко обхватив кружку с дегидратированным куриным супом."
     R_t "Виктор выглядел очень довольным."
+    stop sfx2 fadeout 2.0
 
     show v profile tricky
 
     R_t "Благосклонно осмотрев присутствующих, он сказал:"
     V pockets happy "Коллеги, я всё-таки смог считать пакет. Но, чёрт побери, это звучит… странно."
 
-    play sfx sfx_cup_on_table
+    play sfx sfx_pisk
 
     show v profile smile
 
@@ -74,10 +74,14 @@ label day_1:
     pause 0.5
     V ruki puzzled "Частота не наша, четыреста двенадцать мегагерц."
     V "Формально — помехи. Но пакет чётко повторился три раза с паузой ровно 4,2 секунды."
-    R_t "Командир отхлебнул из кружки и прислушался:"
+    play sfx sfx_slurp
+    show d calm
+
+    R_t calm "Командир отхлебнул из кружки и прислушался:"
 
     show i smoke calm
-    D calm "Может, отражение от ионосферы? Заметь, мы в апогее — угол наклона достаточно большой."
+
+    D serious neutral "Может, отражение от ионосферы? Заметь, мы в апогее — угол наклона достаточно большой."
 
     show v pockets happy
     show d neutral
@@ -209,7 +213,7 @@ label day_1:
 
     R_t thinking neutral "Необходимо было приниматься за работу."
 
-    show d left at move_on_scene(xalign=-1.0)
+    show d left at move_on_scene(time=3.0, xalign=-1.0)
     play sfx sfx_steps_short
 
     R_t ear neutral "Члены экипажа не спеша разбрелись по своим точкам."
@@ -321,7 +325,7 @@ label day_1:
     R_t osharashen "Ком встал в горле."
     R_t "Сказать честно, я никогда не был из пугливых, но данная ситуация выходила за рамки рядовых приключений космонавта."
     R_t ear dissatisfied "Я аккуратно раздвинул края рваной ткани и, зацепив двумя пальцами, вытащил то, что находилось под обшивкой."
-    R_t surprised "Это был предмет, который, пожалуй, я ожидал там обнаружить меньше всего."
+    R_t thinking osharashen "Это был предмет, который, пожалуй, я ожидал там обнаружить меньше всего."
 
     #раян фото девушки
     call scene_photo_found_cut
@@ -333,7 +337,7 @@ label day_1:
     R_t "Это фото явно не лежало на самом видном месте."
     R_t angry "С камнем на сердце, раной на руке и тихой яростью я вышел из навигационной рубки."
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene black with dissolve
     pause 0.5
     scene bg_coridor2_default with dissolve
@@ -453,7 +457,7 @@ label day_1:
 
     scene black with dissolve
     pause 0.5
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_coridor2_default 
     show i profile neutral left at Transform(xalign=0.6, yalign=1.0)
     show s profile neutral left at Transform(xalign=1.0, yalign=1.0)
@@ -562,7 +566,7 @@ label day_1:
     I profile oooops "Я не вижу его."
     R ear dissatisfied "Мы должны поспешить."
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_black with dissolve
     pause 0.5
     scene bg_coridor3_default
@@ -761,7 +765,7 @@ label day_1:
     show i smoke calm right at Transform(xalign=-0.1, yalign=1.0)
     show s profile despair right at Transform(xalign=0.4, yalign=1.0)
     with dissolve
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
 
     R_t serious think "Следующие несколько минут мы провели в тишине."
     R_t "Слышны были лишь наши шаги: я шёл уверенно и быстро, Ирис кралась сзади, Софи старалась спешить, но хромала."

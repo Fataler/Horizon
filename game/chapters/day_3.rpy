@@ -212,7 +212,7 @@ label day_3:
     pause 0.5
     scene bg_coridor1_default
     with dissolve
-    play sfx sfx_steps fadein 0.5 fadeout 1.0 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 1.0 loop
 
     R_t serious think "День начинался как обычно."
     R_t "Можно даже сказать, что неплохо."
@@ -507,7 +507,7 @@ label day_3:
     R "Что с ней?"
     S ruki ozadachen "Нам нужно поспешить!"
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_coridor1_default
     show s profile sad 
     with dissolve

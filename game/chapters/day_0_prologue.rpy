@@ -11,7 +11,7 @@ label day_0_prologue:
     with dissolve
 
     R_t serious think "При всей педантичности нашего механика, видать, ей недостаёт знаний или опыта для починки этого недоразумения."
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
 
     R_t ear neutral "Пора возвращаться в общий зал."
 
@@ -82,9 +82,13 @@ label day_0_prologue:
     D confused "Это относится ко всем тем, кто по какой-то причине не уверен в коллегах."
     D serious neutral "На этом всё, ужин окончен. Всем спокойного сна."
 
-    show d serious neutral at move_on_scene(time=3.0, xalign=-1.7)
-    play sfx sfx_kitchen_table fadein 0.5 fadeout 1.0
+    show d serious neutral at move_on_scene(time=4.0, xalign=-1.7)
     play sfx2 sfx_steps_short
+    play sfx sfx_kitchen_table fadein 0.5 fadeout 1.0
+    pause 2.0
+    show i profile neutral left at move_on_scene(time=3.0, xalign=-1.7)
+    pause 1.5
+    show v profile neutral left at move_on_scene(time=3.0, xalign=-1.7)
 
     R_t "Экипаж неспешно прибрал за собой столы и начал расходиться по своим каютам."
 
@@ -92,7 +96,7 @@ label day_0_prologue:
     stop sfx2 fadeout 0.5
     stop sfx fadeout 1.0
     pause 0.5
-    play sfx2 sfx_steps fadein 0.5 fadeout 1.0 loop
+    play sfx2 sfx_steps_coridor fadein 0.5 fadeout 1.0 loop
     scene bg_coridor1_default
     with dissolve
 

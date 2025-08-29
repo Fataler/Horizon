@@ -35,7 +35,7 @@ label day_4:
 
     scene bg_coridor1_default
     with dissolve
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
 
     R_t "Быстро накинув форму, я выдвинулся в сторону кухни. Нужно быть начеку и понять, что происходит."
     
@@ -77,7 +77,7 @@ label day_4:
 
     S "О, Райан! Доброе утро!"
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     stop sfx2 fadeout 0.5
     scene bg_coridor1_default
     with dissolve
@@ -94,7 +94,7 @@ label day_4:
     play sfx sfx_hit
     R_t thinking suspicious "Я вскрыл люк и принюхался — никаких следов спирта."
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_black with dissolve
     pause 0.5
     scene bg_coridor2_default
@@ -147,7 +147,7 @@ label day_4:
     I "Эх… ну что с тобой поделать, пойдём."
     R_t surprised "Я шумно выдохнул. Кажется, пронесло. Дождавшись, пока шаги стихнут, я выскользнул из кабинета."
     
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_black with dissolve
     pause 0.5
     scene bg_coridor1_default
