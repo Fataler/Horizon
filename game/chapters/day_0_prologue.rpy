@@ -105,8 +105,7 @@ label day_0_prologue:
     R_t ne_ponyal "Чем я и собрался сейчас заняться."
 
     stop sfx2 fadeout 1.0
-    scene bg_room_rayan_default
-    with dissolve
+    $ show_space_bg("bg_room_rayan_default")
     #музыка Anxious space ambient
 
     R_t ear neutral "Наш корабль был неплохо оборудован."

@@ -48,3 +48,84 @@ init python:
     #eye_off = ImageDissolve("gui/masks/eye_mask.png", 0.3, 10, reverse=True)
     def eye_off(duration=0.3):
         return ImageDissolve("gui/masks/eye_mask.png", duration, 10, reverse=True)
+
+# glitch text
+# button:
+#     xalign 0.5
+#     xsize 750
+#     ysize 50
+#     background None
+#     action NullAction()
+#     idle_child Text("Секретное достижение", style="achievement_description")
+#     hover_child DynamicDisplayable(glitch_text_func, "Секретное достижение")
+init :
+    image check = "gui/check.png"
+    image check_bg = "gui/check_bg.png"
+
+    python:
+        import random
+
+        def glitch_text_func(st, at, original_text="Секретное достижение"):
+            chars = "АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЫЭЮЯабвгдежзиклмнопрстуфхцчшщыэюя0123456789"
+            noise = "█▓▒░◣◢◥◤▌▐┇┋╳/\\|#@*~"
+
+            burst = (int(st * 12) % 16) < 3 or random.random() < 0.06
+
+            if burst:
+                p_replace = 0.55
+                p_drop = 0.10
+                p_dup = 0.08
+                p_upper = 0.15
+                jitter = 2
+                alpha_shift = 0.55
+                frame_time = 0.08
+            else:
+                p_replace = 0.12
+                p_drop = 0.02
+                p_dup = 0.03
+                p_upper = 0.05
+                jitter = 1
+                alpha_shift = 0.35
+                frame_time = 0.16
+
+            out = []
+            for ch in original_text:
+                if ch == " ":
+                    out.append(ch)
+                    continue
+
+                r = random.random()
+                if r < p_drop:
+                    continue
+                elif r < p_drop + p_dup:
+                    out.append(ch)
+                    out.append(ch)
+                    continue
+                elif r < p_drop + p_dup + p_replace:
+                    out.append(random.choice(chars + noise))
+                else:
+                    if random.random() < p_upper:
+                        out.append(ch.upper())
+                    else:
+                        out.append(ch)
+
+            glitched = "".join(out)
+
+            base = Text(glitched, style="achievement_description")
+            red = Text(glitched, style="achievement_description", color="#ff3b3b")
+            cyan = Text(glitched, style="achievement_description", color="#3bf7ff")
+
+            dx1 = random.randint(-jitter, jitter)
+            dy1 = random.randint(-jitter, jitter)
+            dx2 = random.randint(-jitter, jitter)
+            dy2 = random.randint(-jitter, jitter)
+
+            red_t = renpy.display.transform.Transform(red, xoffset=dx1, yoffset=dy1, alpha=alpha_shift)
+            cyan_t = renpy.display.transform.Transform(cyan, xoffset=dx2, yoffset=dy2, alpha=alpha_shift)
+            base_t = renpy.display.transform.Transform(base)
+
+            container = renpy.display.layout.Fixed()
+            container.add(red_t)
+            container.add(cyan_t)
+            container.add(base_t)
+            return container, frame_time

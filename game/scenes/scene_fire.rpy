@@ -38,7 +38,7 @@ transform scene_fire_burn_wave:
             linear 0.22 xoffset 0
             repeat
 
-transform soot_drift_bottom(speed=0.60, zoom=1.0, amplitude=6, x_amplitude=0):
+transform soot_drift_bottom(speed=0.60, zoom=1.0, amplitude=6, x_amplitude=0, blink = True):
     subpixel True
     zoom zoom
     parallel:
@@ -56,10 +56,10 @@ transform soot_drift_bottom(speed=0.60, zoom=1.0, amplitude=6, x_amplitude=0):
             repeat
     parallel:
         block:
-            linear 0.40 alpha 0.90
-            linear 0.60 alpha 1.00
-            linear 0.30 alpha 0.95
-            linear 0.40 alpha 1.00
+            linear 0.40 alpha (0.90 if blink else 1.00)
+            linear 0.60 alpha (1.00 if blink else 1.00)
+            linear 0.30 alpha (0.95 if blink else 1.00)
+            linear 0.40 alpha (1.00 if blink else 1.00)
             repeat
 
 transform soot_drift_top:

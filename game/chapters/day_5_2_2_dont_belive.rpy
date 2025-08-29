@@ -1,7 +1,7 @@
 label day_5_2_2_dont_belive:
     scene bg_black with dissolve
     pause 2.0
-    scene bg_room_rayan_dark
+    $ show_space_bg("bg_room_rayan_dark")
     with dissolve
     R_t serious think "Я снова вернулся на койку."
     R_t thinking neutral "Закрыл глаза и попытался сосредоточиться."
@@ -70,7 +70,7 @@ label day_5_2_2_dont_belive:
     scene bg_black
     with dissolve
     pause 1.0
-    scene bg_commander_block_transparent_default
+    $ show_space_bg("bg_commander_block_transparent_default")
     with dissolve
     pause 1.0
     R_t thinking suspicious "Впереди был лишь бесконечный космос."
@@ -103,7 +103,7 @@ label day_5_2_2_dont_belive:
     cutscene "Они все остались на Земле."
     cutscene "У моей смерти было много лиц, но все они — мои."
     pause 1.0
-    scene bg_commander_block_transparent_default
+    $ show_space_bg("bg_commander_block_transparent_default")
     with dissolve
     R_t crazy nemnogo "…"
     pause 1.0
