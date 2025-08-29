@@ -1,8 +1,13 @@
 label day_5:
     # День 5 — перебивка
+    pause 1.0
     scene bg_black
     with dissolve
-    pause 2.0
+    play sfx sfx_crunch_whoosh
+    call test_clock("22:31:00")
+    scene bg_black
+    with dissolve
+    pause 1.0
     $ show_space_bg("bg_room_rayan_default")
     with dissolve
 

@@ -1,5 +1,10 @@
 label day_2:
     # "День 2"
+    pause 1.0
+    scene bg_black
+    with dissolve
+    play sfx sfx_crunch_whoosh
+    call test_clock
     scene bg_black
     with dissolve
     pause 1.0

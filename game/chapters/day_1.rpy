@@ -1,5 +1,7 @@
 label day_1:
     #День 1—перебивка
+    play sfx sfx_crunch_whoosh
+    call test_clock
     scene bg_black
     with dissolve
     pause 1.0
@@ -326,6 +328,7 @@ label day_1:
     #раян фото девушки
     call scene_photo_found_cut
 
+    scene bg_commander_block_transparent_default
     $ show_space_bg("bg_commander_block_transparent_default")
 
     R_t serious very_angry "Внутри меня росла злость."

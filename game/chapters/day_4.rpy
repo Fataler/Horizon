@@ -1,8 +1,12 @@
 label day_4:
+    pause 1.0
     scene bg_black
     with dissolve
-    pause 2.0
-
+    play sfx sfx_crunch_whoosh
+    call test_clock("20:59:00")
+    scene bg_black
+    with dissolve
+    pause 1.0
     show cosmos_fon with dissolve
     #play sfx2 music_space_ambient fadein 1.0 fadeout 1.0 loop
     pause 1.0

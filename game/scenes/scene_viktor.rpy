@@ -14,6 +14,7 @@ label scene_viktor:
             hide viktor_scene
             with dissolve
 
+            play sfx sfx_steps_two
             show layer master at screen_step_zoom(zoom1=1.0)
             R_t serious angry "Я резко двинулся в сторону безумца."
 
@@ -36,19 +37,16 @@ label scene_viktor:
             pause 0.5
 
             R_t "Виктор лишь рассмеялся и продолжил бормотать какие-то несвязные вещи."
-            
+            play sfx sfx_steps_one
             show layer master at screen_step_zoom(zoom1=1.0)
-            play sfx sfx_steps_two
 
             R_t very_angry "Я начал медленно приближаться к нему." 
-
+            play sfx sfx_steps_one
             show layer master at screen_step_zoom(zoom1=1.025)
-            play sfx sfx_steps_two
 
             R_t "Шаг за шагом."
-
+            play sfx sfx_steps_one
             show layer master at screen_step_zoom(zoom1=1.05)
-            play sfx sfx_steps_two
 
             R_t angry "Он не проявлял агрессии. Уже на подходе я выдохнул и ослабил внимание."
 
@@ -101,5 +99,7 @@ label scene_viktor:
     hide screen waveform_show
 
     stop sfx fadeout 1.0
+    scene bg_black
+    with dissolve
 
     return

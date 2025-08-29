@@ -1,9 +1,13 @@
 label day_3:
     #"День 3"
-
+    pause 1.0
     scene bg_black
     with dissolve
-    pause 2.0
+    play sfx sfx_crunch_whoosh
+    call test_clock
+    scene bg_black
+    with dissolve
+    pause 1.0
     $ show_space_bg("bg_room_rayan_default")
     
     R_t serious angry "Очнуться мне пришлось в холодном поту."
