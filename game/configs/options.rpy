@@ -98,13 +98,8 @@ define config.main_menu_music = None #music_main_theme
 
 define config.enter_transition = Dissolve(0.5)
 define config.exit_transition = Dissolve(0.5)
-define config.intra_transition = Dissolve(0.5)
-
-
-
 ## Переход между экранами игрового меню.
-
-define config.intra_transition = dissolve
+define config.intra_transition = Dissolve(0.5)
 
 
 ## Переход, используемый после загрузки слота сохранения.

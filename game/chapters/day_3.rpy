@@ -1,12 +1,15 @@
 label day_3:
     #"День 3"
-
+    pause 1.0
     scene bg_black
     with dissolve
-    pause 2.0
-    scene bg_room_rayan_default
+    play sfx sfx_crunch_whoosh
+    call test_clock
+    scene bg_black
     with dissolve
-
+    pause 1.0
+    $ show_space_bg("bg_room_rayan_default")
+    
     R_t serious angry "Очнуться мне пришлось в холодном поту."
     R_t ear sick "Очередной неприятный сон."
     R_t serious think "Я поднялся на локтях."
@@ -15,7 +18,7 @@ label day_3:
     R_t "В каюте было настолько жарко, что сложно дышать, хотя поверхности предметов оставались прохладными."
     R_t dissatisfied "Может быть, это побочные эффекты от быстрого пробуждения?"
     R_t "Очень реалистичное сновидение оставило свой след."
-    R_t thinking calm "Неприятно, но ничего особенного — такое мы тоже уже проходили."
+    R_t thinking neutral "Неприятно, но ничего особенного — такое мы тоже уже проходили."
     R_t ne_ponyal "Судя по всему, я немного проспал: нужно спешить."
 
     show layer master at screen_step
@@ -33,6 +36,7 @@ label day_3:
     #цг зеркало с ожогами
     show scene_mirror_red
     show scene_mirror_cherk
+    play sfx3 sfx_drama
     play sfx2 sfx_burning_fire fadein 0.5 fadeout 0.5 loop
     with dissolve
     
@@ -54,6 +58,7 @@ label day_3:
 
     cutscene "Я крепко зажмурил глаза, подождал пару секунд и снова взглянул на своё отражение."
     stop sfx2 fadeout 0.5
+    stop sfx3 fadeout 0.5
 
     call scene_mirror
     with eye_on
@@ -66,10 +71,9 @@ label day_3:
     cutscene "Головная боль накатывала волнами."
     cutscene "Никак не получалось собраться с мыслями."
 
-    scene bg_room_rayan_default
-    with dissolve
-
+    $ show_space_bg("bg_room_rayan_default")
     R_t "Я неспешно оделся, не глядя отметил в терминале начало рабочего дня и вышел в коридор."
+    play sfx2 sfx_push_button
 
     scene bg_coridor1_default
     with dissolve
@@ -114,6 +118,7 @@ label day_3:
 
     show s ruki ozadachen at move_step(30)
 
+    play sfx sfx_steps_two
     R_t serious think "Софи помогла мне присесть за стол."
 
     show s ruki neutral right
@@ -140,15 +145,19 @@ label day_3:
     show d smile
 
     R_t "Софи радостно похлопала в ладоши, даже Дэвид усмехнулся."
+    play sfx sfx_kitchen fadein 0.5 fadeout 1.0 loop
+
     V pockets happy "Приятного аппетита, ребята."
 
-    play sfx sfx_kitchen fadein 0.5 fadeout 1.0 loop
 
     V ruki tricky "И, кстати, тоже готов порадовать вас новостями."
     V cunning "Я ухватил сигнал за хвост. Как доедим — сразу расшифровывать!"
 
     show d fist happy
 
+    play sfx2 sfx_pat
+    pause 0.2
+    play sfx2 sfx_pat
     R_t "Дэв одобрительно похлопал Виктора по спине."
     D "Действительно добрые новости."
 
@@ -212,7 +221,7 @@ label day_3:
     pause 0.5
     scene bg_coridor1_default
     with dissolve
-    play sfx sfx_steps fadein 0.5 fadeout 1.0 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 1.0 loop
 
     R_t serious think "День начинался как обычно."
     R_t "Можно даже сказать, что неплохо."
@@ -224,8 +233,7 @@ label day_3:
     stop sfx fadeout 1.0
     scene black with dissolve
     pause 0.5
-    scene bg_commander_block_transparent_default
-    with dissolve
+    $ show_space_bg("bg_commander_block_transparent_default")
 
     R_t serious think "Я добрался до своего рабочего места."
     R_t ear sick "В глазах двоилось от головной боли."
@@ -235,12 +243,8 @@ label day_3:
     R_t serious think "Это помогло мне немного успокоиться."
     R_t thinking ne_ponyal "Я взглянул в своё огромное окно — этот вид умиротворяет."
 
-    #фон космос
-    scene bg_black_t_90
-    with dissolve
     #цг 15 начало
-    show screen cosmos_background_screen("15")
-    with dissolve
+    $ show_scene_cosmos("15")
     cutscene "Мне сразу вспомнилась моя сестра."
     cutscene "Моя любимая младшая сестрёнка."
     cutscene "Она всегда была очень болезненной. С самого детства мне приходилось ухаживать за ней."
@@ -248,11 +252,10 @@ label day_3:
     cutscene "Любой сквозняк обеспечивал ей простуду на неделю или две."
     cutscene "А сколько раз мы заболевали на пару после купания в небольшом скалистом заливе у дома — не счесть."
     cutscene "Поэтому она всегда была тревожной."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 15 конец
     #цг 19 начало
-    show screen cosmos_background_screen("19")
-    with dissolve
+    $ show_scene_cosmos("19")
     cutscene "За её лёгкой улыбкой часто скрывались боль и беспокойство."
     cutscene "Панический страх грязи, бактерий и чужих прикосновений сопровождал её жизнь с самого раннего возраста."
     cutscene "Я всегда старался быть рядом, но не в моих силах было ей помочь."
@@ -261,20 +264,18 @@ label day_3:
     cutscene "Она оставалась всё такой же добродушной, но странной девочкой."
     cutscene "В какой-то момент мы отдалились друг от друга."
     cutscene "Даже проживая под одной крышей."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 19 конец
     #цг 16 начало
-    show screen cosmos_background_screen("16")
-    with dissolve
+    $ show_scene_cosmos("16")
     cutscene "Когда мне стукнуло семнадцать, я просто сбежал."
     cutscene "Мне нужно было учиться и строить свою жизнь."
     cutscene "Во время нашей последней встречи она выглядела особенно слабой и грустной."
     cutscene "И только сейчас, находясь в бескрайнем космосе вдали от дома, я понял, что просто обязан вернуться."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 16 конец
 
-    scene bg_commander_block_transparent_default
-    with dissolve
+    $ show_space_bg("bg_commander_block_transparent_default")
 
     play sfx3 sfx_stun
     
@@ -325,7 +326,6 @@ label day_3:
     R_t "Дэвид посмотрел на меня с сомнением, но останавливать не стал."
     R_t "Мне предстояло преодолеть несколько коридоров."
 
-    stop sfx2 fadeout 1.5
     play sfx3 sfx_steps_slow loop
     scene black with dissolve
     pause 0.5
@@ -362,7 +362,7 @@ label day_3:
     R_t "Врач обернулась на мой зов."
     I "Райан, всё в порядке?!"
 
-    stop sfx fadeout 0.5
+    stop sfx2 fadeout 1.5
 
     R_t ear sick "Я с трудом присел на койку. Боль немного утихла."
     R "Мне кажется… Ты знаешь, такое чувство, как будто…"
@@ -389,7 +389,7 @@ label day_3:
     I ridicule "Питание сегодня уже налажено благодаря мне."
     R ear dissatisfied "Дай мне обезболивающее."
 
-    play sfx sfx_hit
+    play sfx2 sfx_heat_metal
     show i profile oooops with dissolve
 
     R_t "Ирис машинально прикрыла ладонью дверцу шкафчика и начала отмахиваться от моей просьбы."
@@ -400,7 +400,7 @@ label day_3:
 
     R serious very_angry "Сейчас же!.." with hpunch
 
-    play sfx sfx_laugh_female3
+    play sfx2 sfx_laugh_female3
     show i crazy with dissolve
 
     R_t "Ирис презрительно фыркнула."
@@ -408,7 +408,7 @@ label day_3:
 
     show i at fear
 
-    play sfx sfx_heat_metal
+    play sfx2 sfx_heat_metal
     R_t "Она, не глядя, вынула из шкафа блистер и кинула мне."
     R_t serious very_angry "Я взглянул на неё волком и понял, что здесь помощи искать не стоит."
 
@@ -419,7 +419,7 @@ label day_3:
     R_t ear dissatisfied "Но у меня не было сил ей перечить."
     R_t "Я должен добраться до своей каюты."
 
-    play sfx sfx_steps_slow fadein 0.5 fadeout 0.5 loop
+    play sfx2 sfx_steps_slow fadein 0.5 fadeout 0.5 loop
     scene bg_black with dissolve
     pause 0.5
     scene bg_coridor1_default
@@ -429,20 +429,21 @@ label day_3:
     R_t ear dissatisfied "Крепко сжимая драгоценный блистер в кулаке так, что края металлической оболочки врезались в руку, я брёл по коридору."
     R_t "Я сделаю то, что всегда помогало мне."
 
-    stop sfx fadeout 0.5
+    stop sfx2 fadeout 0.5
     scene bg_black with dissolve
     pause 0.5
-    scene bg_room_rayan_default
+    $ show_space_bg("bg_room_rayan_dark")
+
     call scene_pulse
-    show expression Solid("#000000") at alpha_mask(a=0.6)
 
     R_t ear dissatisfied "Уже в своей комнате я решил принять лекарство."
     R_t "Набрав воды в стакан прямо из умывальника, я прочитал название на упаковке."
     R_t serious angry "Витамины… Чёртова упёртая психопатка."    
     R_t ear sick "Я медленно прилёг на свою кровать и закрыл глаза."
 
+    stop sfx fadeout 0.5
     scene bg_black
-    with eye_off
+    with eye_off()
 
     pause 0.5
 
@@ -457,6 +458,7 @@ label day_3:
 
     #голос девушки
     R_t "Но вместо этого услышал голос."
+    play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
 
     show scene_talk_in_end_17
     show screen waveform_show()
@@ -476,6 +478,7 @@ label day_3:
     R_t "Незнакомка звучала растерянно, но настойчиво."
     R_t "Голос был подозрительно знакомым…"
     R_t "Но я не смог разобрать личность говорящей."
+    stop sfx fadeout 1.0
     hide screen waveform_show
     show scene_talk_in_end_19
     with dissolve
@@ -493,9 +496,8 @@ label day_3:
 
     S "Райан!"
 
-    scene bg_room_rayan_default
-    with dissolve
-
+    $ show_space_bg("bg_room_rayan_default")
+    
     R_t thinking suspicious "Я приоткрыл глаза."
     R_t "Боли больше не было."
 
@@ -507,7 +509,7 @@ label day_3:
     R "Что с ней?"
     S ruki ozadachen "Нам нужно поспешить!"
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_coridor1_default
     show s profile sad 
     with dissolve
@@ -537,20 +539,14 @@ label day_3:
 
     R_t serious think "В лазарете уже находились все оставшиеся члены экипажа."
     R_t "Я не сразу смог разглядеть, но Ирис лежала на полу у кровати."
-    #, Дэвид стоял над ней.
-    R_t "Рука врача была прикована наручником к ножке кровати."
 
+    play sfx sfx_heat_metal
     show i angry at angry
-
     R_t thinking osharashen "Увидев меня, девушка начала биться на полу, как рыба, пытаясь высвободить руку."
     R_t "На коже уже начали появляться тёмно-красные и фиолетовые следы синяков."
-
     show d at fear
-
     D fist angry "Что ты делаешь?! Прекрати это сейчас же!"
-
     show i normal angry at angry
-
     I "Ненавижу…"
     R_t serious think "Виктор сидел, скорчившись, на койке."
     R_t "Лицо его приобрело болезненный вид."
@@ -571,6 +567,7 @@ label day_3:
     S shy surprised "Запас на полгода… пуст?"
 
     show s profile despair right at move_on_scene(time=1.0, xalign=-0.05)
+    play sfx sfx_steps_fast_two
     R_t "Софи метнулась к шкафам."
 
     show s shy nedovolen at step_up, fear
@@ -593,6 +590,7 @@ label day_3:
     V suspects "Пробовали дату её рождения, дату начала экспедиции…"
     D serious calm "Никто не знает, что у неё на уме. И найдём ли мы хоть что-то внутри."
     R not_sure "Может быть, нам стоит посмотреть в её журнале?"
+    play sfx sfx_steps_two
     R_t serious think "Я подошёл к столу."
 
     show i at angry
@@ -613,6 +611,7 @@ label day_3:
     with dissolve
     pause 1.0
     R_t "В полном молчании члены экипажа читали записи, заглядывая через моё плечо."
+    play sfx sfx_drama_boom
     call scene_dnevnik
     cutscene "Никто не ожидал такого от Ирис…"
 
@@ -742,5 +741,8 @@ label day_3:
     stop sfx2 fadeout 1.0
     stop sfx3 fadeout 1.0
     scene bg_black with dissolve
+    pause 1.0
+    $ unlock_achievement(ACHIEVEMENT_OMLET)
+    pause 0.5
     
     jump day_4

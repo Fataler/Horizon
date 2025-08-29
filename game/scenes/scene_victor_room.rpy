@@ -1,4 +1,4 @@
-image scene_victor_room_1 = "CG/CG_Victor_room/cg_Room Viktor1.jpg"
+image scene_victor_room_1 = "CG/CG_Victor_room/cg_Room Viktor1.png"
 image scene_victor_room_2 = "CG/CG_Victor_room/cg_Room Viktor2.jpg"
 image scene_victor_room_3 = "CG/CG_Victor_room/cg_Room Viktor3.jpg"
 

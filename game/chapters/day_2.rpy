@@ -1,10 +1,14 @@
 label day_2:
     # "День 2"
+    pause 1.0
+    scene bg_black
+    with dissolve
+    play sfx sfx_crunch_whoosh
+    call test_clock
     scene bg_black
     with dissolve
     pause 1.0
-    scene bg_room_rayan_dark
-    with dissolve
+    $ show_space_bg("bg_room_rayan_dark")
     pause 1.0
 
     R_t ear sick "По ощущениям я проснулся довольно рано."
@@ -18,12 +22,9 @@ label day_2:
     R_t serious think "Я сел на кровати и уставился на стену, с которой на меня в ответ смотрели многочисленные плакаты."
     R "Музыка, которую я слушал в прошлой жизни."
 
-    play sfx sfx_steps
+    play sfx sfx_steps_short fadeout 2.0
 
     R_t "Со стороны коридора то и дело были слышны шаги коллег, которые тоже проснулись и спешили на кухню."
-    
-    stop sfx fadeout 1.0
-
     R_t ear sick "Почему-то я не мог собраться с мыслями."
     R_t "Всю ночь мне снились странные сновидения."
     R_t surprised "Диверсия, тотемы, убийство капитана…"
@@ -59,7 +60,7 @@ label day_2:
     R_t neutral "Бывает."
 
     scene black with dissolve
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     pause 1.0
     scene bg_coridor1_dark
     show expression Solid("#000000") as overlay_light at alpha_mask_fade_inverse1(0.6)
@@ -76,7 +77,7 @@ label day_2:
     scene bg_dinner_block_dark with dissolve
     show i profile neutral right at left
     show v profile neutral left at right
-
+    play sfx2 sfx_talk_people fadein 0.5 fadeout 0.5 loop
     R_t neutral "За столом уже сидели Виктор и Ирис."
     R_t "Дэвида и Софи нигде не было видно."
     R_t "Между коллегами уже завязался разговор."
@@ -89,8 +90,9 @@ label day_2:
     show v at fear
     play sfx sfx_laugh_people
     R_t "Периодически они смеялись."
+    play sfx3 sfx_steps_two
     R_t serious think "Я подошёл к столу."
-
+    stop sfx2 fadeout 0.5
     show i pen nervous_laughter
 
     R_t "Ирис обратила на меня внимание."
@@ -201,6 +203,7 @@ label day_2:
     with dissolve
     stop sfx fadeout 1.0
     stop sfx2 fadeout 1.0
+    play sfx3 sfx_alarm3 fadein 0.5 fadeout 0.5 loop
 
     R_t "Внутри, при красном свете аварийной лампочки, находились механик и командир."
     #R_t "Всё помещение было заставлено разного вида баллонами, банками, бутылками с разными жидкостями, а рядом с членами экипажа на полу лежали инструменты."
@@ -210,7 +213,7 @@ label day_2:
     show d right at move_on_scene(1.5, 0.5)
     play sfx sfx_steps_two
     R_t "Они ещё не заметили моего присутствия."
-    show d neutraly left at move_on_scene(1.5, 0)
+    show d neutral left at move_on_scene(1.5, 0)
     play sfx sfx_steps_two
     D "Ну как же так получилось, что мы до сих пор не определили, в чём неисправность?"
     show d right at move_on_scene(1.5, 0.5)
@@ -294,10 +297,11 @@ label day_2:
     R_t serious think "Пожав плечами, я пошёл на выход. Дэвид догнал меня."
     R_t "Мы ничего не сказали друг другу, но обменялись многозначительными взглядами."
 
+    stop sfx3 fadeout 0.5
     scene black with dissolve
     pause 0.5
     #show d right
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_coridor3_dark_cylinders 
     show d serious neutral right at left
     with dissolve
@@ -326,8 +330,10 @@ label day_2:
     D "Шагом марш на кухню!"
     R_t "Я решил подыграть и вскинул руку к виску."
     R ear hehe "Есть, сэр!"
+    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
     R_t "На этом моменте каждый пошёл своим путём."
     
+    stop sfx fadeout 0.5
     scene black with dissolve
     pause 0.5
     scene bg_dinner_block_dark
@@ -340,18 +346,18 @@ label day_2:
     R_t thinking ne_ponyal "Предметом их азартного спора стал единственный оставшийся тюбик со вкусом оливье."
     R_t "Ещё некоторое время я наблюдал за их игрой, затем долил себе кофе и вернулся на своё рабочее место."
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene black with dissolve
     stop sfx fadeout 0.5
     pause 1.0
-    scene bg_commander_block_transparent_dark with dissolve
+    $ show_space_bg("bg_commander_block_transparent_dark")
     pause 1.0
     play sfx sfx_power_up fadeout 2.0
-    scene bg_commander_block_transparent_default
+    $ show_space_bg("bg_commander_block_transparent_default")
     pause 0.3
-    scene bg_commander_block_transparent_dark
+    $ show_space_bg("bg_commander_block_transparent_dark")
     pause 0.3
-    scene bg_commander_block_transparent_default
+    $ show_space_bg("bg_commander_block_transparent_default")
     pause 0.3
 
     R_t thinking ne_ponyal "Свет в кабине пару раз моргнул и наконец устаканился. Похоже, Софи справилась."
@@ -360,7 +366,7 @@ label day_2:
     R_t serious think "Это значило, что я мог расслабиться, откинуться в кресле и любоваться красотой."
 
     #фон космос
-    scene bg_black_t_90
+    show cosmos_fon
     with dissolve
     stop sfx
     stop sfx2 fadeout 2.0
@@ -373,47 +379,42 @@ label day_2:
     $ renpy.music.set_volume(1.0, delay=0.5, channel="sfx")
 
     #цг 11 начало
-    show screen cosmos_background_screen("11")
-    with dissolve
+    $ show_scene_cosmos("11")
     cutscene "Большие волны, полные пены и морской соли."
     cutscene "Свежий лёгкий запах тины и мокрого песка."
     cutscene "Сделав очередной глоток разбавленного ароматного кофе, я вспомнил брата."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 11 конец
     #цг 4 начало
-    show screen cosmos_background_screen("4")
-    with dissolve
+    $ show_scene_cosmos("4")
     cutscene "Он всегда был для меня эдакой отцовской фигурой."
     cutscene "Большей частью своего воспитания я обязан ему."
     cutscene "Отец и мать часто были заняты на работе. На матери также лежали все хлопоты по дому и забота о моей болезненной младшей сестре."
     cutscene "Им было совсем не до маленького меня — я был предоставлен самому себе."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 4 конец
     #цг 3 начало
-    show screen cosmos_background_screen("3")
-    with dissolve
+    $ show_scene_cosmos("3")
     cutscene "Первая поездка на велосипеде, первая пойманная рыба, первая двойка в школе, первый морской узел…"
     cutscene "Он всегда был рядом и помогал, чем мог."
     cutscene "До определённого момента."
     cutscene "Я зажмурился и потер рукой переносицу."
     cutscene "Мне неприятно вспоминать этот этап жизни нашей семьи."
     cutscene "Но слов из песни не выкинешь."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 3 конец 
     #цг 2 начало
-    show screen cosmos_background_screen("2")
-    with dissolve
+    $ show_scene_cosmos("2")
     cutscene "Когда брату исполнилось девятнадцать, он попал под дурное влияние."
     cutscene "Так же, как и я, он нуждался в наставнике — крепком мужском плече, которое вовремя наставит на путь истинный."
     cutscene "Такой человек нашёлся, но верным этот путь назвать сложно."
     cutscene "Брат с головой ушёл в оккультизм."
     cutscene "Всё чаще мы находили у себя дома странные предметы: кости животных, клочки волос."
     cutscene "На все вопросы брат лишь раздражённо отнекивался."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 2 конец 
     #цг 1 начало
-    show screen cosmos_background_screen("1")
-    with dissolve
+    $ show_scene_cosmos("1")
     cutscene "Всё чаще он стал пропадать вне дома, и всё чаще я замечал, как он прячет руки."
     cutscene "Однажды, подглядев за ним в щель двери его комнаты, я увидел, что его тело покрыто ранами и ссадинами."
     cutscene "Он словно превратился в совсем другого человека."
@@ -424,18 +425,17 @@ label day_2:
     cutscene "Лишь спустя несколько месяцев после его исчезновения мы получили письмо."
     cutscene "Он просил нас не беспокоиться о нём: работает при общине."
     cutscene "На благо их собственной веры."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 1 конец
     #цг 10 начало
-    show screen cosmos_background_screen("10")
-    with dissolve
+    $ show_scene_cosmos("10")
     cutscene "Она захлестнула его с головой, как волны, что разбивались о берег у нашего дома и тащили всё, до чего могли дотянуться, в тёмные глубины океана."
     cutscene "Как и эти звёзды, зовущие меня окунуться и плыть в просторах космоса."
-    hide screen cosmos_background_screen
-    with dissolve
+    $ hide_scene_cosmos()
     #цг 10 конец
 
-    scene bg_commander_block_transparent_default with dissolve
+    scene bg_commander_block_default
+    $ show_space_bg("bg_commander_block_transparent_default")
     stop sfx fadeout 1.0
 
     R_t thinking ne_ponyal "За всеми этими размышлениями я не заметил, как в помещении стало очень жарко."
@@ -444,7 +444,7 @@ label day_2:
     R_t "Необходимо было проверить, что происходит."
 
     #анимация аварийной тревоги commander_block
-    scene bg_commander_block_red
+    $ show_space_bg("bg_commander_block_red")
     play sound sfx_alarm2 fadein 0.5 fadeout 0.5 loop
 
     R_t thinking osharashen "Только я встал со своего кресла, как включилась аварийная тревога."
@@ -453,7 +453,9 @@ label day_2:
 
     R_t "Ускорив шаг, я выбежал в коридор."
 
-    scene black with dissolve
+    $ hide_space_bg
+    scene black 
+    with dissolve
     $ renpy.music.set_volume(0.3, delay=0.5, channel="sound")
     stop sfx2 fadeout 1.0
     pause 0.5
@@ -533,6 +535,7 @@ label day_2:
     #show d at angry, step_up
     show d fist angry at angry, move_step(-100, 0.2)
     pause 0.15
+    play sfx sfx_steps_fast_two
     show s shy surprised at fear, move_step(-50, 0.2)
 
     R_t "В какой-то момент командир замахнулся рукой, чтобы ударить Софи, та попыталась уклониться."
@@ -541,12 +544,15 @@ label day_2:
     R_t serious fainting "От жара становилось плохо, маска не помогала."
 
     #show d right at step_up
+    play sfx sfx_steps_two
     show d annoyed right at move_step(50, 0.3)
 
     R_t "Дэвид развернулся и попытался пойти в сторону генератора."
 
+    play sfx sfx_steps_fast_two
     show s nedovolen at move_step(250, 0.3, 1)
     pause 1.0
+    play sfx sfx_steps_two
     show s at Transform(xalign=0.7, yalign=1.0), move_step(-30)
     #show d at step_left
     show d at move_step(-30)
@@ -554,30 +560,33 @@ label day_2:
     R_t think "Софи вцепилась в его руку и старалась тащить назад."
 
     #show d angry at step_left
+    play sfx sfx_steps_fast_two
     show d angry left at move_step(50), angry
     show s ruki hurt at move_step(-50), fear
 
     R_t "Разъярённый капитан резко отмахнулся от неё."
 
-    #show d angry at step_left
+    play sfx sfx_steps_two
     show d at move_step(-50)
     show s shy surprised at Transform(xalign=0.65, yalign=1.0), move_step(-50), fear
 
     R_t "Шаг. Ещё шаг."
 
+    play sfx sfx_steps_two
     show d angry at move_step(-50)
     show s ruki hurt at Transform(xalign=0.6, yalign=1.0), move_step(-50), fear
     pause 1.5
     show s shy surprised at jump(height=1000)
-    pause 1.0
+    play sfx2 sfx_scream_women_ah
+    pause 0.5
     play sfx sfx_water_splash
     hide s with dissolve
     show v ruki osharashen
-    play sfx2 sfx_scream_women_ah
     
     show d serious osharashen
     R_t angry "И девушка упала в открытый люк."
 
+    play sfx sfx_steps_fast_two
     show v profile angry at move_step(300), fear
 
     R_t "Медлить было нельзя. Мы с Виктором бросились к люку."
@@ -593,6 +602,7 @@ label day_2:
     show d serious osharashen left at Transform(xalign=0.9, yalign=1.0)
     with dissolve
     pause 1.0
+    play sfx sfx_steps_fast_two
     show d fist angry at move_step(-200), angry
     show v pockets angry at move_step(-100), fear
     pause 1.0
@@ -629,7 +639,6 @@ label day_2:
 
     show v ruki osharashen
     show d osharashen
-
     R_t thinking osharashen "Не сразу, но мы почувствовали запах гари."
     R_t "Огонь?.."
     R_t "Секунда{w}, две."
@@ -657,7 +666,7 @@ label day_2:
     pause 1.0
     show scene_talk_in_end_18
     with Dissolve(2)
-    pause 2
+    pause 2.0
 
     show screen waveform_show()
     with dissolve
@@ -668,7 +677,10 @@ label day_2:
 
     N "Опять… Ну что же ты, давай, давай… Ты же слышишь меня?.."
     hide screen waveform_show
+    scene bg_black with dissolve
     stop sfx fadeout 1.0
-
+    $ renpy.pause(0.5, hard=True)
+    $ unlock_achievement(ACHIEVEMENT_ELECTRIC)
+    $ renpy.pause(1.0, hard=True)
     with dissolve
     jump day_3

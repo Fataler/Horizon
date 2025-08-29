@@ -6,14 +6,14 @@
 define run_time = 5
 define blue_color = Color("#393185")
 
-image time_animation:
-    "images/Prochee/p1.png"
-    pause 0.2
-    "images/Prochee/p2.png"
-    pause 0.2
-    repeat
+# image time_animation:
+#     "images/Prochee/p1.png"
+#     pause 0.2
+#     "images/Prochee/p2.png"
+#     pause 0.2
+#     repeat
 
-image time_animation_colored = Transform("time_animation", matrixcolor=TintMatrix(blue_color))
+# image time_animation_colored = Transform("time_animation", matrixcolor=TintMatrix(blue_color)) 
 
 layeredimage time_passed_img:
     always:
@@ -110,8 +110,6 @@ label time_passed_label(message = "Некоторое время спустя"):
     window hide
     stop music
     stop sound
-
-    play sound sfx_steps_on_road
     call screen time_passed(message)
     scene bg_black
     pause 1

@@ -1,17 +1,26 @@
 #images 
 
 ## Определения фоновых изображений
-# Фоны из папки Backgrounds
-image bg_safe_open = "images/Backgrounds/Safe_open.jpg"
-image bg_commander_block_default = "images/Backgrounds/Commander Block_default.png"
-image bg_commander_block_red = "images/Backgrounds/Commander Block_red.png"
-image bg_commander_block_dark = "images/Backgrounds/Commander Block_dark.png"
+# Фоны с прозрачностью
+init -1:
+    image bg_commander_block_default = "images/Backgrounds/Commander Block_default.png"
+    image bg_commander_block_red = "images/Backgrounds/Commander Block_red.png"
+    image bg_commander_block_dark = "images/Backgrounds/Commander Block_dark.png"
 
-image bg_commander_block_transparent_default = "images/Backgrounds/Commander Block_default.png"
-image bg_commander_block_transparent_red = "images/Backgrounds/Commander Block_red.png"
-image bg_commander_block_transparent_dark = "images/Backgrounds/Commander Block_dark.png"
-image bg_commander_block_transparent_chair = "images/Backgrounds/Commander Block_chair.png"
+    image bg_commander_block_transparent_default = "images/Backgrounds/Commander Block_default.png"
+    image bg_commander_block_transparent_red = "images/Backgrounds/Commander Block_red.png"
+    image bg_commander_block_transparent_dark = "images/Backgrounds/Commander Block_dark.png"
+    image bg_commander_block_transparent_chair = "images/Backgrounds/Commander Block_chair.png"
+    image bg_stul_s_iglami = "images/Backgrounds/stul_s_iglami_stul.png"
+    image bg_stul_bez_igl = "images/Backgrounds/stul_bez_igl.png"
 
+    image bg_room_rayan_default = "images/Backgrounds/Room Rayan.png"
+    image bg_room_rayan_dark = "images/Backgrounds/Room_Rayan_dark.png"
+    image bg_room_viktor_dark = "images/Backgrounds/Room Viktor_dark.png"
+    image bg_room_viktor_default = "images/Backgrounds/Room Viktor_default.png"
+
+
+# Фоны
 image bg_coridor1_dark = "images/Backgrounds/Coridor1_dark.jpg"
 image bg_coridor1_default = "images/Backgrounds/Coridor1_default.jpg"
 image bg_coridor1_red = "images/Backgrounds/Coridor1_red.jpg"
@@ -31,10 +40,6 @@ image bg_dinner_block_dark = "images/Backgrounds/Dinner_Block_dark.jpg"
 image bg_med_block = "images/Backgrounds/Med_Block.jpg"
 image bg_med_block_red = "images/Backgrounds/Med_Block_red.jpg"
 image bg_med_block_dark = "images/Backgrounds/Med_Block_dark.jpg"
-image bg_room_rayan_default = "images/Backgrounds/Room Rayan.png"
-image bg_room_rayan_dark = "images/Backgrounds/Room_Rayan_dark.png"
-image bg_room_viktor_dark = "images/Backgrounds/Room Viktor_dark.png"
-image bg_room_viktor_default = "images/Backgrounds/Room Viktor_default.png"
 image bg_generator = "images/Backgrounds/Generator.jpg"
 image bg_generator_blue_screen = "images/Backgrounds/Generator_default_blue_screen.jpg"
 image bg_generator_red = "images/Backgrounds/Generator_red.jpg"
@@ -44,6 +49,7 @@ image bg_safe = "images/Backgrounds/Safe.jpg"
 image bg_monitors_block = "images/Backgrounds/Monitors_Block.jpg"
 image bg_warehouse = "images/Backgrounds/Warehouse.jpg"
 image bg_exit = "images/Backgrounds/Exit.png"
+image bg_safe_open = "images/Backgrounds/Safe_open.jpg"
 
 
 # credits images
@@ -90,7 +96,7 @@ image mirror_water:
     "images/CG/CG_mirror/CG_mirror_water.png"
 
 image room_viktor1:
-    "images/CG/CG_Victor_room/cg_Room Viktor1.jpg"
+    "images/CG/CG_Victor_room/cg_Room Viktor1.png"
 
 image room_viktor2:
     "images/CG/CG_Victor_room/cg_Room Viktor2.jpg"
@@ -98,13 +104,8 @@ image room_viktor2:
 image room_viktor3:
     "images/CG/CG_Victor_room/cg_Room Viktor3.jpg"
 
-image commander_block_chair:
-    "images/CG/CG_Commander_Block_transparent_chair/Commander_Block_chair.png"
-
 image bg_menu_main = "gui/menu/bg.png"
 
-init:
-    image avatar_circle = AlphaMask("gui/menu/avatar_square.jpg", im.Scale("gui/menu/alpha_mask.png", 320, 320))
 
 
 ## Эффекты

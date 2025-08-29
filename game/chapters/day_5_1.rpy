@@ -1,9 +1,14 @@
 label day_5:
     # День 5 — перебивка
+    pause 1.0
     scene bg_black
     with dissolve
-    pause 2.0
-    scene bg_room_rayan_default
+    play sfx sfx_crunch_whoosh
+    call test_clock("22:31:00")
+    scene bg_black
+    with dissolve
+    pause 1.0
+    $ show_space_bg("bg_room_rayan_default")
     with dissolve
 
     R_t thinking osharashen "Я резко открыл глаза и сел на кровати."
@@ -20,12 +25,12 @@ label day_5:
     R_t "Глупо скрывать, необходимо обсудить это с экипажем."
     R_t serious think "Пусть они лучше примут меня за сумасшедшего, но мы все вместе найдём решение."
 
-    scene bg_room_rayan_default
+    $ show_space_bg("bg_room_rayan_default")
     with dissolve
 
     R_t serious think "Впопыхах набросив на себя форму, полный решимости, я направился навстречу нелёгкому разговору с командой."
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_black
     with dissolve
     pause 0.5
@@ -48,7 +53,7 @@ label day_5:
     R_t ear surprised "Неужели я проспал завтрак, и все уже разошлись?"
     R_t "Почему не разбудили меня?"
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_coridor2_default
     with dissolve
     pause 1.0
@@ -73,7 +78,7 @@ label day_5:
 
     stop sfx3 fadeout 1.0
     scene bg_coridor1_default
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     with dissolve
     R_t ear dissatisfied "Члены экипажа словно сквозь землю провалились."
     R_t thinking osharashen "Точно! Дэвид наверняка созвал собрание в командном центре."
@@ -84,8 +89,7 @@ label day_5:
     R_t ear hehe "А я ведь уже успел не на шутку взволноваться."
 
     stop sfx fadeout 1.0
-    scene bg_commander_block_transparent_default
-    with dissolve
+    $ show_space_bg("bg_commander_block_transparent_default")
     R_t serious think "Но… И здесь я никого не застал."
     R_t "Медленным шагом я подошёл к своему рабочему месту."
     R_t thinking suspicious "Координаты те же."
@@ -103,13 +107,13 @@ label day_5:
     R_t "У меня оставался единственный план. Камеры видеонаблюдения."
 
     stop sfx fadeout 1.0
-    play sfx2 sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx2 sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_black
     with dissolve
     pause 0.5
     scene bg_coridor1_default
     with dissolve
-    R_t ear dissatisfied "Но что-то внутри подсказывало мне, что я не увижу там ничего хорошего."
+    R_t beard_on ear dissatisfied "Но что-то внутри подсказывало мне, что я не увижу там ничего хорошего."
 
     stop sfx2 fadeout 0.5   
     scene bg_black
@@ -134,32 +138,29 @@ label day_5:
     R_t ear dissatisfied "Говорил, что все мы — бесполезные неразумные дети, не способные выполнять указания."
     R_t hehe "Я усмехнулся про себя."
     #цг 18 начало
-    show screen cosmos_background_screen("18")
-    with dissolve
+    $ show_scene_cosmos("18")
     cutscene "Это пробудило во мне воспоминания о моём дедушке."
     cutscene "В солидном возрасте с ним случилось то, чего мы все так боимся."
     cutscene "Разум начал ослабевать, деменция взяла своё."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 18 конец
     #цг 17 начало
-    show screen cosmos_background_screen("17")
-    with dissolve
-    cutscene "В периоды обострения своего недуга он начинал видеть в каждом человече своего врага."
+    $ show_scene_cosmos("17")
+    cutscene "В периоды обострения своего недуга он начинал видеть в каждом человеке своего врага."
     cutscene "Подозревал нас во всех смертных грехах."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 17 конец
     #цг 14 начало
-    show screen cosmos_background_screen("14")
-    with dissolve
+    $ show_scene_cosmos("14")
     cutscene "Одним из его любимых занятий было найти особенный повод для того, чтобы лишить нас того, что мы любим."
     cutscene "Трудно спорить с человеком, не контролирующим ход своих мыслей и не обладающим критическим мышлением."
     cutscene "Итак. Как мне помогла эта информация?"
     cutscene "Думаю, вряд ли в этом есть хоть какой-то смысл."
-    hide screen cosmos_background_screen
-    with dissolve
+    $ hide_scene_cosmos()
     #цг 14 конец
 
     play sfx sfx_morse fadein 0.5 fadeout 0.5 loop
+    scene bg_monitors_block with dissolve
 
     R_t thinking osharashen "Внезапно ход моих мыслей прервал писк."
     R_t "Это было пищание приборной панели видеонаблюдения."
@@ -172,7 +173,7 @@ label day_5:
     R_t ne_ponyal "Некоторое время мне пришлось потратить, чтобы расшифровать послание."
     R_t "Кто-то пытался связаться со мной."
     stop sfx fadeout 0.5
-    play sfx2 sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx2 sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_black
     with dissolve
     pause 0.5
@@ -187,7 +188,7 @@ label day_5:
     scene bg_black
     with dissolve
     pause 0.5
-    scene bg_room_rayan_dark
+    $ show_space_bg("bg_room_rayan_dark")
     with dissolve
     R_t thinking neutral "Я всё думал о том, кто же мог пытаться связаться со мной."
     R_t "Это не похоже на наше обычное общение с диспетчерской на Земле."
@@ -204,9 +205,15 @@ label day_5:
     R_t sick "Мне пришлось буквально силой разогнать все свои мысли, чтобы я мог прислушаться."
 
     scene bg_black
-    with eye_off
-    #голос
-    N "Райан, приём! Ты меня слышишь?"
+    with eye_off()
+    pause 2.0
+    
+    play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
+    show screen waveform_show()
+    pause 1.0
+    show scene_talk_in_end_17
+    with Dissolve(2)
+    N "Райан, приём! Ты меня слышишь?"  
     N "Райан?"
     R thinking neutral "Я слышу. Кто со мной говорит?"
     N "Господи. Наконец-то."
@@ -249,12 +256,21 @@ label day_5:
     N "К сожалению, у нас нет возможности прислать его тебе файлом."
     N "Это чудо, что вообще удалось связаться с тобой."
     R serious angry "Всё это звучит как какой-то бред. Я должен обсудить это с Дэвидом."
+    stop sfx fadeout 0.5
     N "…"
+    pause 1.0
+    play sfx2 sfx_drama_boom
+    show scene_talk_in_end_18
+    with Dissolve(1.0)
+    pause 1.5
+    play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
+
     N "О каком Дэвиде ты вообще говоришь?"
     N "Уже два года мы наблюдаем за тобой по камерам."
     N "В твоей экспедиции не числилось никого с именем Дэвид."
 
-    scene bg_room_rayan_dark with eye_on
+    hide screen waveform_show
+    $ show_space_bg("bg_room_rayan_dark")
     play sfx sfx_heart_beat1 fadein 0.5 fadeout 0.5 loop
     
     R_t serious angry "Я резко открыл глаза. Сердце яростно застучало, словно хотело вырваться из груди."
@@ -263,11 +279,13 @@ label day_5:
 
     R_t serious fainting "На дрожащих ногах я подошёл к зеркалу."
     #цг бородатого
+    play sfx2 sfx_drama
     call scene_mirror_beard
     with dissolve
-    R_t beard ear surprised "Оттуда на меня смотрел уставший мужчина, обзаведшийся некоторыми морщинами, парой шрамов и щетиной."
+    R_t beard_on ear surprised "Оттуда на меня смотрел уставший мужчина, обзаведшийся некоторыми морщинами, парой шрамов и щетиной."
     R_t serious angry "Неужели это всё правда…"
     stop sfx fadeout 0.5
+    stop sfx2 fadeout 0.5
     menu:
         "Поверить спасителю и возобновить контакт":
             jump day_5_2_1_belive

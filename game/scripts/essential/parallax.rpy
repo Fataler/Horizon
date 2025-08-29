@@ -43,3 +43,26 @@ label parallax_test:
     "..."
     hide screen parallax_bg
     return
+
+init -1 python:
+    def show_space_bg(img, bg="space_bg_image", tr=None):
+        renpy.show_screen("space_bg", img, bg, _layer="master")
+        if tr is None:
+            tr = Dissolve(0.5)
+        renpy.with_statement(tr)
+
+    def hide_space_bg(tr=None):
+        renpy.hide_screen("space_bg")
+        if tr is None:
+            tr = Dissolve(0.5)
+        renpy.with_statement(tr)
+
+image space_bg_image = "images/Backgrounds/Cosmos.png"
+
+screen space_bg(image_name, space_bg_name = "space_bg_image"):
+    zorder 0
+
+    add Parallax(space_bg_name, 0.0) at space_drift(intensity=5.3, pulse_speed=3.0), truecenter:
+        zoom 1.00
+
+    add image_name at truecenter

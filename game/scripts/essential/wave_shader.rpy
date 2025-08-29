@@ -2,7 +2,7 @@
 # Безопасная регистрация + совместимость. Помещайте в `game/scripts/essential/` и
 # используйте:  show bg your_image at WaveShader(amp=12, period=20, speed=1.0)
 
-init -1000 python:
+init -999 python:
     # Константы wrap-режимов — аккуратно импортируем (не ломаемся, если модуля нет)
     try:
         from renpy.uguu import GL_CLAMP_TO_EDGE, GL_MIRRORED_REPEAT, GL_REPEAT

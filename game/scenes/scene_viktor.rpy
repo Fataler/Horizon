@@ -14,6 +14,8 @@ label scene_viktor:
             hide viktor_scene
             with dissolve
 
+            play sfx sfx_steps_two
+            $ unlock_achievement(ACHIEVEMENT_PEACEMAKER)
             show layer master at screen_step_zoom(zoom1=1.0)
             R_t serious angry "Я резко двинулся в сторону безумца."
 
@@ -22,7 +24,7 @@ label scene_viktor:
         "Выстрелить":
             hide viktor_scene
             with dissolve
-
+            $ unlock_achievement(ACHIEVEMENT_ATTACK)
             R_t serious angry "Я резко достал пистолет из кобуры."
             R_t "Пистолет Дэвида."
 
@@ -36,19 +38,16 @@ label scene_viktor:
             pause 0.5
 
             R_t "Виктор лишь рассмеялся и продолжил бормотать какие-то несвязные вещи."
-            
+            play sfx sfx_steps_one
             show layer master at screen_step_zoom(zoom1=1.0)
-            play sfx sfx_steps_two
 
             R_t very_angry "Я начал медленно приближаться к нему." 
-
+            play sfx sfx_steps_one
             show layer master at screen_step_zoom(zoom1=1.025)
-            play sfx sfx_steps_two
 
             R_t "Шаг за шагом."
-
+            play sfx sfx_steps_one
             show layer master at screen_step_zoom(zoom1=1.05)
-            play sfx sfx_steps_two
 
             R_t angry "Он не проявлял агрессии. Уже на подходе я выдохнул и ослабил внимание."
 
@@ -66,12 +65,15 @@ label scene_viktor:
             R_t "Но Виктор был быстрее."
 
     show layer master at screen_shake
+    play sfx sfx_shing_sword
+    show expression Solid("#ffffff") as overlay_light at alpha_mask_fade(1.0, 0.3)
+    show expression Solid("#ffffff") as overlay_light at alpha_mask_fade_inverse(1.0, 0.3)
     R_t very_angry "Лезвие блеснуло во мраке. Инстинктивно я уклонился, но это было ошибкой."
     R_t "Он не целился в меня."
     
     play sfx sfx_hit
     show v at angry
-
+    play sfx sfx_hit_sword
     R_t "Виктор с размаху ударил ножом в открытый отсек двигателя, где тянулись разноцветные провода."
     
     stop sfx3 fadeout 0.5
@@ -86,6 +88,7 @@ label scene_viktor:
 
     scene bg_black
     with fade
+    pause 1.0
     #возможно цг
 
     show screen waveform_show()
@@ -98,5 +101,10 @@ label scene_viktor:
     hide screen waveform_show
 
     stop sfx fadeout 1.0
+    $ unlock_achievement(ACHIEVEMENT_ELECTRIC)
+
+    scene bg_black
+    with dissolve
+    pause 0.5
 
     return

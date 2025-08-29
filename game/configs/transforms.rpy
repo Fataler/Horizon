@@ -461,8 +461,8 @@ transform screen_fade_effect(time=0.5):
         linear time alpha 0.0
 
 transform fade_in_out(fade_time=2.0, max_alpha=1.0, min_alpha=0.0, delay=0.0):
-    pause delay
     alpha 0
+    pause delay
     block:
         linear fade_time alpha max_alpha
         linear fade_time alpha min_alpha
@@ -511,7 +511,7 @@ transform screen_step(dx=10, dy=5, t=0.2):
     linear t xoffset 0 yoffset 0
 
 transform screen_step_zoom(dx=10, dy=5, t=0.2, period=1.85, zoom_str=0.025, zoom1=1.0):
-    anchor (1.0, 0.5)   
+    anchor (1.0, 0.5)
     align (0.8, 0.5)
     parallel:
         zoom zoom1
@@ -521,3 +521,28 @@ transform screen_step_zoom(dx=10, dy=5, t=0.2, period=1.85, zoom_str=0.025, zoom
         linear t xoffset dx yoffset dy
         linear t xoffset -dx yoffset dy
         linear t xoffset 0 yoffset 0
+
+transform space_drift(speed=8.0, intensity=0.3, pulse_speed=3.0):
+    subpixel True
+    parallel:
+        block:
+            linear speed*0.5 xoffset (intensity*2)
+            linear speed*0.5 xoffset (-intensity*2)
+            linear speed*0.5 xoffset intensity
+            linear speed*0.5 xoffset (-intensity)
+            repeat
+
+    parallel:
+        block:
+            linear speed*0.7 yoffset (intensity*1.5)
+            linear speed*0.7 yoffset (-intensity*1.5)
+            linear speed*0.7 yoffset (intensity*0.8)
+            linear speed*0.7 yoffset (-intensity*0.8)
+            repeat
+
+    parallel:
+        block:
+            linear (pulse_speed*0.4) zoom 1.002
+            linear (pulse_speed*0.3) zoom 0.998
+            linear (pulse_speed*0.3) zoom 1.001
+            repeat

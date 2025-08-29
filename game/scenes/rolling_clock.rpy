@@ -197,15 +197,28 @@ screen rolling_clock(
 screen hud_with_clock():
     use rolling_clock(
         start_time="22:43:56",
-        end_time="08:39:57",
+        end_time="07:59:55",
         direction="backward",
         duration=2,
         delay=0.0
     )
 
-label test_clock:
+screen hud_with_clock1(start_time="22:43:56"):
+    use rolling_clock(
+        start_time=start_time,
+        end_time="07:59:55",
+        direction="backward",
+        duration=2,
+        delay=0.0
+    )
+
+label test_clock(start_time="22:43:00"):
     scene black
-    show screen hud_with_clock
-    "Часики"
-    pause
+    show screen hud_with_clock1(start_time=start_time)
+    $ renpy.pause(6.3, hard=True)
+    play sfx sfx_tik_tak loop
+    $ renpy.pause(4.7, hard=True)
+    stop sfx
+    hide screen hud_with_clock1 with dissolve
+    $ renpy.pause(1.0, hard=True)
     return

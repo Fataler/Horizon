@@ -1,13 +1,15 @@
 label day_4:
+    pause 1.0
     scene bg_black
     with dissolve
-    pause 2.0
-
-    # движущийся космос заглушка
-    scene bg_black_t_90
+    play sfx sfx_crunch_whoosh
+    call test_clock("20:59:00")
+    scene bg_black
     with dissolve
+    pause 1.0
+    show cosmos_fon with dissolve
     #play sfx2 music_space_ambient fadein 1.0 fadeout 1.0 loop
-
+    pause 1.0
     R_t ear surprised "Где я?"
     R_t "Вокруг летели миллиарды звёзд с огромной скоростью, унося меня куда-то."
     R_t "Никаких ощущений — будто моего тела не существует. Но мысли вернулись."
@@ -15,8 +17,7 @@ label day_4:
     R_t "Нет, это уже не похоже на обычные тревожные сны. Нужно думать критически."
 
     stop sfx2 fadeout 1.0
-    scene bg_room_rayan_default
-    with dissolve
+    $ show_space_bg("bg_room_rayan_default")
 
     R_t ear surprised "Я сразу открыл глаза. Сна не было ни в одном глазу."
     R_t "Часы показывали 08:00 — время, когда я просыпаюсь каждый день."
@@ -29,13 +30,12 @@ label day_4:
     with dissolve
     cutscene "В зеркале — мой обычный вид: всё тот же усталый и измождённый парень вдали от дома."
     cutscene "Не было и следа той боли, что преследовала меня — во сне или вчера."
-    scene bg_room_rayan_default
-    with dissolve
+    $ show_space_bg("bg_room_rayan_default")
     R "Расслабляться рано, Райан…"
 
     scene bg_coridor1_default
     with dissolve
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
 
     R_t "Быстро накинув форму, я выдвинулся в сторону кухни. Нужно быть начеку и понять, что происходит."
     
@@ -77,7 +77,7 @@ label day_4:
 
     S "О, Райан! Доброе утро!"
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     stop sfx2 fadeout 0.5
     scene bg_coridor1_default
     with dissolve
@@ -91,10 +91,9 @@ label day_4:
     with dissolve
 
     R_t "На первый взгляд всё было в норме. Подача энергии есть, охлаждение в порядке."
-    play sfx sfx_hit
     R_t thinking suspicious "Я вскрыл люк и принюхался — никаких следов спирта."
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_black with dissolve
     pause 0.5
     scene bg_coridor2_default
@@ -147,7 +146,7 @@ label day_4:
     I "Эх… ну что с тобой поделать, пойдём."
     R_t surprised "Я шумно выдохнул. Кажется, пронесло. Дождавшись, пока шаги стихнут, я выскользнул из кабинета."
     
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_black with dissolve
     pause 0.5
     scene bg_coridor1_default
@@ -159,21 +158,18 @@ label day_4:
     scene bg_black with dissolve
     pause 0.5
     stop sfx fadeout 0.5
-    scene bg_commander_block_transparent_default
-    with dissolve
+    $ show_space_bg("bg_commander_block_transparent_default")
 
     R_t thinking ne_ponyal "Наконец я на своём рабочем месте, но тревога не отпускала."
     R_t "Некоторое время я пытался понять её причину. Откинулся на кресле — и дёрнулся как ошпаренный."
     R_t osharashen "Вот что я не проверил…"
 
-    scene commander_block_chair
-    with dissolve
+    $ show_space_bg("bg_stul_bez_igl")
 
     R_t serious think "Ни одной дырки в обшивке, никаких следов порезов."
     R_t thinking ne_ponyal "Пожалуй, не помешало бы обратиться к психиатру — у Ирис есть соответствующий сертификат."
 
-    scene bg_commander_block_transparent_default
-    with dissolve
+    $ show_space_bg("bg_commander_block_transparent_default")
 
     R_t "Цифры и графики плыли перед глазами. Облегчение приносил только вид из окна."
 
@@ -183,28 +179,35 @@ label day_4:
     with dissolve
 
     # 8 начало
-    R_t thinking neutral "Я перестал чувствовать себя в безопасности."
-    R_t "Будто вернулся в подростковые годы, когда к нам переехала тётя по отцовской линии."
-    R_t ear dissatisfied "Вызвать её приступ ярости не составляло труда. Страшнее всего было по вечерам, когда она возвращалась с работы и выпивала."
-    R_t surprised "Позже я понял, что её зависимость не ограничивалась алкоголем."
+    $ show_scene_cosmos("8")
+    cutscene "Я перестал чувствовать себя в безопасности."
+    cutscene "Будто вернулся в подростковые годы, когда к нам переехала тётя по отцовской линии."
+    cutscene "Вызвать её приступ ярости не составляло труда. Страшнее всего было по вечерам, когда она возвращалась с работы и выпивала."
+    cutscene "Позже я понял, что её зависимость не ограничивалась алкоголем."
+    $ hide_scene_cosmos()
     # 8 конец
     # 9 начало
-    R_t "Иногда она запиралась в своей комнате, и мы слышали её приглушённые крики от обиды на весь мир."
-    R_t "Она не состоялась в карьере, не завела семью и во всём винила окружающих."
-    R_t thinking suspicious "В худшем случае она кошмарила домочадцев и громила дом."
-    R_t "После бури мы выбирались из своих комнат и прибирали беспорядок."
+    $ show_scene_cosmos("9")
+    cutscene "Иногда она запиралась в своей комнате, и мы слышали её приглушённые крики от обиды на весь мир."
+    cutscene "Она не состоялась в карьере, не завела семью и во всём винила окружающих."
+    cutscene "В худшем случае она кошмарила домочадцев и громила дом."
+    cutscene "После бури мы выбирались из своих комнат и прибирали беспорядок."
+    $ hide_scene_cosmos()
     # 9 конец
     # 13 начало
-    R_t ne_ponyal "В такие моменты я брал младшую сестру за руку, и мы уходили к морю."
-    R_t "Сестра набирала сухих веток и листьев, а я разжигал небольшой костёр, чтобы не замёрзнуть в вечерней прохладе."
-    R_t ear hehe "А затем мы рассказывали друг другу смешные и страшные истории. Это было неплохое время, несмотря ни на что."
+    $ show_scene_cosmos("13")
+    cutscene "В такие моменты я брал младшую сестру за руку, и мы уходили к морю."
+    cutscene "Сестра набирала сухих веток и листьев, а я разжигал небольшой костёр, чтобы не замёрзнуть в вечерней прохладе."
+    cutscene "А затем мы рассказывали друг другу смешные и страшные истории. Это было неплохое время, несмотря ни на что."
+    $ hide_scene_cosmos()
     # 13 конец
+
 
     D "Райан! Хватит витать в облаках."
     D "Ты слышишь меня?!"
+    $ show_space_bg("bg_commander_block_transparent_default")
 
-    scene bg_commander_block_transparent_default
-    show d fist angry 
+    show d fist angry
     with dissolve
 
     R_t thinking osharashen "Я резко дёрнулся от неожиданности." with hpunch
@@ -227,6 +230,7 @@ label day_4:
     D "Я знал, что не могу вам доверять… никому."
 
     play sfx sfx_door_open
+    play sfx2 sfx_steps_two
     show v ruki puzzled left at enter_scene(time=1.0, xalign=1.1)
 
     R_t "В этот момент в помещение зашёл Виктор — и сразу принял весь гнев на себя."
@@ -247,6 +251,7 @@ label day_4:
 
     D "Просто никто из вас не хочет заниматься своей работой. Я должен всё делать за вас!"
 
+    play sfx2 sfx_steps_fast
     show d at move_on_scene(time=0.5, xalign=1.0)
     pause 0.5
     show d at angry
@@ -256,6 +261,7 @@ label day_4:
 
     R_t "Дэвид толкнул Виктора плечом и вышел из командного центра."
 
+    stop sfx2 fadeout 1.0
     play sfx sfx_fall_body
     show v scared at jump, fear with dissolve
 
@@ -273,6 +279,7 @@ label day_4:
 
     R_t "Я помог радисту подняться. Мы увидели, куда пошёл Дэвид, и двинулись за ним."
 
+    play sfx sfx_steps_two
     scene bg_black with dissolve
     pause 0.5
     scene bg_coridor2_default
@@ -320,6 +327,7 @@ label day_4:
     play sfx2 sfx_cough_man2
     R_t ear sick "Я открыл дверь и сразу закашлялся: едкий дым ударил в нос."
 
+    play sfx3 sfx_steps_fast_two
     show d at move_on_scene(xalign=-1.7)
 
     R serious very_angry "Нужно срочно всё перекрыть!"
@@ -327,39 +335,56 @@ label day_4:
     R_t "Мы бросились останавливать утечку. Горло жгло; я заходился в кашле."
     R "О чём он вообще думал? Надо догнать его."
 
+    play sfx3 sfx_steps_fast fadein 0.5 fadeout 0.5 loop
     scene bg_black with dissolve
     pause 0.5
+    stop sfx3 fadeout 0.5
     scene bg_med_block_red
-    show d fist confused right at Transform(xalign=0.8, yalign=1.0)
-    show i profile osharashen left at Transform(xalign=1.1, yalign=1.0)
-    show s shy surprised right at Transform(xalign=0.3, yalign=1.0)
+    #show d fist confused right at Transform(xalign=0.8, yalign=1.0)
+    #show i profile osharashen left at Transform(xalign=1.1, yalign=1.0)
+    #show s shy surprised right at Transform(xalign=0.3, yalign=1.0)
     with dissolve
     show v profile angry right at Transform(xalign=-0.1, yalign=1.0)
     with dissolve
 
     R_t serious angry "Обнаружили мы его уже в лазарете. Внутри был полный погром."
     R_t "Дэвид опрокинул шкафы и держал Ирис."
+
+    play sfx sfx_drama
+    call scene_pogrom_v_lazarete
     
-    show s at angry
+    #show s at angry
 
-    S "Нет, прекрати!"
+    cutscene "Нет, прекрати!"
 
-    show i at fear
+    #show i at fear
 
-    I ahui "Отпусти меня!.."
+    cutscene "Отпусти меня!.."
 
+    stop sfx fadeout 0.5
+    scene bg_med_block_red
+    show d fist confused right at Transform(xalign=0.8, yalign=1.0)
+    show i profile osharashen left at Transform(xalign=1.1, yalign=1.0)
+    show s shy surprised right at Transform(xalign=0.3, yalign=1.0)
+    show v profile angry right at Transform(xalign=-0.1, yalign=1.0)
+    with dissolve
+    pause 0.5
+
+    play sfx sfx_steps_two
     show v crazy at move_step(200)
     show s ruki crazy at move_step(200)
     pause 0.5
+    play sfx2 sfx_hit
     show d serious angry at move_step(50)
     show i at move_step(100)
     pause 1.0
+    play sfx sfx_steps_fast_short
     show d left at move_on_scene(time=3.0, xalign=-1.7)
 
     R_t very_angry "Мы рванули на помощь, но он вытолкнул Ирис внутрь и рванул к выходу."
     D "Пока вы не натворили ещё чего-нибудь, посидите здесь!"
 
-    play sfx sfx_door_open
+    play sfx3 sfx_door_open
     $ renpy.transition(hpunch)
     pause 0.7
     play sfx2 sfx_pisk_one
@@ -411,6 +436,7 @@ label day_4:
 # Пароль 1734.
 
 # Удачно:
+#$ unlock_achievement(ACHIEVEMENT_SHERLOCK)
 # R_t Внутри пусто… и достаточно пыльно.
 # R_t Но в середине сейфа я увидел место, не покрытое пылью.
 # R_t Очень похоже, что недавно здесь что-то лежало.
@@ -429,6 +455,7 @@ label day_4:
 # R_t Софи мило смутилась.
 # S Немножко.
 # Открывается игра «сбор квадратиков».
+#$ unlock_achievement(ACHIEVEMENT_HACKER)
 
 # Выход:
 # R Ладно, поищем альтернативу.
@@ -444,7 +471,7 @@ label day_4:
 # R Надеюсь, это не пригодится.
 
     scene bg_black with dissolve
-    pause 0.5
+    pause 1.0
     scene bg_coridor2_red_smoke
     play sfx3 sfx_noise_banging fadein 0.5 fadeout 0.5 loop
     show i profile neutral left at Transform(xalign=1.15, yalign=1.0)
@@ -474,6 +501,7 @@ label day_4:
     V crazy "Остановим его!"
     R_t ear dissatisfied "Пытаясь дышать через мокрую ткань, мы шли по коридору. Я дышал через раз, но лёгкие всё равно наполнялись газом."
     
+    stop sfx3 fadeout 0.5
     show d fist fainting right at Transform(xalign=-0.1, yalign=4.0) with dissolve
     stop sfx2 fadeout 1.0
 
@@ -497,4 +525,8 @@ label day_4:
     N "Возвращаем назад… Он почти смог… Ещё раз…"
     N "Это последний шанс для него!.. Дайте мне попробовать! Пустите!.."
     stop sfx fadeout 0.5
+    scene bg_black with dissolve
+    pause 1.0
+    $ unlock_achievement(ACHIEVEMENT_DYSPNEA)
+    pause 0.5
     jump day_5

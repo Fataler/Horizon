@@ -36,35 +36,37 @@ transform r_hand_shake:
     repeat
 
 label scene_photo:
+
     show scene_photo_fon
     show scene_photo_cherkashi at soot_drift_bottom(2, 1.1)
     show scene_photo_light_for_scale at fade_in_out(1.0)
     show scene_photo_hand_2 at hand_appear_from_bottom
 
-    "Также там было её фото."
+    cutscene "Это фото."
+    
     show scene_photo_hand_1 at hand_appear_from_bottom
-
+    cutscene "Также там было её фото."
     show scene_photo_tear_1 at hand_shake
     with dissolve
-    "Плак"
+    #"Плак"
     
     show scene_photo_tear_2 at hand_shake
     hide scene_photo_tear_1
     with dissolve
-    "Плак"
+    #"Плак"
     show scene_photo_tear_3 at hand_shake
     with dissolve
-    "Плак"
+    #"Плак"
     show scene_photo_tear_4 at hand_shake
     hide scene_photo_tear_3
     with dissolve
-    "Плак"
+    #"Плак"
     show scene_photo_tear_5 at hand_shake
     with dissolve
-    "Плак"
+    #"Плак"
     show scene_photo_tear_6 at hand_shake
     hide scene_photo_tear_5
     with dissolve
-    "Плак"
+    #"Плак"
     pause
     return

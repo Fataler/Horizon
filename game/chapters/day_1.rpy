@@ -1,9 +1,11 @@
 label day_1:
     #День 1—перебивка
+    play sfx sfx_crunch_whoosh
+    call test_clock
     scene bg_black
     with dissolve
     pause 1.0
-    scene bg_room_rayan_default
+    $ show_space_bg("bg_room_rayan_default")
     with dissolve
     R_t ear surprised "Всю ночь мерещились тревожные сны."
     R_t "Спустя годы осознанных сновидений, сонных параличей и прочих шалостей измученного мозга подобное уже не удивляло."
@@ -12,17 +14,16 @@ label day_1:
     R_t neutral "Впечатлило? Ни капли."
     R_t "Умывшись прохладной водой, я взглянул в своё отражение в зеркале."
 
-    scene mirror_water with dissolve
-    pause 2.0
+    call scene_mirror_water
 
     cutscene "Из него на меня уставшим взглядом смотрел обычный парень лет двадцати пяти."
     cutscene "Капли воды стекали по лицу, охлаждая кожу. Вода всегда напоминала мне о доме."
     cutscene "Больше нельзя было мешкать — по протоколу рабочий день начинается строго в восемь утра."
-    scene bg_room_rayan_default
-    with dissolve
+    $ show_space_bg("bg_room_rayan_default")
     R_t "Быстро натянув костюм, я отметился в терминале и направился в кухонный модуль."
+    play sfx2 sfx_push_button
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene black with dissolve
     pause 1.0
     scene bg_dinner_block
@@ -37,21 +38,21 @@ label day_1:
     R_t "На удивление, в помещении было шумно."
     R_t "Команда что-то активно обсуждала."
 
-    stop sfx2 fadeout 0.5
-
+    play sfx sfx_steps_two
     R_t "Я подошёл ближе."
     R_t "В воздухе чувствовалось волнение."
     R_t thinking ne_ponyal "Кажется, наконец у нас выйдет получить указания от командного центра и более точные координаты базы, к которой мы движемся."
     R_t "Экипаж склонился над столом, в центре которого был расположен планшет."
     R_t "Радист сидел перед ним, руками цепко обхватив кружку с дегидратированным куриным супом."
     R_t "Виктор выглядел очень довольным."
+    stop sfx2 fadeout 2.0
 
     show v profile tricky
 
     R_t "Благосклонно осмотрев присутствующих, он сказал:"
     V pockets happy "Коллеги, я всё-таки смог считать пакет. Но, чёрт побери, это звучит… странно."
 
-    play sfx sfx_cup_on_table
+    play sfx sfx_pisk
 
     show v profile smile
 
@@ -74,10 +75,14 @@ label day_1:
     pause 0.5
     V ruki puzzled "Частота не наша, четыреста двенадцать мегагерц."
     V "Формально — помехи. Но пакет чётко повторился три раза с паузой ровно 4,2 секунды."
-    R_t "Командир отхлебнул из кружки и прислушался:"
+    play sfx sfx_slurp
+    show d calm
+
+    R_t calm "Командир отхлебнул из кружки и прислушался:"
 
     show i smoke calm
-    D calm "Может, отражение от ионосферы? Заметь, мы в апогее — угол наклона достаточно большой."
+
+    D serious neutral "Может, отражение от ионосферы? Заметь, мы в апогее — угол наклона достаточно большой."
 
     show v pockets happy
     show d neutral
@@ -209,7 +214,7 @@ label day_1:
 
     R_t thinking neutral "Необходимо было приниматься за работу."
 
-    show d left at move_on_scene(xalign=-1.0)
+    show d left at move_on_scene(time=3.0, xalign=-1.0)
     play sfx sfx_steps_short
 
     R_t ear neutral "Члены экипажа не спеша разбрелись по своим точкам."
@@ -220,8 +225,7 @@ label day_1:
 
     scene black with dissolve
     pause 1.5
-    scene bg_commander_block_transparent_default
-    with dissolve
+    $ show_space_bg("bg_commander_block_transparent_default")
     
     R_t ear neutral "Моим бессменным местом пребывания была навигационная рубка."
     R_t "Это был просторный кабинет на два рабочих места — моё и капитана."
@@ -230,20 +234,18 @@ label day_1:
     R_t hehe "Но я вовсе не чувствовал себя одиноким."
 
     #цг 7 начало
-    show screen cosmos_background_screen("7")
-    with dissolve
+    $ show_scene_cosmos("7")
     cutscene "Напротив, находиться здесь было приятно."
     cutscene "Вид, который открывался из нашего большого окна, был просто потрясающим."
     cutscene "Мимо проносились огоньки сгорающих и снова зажигающихся звёзд, целые системы, пути."
     cutscene "Возможно, созерцание этого необъятного пространства было одной из причин..." 
     cutscene "...Почему я решился стать членом экспедиции и совершить полёт в эту холодную бесконечную пустошь."
     cutscene "Конечно, было немного жаль, что не повезло с командой."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 7 конец
     
     #цг 6 начало
-    show screen cosmos_background_screen("6")
-    with dissolve
+    $ show_scene_cosmos("6")
     cutscene "Я планировал попасть в заранее сработавшийся коллектив и стать в нём тихим, не привлекающим особого внимания аутсайдером."
     cutscene "Но что ни день — какое-то событие, не соскучишься."
     cutscene "Я откинулся на кресле и закинул руки за голову. Всего лишь месяц."
@@ -251,12 +253,11 @@ label day_1:
     cutscene "Поэтому нет разницы в персонале: главное — все они отличные специалисты, которые знают своё дело и были хорошо подготовлены."
     cutscene "Приключение туда-обратно не должно было доставить проблем."
     cutscene "Я прищурил глаза и всмотрелся в тёмную даль."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 6 конец
 
     #цг 12 начало
-    show screen cosmos_background_screen("12")
-    with dissolve
+    $ show_scene_cosmos("12")
     cutscene "Полёт внутри корабля почти не ощущался."
     cutscene "Это ощущение лёгкости в теле и изредка небольшая дрожь."
     cutscene "Она не сравнится с ощущением полёта вне гравитации."
@@ -267,21 +268,20 @@ label day_1:
     cutscene "В скафандре и за пределами корабля."
     cutscene "Отчасти это можно назвать моей мечтой."
     cutscene "Все экспедиции, членом которых мне удалось побывать, проходили без инцидентов, потому для меня не было острой необходимости покидать корабль."
-    hide screen cosmos_background_screen
+    $ hide_scene_cosmos()
     #цг 12 конец
     
     #цг 5 начало
-    show screen cosmos_background_screen("5")
-    with dissolve
+    $ show_scene_cosmos("5")
     cutscene "По протоколу мы имеем право делать это лишь в исключительных случаях — для устранения поломки или определения неполадок."
-    cutscene "Более того, являясь навигатором, вряд ли мне когда-либо удастся осуществить это небольшое желание — в починке механических повреждений или устранении неполадок электроники я, увы, ничего не смыслю."
+    cutscene "Более того, являясь навигатором, вряд ли мне когда-либо удастся осуществить это небольшое желание…"
+    cutscene "… в починке механических повреждений или устранении неполадок электроники я, увы, ничего не смыслю."
     cutscene "Но у меня всегда было ощущение, что рано или поздно я познаю эти ощущения."
     cutscene "Они были так знакомы где-то в глубине сознания, будто я уже много раз их испытывал."
-    hide screen cosmos_background_screen
-    with dissolve
+    $ hide_scene_cosmos()
     #цг 5 конец
 
-    scene bg_commander_block_transparent_default with dissolve
+    $ show_space_bg("bg_commander_block_transparent_default")
 
     R_t thinking ne_ponyal "Корабль летел на автопилоте, до базы было ещё пять дней пути, потому большого количества работы не предвещалось."
     R_t "Всего лишь необходимо следить за датчиками."
@@ -290,12 +290,13 @@ label day_1:
     R_t angry "Оперевшись рукой на подлокотник, чтобы дотянуться до небольшого отсека с личными вещами, я почувствовал резкую боль в руке."
 
     #цг игла в руке
+    $ hide_space_bg()
     call scene_hand_needle
-
-    pause 0.5
-    scene bg_commander_block_transparent_default
     with dissolve
 
+    pause 0.5
+    $ show_space_bg("bg_commander_block_transparent_default")
+    
     R_t thinking osharashen "Не теряя самообладания, я взглянул на подлокотник и увидел еле заметную, но довольно крупную иглу."
     R_t "Брак обшивки кресла?"
     R_t serious think "Сжав пальцами рану на ладони, я хотел было поспешить в медпункт."
@@ -306,34 +307,36 @@ label day_1:
     R_t ne_ponyal "Как я объясню характер этого недоразумения?"
     R_t thinking osharashen "Увы, увиденное не обрадовало меня."
     #цг стул с иглами
-    scene commander_block_chair with dissolve
+    $ hide_space_bg()
+    $ show_space_bg("bg_stul_s_iglami")
 
-    R_t thinking osharashen "Ряд мелких игл был воткнут по всему периметру кресла в хаотичном порядке."
-    R_t ear dissatisfied "Я пригнулся, чтобы осмотреть сиденье со всех сторон."
-    R_t "Мебель была безнадёжно испорчена и совершенно небезопасна для использования."
-    R_t "Помимо металлических штырей в самой обшивке, некоторое их количество лежало вокруг."
-    R serious angry "Какого чёрта?! Это точно ненормально."
-    R "Я обязан доложить обо всём капитану."
-    R_t ear dissatisfied "Я вытащил несколько игл в качестве образца (благо их было достаточно много, чтобы оставить часть на месте для демонстрации)."
-    R_t "Особенно много странных металлических шипов находилось у основания спинки стула."
-    R_t thinking ne_ponyal "Вынимая одну иглу за другой, я заметил, что кожаная обивка рядом с этим местом располосована ножом."
-    R_t "И внутри явно что-то спрятано."
-    R_t osharashen "Ком встал в горле."
-    R_t "Сказать честно, я никогда не был из пугливых, но данная ситуация выходила за рамки рядовых приключений космонавта."
-    R_t ear dissatisfied "Я аккуратно раздвинул края рваной ткани и, зацепив двумя пальцами, вытащил то, что находилось под обшивкой."
-    R_t surprised "Это был предмет, который, пожалуй, я ожидал там обнаружить меньше всего."
+    cutscene "Ряд мелких игл был воткнут по всему периметру кресла в хаотичном порядке."
+    cutscene "Я пригнулся, чтобы осмотреть сиденье со всех сторон."
+    cutscene "Мебель была безнадёжно испорчена и совершенно небезопасна для использования."
+    cutscene "Помимо металлических штырей в самой обшивке, некоторое их количество лежало вокруг."
+    cutscene "Какого чёрта?! Это точно ненормально."
+    cutscene "Я обязан доложить обо всём капитану."
+    cutscene "Я вытащил несколько игл в качестве образца (благо их было достаточно много, чтобы оставить часть на месте для демонстрации)."
+    cutscene "Особенно много странных металлических шипов находилось у основания спинки стула."
+    cutscene "Вынимая одну иглу за другой, я заметил, что кожаная обивка рядом с этим местом располосована ножом."
+    cutscene "И внутри явно что-то спрятано."
+    cutscene "Ком встал в горле."
+    cutscene "Сказать честно, я никогда не был из пугливых, но данная ситуация выходила за рамки рядовых приключений космонавта."
+    cutscene "Я аккуратно раздвинул края рваной ткани и, зацепив двумя пальцами, вытащил то, что находилось под обшивкой."
+    cutscene "Это был предмет, который, пожалуй, я ожидал там обнаружить меньше всего."
 
     #раян фото девушки
     call scene_photo_found_cut
 
     scene bg_commander_block_transparent_default
-    with dissolve
+    $ show_space_bg("bg_commander_block_transparent_default")
+
     R_t serious very_angry "Внутри меня росла злость."
     R_t "Какого чёрта кто-то копался в моих вещах? В моей каюте?!"
     R_t "Это фото явно не лежало на самом видном месте."
     R_t angry "С камнем на сердце, раной на руке и тихой яростью я вышел из навигационной рубки."
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene black with dissolve
     pause 0.5
     scene bg_coridor2_default with dissolve
@@ -356,6 +359,7 @@ label day_1:
     R_t ear dissatisfied "Собравшись с духом, я вошёл внутрь."
 
     stop sfx fadeout 1.0
+    play sfx2 sfx_door_creaking
     call scene_vhod_v_lazaret
 
     #цг вход в лазарет
@@ -375,7 +379,7 @@ label day_1:
     R ear sick "Одна из игл воткнулась мне в руку, когда я сидел на своём рабочем месте. Они оказались везде вокруг."
 
     show s ruki hurt at fear
-
+    play sfx sfx_hiss_pain
     R_t surprised "Софи неожиданно зашипела. Она попыталась опереться на ногу, но, очевидно, ей стало очень больно."
     S "Кто-то вставил иглу мне в ботинок, когда я отошла в раздевалку, чтобы надеть форму."
     I pen ozadachen "Она вошла в ногу почти полностью. Мне с трудом удалось её достать."
@@ -404,7 +408,7 @@ label day_1:
     I bychit "И даже пару лет состоял в секте."
     R thinking osharashen "Как такое вообще может быть?"
     I profile neutral "В первую очередь необходимо пообщаться с Виктором."
-    I "Нам нужно заручиться поддержкой ещё одного члена экипажа, прежде чем вести переговоры с бывшим любителем оккультики."
+    I "Нам нужно заручиться поддержкой ещё одного члена экипажа, прежде чем вести переговоры с бывшим любителем оккультизма."
     R_t thinking suspicious "Предложение звучало резонно."
     S shy worried "Я помню свой первый день на этом судне и, кажется, замечала знаки, нарисованные мелом на стенах возле кают и склада…"
     S "Но я никогда не придавала этому значения."
@@ -421,7 +425,7 @@ label day_1:
     R_t serious think "Я уже было развернулся обратно к двери, как Ирис схватила меня за плечо."
 
     show i pen ozadachen at move_step(50)
-
+    play sfx sfx_pat
     I "Нужно идти вдвоём. Сейчас опасно разделяться."
     R_t ear smile "Я усмехнулся."
     R ear neutral "Мы можем пойти вдвоём, но лазарет с Софи необходимо закрыть на ключ. Она сейчас не в состоянии двигаться."
@@ -430,6 +434,7 @@ label day_1:
     S ruki neutral "Нет, всё в порядке, я пойду с вами!"
 
     show s hurt at move_step(-30)
+    play sfx sfx_hiss_pain
 
     R_t ear surprised "Тихонько ругаясь, она встала на ноги. Одной ногой опиралась на носок, чтобы не тревожить рану."
     R_t "Идти можно, но медленно."
@@ -453,7 +458,7 @@ label day_1:
 
     scene black with dissolve
     pause 0.5
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_coridor2_default 
     show i profile neutral left at Transform(xalign=0.6, yalign=1.0)
     show s profile neutral left at Transform(xalign=1.0, yalign=1.0)
@@ -506,7 +511,7 @@ label day_1:
     with dissolve
 
 
-    scene bg_room_viktor_dark with dissolve
+    $ show_space_bg("bg_room_viktor_dark")
 
     R_t serious think "Это оказалась каюта. Каюта Виктора."
     R_t "В полумраке мы сидели как мыши, стараясь ничем не выдать своё присутствие."
@@ -519,7 +524,7 @@ label day_1:
     R_t thinking osharashen "Мы услышали шум падающих вещей."
     R_t neutral "Скрываться дальше смысла не было. Я включил свет."
     play sfx sfx_click2
-    scene bg_room_viktor_default
+    $ show_space_bg("bg_room_viktor_default")
     show i profile osharashen left at right
     show s shy surprised right at left
     with dissolve
@@ -532,7 +537,7 @@ label day_1:
 
     cutscene "Кости. Нити. Иглы."
 
-    scene room_viktor1 with dissolve
+    $ show_space_bg("room_viktor1")
     pause 1.0
     
     cutscene "Какие-то странного и неприятного вида тотемы, собранные из множества частей."
@@ -542,7 +547,7 @@ label day_1:
     
     cutscene "Лоскуты ткани, рисунки."
 
-    scene bg_room_viktor_default
+    $ show_space_bg("bg_room_viktor_default")
     show i pen ozadachen left at right
     show s shy surprised right at left
     with dissolve
@@ -562,7 +567,7 @@ label day_1:
     I profile oooops "Я не вижу его."
     R ear dissatisfied "Мы должны поспешить."
 
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_black with dissolve
     pause 0.5
     scene bg_coridor3_default
@@ -598,21 +603,18 @@ label day_1:
     stop sfx fadeout 1.0
     pause 1.0
 
-    R_t "Мы стояли перед входом в помещение."
-
     $ renpy.music.set_volume(0.1, delay=0, channel="sfx")
     play sfx sfx_pisk fadein 0.5 fadeout 1.0 loop
     play sfx2 sfx_noise_banging fadein 0.5 fadeout 1.0 loop
 
+    R_t "Мы стояли перед входом в помещение."
     R_t "Тихое пищание и какая-то возня были слышны изнутри. Внутри явно кто-то был."
-
+    R_t serious think "Моя рука уже лежала на ручке двери, как…"
     stop sfx fadeout 0.5
     stop sfx2 fadeout 0.5
-    $ renpy.music.set_volume(1.0, delay=0, channel="sfx")
+    $ renpy.music.set_volume(1.0, delay=0.5, channel="sfx")
 
-    R_t serious think "Моя рука уже лежала на ручке двери, как…"
-
-    play sfx sfx_hit
+    play sfx3 sfx_heat_metal
 
     R_t thinking osharashen "Резкий удар."
 
@@ -647,7 +649,7 @@ label day_1:
     show s shy worried at fear
 
     R_t "Софи успела заметить, в какую сторону он направился, и пыталась растормошить меня."
-    R_t surprised "Немного проморгавшись, я смог оценить ситуацию. Дерьмово."
+    R_t surprised "Немного проморгавшись, я смог оценить ситуацию. {w=0.4} Дерьмово."
     R_t dissatisfied "Мы должны были догнать его, но…"
 
     show s profile sad at move_on_scene(time=2.0, xalign=-0.1)
@@ -671,6 +673,7 @@ label day_1:
     hide i
     hide s
     scene bg_monitors_block
+    play sfx sfx_drama
     call scene_david_potracheno
 
     
@@ -678,11 +681,11 @@ label day_1:
     show s profile cry left at Transform(xalign=1.1, yalign=1.0)
     show d fist fainting right at Transform(xalign=0, yalign=4.0)
     with dissolve
-
+    stop sfx fadeout 1.0
     R_t "Ирис бросилась к нему:"
 
     show i at move_step(-300), fear
-
+    play sfx2 sfx_steps_fast_two
     I "Дэв, что случилось? Он напал на тебя?"
     R serious angry "Окажи ему помощь, срочно!"
 
@@ -712,6 +715,7 @@ label day_1:
 
     R_t "Ирис резко прервала меня."
 
+    play sfx sfx_drama_boom
     call scene_Iris_zlaya
 
     I "Запрещено по протоколу."
@@ -748,6 +752,7 @@ label day_1:
     R_t "Ирис холодно наблюдала за Дэвидом, лежавшим на полу."
 
     #цг время в блокноте +
+    play sfx sfx_writing fadeout 1.0
     call scene_password
     show s cry with dissolve
    
@@ -761,7 +766,7 @@ label day_1:
     show i smoke calm right at Transform(xalign=-0.1, yalign=1.0)
     show s profile despair right at Transform(xalign=0.4, yalign=1.0)
     with dissolve
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
 
     R_t serious think "Следующие несколько минут мы провели в тишине."
     R_t "Слышны были лишь наши шаги: я шёл уверенно и быстро, Ирис кралась сзади, Софи старалась спешить, но хромала."
@@ -770,9 +775,9 @@ label day_1:
 
     R_t ear dissatisfied "Заранее я передал свой электрошокер Софи, указав глазами на Ирис."
 
-    show s ruki ozadachen
+    show s shy surprised
     pause 1.0
-    show s calm with dissolve
+    show s ruki calm with dissolve
 
     R_t "Механик испуганно взглянула на меня и кивнула."
     R serious angry "При любой странности — поняла?"
@@ -793,7 +798,7 @@ label day_1:
     R_t "На первый взгляд никого видно не было, но стоило мне посветить фонариком — я увидел его."
 
     #цг Виктор у панели +
-
+    play sfx sfx_drama_boom
     call scene_viktor_dal_ebu
 
     show v ruki crazy_down left at Transform(xalign=1.1, yalign=4.0) with dissolve
@@ -821,7 +826,7 @@ label day_1:
     show v ruki crazy_down at fear
 
     V "Всё началось с тебя!.."
-    R_t thinking calm "Я почти не слушал его. Напряжение нарастало, нужно было обдумать план действий."
+    R_t thinking neutral "Я почти не слушал его. Напряжение нарастало, нужно было обдумать план действий."
 
     show v at angry
 

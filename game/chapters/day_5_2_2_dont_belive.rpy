@@ -1,13 +1,21 @@
 label day_5_2_2_dont_belive:
     scene bg_black with dissolve
-    pause 2.0
-    scene bg_room_rayan_dark
-    with dissolve
-    R_t serious think "Я снова вернулся на койку."
-    R_t thinking neutral "Закрыл глаза и попытался сосредоточиться."
-    scene bg_black with eye_off
     pause 1.0
-    R_t "Спустя некоторое время у меня получилось настроиться."
+    $ unlock_achievement(ACHIEVEMENT_CRITICAL_MIND)
+    pause 1.0
+    $ show_space_bg("bg_room_rayan_dark")
+    with dissolve
+    R_t beard_on serious think "Я снова вернулся на койку."
+    R_t thinking neutral "Закрыл глаза и попытался сосредоточиться."
+    scene bg_black with eye_off()
+    pause 2.0
+
+    R_t beard_on "Спустя некоторое время у меня получилось настроиться."
+    show scene_talk_in_end_17
+    with Dissolve(2)
+    show screen waveform_show() with dissolve
+    play sfx2 sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
+    pause 1.0
     N "Ты вернулся!"
     N "Я думала, мы больше не сможем связаться с тобой…"
     R serious angry "Почему?"
@@ -42,25 +50,37 @@ label day_5_2_2_dont_belive:
     R_t suspicious "Голос вдруг замолчал."
     pause 1.5
     R_t "Спустя небольшую паузу она сказала:"
+    pause 1.0
+    play sfx2 sfx_drama_boom
+    show scene_talk_in_end_18
+    with Dissolve(1.0)
+    pause 1.5
+    play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
     N "Все твои члены экипажа давно мертвы."
     N "Долгое время мы наблюдали за тобой."
     N "И раз за разом ты умирал в полном одиночестве."
     R_t thinking osharashen "Члены экипажа… Всё это время они были лишь фикцией?"
     R_t suspicious "Был один способ проверить."
+    hide screen waveform_show with dissolve
+    stop sfx2 fadeout 0.5
+    stop sfx fadeout 0.5
+    $ show_space_bg("bg_room_rayan_dark")
     R_t serious angry"Я без сожаления прервал контакт, встал с постели и пошёл в комнату видеонаблюдения."
     
-    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
+    play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_black with dissolve
     pause 1.0
     stop sfx fadeout 1.0
     scene bg_monitors_block with dissolve
-    R_t thinking suspicious "То, что на камерах не было ни одного человека, я уже понял."
+    R_t beard_on thinking suspicious "То, что на камерах не было ни одного человека, я уже понял."
     R_t "Но я просто должен проверить записи."
-    R_t thinking osharashen "Вот я иду к двигателю и… Бью его ножом?"
-    R_t "Следующая запись… Всё в красном свете. Тревога?"
-    R_t  "Перематываю время. Вот я… В отсеке генератора. Падаю в люк?!"
-    R_t crazy nemnogo "Лежу в коридоре… Вокруг дымка."
-    R_t "В лазарете в окружении пустых блистеров?.."
+    play sfx sfx_drama_boom
+    call scene_monitory
+    cutscene "Вот я иду к двигателю и… Бью его ножом?"
+    cutscene "Следующая запись… Всё в красном свете. Тревога?"
+    cutscene  "Перематываю время. Вот я… В отсеке генератора. Падаю в люк?!"
+    cutscene "Лежу в коридоре… Вокруг дымка."
+    cutscene "В лазарете в окружении пустых блистеров?.."
 
     scene bg_black
     with dissolve
@@ -70,10 +90,10 @@ label day_5_2_2_dont_belive:
     scene bg_black
     with dissolve
     pause 1.0
-    scene bg_commander_block_transparent_default
+    $ show_space_bg("bg_commander_block_transparent_default")
     with dissolve
     pause 1.0
-    R_t thinking suspicious "Впереди был лишь бесконечный космос."
+    R_t beard_on thinking suspicious "Впереди был лишь бесконечный космос."
     R_t "Пространство, наполненное рождающимися и погибающими звёздами."
     R_t "Яркими точками на чёрной бархатной ткани."
     R_t "Они то затухали, то загорались снова, словно подмигивая."
@@ -95,7 +115,6 @@ label day_5_2_2_dont_belive:
     pause 1.0
     R_t crazy nemnogo "…"
     pause 1.0
-    R_t "Это фото."
     call scene_photo
     cutscene "Фото моей семьи."
     cutscene "Дедушка, брат, тётя. Сестрёнка…"
@@ -103,7 +122,7 @@ label day_5_2_2_dont_belive:
     cutscene "Они все остались на Земле."
     cutscene "У моей смерти было много лиц, но все они — мои."
     pause 1.0
-    scene bg_commander_block_transparent_default
+    $ show_space_bg("bg_commander_block_transparent_default")
     with dissolve
     R_t crazy nemnogo "…"
     pause 1.0
@@ -125,5 +144,7 @@ label day_5_2_2_dont_belive:
     pause 1.0
     R_t mnogo "Впереди — только бесконечность."
     scene bg_black with dissolve
-    pause 2.0
+    pause 1.0
+    $ unlock_achievement(ACHIEVEMENT_DREAM)
+    pause 0.5
     return
