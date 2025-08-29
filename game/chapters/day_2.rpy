@@ -209,7 +209,7 @@ label day_2:
     show d right at move_on_scene(1.5, 0.5)
     play sfx sfx_steps_two
     R_t "Они ещё не заметили моего присутствия."
-    show d neutraly left at move_on_scene(1.5, 0)
+    show d neutral left at move_on_scene(1.5, 0)
     play sfx sfx_steps_two
     D "Ну как же так получилось, что мы до сих пор не определили, в чём неисправность?"
     show d right at move_on_scene(1.5, 0.5)

@@ -40,7 +40,7 @@ screen menu_button():
     zorder 100
     
     imagebutton:
-        idle im.Scale("gui/ctc.png", 50, 50)
+        idle Transform("gui/ctc.png", size=(50, 50))
         xalign 0.95
         yalign 0.9
         action [Function(toggle_game_menu)]

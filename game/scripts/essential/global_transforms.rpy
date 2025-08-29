@@ -35,7 +35,7 @@ init -1:
         parallel:
             function WaveShader(amp=0.05, period=17.219, speed=4, direction="vertical", damp=(0.043,1.0))
 
-    image crt = At("crt.png", crt_effects)
+    image crt = At("Backgrounds/crt.png", crt_effects)
 
     transform hover_effect(opac=1):
         on show:

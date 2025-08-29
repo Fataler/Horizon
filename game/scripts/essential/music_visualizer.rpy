@@ -268,7 +268,7 @@ screen music_visualizer(
 
 label music_visualizer_demo:
     scene black
-    play music music_space_ambient_3
+    # play music music_space_ambient_3
     show screen music_visualizer(channel="music")
     "Music visualizer"
     hide screen music_visualizer

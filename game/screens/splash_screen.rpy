@@ -5,10 +5,6 @@ default show_main_menu_fade = False
 default splash_duration = 5.0
 default debug_splash = False
 
-image splash_gradient = "gui/splash/gradient.png"
-image splash_logo = "gui/splash/logo.png"
-image splash_bg = "gui/splash/bg.png"
-
 image disclamer_fon = "gui/splash/disclamer_fon.png"
 image disclamer_text:
     "gui/splash/disclamer_text.png"

@@ -289,7 +289,6 @@ label day_1:
     with dissolve
 
     pause 0.5
-    hide scene_hand_needle
     $ show_space_bg("bg_commander_block_transparent_default")
     
     R_t thinking osharashen "Не теряя самообладания, я взглянул на подлокотник и увидел еле заметную, но довольно крупную иглу."
@@ -818,7 +817,7 @@ label day_1:
     show v ruki crazy_down at fear
 
     V "Всё началось с тебя!.."
-    R_t thinking calm "Я почти не слушал его. Напряжение нарастало, нужно было обдумать план действий."
+    R_t thinking neutral "Я почти не слушал его. Напряжение нарастало, нужно было обдумать план действий."
 
     show v at angry
 

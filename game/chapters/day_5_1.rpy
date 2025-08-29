@@ -108,7 +108,7 @@ label day_5:
     pause 0.5
     scene bg_coridor1_default
     with dissolve
-    R_t ear dissatisfied "Но что-то внутри подсказывало мне, что я не увижу там ничего хорошего."
+    R_t beard_on ear dissatisfied "Но что-то внутри подсказывало мне, что я не увижу там ничего хорошего."
 
     stop sfx2 fadeout 0.5   
     scene bg_black
@@ -261,7 +261,7 @@ label day_5:
     #цг бородатого
     call scene_mirror_beard
     with dissolve
-    R_t beard ear surprised "Оттуда на меня смотрел уставший мужчина, обзаведшийся некоторыми морщинами, парой шрамов и щетиной."
+    R_t beard_on ear surprised "Оттуда на меня смотрел уставший мужчина, обзаведшийся некоторыми морщинами, парой шрамов и щетиной."
     R_t serious angry "Неужели это всё правда…"
     stop sfx fadeout 0.5
     menu:
