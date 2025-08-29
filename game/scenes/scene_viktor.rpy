@@ -66,12 +66,15 @@ label scene_viktor:
             R_t "Но Виктор был быстрее."
 
     show layer master at screen_shake
+    play sfx sfx_shing_sword
+    show expression Solid("#ffffff") as overlay_light at alpha_mask_fade(1.0, 0.3)
+    show expression Solid("#ffffff") as overlay_light at alpha_mask_fade_inverse(1.0, 0.3)
     R_t very_angry "Лезвие блеснуло во мраке. Инстинктивно я уклонился, но это было ошибкой."
     R_t "Он не целился в меня."
     
     play sfx sfx_hit
     show v at angry
-
+    play sfx sfx_hit_sword
     R_t "Виктор с размаху ударил ножом в открытый отсек двигателя, где тянулись разноцветные провода."
     
     stop sfx3 fadeout 0.5

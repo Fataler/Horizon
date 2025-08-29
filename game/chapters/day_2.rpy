@@ -17,7 +17,7 @@ label day_2:
     R_t serious think "Я сел на кровати и уставился на стену, с которой на меня в ответ смотрели многочисленные плакаты."
     R "Музыка, которую я слушал в прошлой жизни."
 
-    play sfx sfx_steps_short fadeout 1.0
+    play sfx sfx_steps_short fadeout 2.0
 
     R_t "Со стороны коридора то и дело были слышны шаги коллег, которые тоже проснулись и спешили на кухню."
     R_t ear sick "Почему-то я не мог собраться с мыслями."
@@ -72,7 +72,7 @@ label day_2:
     scene bg_dinner_block_dark with dissolve
     show i profile neutral right at left
     show v profile neutral left at right
-
+    play sfx2 sfx_talk_people fadein 0.5 fadeout 0.5 loop
     R_t neutral "За столом уже сидели Виктор и Ирис."
     R_t "Дэвида и Софи нигде не было видно."
     R_t "Между коллегами уже завязался разговор."
@@ -85,8 +85,9 @@ label day_2:
     show v at fear
     play sfx sfx_laugh_people
     R_t "Периодически они смеялись."
+    play sfx3 sfx_steps_two
     R_t serious think "Я подошёл к столу."
-
+    stop sfx2 fadeout 0.5
     show i pen nervous_laughter
 
     R_t "Ирис обратила на меня внимание."
@@ -197,6 +198,7 @@ label day_2:
     with dissolve
     stop sfx fadeout 1.0
     stop sfx2 fadeout 1.0
+    play sfx3 sfx_alarm3 fadein 0.5 fadeout 0.5 loop
 
     R_t "Внутри, при красном свете аварийной лампочки, находились механик и командир."
     #R_t "Всё помещение было заставлено разного вида баллонами, банками, бутылками с разными жидкостями, а рядом с членами экипажа на полу лежали инструменты."
@@ -290,6 +292,7 @@ label day_2:
     R_t serious think "Пожав плечами, я пошёл на выход. Дэвид догнал меня."
     R_t "Мы ничего не сказали друг другу, но обменялись многозначительными взглядами."
 
+    stop sfx3 fadeout 0.5
     scene black with dissolve
     pause 0.5
     #show d right
@@ -322,8 +325,10 @@ label day_2:
     D "Шагом марш на кухню!"
     R_t "Я решил подыграть и вскинул руку к виску."
     R ear hehe "Есть, сэр!"
+    play sfx sfx_steps fadein 0.5 fadeout 0.5 loop
     R_t "На этом моменте каждый пошёл своим путём."
     
+    stop sfx fadeout 0.5
     scene black with dissolve
     pause 0.5
     scene bg_dinner_block_dark
@@ -356,7 +361,7 @@ label day_2:
     R_t serious think "Это значило, что я мог расслабиться, откинуться в кресле и любоваться красотой."
 
     #фон космос
-    scene bg_black_t_90
+    show cosmos_fon
     with dissolve
     stop sfx
     stop sfx2 fadeout 2.0
@@ -424,6 +429,7 @@ label day_2:
     $ hide_scene_cosmos()
     #цг 10 конец
 
+    scene bg_commander_block_default
     $ show_space_bg("bg_commander_block_transparent_default")
     stop sfx fadeout 1.0
 
@@ -524,6 +530,7 @@ label day_2:
     #show d at angry, step_up
     show d fist angry at angry, move_step(-100, 0.2)
     pause 0.15
+    play sfx sfx_steps_fast_two
     show s shy surprised at fear, move_step(-50, 0.2)
 
     R_t "В какой-то момент командир замахнулся рукой, чтобы ударить Софи, та попыталась уклониться."
@@ -532,12 +539,15 @@ label day_2:
     R_t serious fainting "От жара становилось плохо, маска не помогала."
 
     #show d right at step_up
+    play sfx sfx_steps_two
     show d annoyed right at move_step(50, 0.3)
 
     R_t "Дэвид развернулся и попытался пойти в сторону генератора."
 
+    play sfx sfx_steps_fast_two
     show s nedovolen at move_step(250, 0.3, 1)
     pause 1.0
+    play sfx sfx_steps_two
     show s at Transform(xalign=0.7, yalign=1.0), move_step(-30)
     #show d at step_left
     show d at move_step(-30)
@@ -545,30 +555,33 @@ label day_2:
     R_t think "Софи вцепилась в его руку и старалась тащить назад."
 
     #show d angry at step_left
+    play sfx sfx_steps_fast_two
     show d angry left at move_step(50), angry
     show s ruki hurt at move_step(-50), fear
 
     R_t "Разъярённый капитан резко отмахнулся от неё."
 
-    #show d angry at step_left
+    play sfx sfx_steps_two
     show d at move_step(-50)
     show s shy surprised at Transform(xalign=0.65, yalign=1.0), move_step(-50), fear
 
     R_t "Шаг. Ещё шаг."
 
+    play sfx sfx_steps_two
     show d angry at move_step(-50)
     show s ruki hurt at Transform(xalign=0.6, yalign=1.0), move_step(-50), fear
     pause 1.5
     show s shy surprised at jump(height=1000)
-    pause 1.0
+    play sfx2 sfx_scream_women_ah
+    pause 0.5
     play sfx sfx_water_splash
     hide s with dissolve
     show v ruki osharashen
-    play sfx2 sfx_scream_women_ah
     
     show d serious osharashen
     R_t angry "И девушка упала в открытый люк."
 
+    play sfx sfx_steps_fast_two
     show v profile angry at move_step(300), fear
 
     R_t "Медлить было нельзя. Мы с Виктором бросились к люку."
@@ -584,6 +597,7 @@ label day_2:
     show d serious osharashen left at Transform(xalign=0.9, yalign=1.0)
     with dissolve
     pause 1.0
+    play sfx sfx_steps_fast_two
     show d fist angry at move_step(-200), angry
     show v pockets angry at move_step(-100), fear
     pause 1.0
@@ -620,7 +634,6 @@ label day_2:
 
     show v ruki osharashen
     show d osharashen
-
     R_t thinking osharashen "Не сразу, но мы почувствовали запах гари."
     R_t "Огонь?.."
     R_t "Секунда{w}, две."

@@ -356,6 +356,7 @@ label day_1:
     R_t ear dissatisfied "Собравшись с духом, я вошёл внутрь."
 
     stop sfx fadeout 1.0
+    play sfx2 sfx_door_creaking
     call scene_vhod_v_lazaret
 
     #цг вход в лазарет
@@ -375,7 +376,7 @@ label day_1:
     R ear sick "Одна из игл воткнулась мне в руку, когда я сидел на своём рабочем месте. Они оказались везде вокруг."
 
     show s ruki hurt at fear
-
+    play sfx sfx_hiss_pain
     R_t surprised "Софи неожиданно зашипела. Она попыталась опереться на ногу, но, очевидно, ей стало очень больно."
     S "Кто-то вставил иглу мне в ботинок, когда я отошла в раздевалку, чтобы надеть форму."
     I pen ozadachen "Она вошла в ногу почти полностью. Мне с трудом удалось её достать."
@@ -421,7 +422,7 @@ label day_1:
     R_t serious think "Я уже было развернулся обратно к двери, как Ирис схватила меня за плечо."
 
     show i pen ozadachen at move_step(50)
-
+    play sfx sfx_pat
     I "Нужно идти вдвоём. Сейчас опасно разделяться."
     R_t ear smile "Я усмехнулся."
     R ear neutral "Мы можем пойти вдвоём, но лазарет с Софи необходимо закрыть на ключ. Она сейчас не в состоянии двигаться."
@@ -430,6 +431,7 @@ label day_1:
     S ruki neutral "Нет, всё в порядке, я пойду с вами!"
 
     show s hurt at move_step(-30)
+    play sfx sfx_hiss_pain
 
     R_t ear surprised "Тихонько ругаясь, она встала на ноги. Одной ногой опиралась на носок, чтобы не тревожить рану."
     R_t "Идти можно, но медленно."
@@ -598,21 +600,18 @@ label day_1:
     stop sfx fadeout 1.0
     pause 1.0
 
-    R_t "Мы стояли перед входом в помещение."
-
     $ renpy.music.set_volume(0.1, delay=0, channel="sfx")
     play sfx sfx_pisk fadein 0.5 fadeout 1.0 loop
     play sfx2 sfx_noise_banging fadein 0.5 fadeout 1.0 loop
 
+    R_t "Мы стояли перед входом в помещение."
     R_t "Тихое пищание и какая-то возня были слышны изнутри. Внутри явно кто-то был."
-
+    R_t serious think "Моя рука уже лежала на ручке двери, как…"
     stop sfx fadeout 0.5
     stop sfx2 fadeout 0.5
-    $ renpy.music.set_volume(1.0, delay=0, channel="sfx")
+    $ renpy.music.set_volume(1.0, delay=0.5, channel="sfx")
 
-    R_t serious think "Моя рука уже лежала на ручке двери, как…"
-
-    play sfx sfx_hit
+    play sfx3 sfx_heat_metal
 
     R_t thinking osharashen "Резкий удар."
 
@@ -647,7 +646,7 @@ label day_1:
     show s shy worried at fear
 
     R_t "Софи успела заметить, в какую сторону он направился, и пыталась растормошить меня."
-    R_t surprised "Немного проморгавшись, я смог оценить ситуацию. Дерьмово."
+    R_t surprised "Немного проморгавшись, я смог оценить ситуацию. {w=0.4} Дерьмово."
     R_t dissatisfied "Мы должны были догнать его, но…"
 
     show s profile sad at move_on_scene(time=2.0, xalign=-0.1)
@@ -671,6 +670,7 @@ label day_1:
     hide i
     hide s
     scene bg_monitors_block
+    play sfx sfx_drama
     call scene_david_potracheno
 
     
@@ -678,11 +678,11 @@ label day_1:
     show s profile cry left at Transform(xalign=1.1, yalign=1.0)
     show d fist fainting right at Transform(xalign=0, yalign=4.0)
     with dissolve
-
+    stop sfx fadeout 1.0
     R_t "Ирис бросилась к нему:"
 
     show i at move_step(-300), fear
-
+    play sfx2 sfx_steps_fast_two
     I "Дэв, что случилось? Он напал на тебя?"
     R serious angry "Окажи ему помощь, срочно!"
 
@@ -712,6 +712,7 @@ label day_1:
 
     R_t "Ирис резко прервала меня."
 
+    play sfx sfx_drama_boom
     call scene_Iris_zlaya
 
     I "Запрещено по протоколу."
@@ -748,6 +749,7 @@ label day_1:
     R_t "Ирис холодно наблюдала за Дэвидом, лежавшим на полу."
 
     #цг время в блокноте +
+    play sfx sfx_writing fadeout 1.0
     call scene_password
     show s cry with dissolve
    
@@ -770,9 +772,9 @@ label day_1:
 
     R_t ear dissatisfied "Заранее я передал свой электрошокер Софи, указав глазами на Ирис."
 
-    show s ruki ozadachen
+    show s shy surprised
     pause 1.0
-    show s calm with dissolve
+    show s ruki calm with dissolve
 
     R_t "Механик испуганно взглянула на меня и кивнула."
     R serious angry "При любой странности — поняла?"
@@ -793,7 +795,7 @@ label day_1:
     R_t "На первый взгляд никого видно не было, но стоило мне посветить фонариком — я увидел его."
 
     #цг Виктор у панели +
-
+    play sfx sfx_drama_boom
     call scene_viktor_dal_ebu
 
     show v ruki crazy_down left at Transform(xalign=1.1, yalign=4.0) with dissolve

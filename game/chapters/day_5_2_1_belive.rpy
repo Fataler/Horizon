@@ -3,11 +3,17 @@ label day_5_2_1_belive:
     pause 2.0
     $ show_space_bg("bg_room_rayan_dark")
     with dissolve
-    R_t serious think "Я снова вернулся на койку."
+    R_t beard_on serious think "Я снова вернулся на койку."
     R_t thinking neutral "Закрыл глаза и попытался сосредоточиться."
     scene bg_black with eye_off()
     pause 1.0
-    R_t "Спустя некоторое время у меня получилось настроиться."
+    R_t beard_on "Спустя некоторое время у меня получилось настроиться."
+    show screen waveform_show()
+    pause 1.0
+    show scene_talk_in_end_17
+    with Dissolve(2)
+    play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
+
     N "Ты вернулся!"
     N "Я думала, мы больше не сможем связаться с тобой…"
     R thinking not_sure "Почему?"
@@ -44,12 +50,13 @@ label day_5_2_1_belive:
     R_t thinking ne_ponyal "Ещё некоторое время она давала мне указания. Я записывал код, который должен был заменить часть программы двигателя."
     R_t suspicious "Мне было сложно принять, что моя жизнь на исходе."
     R_t "Действовать нужно было быстро и без права на ошибку."
-    
+    hide screen waveform_show with dissolve
+    stop sfx fadeout 0.5
     scene bg_black with dissolve
     pause 1.0
     scene bg_generator_blue_screen
     with dissolve
-    R serious think "Так…"
+    R beard_on serious think "Так…"
     R thinking not_sure "Что там нужно было сделать в первую очередь?"
     R_t "Подсказкой мне была бумажка, которую я прихватил из каюты."
     R_t "Там я записал все указания."
@@ -77,7 +84,7 @@ label day_5_2_1_belive:
     play sfx3 sfx_alarm2 fadein 0.5 fadeout 0.5 loop
     call scene_earthquake 
     play sfx2 sfx_earthquake_boosted fadein 0.5 fadeout 0.5 loop
-    R_t thinking osharashen "Пол под ногами задрожал."
+    R_t beard_on thinking osharashen "Пол под ногами задрожал."
     R_t ear sick "Гул двигателя так возрос, что пришлось прикрыть уши руками."
     R_t "Аварийная тревога то включалась, то затихала."
     R_t "Система не могла распознать, почему двигатель перешёл на дополнительные мощности."
@@ -96,7 +103,7 @@ label day_5_2_1_belive:
     $ show_space_bg("bg_commander_block_transparent_red")
     call scene_earthquake
     with dissolve
-    R_t serious think "Наконец-то дело сделано."
+    R_t beard_on serious think "Наконец-то дело сделано."
     R_t thinking ne_ponyal "Весь корабль трясло, но я был уверен: всё идёт так, как должно быть."
     R_t "Она так сказала."
     R_t thinking ne_ponyal "Я до сих пор не мог понять, куда делась вся команда, но что-то внутри убеждало меня — всё будет хорошо."
@@ -109,14 +116,16 @@ label day_5_2_1_belive:
 
     scene bg_warehouse with dissolve
     call scene_earthquake 
-    R_t ear dissatisfied "Здесь было темно и сыро."
+    R_t beard_on ear dissatisfied "Здесь было темно и сыро."
     R_t ear sick "Едкий сладковатый запах ударил мне в ноздри."
     call scene_earthquake_hard
     R_t "Корабль набрал обороты и начал прорываться сквозь кокон аномалии с такой силой, что я едва держался на ногах."
     R_t "Включив фонарик, я смог осмотреть помещение."
     #цг трупиков
-    R_t thinking osharashen "Кто… Все эти люди?.."
-    R_t "Это не моя команда…"
+    play sfx sfx_drama
+    call scene_corpses
+    cutscene "Кто… Все эти люди?.."
+    cutscene "Это не моя команда…"
     stop sfx2 fadeout 1.0
     stop sfx3 fadeout 1.0
     pause 1.0

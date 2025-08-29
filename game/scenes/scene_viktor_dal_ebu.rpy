@@ -11,7 +11,7 @@ label scene_viktor_dal_ebu:
     show scene_viktor_dal_ebu_cherkashi at soot_drift_bottom(speed=1.0, amplitude=2, x_amplitude=2, zoom=1.01), truecenter
     with dissolve
     cutscene "Виктор сидел, сжавшись, у панели калибровки двигателя."
-    
+    play sfx sfx_shing_sword
     show scene_viktor_dal_ebu_nozh at hand_appear_from_bottom
     with dissolve
     cutscene "Лицо его выражало полное безумие."

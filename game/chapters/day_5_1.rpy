@@ -201,8 +201,14 @@ label day_5:
 
     scene bg_black
     with eye_off()
-    #голос
-    N "Райан, приём! Ты меня слышишь?"
+    pause 2.0
+    
+    play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
+    show screen waveform_show()
+    pause 1.0
+    show scene_talk_in_end_17
+    with Dissolve(2)
+    N "Райан, приём! Ты меня слышишь?"  
     N "Райан?"
     R thinking neutral "Я слышу. Кто со мной говорит?"
     N "Господи. Наконец-то."
@@ -245,11 +251,20 @@ label day_5:
     N "К сожалению, у нас нет возможности прислать его тебе файлом."
     N "Это чудо, что вообще удалось связаться с тобой."
     R serious angry "Всё это звучит как какой-то бред. Я должен обсудить это с Дэвидом."
+    stop sfx fadeout 0.5
     N "…"
+    pause 1.0
+    play sfx2 sfx_drama_boom
+    show scene_talk_in_end_18
+    with Dissolve(1.0)
+    pause 1.5
+    play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
+
     N "О каком Дэвиде ты вообще говоришь?"
     N "Уже два года мы наблюдаем за тобой по камерам."
     N "В твоей экспедиции не числилось никого с именем Дэвид."
 
+    hide screen waveform_show
     $ show_space_bg("bg_room_rayan_dark")
     play sfx sfx_heart_beat1 fadein 0.5 fadeout 0.5 loop
     
@@ -259,11 +274,13 @@ label day_5:
 
     R_t serious fainting "На дрожащих ногах я подошёл к зеркалу."
     #цг бородатого
+    play sfx2 sfx_drama
     call scene_mirror_beard
     with dissolve
     R_t beard_on ear surprised "Оттуда на меня смотрел уставший мужчина, обзаведшийся некоторыми морщинами, парой шрамов и щетиной."
     R_t serious angry "Неужели это всё правда…"
     stop sfx fadeout 0.5
+    stop sfx2 fadeout 0.5
     menu:
         "Поверить спасителю и возобновить контакт":
             jump day_5_2_1_belive
