@@ -4,7 +4,7 @@ label day_5:
     scene bg_black
     with dissolve
     play sfx sfx_crunch_whoosh
-    call test_clock("22:31:00")
+    call test_clock("22/31/00")
     scene bg_black
     with dissolve
     pause 1.0
@@ -19,11 +19,11 @@ label day_5:
     call scene_mirror
     with dissolve
 
-    R_t "Казалось, всё в порядке."
-    R_t thinking ne_ponyal "Немного посиневшее лицо быстро приобрело здоровый вид."
-    R_t suspicious "С этой экспедицией явно было что-то не так, и я должен это выяснить."
-    R_t "Глупо скрывать, необходимо обсудить это с экипажем."
-    R_t serious think "Пусть они лучше примут меня за сумасшедшего, но мы все вместе найдём решение."
+    cutscene "Казалось, всё в порядке."
+    cutscene "Немного посиневшее лицо быстро приобрело здоровый вид."
+    cutscene "С этой экспедицией явно было что-то не так, и я должен это выяснить."
+    cutscene "Глупо скрывать, необходимо обсудить это с экипажем."
+    cutscene "Пусть они лучше примут меня за сумасшедшего, но мы все вместе найдём решение."
 
     $ show_space_bg("bg_room_rayan_default")
     with dissolve
@@ -286,9 +286,18 @@ label day_5:
     R_t serious angry "Неужели это всё правда…"
     stop sfx fadeout 0.5
     stop sfx2 fadeout 0.5
-    menu:
-        "Поверить спасителю и возобновить контакт":
-            jump day_5_2_1_belive
 
-        "Не идти на поводу у подозрительного голоса":
-            jump day_5_2_2_dont_belive
+    scene bg_black
+    with dissolve
+
+    $ renpy.force_autosave()
+    $ renpy.transition(Dissolve(0.5), layer="master")
+    $ result = renpy.call_screen("screen_final_choise")
+
+    if result:
+        jump day_5_2_1_belive
+    else:
+        jump day_5_2_2_dont_belive
+
+    
+

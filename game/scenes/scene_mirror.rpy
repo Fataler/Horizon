@@ -40,7 +40,6 @@ label scene_mirror_red:
 
 label scene_mirror_beard:
     show scene_mirror_beard
-    show scene_mirror_cherk
     with dissolve
 
     pause

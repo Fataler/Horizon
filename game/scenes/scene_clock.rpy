@@ -46,9 +46,9 @@ image arrow_11_0 = "CG/CG_Clock/Arrow (9).png"
 
 image arrow_11_5 = "CG/CG_Clock/Arrow (10).png"
 
-image cklock_cherkash = "CG/CG_Clock/cherkash.png"
+image cklock_cherkash = At("CG/CG_Clock/cherkash.png", soot_drift_bottom(speed=0.8, amplitude= -2, x_amplitude=2, zoom=1.01))
 
-image cklock_effect = "CG/CG_Clock/effect.png"
+image cklock_effect = At("CG/CG_Clock/effect.png", soot_drift_bottom(speed=0.8, amplitude= 2, x_amplitude=-2, zoom=1.01))
 
 image cklock_fon = "CG/CG_Clock/fon.png"
 image clock_base = "CG/CG_Clock/clock_bg.png"
@@ -162,9 +162,15 @@ init python:
 
 label scene_clock:
     play sfx sfx_tik_tak2 loop
-    call screen clock_screen
+    show screen clock_screen() onlayer master
+    with dissolve
+
+    
+    cutscene "Но движутся… В обратную сторону?"
+    hide screen clock_screen
+    with dissolve
     stop sfx
-    pause
+    pause 1.0
     return
 
 
@@ -183,6 +189,7 @@ screen clock_screen(from_time=(18, 0),
                     auto_hide=False,
                     loop=False
 ):
+    layer "master"
     tag clock_screen
 
     default seq = build_clock_sequence_by_hours(from_time, hours_to_move, include_end=include_end)
@@ -191,8 +198,10 @@ screen clock_screen(from_time=(18, 0),
 
     fixed at clock_screen_fade(0.3, 0.3):
         add "cklock_fon"
+        add "cklock_effect" at truecenter
         add "clock_base"
         add "cklock_black_arrow"
+        add "cklock_cherkash" at truecenter
 
         add "cklock_cherkash" at soot_drift_bottom(speed=1.0, amplitude=3, x_amplitude=-1)
         add "cklock_effect" at soot_drift_bottom(speed=0.5, amplitude=1, x_amplitude=0)

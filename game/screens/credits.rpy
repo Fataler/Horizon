@@ -33,45 +33,40 @@ init python:
             return render
 
 label label_credits:
+    show screen not_main_menu
     call screen credits
+
+    pause
     return
 
 screen credits():
     modal True
     default credits_obj = Credits(
-"""{color=#393185}
-{image=gui/menu/logo.png}
+"""{image=logo_short}
 
 {size=65}{b}Команда:{/b}{/size}
 
 
 {size=45}{b}Featharine{/b}{/size}
+оригинальная идея
 лидер
 сценарий
 персонажи
 CG
-
-
-{size=45}{b}Remi Prochet{/b}{/size}
-музыка
-звуки
-
+дизайн UI
 
 {size=45}{b}Fataler{/b}{/size}
-оригинальная идея
 код
 мини игры
 верстка
 анимации
-
+музыка
 
 {size=45}{b}Kapushishin{/b}{/size}
-дизайн UI
 фоны
 сборка эпизодов
-тестирование
 режиссура
-референсы
+звуки
 
 
 {size=65}Отдельная 
@@ -92,8 +87,6 @@ CG
         xfill True
         yfill True
         at show_screen_transform
-        
-        add "bg_menu_main"
         
         # Картинки
         timer (credits_duration * 0.33) action Show("credits_image", img_name="credits_img_1", is_left=True)
@@ -121,14 +114,13 @@ CG
 
         timer credits_duration + 5 action Show("credits_end")
         
-        textbutton "Пропустить" action Return() xalign 0.95 yalign 0.05 at delay_appear(15.0)
+        textbutton "Пропустить" action Return() xalign 0.95 yalign 0.05 at delay_appear(40.0)
 
 screen credits_end():
-    $ unlock_achievement(ACHIEVEMENT_THANK_YOU)
     text "Спасибо за игру!":
         size 95 
         align (0.5, 0.5)
-        color "#393185"
+        color "#ffffff"
         at credits_thanks
 
     timer 8.0 action Return()
