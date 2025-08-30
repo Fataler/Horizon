@@ -460,6 +460,17 @@ transform screen_fade_effect(time=0.5):
         alpha 1.0
         linear time alpha 0.0
 
+transform screen_fade_effect_in_out(time=0.5, start_alpha=0.0, end_alpha=1.0, initial_alpha=0.0):
+    on show:
+        alpha initial_alpha
+        block:
+            linear time alpha end_alpha
+            linear time alpha start_alpha
+            repeat
+    on hide:
+        alpha end_alpha
+        linear time alpha initial_alpha
+
 transform fade_in_out(fade_time=2.0, max_alpha=1.0, min_alpha=0.0, delay=0.0):
     alpha 0
     pause delay
@@ -486,8 +497,8 @@ transform light_hurt:
 transform alpha_mask(a=0.4):
     alpha a
 
-transform alpha_mask_fade(a=0.4, time=1.0):
-    alpha 0
+transform alpha_mask_fade(a=0.4, time=1.0, initial_alpha=0.0):
+    alpha initial_alpha
     linear time alpha a
 
 transform alpha_mask_fade_inverse(a=0.4, time=1.0):
@@ -546,3 +557,13 @@ transform space_drift(speed=8.0, intensity=0.3, pulse_speed=3.0):
             linear (pulse_speed*0.3) zoom 0.998
             linear (pulse_speed*0.3) zoom 1.001
             repeat
+
+    
+transform space_door_open(speed=1):
+    xalign 0.5
+    yalign 0.5
+    zoom 1.0
+    
+    linear 1 zoom 0.95
+    pause 1
+    linear speed * 3 xoffset 600

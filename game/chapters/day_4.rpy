@@ -3,7 +3,7 @@ label day_4:
     scene bg_black
     with dissolve
     play sfx sfx_crunch_whoosh
-    call test_clock("20:59:00")
+    call test_clock("20/59/00")
     scene bg_black
     with dissolve
     pause 1.0
@@ -30,6 +30,9 @@ label day_4:
     with dissolve
     cutscene "В зеркале — мой обычный вид: всё тот же усталый и измождённый парень вдали от дома."
     cutscene "Не было и следа той боли, что преследовала меня — во сне или вчера."
+
+    scene bg_black
+    with dissolve
     $ show_space_bg("bg_room_rayan_default")
     R "Расслабляться рано, Райан…"
 

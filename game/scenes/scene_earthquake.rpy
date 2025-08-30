@@ -7,9 +7,9 @@ transform screen_shaking(dx=5, dy=3, t=0.04):
     repeat
 
 label scene_earthquake:
-    show layer master at screen_shaking
+    show layer master at screen_shaking(dx=5, dy=3, t=0.07)
     return
 
 label scene_earthquake_hard:
-    show layer master at screen_shaking(dx=10, dy=5, t=0.02)
+    show layer master at screen_shaking(dx=10, dy=5, t=0.06)
     return

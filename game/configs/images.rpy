@@ -49,6 +49,8 @@ image bg_safe = "images/Backgrounds/Safe.jpg"
 image bg_monitors_block = "images/Backgrounds/Monitors_Block.jpg"
 image bg_warehouse = "images/Backgrounds/Warehouse.jpg"
 image bg_exit = "images/Backgrounds/Exit.png"
+image bg_exit_open = "images/Backgrounds/Exit_without_door.png"
+image exit_door = "images/Backgrounds/Exit_door.png"
 image bg_safe_open = "images/Backgrounds/Safe_open.jpg"
 
 

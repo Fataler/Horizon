@@ -105,7 +105,7 @@ screen achievements_screen():
                                 xsize ACHIEVEMENT_ICON_SIZE + 20
                                 ysize ACHIEVEMENT_ICON_SIZE + 20
                                 
-                                add ach.gray_icon:
+                                add ach.lock_icon:
                                     size (ACHIEVEMENT_ICON_SIZE, ACHIEVEMENT_ICON_SIZE)
                                     fit "contain"
                                     xalign 0.5

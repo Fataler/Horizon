@@ -1,5 +1,6 @@
 label day_5_2_1_belive:
-    scene bg_black with dissolve
+    scene bg_black 
+    with dissolve
     pause 1.0
     $ unlock_achievement(ACHIEVEMENT_CHANCE)
     pause 1.0
@@ -10,7 +11,7 @@ label day_5_2_1_belive:
     scene bg_black with eye_off()
     pause 1.0
     R_t beard_on "Спустя некоторое время у меня получилось настроиться."
-    show screen waveform_show()
+    show screen waveform_show() zorder 10
     pause 1.0
     show scene_talk_in_end_17
     with Dissolve(2)
@@ -123,6 +124,7 @@ label day_5_2_1_belive:
     call scene_earthquake_hard
     R_t "Корабль набрал обороты и начал прорываться сквозь кокон аномалии с такой силой, что я едва держался на ногах."
     R_t "Включив фонарик, я смог осмотреть помещение."
+    call scene_earthquake 
     #цг трупиков
     play sfx sfx_drama
     call scene_corpses

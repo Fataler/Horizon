@@ -1,5 +1,6 @@
 label day_5_2_2_dont_belive:
-    scene bg_black with dissolve
+    scene bg_black 
+    with dissolve
     pause 1.0
     $ unlock_achievement(ACHIEVEMENT_CRITICAL_MIND)
     pause 1.0
@@ -116,11 +117,7 @@ label day_5_2_2_dont_belive:
     R_t crazy nemnogo "…"
     pause 1.0
     call scene_photo
-    cutscene "Фото моей семьи."
-    cutscene "Дедушка, брат, тётя. Сестрёнка…"
-    cutscene "Теперь я понимаю."
-    cutscene "Они все остались на Земле."
-    cutscene "У моей смерти было много лиц, но все они — мои."
+    
     pause 1.0
     $ show_space_bg("bg_commander_block_transparent_default")
     with dissolve
@@ -131,7 +128,9 @@ label day_5_2_2_dont_belive:
     scene bg_black
     with dissolve
     pause 1.5
-    scene bg_exit
+    show space_bg_image 
+    show bg_exit_open zorder 10
+    show exit_door
     with dissolve
     R_t crazy nemnogo "Я стоял на пороге шлюза."
     R_t "Мне не нужен был скафандр."
@@ -140,11 +139,25 @@ label day_5_2_2_dont_belive:
     play sfx sfx_heat_metal
     R_t "И нажал на рычаг."
     play sfx sfx_metal_door
+    show exit_door at space_door_open() zorder 9
     R_t "С медленным звуком большая железная дверь шлюза начала отворяться."
-    pause 1.0
+    
+    show layer master at screen_step_zoom(zoom1=1.00, zoom_str=0.05)
+    pause 2.0
+    show layer master at screen_step_zoom(zoom1=1.05, zoom_str=0.05)
+    
     R_t mnogo "Впереди — только бесконечность."
-    scene bg_black with dissolve
+    
     pause 1.0
+    show layer master at screen_step_zoom(zoom1=1.1, zoom_str=0.05)
+    pause 2.0
+    show layer master at screen_step_zoom(zoom1=1.15, zoom_str=0.05)
+    pause 2.0
+
+    scene bg_black 
+    with Dissolve(3.0)
+    pause 3.0
+
     $ unlock_achievement(ACHIEVEMENT_DREAM)
     pause 0.5
     return

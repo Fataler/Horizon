@@ -24,6 +24,7 @@ style cutscene_dialogue:
     text_align 0.5
     outlines [(3, "#000000CC", 0, 0)]
     xmaximum 1700 
+    color "#ffffff"
 
 define cutscene = Character(
     None,
