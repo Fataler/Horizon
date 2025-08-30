@@ -288,6 +288,9 @@ label day_5:
     stop sfx2 fadeout 0.5
 
     scene bg_black
+    with dissolve
+
+    $ renpy.force_autosave()
     $ renpy.transition(Dissolve(0.5), layer="master")
     $ result = renpy.call_screen("screen_final_choise")
 

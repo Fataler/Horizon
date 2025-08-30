@@ -117,11 +117,7 @@ label day_5_2_2_dont_belive:
     R_t crazy nemnogo "…"
     pause 1.0
     call scene_photo
-    cutscene "Фото моей семьи."
-    cutscene "Дедушка, брат, тётя. Сестрёнка…"
-    cutscene "Теперь я понимаю."
-    cutscene "Они все остались на Земле."
-    cutscene "У моей смерти было много лиц, но все они были мои."
+    
     pause 1.0
     $ show_space_bg("bg_commander_block_transparent_default")
     with dissolve
