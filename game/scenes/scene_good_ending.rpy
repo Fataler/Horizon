@@ -67,12 +67,14 @@ transform focus_and_zoom_out(start_zoom=2.0, end_zoom=1.0, focus_x=0.5, focus_y=
 label scene_good_ending:
     
     # Дорога старт
+    play sfx music_waves fadein 0.5 fadeout 1.0 loop
+    play music music_quite_ambient2 fadein 0.5 fadeout 1.0 loop
+
     show scene_good_ending_doroga at truecenter zorder 7
     show scene_good_ending_chely at gentle_wind zorder 8
     show scene_good_ending_effecty
     show scene_good_ending_ramka zorder 10
     with dissolve
-    
     cutscene "Я прищурил глаза от яркого солнца."
     cutscene "Ноздри щекотал лёгкий солоноватый запах."
     cutscene "Свежий и ударяющий в голову."
@@ -88,6 +90,7 @@ label scene_good_ending:
     # Дорога конец
         
     # маяк старт
+
     show scene_good_ending_mayak_mult
     with dissolve
     cutscene "Некоторое время после прорыва оболочки аномалии я летел к базе один."
@@ -157,7 +160,7 @@ label scene_good_ending:
     cutscene "Сквозь отверстие в крыше комната была хорошо освещена."
     cutscene "Пыль летала в воздухе, подсвеченная лучами солнца."
     cutscene "Элис посмотрела на меня и зашла первой."
-    
+    $ renpy.music.set_volume(0.1, delay=0.5, channel="sfx")
     hide scene_good_ending_dom
     # дом конец
 
@@ -179,13 +182,14 @@ label scene_good_ending:
     cutscene "Пол скрипел под ногами."
     cutscene "Я присел на стул и поставил под ноги рюкзак."
     cutscene "Закрыл глаза и прислушался."
+    $ renpy.music.set_volume(1.0, delay=1.0, channel="sfx")
     cutscene "Шум моря. Волна за волной накатывала воспоминания о моём родном доме, словно оживляя картинки в памяти."
     cutscene "Я зажёг масляную лампу своей зажигалкой и раскрыл рюкзак."
     cutscene "В нём лежал букет цветов."
     cutscene "Элис подошла и молча положила руку мне на плечо."
     cutscene "Наши взгляды встретились. Пора."
     # дом внутри конец
-
+    stop sfx fadeout 1.0
     scene bg_black
     with Dissolve(1.0)
     $ renpy.pause(1.0, hard=True)
@@ -237,21 +241,12 @@ label scene_good_ending:
     cutscene "Ирис,{w=0.5} Виктор,{w=0.5} Софи,{w=0.5} Дэвид."
     cutscene "Вы навсегда будете в нашей памяти."
     $ renpy.pause(1.0, hard=True)
-    $ unlock_achievement(ACHIEVEMENT_COMPLETE)
     
+    stop music fadeout 1.0
     scene bg_black
     with Dissolve(3.0)
 
     $ renpy.pause(3.0, hard=True)
-    return
+    $ unlock_achievement(ACHIEVEMENT_COMPLETE)
 
-label scene_good_ending_doroga:
-    show scene_good_ending_chely at gentle_wind zorder 8
-    show scene_good_ending_effecty at soot_drift_bottom() zorder 9:
-        alpha 0.5
-    show scene_good_ending_ramka zorder 10
-    show scene_good_ending_doroga at soot_drift_bottom(speed=0.3, amplitude=1, x_amplitude=0), truecenter
-    with dissolve
-    pause
-
-    return
+    call label_credits

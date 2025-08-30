@@ -8,7 +8,9 @@ label day_4:
     with dissolve
     pause 1.0
     show cosmos_fon with dissolve
-    #play sfx2 music_space_ambient fadein 1.0 fadeout 1.0 loop
+    #music
+    #play music music_alone_in_the_space fadein 1.0 loop
+    play music music_hope_ambient fadein 1.0 loop
     pause 1.0
     R_t ear surprised "Где я?"
     R_t "Вокруг летели миллиарды звёзд с огромной скоростью, унося меня куда-то."
@@ -16,7 +18,7 @@ label day_4:
     R_t thinking suspicious "Что всё это было? Я умер? Или это очередной сон?"
     R_t "Нет, это уже не похоже на обычные тревожные сны. Нужно думать критически."
 
-    stop sfx2 fadeout 1.0
+    stop music fadeout 1.0
     $ show_space_bg("bg_room_rayan_default")
 
     R_t ear surprised "Я сразу открыл глаза. Сна не было ни в одном глазу."
@@ -26,6 +28,7 @@ label day_4:
     play sfx sfx_click2
     pause 0.2
     play sfx sfx_click2
+    play music music_in_the_mirror fadein 1.0 loop
     call scene_mirror_water
     with dissolve
     cutscene "В зеркале — мой обычный вид: всё тот же усталый и измождённый парень вдали от дома."
@@ -42,6 +45,7 @@ label day_4:
 
     R_t "Быстро накинув форму, я выдвинулся в сторону кухни. Нужно быть начеку и понять, что происходит."
     
+    stop music fadeout 0.5
     stop sfx fadeout 0.5
     scene bg_black with dissolve
     pause 0.5
@@ -51,6 +55,7 @@ label day_4:
     show v profile tricky right at Transform(xalign=-0.1, yalign=1.0)
     show d serious neutral left at Transform(xalign=1.1, yalign=1.0)
     with dissolve
+    play music music_light fadein 1.0 loop
     play sfx2 sfx_talk_people fadein 0.5 fadeout 0.5 loop
 
     R_t ear neutral "Я аккуратно заглянул внутрь. Внутри собрались все — было весело и шумно."
@@ -80,9 +85,11 @@ label day_4:
 
     S "О, Райан! Доброе утро!"
 
+    stop music fadeout 0.5
     play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     stop sfx2 fadeout 0.5
     scene bg_coridor1_default
+    play music music_nervous_ambient loop
     with dissolve
     
     R_t serious think "Но я уже улизнул с кухни, первым делом нужно было проверить генератор."
@@ -135,9 +142,6 @@ label day_4:
     play sfx sfx_steps_short fadein 0.5 fadeout 0.5
 
     R_t "За дверью послышались шаги."
-
-    stop sfx fadeout 0.5
-
     I "Ладно, мне пора, увидимся за обедом!.."
     R_t ear dissatisfied "В голосе Ирис слышалась смешинка."
     I "Если, конечно, ты снова не поранишься."
@@ -177,10 +181,10 @@ label day_4:
     R_t "Цифры и графики плыли перед глазами. Облегчение приносил только вид из окна."
 
     #play sfx sfx_heart_beat_neutral fadein 0.5 fadeout 0.5 loop
-
+    stop music fadeout 0.5
     scene bg_black_t_90
     with dissolve
-
+    play music music_theme_cosmos fadein 1.0 loop
     # 8 начало
     $ show_scene_cosmos("8")
     cutscene "Я перестал чувствовать себя в безопасности."
@@ -205,7 +209,7 @@ label day_4:
     $ hide_scene_cosmos()
     # 13 конец
 
-
+    stop music fadeout 1.0
     D "Райан! Хватит витать в облаках."
     D "Ты слышишь меня?!"
     $ show_space_bg("bg_commander_block_transparent_default")
@@ -224,6 +228,8 @@ label day_4:
 
     show d serious angry with dissolve
 
+    #music
+    play music music_nervous_ambient loop
     R_t "Лицо Дэвида побагровело."
     D "Что ты сказал? Почему я узнаю об этом только сейчас?"    
     R_t "Капитан яростно зашипел себе под нос."
@@ -343,9 +349,6 @@ label day_4:
     pause 0.5
     stop sfx3 fadeout 0.5
     scene bg_med_block_red
-    #show d fist confused right at Transform(xalign=0.8, yalign=1.0)
-    #show i profile osharashen left at Transform(xalign=1.1, yalign=1.0)
-    #show s shy surprised right at Transform(xalign=0.3, yalign=1.0)
     with dissolve
     show v profile angry right at Transform(xalign=-0.1, yalign=1.0)
     with dissolve
@@ -355,13 +358,8 @@ label day_4:
 
     play sfx sfx_drama
     call scene_pogrom_v_lazarete
-    
-    #show s at angry
 
     cutscene "Нет, прекрати!"
-
-    #show i at fear
-
     cutscene "Отпусти меня!.."
 
     stop sfx fadeout 0.5
@@ -405,6 +403,8 @@ label day_4:
     hide v
     with dissolve
 
+#music
+    play music music_escape_room_full fadein 1.0 loop
 # эскейп рум
 #ГЕЙМДЕЗИГН
 
@@ -473,9 +473,12 @@ label day_4:
 # I Для чего это?..
 # R Надеюсь, это не пригодится.
 
+    stop music fadeout 0.5
     scene bg_black with dissolve
     pause 1.0
     scene bg_coridor2_red_smoke
+    #music 
+    play music music_nervous_ambient loop
     play sfx3 sfx_noise_banging fadein 0.5 fadeout 0.5 loop
     show i profile neutral left at Transform(xalign=1.15, yalign=1.0)
     show s profile sad left at Transform(xalign=0.85, yalign=1.0)
@@ -507,6 +510,7 @@ label day_4:
     stop sfx3 fadeout 0.5
     show d fist fainting right at Transform(xalign=-0.1, yalign=4.0) with dissolve
     stop sfx2 fadeout 1.0
+    stop music fadeout 1.0
 
     R_t surprised "Со временем видимость ухудшилась; в лёгкой дымке мы разглядели капитана — он лежал на полу и не двигался."
     
@@ -524,9 +528,18 @@ label day_4:
     with fade
 
     R_t serious fainting "Уже теряя сознание, я услышал:"
+    pause 1.0
     play sfx sfx_hiss_with_voice1
+
+    show scene_talk_in_end_18
+
+    show screen waveform_show()
+    with Dissolve(2)
+    pause 2.0
     N "Возвращаем назад… Он почти смог… Ещё раз…"
     N "Это последний шанс для него!.. Дайте мне попробовать! Пустите!.."
+    hide screen waveform_show
+    with dissolve
     stop sfx fadeout 0.5
     scene bg_black with dissolve
     pause 1.0

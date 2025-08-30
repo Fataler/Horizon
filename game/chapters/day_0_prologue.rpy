@@ -17,12 +17,14 @@ label day_0_prologue:
 
     scene black with dissolve
     pause 0.5
+    #musicа
+    play music music_nervous_ambient fadein 1.0 loop
     scene bg_dinner_block
     stop sfx fadeout 1.0
     show i smoke puzzled left at Transform(xalign=0.7, yalign=1.0)
     show s profile neutral right at Transform(xalign=-0.1, yalign=1.0)
     show v pockets suspects left at Transform(xalign=0.25, yalign=1.0)
-    show d serious osharashen left at Transform(xalign=1.1, yalign=1.0)
+    show d serious neutral left at Transform(xalign=1.1, yalign=1.0)
     with dissolve
 
     R_t serious think "Остальные члены экипажа уже ждали меня."
@@ -76,7 +78,7 @@ label day_0_prologue:
     D neutral "Там, на базе, нам точно удастся связаться с начальством."
 
     play sfx sfx_cup_on_table
-    show d fist smug
+    show d fist smug with dissolve
     R_t ne_ponyal "Капитан потёр лоб, улыбнулся и стукнул по столу."
     D fist annoyed "Поэтому приказ на сегодня такой: умерить свою гордыню и пересмотреть отношение к членам экипажа."
     D confused "Это относится ко всем тем, кто по какой-то причине не уверен в коллегах."
@@ -110,7 +112,8 @@ label day_0_prologue:
 
     stop sfx2 fadeout 1.0
     $ show_space_bg("bg_room_rayan_default")
-    #музыка Anxious space ambient
+    #musicа Anxious space ambient
+    #play music music_nervous_ambient fadein 1.0 loop
 
     R_t ear neutral "Наш корабль был неплохо оборудован."
     R_t "Да, никто из нас не смог попасть в ту команду, членом экипажа которой хотел бы быть."
@@ -123,14 +126,22 @@ label day_0_prologue:
     R_t thinking ne_ponyal "Где бы мне хотелось оказаться сегодня?"
     R_t "Кто-то больше всего грустит по зелёной траве у дома, кто-то — о близких."
     R_t not_sure "Я же тосковал о странном — вдохнуть дым сигареты вместе с запахом моря. Поэтому сегодня выберу Хемингуэя."
+    
+    $ show_space_bg("bg_room_rayan_dark")
+    
     R_t neutral "Во время чтения незаметно и вкрадчиво сон накрывал меня с головой, поэтому лишь в полудрёме я заметил, как погас ночник."
 
+    stop music fadeout 1.0
     scene bg_black
     with dissolve
-    pause 1.0
+    pause 2.0
+    play sfx sfx_burning_fire fadein 0.5 fadeout 1.0 loop
+    play sfx2 sfx_screaming fadein 0.5 fadeout 1.0 loop
     call scene_nightmare
-    hide screen not_main_menu
+    stop sfx fadeout 1.0
+    stop sfx2 fadeout 1.0
     scene bg_black
     with dissolve
     $ unlock_achievement(ACHIEVEMENT_PROLOGUE)
+    pause 1.0
     jump day_1

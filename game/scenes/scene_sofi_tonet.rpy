@@ -51,6 +51,7 @@ label scene_sofi_tonet:
     cutscene "И вот наши руки почти соприкоснулись."
     cutscene "Но в этот момент я увидел брезгливость на её лице."
     show scene_sofi_tonet_ruka at disappear()
+    stop music fadeout 0.5
     play sfx sfx_drama_boom
     cutscene "Почти коснувшись моей кисти, Софи резко одёрнула руку."
     show scene_sofi_tonet_golova at soot_drift_bottom(speed=0.3, amplitude= 4, x_amplitude=-3)

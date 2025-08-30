@@ -243,7 +243,7 @@ screen hud_with_clock1(start_time="22/43/56"):
     )
 
 label test_clock(start_time="22/43/00"):
-    scene black
+    #scene black
     show screen hud_with_clock1(start_time=start_time)
     $ renpy.pause(6.3, hard=True)
     play sfx sfx_tik_tak loop

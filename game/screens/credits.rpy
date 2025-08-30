@@ -13,7 +13,7 @@ init python:
         def render(self, width, height, st, at):
             render = renpy.Render(width, height)
             
-            text = Text(self.content, text_align=0.5, size=35)
+            text = Text(self.content, text_align=0.5, size=35, font=gui.interface_text_font)
             text_render = renpy.render(text, width, height, st, at)
             
             self.height = text_render.height + height
@@ -33,7 +33,6 @@ init python:
             return render
 
 label label_credits:
-    show screen not_main_menu
     call screen credits
 
     pause
@@ -44,10 +43,10 @@ screen credits():
     default credits_obj = Credits(
 """{image=logo_short}
 
-{size=65}{b}Команда:{/b}{/size}
+{size=65}{i}Команда:{/i}{/size}
 
 
-{size=45}{b}Featharine{/b}{/size}
+{size=45}{i}Featharine{/i}{/size}
 оригинальная идея
 лидер
 сценарий
@@ -55,24 +54,24 @@ screen credits():
 CG
 дизайн UI
 
-{size=45}{b}Fataler{/b}{/size}
+{size=45}{i}Fataler{/i}{/size}
 код
 мини игры
 верстка
 анимации
 музыка
 
-{size=45}{b}Kapushishin{/b}{/size}
+{size=45}{i}Kapushishin{/i}{/size}
 фоны
 сборка эпизодов
 режиссура
 звуки
 
 
-{size=65}Отдельная 
-благодарность:{/size}
+{size=65}{i}Отдельная 
+благодарность:{/i}{/size}
 
-{size=45}{b}Коты Тигр и Лиса{/b}{/size}
+{size=45}{i}Коты Тигр и Лиса{/i}{/size}
 
 катание по клавиатуре
 моральная поддержка
@@ -80,8 +79,12 @@ CG
 
 
 
-Продолжение следует…
+
 """)
+    layer "master"
+    use not_main_menu
+    add "bg_black":
+        alpha 0.5
     
     fixed:
         xfill True
