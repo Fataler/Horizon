@@ -55,16 +55,16 @@ label day_3:
     cutscene "Я попытался восстановить дыхание."
     cutscene "С такими ожогами не живут. Я всё ещё сплю, не иначе."
     
-    show bg_black
+    scene bg_black
     with eye_off()
 
     cutscene "Я крепко зажмурил глаза, подождал пару секунд и снова взглянул на своё отражение."
     stop sfx2 fadeout 0.5
     stop sfx3 fadeout 0.5
 
-    call scene_mirror
+    show scene_mirror
+    show scene_mirror_cherk
     with eye_on
-    with dissolve
 
     cutscene "Спокойно, это всего лишь наваждение."
     cutscene "Я стал совсем плохо спать."

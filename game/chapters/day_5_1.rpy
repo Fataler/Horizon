@@ -285,6 +285,7 @@ label day_5:
 
     hide screen waveform_show
     $ show_space_bg("bg_room_rayan_dark")
+    with Dissolve(0.3)
     play sfx sfx_heart_beat1 fadein 0.5 fadeout 0.5 loop
     
     R_t serious angry "Я резко открыл глаза. Сердце яростно застучало, словно хотело вырваться из груди."
