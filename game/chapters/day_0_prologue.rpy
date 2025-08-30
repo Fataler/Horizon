@@ -126,6 +126,11 @@ label day_0_prologue:
     R_t neutral "Во время чтения незаметно и вкрадчиво сон накрывал меня с головой, поэтому лишь в полудрёме я заметил, как погас ночник."
 
     scene bg_black
-    with fade
+    with dissolve
+    pause 1.0
+    call scene_nightmare
+    hide screen not_main_menu
+    scene bg_black
+    with dissolve
     $ unlock_achievement(ACHIEVEMENT_PROLOGUE)
     jump day_1
