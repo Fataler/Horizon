@@ -161,6 +161,7 @@ init python:
 
 
 label scene_clock:
+    play sfx sfx_tik_tak2 loop
     show screen clock_screen() onlayer master
     with dissolve
 
@@ -168,6 +169,7 @@ label scene_clock:
     cutscene "Но движутся… В обратную сторону?"
     hide screen clock_screen
     with dissolve
+    stop sfx
     pause 1.0
     return
 
@@ -201,6 +203,8 @@ screen clock_screen(from_time=(18, 0),
         add "cklock_black_arrow"
         add "cklock_cherkash" at truecenter
 
+        add "cklock_cherkash" at soot_drift_bottom(speed=1.0, amplitude=3, x_amplitude=-1)
+        add "cklock_effect" at soot_drift_bottom(speed=0.5, amplitude=1, x_amplitude=0)
         if seq:
             add seq[step_index]
 

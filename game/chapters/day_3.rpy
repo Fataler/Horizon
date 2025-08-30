@@ -448,8 +448,8 @@ label day_3:
 
     stop sfx fadeout 0.5
     scene bg_black
+    play sfx3 sfx_ventilation fadein 1.0 fadeout 0.5 loop
     with eye_off()
-
     pause 0.5
 
     R_t ear sick "Всегда, когда мне было плохо, я находил укромное место — уголок, где никто не потревожит меня."
@@ -463,6 +463,7 @@ label day_3:
 
     #голос девушки
     R_t "Но вместо этого услышал голос."
+    stop sfx3 fadeout 0.5
     play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
 
     show scene_talk_in_end_17
@@ -746,6 +747,12 @@ label day_3:
 
     R_t serious fainting "Мой разум начал медленно отключаться, но сквозь глухую темноту я смог расслышать:"
     
+    scene bg_red with dissolve
+    pause 1.0
+    show scene_talk_in_end_18
+    with Dissolve(2)
+    pause 2.0
+
     play sfx3 sfx_hiss_with_voice1
     N "Ты должен понять."
     N "Никто не поможет тебе, кроме тебя самого."

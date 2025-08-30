@@ -434,6 +434,8 @@ layeredimage d:
             "images/David/David_kulak_irritated.png"
         attribute fainting:
             "images/David/David_kulak_obmorok.png"
+        attribute fainting_blood:
+            "images/David/David_kulak_obmorok2.png"
 
     group mouth if_any "serious":
         attribute talk:
