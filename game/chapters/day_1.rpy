@@ -14,12 +14,14 @@ label day_1:
     R_t neutral "Впечатлило? Ни капли."
     R_t "Умывшись прохладной водой, я взглянул в своё отражение в зеркале."
 
+    play music music_in_the_mirror fadein 1.0 loop
     call scene_mirror_water
 
     cutscene "Из него уставшим взглядом на меня  смотрел обычный парень лет двадцати пяти."
     cutscene "Капли воды стекали по лицу, охлаждая кожу. Вода всегда напоминала мне о доме."
     cutscene "Больше нельзя было мешкать — по протоколу рабочий день начинается строго в восемь утра."
 
+    stop music fadeout 1.0
     scene bg_black
     with dissolve
     $ show_space_bg("bg_room_rayan_default")
@@ -30,6 +32,7 @@ label day_1:
     scene black with dissolve
     pause 1.0
     scene bg_dinner_block
+    play music music_kitchen_daily fadein 1.0 loop
     show i smoke puzzled left at quad_left_center
     show s ruki ozadachen left at Transform(xalign=0.7, yalign=1.0)
     show d left at Transform(xalign=1.15, yalign=1.0)
@@ -200,6 +203,7 @@ label day_1:
 
     stop sfx fadeout 0.5
     stop sfx2 fadeout 0.5
+    stop music fadeout 1.0
     show v pockets suspects
     
     R_t serious think "Лицо Виктора помрачнело."

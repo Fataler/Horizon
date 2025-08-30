@@ -11,6 +11,7 @@ label day_5:
     $ show_space_bg("bg_room_rayan_default")
     with dissolve
 
+    play music music_theme_5day fadein 1.0 loop
     R_t thinking osharashen "Я резко открыл глаза и сел на кровати."
     R_t ear surprised "Огляделся."
     R_t "Снова она, моя каюта."
@@ -98,6 +99,7 @@ label day_5:
     R_t "Цифры менялись на такие незначительные величины, будто мы двигались вперёд-назад на крошечное, по космическим меркам, расстояние."
     R_t ne_ponyal "Вид за огромным окном… Тот же."
 
+    stop music fadeout 1.0
     play sfx sfx_heart_beat1 fadein 0.5 fadeout 0.5 loop
     show pulse_mask at alpha_mask_fade
 

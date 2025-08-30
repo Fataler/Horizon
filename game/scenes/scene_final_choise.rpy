@@ -77,8 +77,10 @@ style final_choise_text is text:
     color "#ffffff"
 
 label scene_final_choise:
+    play music music_make_this_right fadein 1.0 loop
     call screen screen_final_choise
 
+    stop music fadeout 1.0
     pause
     return
     

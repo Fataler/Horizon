@@ -174,6 +174,7 @@ label day_3:
     R_t "Она подошла к магнитофону у стены, протёрла его и нажала кнопку."
 
     #музыка лёгкая
+    play music music_3day_happy_kitchen fadein 1.0 loop
     show s ruki neutral right at move_step(50)
     show d serious smile
     show i smoke happy
@@ -198,6 +199,7 @@ label day_3:
 
     pause 1.0
     stop sfx2 fadeout 3.0
+    stop music fadeout 3.0
 
 
     R_t "Народ начал потихоньку расходиться."

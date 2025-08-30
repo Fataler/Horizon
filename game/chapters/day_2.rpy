@@ -11,6 +11,8 @@ label day_2:
     $ show_space_bg("bg_room_rayan_dark")
     pause 1.0
 
+    play music music_quite_ambient fadein 1.0 loop
+
     R_t ear sick "По ощущениям я проснулся довольно рано."
     R_t "С трудом разлепил глаза — получилось лишь после нескольких попыток протереть веки пальцами."
 
@@ -71,6 +73,7 @@ label day_2:
     R_t "Значит, ребята уже собрались."
     R_t hehe "Об этом говорил и запах разогретой пищи."
 
+    stop music fadeout 1.0
     stop sfx fadeout 2.0
     scene black with dissolve
     pause 0.5
@@ -372,7 +375,7 @@ label day_2:
     stop sfx2 fadeout 2.0
 
     #музыка Anxious space ambient
-    play sfx music_waves fadein 1.0 fadeout 0.5 loop
+    play music music_waves fadein 1.0 fadeout 0.5 loop
 
     cutscene "Сегодня космическая гладь особенно завораживала: она переливалась цветами, и чем дольше я вглядывался, тем отчётливее видел за иллюминатором волны."
     
@@ -436,7 +439,7 @@ label day_2:
 
     scene bg_commander_block_default
     $ show_space_bg("bg_commander_block_transparent_default")
-    stop sfx fadeout 1.0
+    stop music fadeout 1.0
 
     R_t thinking ne_ponyal "За всеми этими размышлениями я не заметил, как в помещении стало очень жарко."
     R_t "По ощущениям, воздух нагрелся градусов на десять."

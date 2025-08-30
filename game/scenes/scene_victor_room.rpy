@@ -3,6 +3,7 @@ image scene_victor_room_2 = "CG/CG_Victor_room/cg_Room Viktor2.jpg"
 image scene_victor_room_3 = "CG/CG_Victor_room/cg_Room Viktor3.jpg"
 
 label scene_victor_room:
+    play music music_sad_post_rock fadein 1.0 loop
     show scene_victor_room_1
     with dissolve
     pause 1.0
@@ -15,4 +16,6 @@ label scene_victor_room:
     with dissolve
     pause
 
+    stop music fadeout 1.0
     return
+

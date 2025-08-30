@@ -9,6 +9,7 @@ image bg_coridor_teni_2:
 image bg_coridor_figuri = "CG/CG_koridor/CG_koridor_0003_figuri.png"
 
 label scene_coridor:
+    play music music_capitan_koridor fadein 1.0 loop
     scene bg_coridor_fon
     with dissolve
     show bg_coridor_figuri
@@ -26,4 +27,5 @@ label scene_coridor:
     cutscene "Рисковать было нельзя: преждевременная встреча могла сорвать наш план."
     cutscene "Я проскочил в первое попавшееся помещение: дверь была рядом."
     cutscene "Врач и механик забежали следом."
+    stop music fadeout 1.0
     return

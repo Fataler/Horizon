@@ -111,6 +111,7 @@ label day_0_prologue:
     stop sfx2 fadeout 1.0
     $ show_space_bg("bg_room_rayan_default")
     #музыка Anxious space ambient
+    play music music_nervous_ambient fadein 1.0 loop
 
     R_t ear neutral "Наш корабль был неплохо оборудован."
     R_t "Да, никто из нас не смог попасть в ту команду, членом экипажа которой хотел бы быть."
@@ -125,6 +126,7 @@ label day_0_prologue:
     R_t not_sure "Я же тосковал о странном — вдохнуть дым сигареты вместе с запахом моря. Поэтому сегодня выберу Хемингуэя."
     R_t neutral "Во время чтения незаметно и вкрадчиво сон накрывал меня с головой, поэтому лишь в полудрёме я заметил, как погас ночник."
 
+    stop music fadeout 1.0
     scene bg_black
     with dissolve
     pause 1.0

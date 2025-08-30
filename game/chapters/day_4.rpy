@@ -8,7 +8,7 @@ label day_4:
     with dissolve
     pause 1.0
     show cosmos_fon with dissolve
-    #play sfx2 music_space_ambient fadein 1.0 fadeout 1.0 loop
+    play music music_alone_in_the_space fadein 1.0 loop
     pause 1.0
     R_t ear surprised "Где я?"
     R_t "Вокруг летели миллиарды звёзд с огромной скоростью, унося меня куда-то."
@@ -16,7 +16,7 @@ label day_4:
     R_t thinking suspicious "Что всё это было? Я умер? Или это очередной сон?"
     R_t "Нет, это уже не похоже на обычные тревожные сны. Нужно думать критически."
 
-    stop sfx2 fadeout 1.0
+    stop music fadeout 1.0
     $ show_space_bg("bg_room_rayan_default")
 
     R_t ear surprised "Я сразу открыл глаза. Сна не было ни в одном глазу."
@@ -51,6 +51,7 @@ label day_4:
     show v profile tricky right at Transform(xalign=-0.1, yalign=1.0)
     show d serious neutral left at Transform(xalign=1.1, yalign=1.0)
     with dissolve
+    play music music_light fadein 1.0 loop
     play sfx2 sfx_talk_people fadein 0.5 fadeout 0.5 loop
 
     R_t ear neutral "Я аккуратно заглянул внутрь. Внутри собрались все — было весело и шумно."
@@ -80,6 +81,7 @@ label day_4:
 
     S "О, Райан! Доброе утро!"
 
+    stop music fadeout 0.5
     play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     stop sfx2 fadeout 0.5
     scene bg_coridor1_default
