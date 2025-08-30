@@ -145,4 +145,13 @@ label day_5_2_1_belive:
     pause 1.0
     $ unlock_achievement(ACHIEVEMENT_CREW)
     pause 1.0
-    jump epilogue
+
+    scene bg_black
+    with dissolve
+
+    show expression Solid("#fff") as overlay_light at light_hurt
+    pause 2.0
+    show expression Solid("#fff") as overlay_light at alpha_mask_fade_inverse
+    pause 1.0
+
+    jump scene_good_ending

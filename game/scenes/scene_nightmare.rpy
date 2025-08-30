@@ -1,8 +1,9 @@
-image menu_fon:
+image menu_fon_red:
     "gui/menu/Menu_fon_red.png"
 
 screen not_main_menu(from_game_menu=False):
-    add "menu_fon" 
+    layer "master"
+    add "menu_fon_red" 
     add "iris_zlaya_cherkash" at soot_drift_bottom(2, 1.01, -10):
         zoom 1.05
         pos (0, -0.05)
@@ -53,5 +54,10 @@ screen not_main_menu(from_game_menu=False):
 
 label scene_nightmare:
     show screen not_main_menu with dissolve
-    pause
+    pause 8.0
+
+    scene bg_black
+    with Dissolve(8.0)
+    pause 5.0
+    hide screen not_main_menu with dissolve
     return

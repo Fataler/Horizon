@@ -174,4 +174,4 @@ label day_5_2_2_dont_belive:
     $ unlock_achievement(ACHIEVEMENT_DREAM)
     $ renpy.pause(0.5, hard=True)
     stop music fadeout 1.0
-    return
+    call label_credits
