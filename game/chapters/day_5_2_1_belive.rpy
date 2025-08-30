@@ -1,4 +1,5 @@
 label day_5_2_1_belive:
+    stop music fadeout 1.0
     scene bg_black 
     with dissolve
     pause 1.0

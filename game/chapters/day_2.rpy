@@ -11,6 +11,7 @@ label day_2:
     $ show_space_bg("bg_room_rayan_dark")
     pause 1.0
 
+    #music
     play music music_quite_ambient fadein 1.0 loop
 
     R_t ear sick "По ощущениям я проснулся довольно рано."
@@ -77,6 +78,8 @@ label day_2:
     stop sfx fadeout 2.0
     scene black with dissolve
     pause 0.5
+    #music не сильно тревожная
+    play music music_kitchen_daily fadein 0.5 loop
     scene bg_dinner_block_dark with dissolve
     show i profile neutral right at left
     show v profile neutral left at right
@@ -133,6 +136,7 @@ label day_2:
     V tricky "Вот видишь?"
     pause 1.5
 
+    stop music fadeout 0.5
     scene bg_dinner_block_dark
     show i profile ahui right at left
     show v ruki osharashen left at right
@@ -154,6 +158,8 @@ label day_2:
 
     V ruki puzzled "Нам тоже необходимо заниматься своими делами."
     #sfx водичька
+    #music 
+    play music music_kitchen_daily fadein 0.5 loop
     R_t serious think "Я налил себе невкусного пресного кофе и потягивал его маленькими глотками."
     V pockets dream "Райан, представляешь, я сегодня поймал сигнал."
     V "Правда, не уверен, что он действительно что-то значит — очень уж похоже на обычный космический шум."
@@ -192,6 +198,7 @@ label day_2:
     
     play sfx steps
     #фон бокового коридора
+    stop music fadeout 1.0
     scene black with dissolve
     pause 1.0
 
@@ -200,6 +207,8 @@ label day_2:
 
     R_t serious neutral "Ещё на подходе к отсеку с генератором я услышал стук металла, скрежет и тихие разговоры."
 
+    #music
+    play music music_nervous_ambient loop
     scene bg_generator_red
     show s ruki ozadachen left at right
     show d serious neutral right at Transform(xalign=0.5, yalign=1.0)
@@ -299,12 +308,14 @@ label day_2:
 
     R_t serious think "Пожав плечами, я пошёл на выход. Дэвид догнал меня."
     R_t "Мы ничего не сказали друг другу, но обменялись многозначительными взглядами."
+    stop music fadeout 0.5
 
     stop sfx3 fadeout 0.5
     scene black with dissolve
     pause 0.5
-    #show d right
     play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
+    #music
+    play music music_daily fadein 0.5 loop
     scene bg_coridor3_dark_cylinders 
     show d serious neutral right at left
     with dissolve
@@ -349,6 +360,7 @@ label day_2:
     R_t thinking ne_ponyal "Предметом их азартного спора стал единственный оставшийся тюбик со вкусом оливье."
     R_t "Ещё некоторое время я наблюдал за их игрой, затем долил себе кофе и вернулся на своё рабочее место."
 
+    stop music fadeout 0.5
     play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene black with dissolve
     stop sfx fadeout 0.5
@@ -374,7 +386,7 @@ label day_2:
     stop sfx
     stop sfx2 fadeout 2.0
 
-    #музыка Anxious space ambient
+    #music Anxious space ambient
     play music music_waves fadein 1.0 fadeout 0.5 loop
 
     cutscene "Сегодня космическая гладь особенно завораживала: она переливалась цветами, и чем дольше я вглядывался, тем отчётливее видел за иллюминатором волны."
@@ -446,7 +458,6 @@ label day_2:
     R_t "Становилось трудно дышать."
     R_t "Необходимо было проверить, что происходит."
 
-    #анимация аварийной тревоги commander_block
     $ show_space_bg("bg_commander_block_red")
     play sound sfx_alarm2 fadein 0.5 fadeout 0.5 loop
 
@@ -463,6 +474,8 @@ label day_2:
     stop sfx2 fadeout 1.0
     pause 0.5
     #анимация аварийной тревоги coridor1
+    #music
+    play music music_nervous_ambient loop
     scene bg_coridor1_red with dissolve
     show i profile ahui right with dissolve
     R_t serious angry "Сразу на выходе я заметил Ирис."
@@ -508,7 +521,6 @@ label day_2:
     R_t serious think "Здесь уже находились остальные члены экипажа."
 
     show s ruki crazy at angry
-    #show d at fear
     show d at fear
 
     R_t angry "В середине помещения происходила жаркая перепалка."
@@ -535,7 +547,6 @@ label day_2:
     R_t "На кой чёрт добавлять спирт в уже запатентованный рабочий охлаждающий состав?.."
     R_t "Немудрено, что он мгновенно испарялся."
 
-    #show d at angry, step_up
     show d fist angry at angry, move_step(-100, 0.2)
     pause 0.15
     play sfx sfx_steps_fast_two
@@ -546,7 +557,6 @@ label day_2:
     show v nedovolen
     R_t serious fainting "От жара становилось плохо, маска не помогала."
 
-    #show d right at step_up
     play sfx sfx_steps_two
     show d annoyed right at move_step(50, 0.3)
 
@@ -557,12 +567,10 @@ label day_2:
     pause 1.0
     play sfx sfx_steps_two
     show s at Transform(xalign=0.7, yalign=1.0), move_step(-30)
-    #show d at step_left
     show d at move_step(-30)
 
     R_t think "Софи вцепилась в его руку и старалась тащить назад."
 
-    #show d angry at step_left
     play sfx sfx_steps_fast_two
     show d angry left at move_step(50), angry
     show s ruki hurt at move_step(-50), fear
@@ -579,6 +587,7 @@ label day_2:
     show d angry at move_step(-50)
     show s ruki hurt at Transform(xalign=0.6, yalign=1.0), move_step(-50), fear
     pause 1.5
+    stop music fadeout 1.0
     show s shy surprised at jump(height=1000)
     play sfx2 sfx_scream_women_ah
     pause 0.5
@@ -595,8 +604,9 @@ label day_2:
     R_t "Медлить было нельзя. Мы с Виктором бросились к люку."
 
     $ renpy.music.set_volume(0.3, delay=0.5, channel="sound")
-    #цг Софи в люке
 
+    #music
+    play music music_nervous_ambient loop
     call scene_sofi_tonet
 
     scene bg_generator_red 
@@ -612,6 +622,8 @@ label day_2:
     play sfx sfx_heat_metal
 
     R_t think "Дэвид резко откинул нас с Виктором от люка и запер крышку."
+    #music стресс
+    play music music_nervous_ambient loop
     show v at fear
     R angry "Что ты делаешь?"
 
@@ -640,6 +652,7 @@ label day_2:
 
     R_t "На датчике генератора она достигла критической отметки."
 
+    stop music fadeout 0.5
     show v ruki osharashen
     show d osharashen
     R_t thinking osharashen "Не сразу, но мы почувствовали запах гари."

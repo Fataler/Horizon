@@ -14,14 +14,13 @@ label day_1:
     R_t neutral "Впечатлило? Ни капли."
     R_t "Умывшись прохладной водой, я взглянул в своё отражение в зеркале."
 
-    play music music_in_the_mirror fadein 1.0 loop
+    play music music_in_the_mirror fadein 0.5 fadeout 0.5 loop
     call scene_mirror_water
 
     cutscene "Из него уставшим взглядом на меня  смотрел обычный парень лет двадцати пяти."
     cutscene "Капли воды стекали по лицу, охлаждая кожу. Вода всегда напоминала мне о доме."
     cutscene "Больше нельзя было мешкать — по протоколу рабочий день начинается строго в восемь утра."
 
-    stop music fadeout 1.0
     scene bg_black
     with dissolve
     $ show_space_bg("bg_room_rayan_default")
@@ -32,7 +31,8 @@ label day_1:
     scene black with dissolve
     pause 1.0
     scene bg_dinner_block
-    play music music_kitchen_daily fadein 1.0 loop
+    #music 
+    #play music music_kitchen_daily fadein 1.0 loop
     show i smoke puzzled left at quad_left_center
     show s ruki ozadachen left at Transform(xalign=0.7, yalign=1.0)
     show d left at Transform(xalign=1.15, yalign=1.0)
@@ -98,6 +98,7 @@ label day_1:
     V think "Словно кто-то специально прятал голос в плазме."
 
     play sfx sfx_push_button
+    stop music fadeout 1.0
     show v happy
 
     R_t "Он нажал «Play»."
@@ -107,7 +108,7 @@ label day_1:
     show i smoke surprised
     show d fear
     show s shy worried
-
+    pause 2.0
     R_t "Из динамиков выползло металлическое шипение, будто струна скребла по железу, затем — обрывочное неразборчивое пищание и протяжные повторяющиеся звуки."
     R_t thinking not_sure "Как по мне, звучало сомнительно: в нём не могло быть никакой информации."
     D fear "Мы все ждали определённого сообщения. Неужели командный центр пытается достучаться до нас, но не получается?"
@@ -159,7 +160,7 @@ label day_1:
     play sfx sfx_cup_on_table
 
     R_t "Я допил чай, поставил кружку на магнитную подставку и встал из-за стола."
-
+    stop music fadeout 0.5
     play sfx sfx_hit
     show v pockets angry at angry
     show d osharashen
@@ -230,6 +231,8 @@ label day_1:
 
     R_t ear neutral "На кухне осталась только Софи, чтобы продезинфицировать все поверхности — эта любительница чистоты не могла потерпеть ни одной крошки."
 
+    #СПОКОЙНАЯ musicА
+    play music music_theme_cosmos fadein 0.5 loop
     scene black with dissolve
     pause 1.5
     $ show_space_bg("bg_commander_block_transparent_default")
@@ -298,12 +301,15 @@ label day_1:
     R_t "Я решил достать заранее заготовленную книгу, чтобы продолжить чтение."
     R_t angry "Оперевшись рукой на подлокотник, чтобы дотянуться до небольшого отсека с личными вещами, я почувствовал резкую боль в руке."
 
-    #цг игла в руке
+    stop music fadeout 0.5
     $ hide_space_bg()
     call scene_hand_needle
     with dissolve
 
+    #опять тревожная musicа 
+    play music music_nervous_ambient loop
     pause 0.5
+    
     $ show_space_bg("bg_commander_block_transparent_default")
     
     R_t "Брак обшивки кресла?"
@@ -314,7 +320,7 @@ label day_1:
     R_t "Прежде чем направиться в лазарет, было необходимо осмотреть кресло."
     R_t ne_ponyal "Как я объясню характер этого недоразумения?"
     R_t thinking osharashen "Увы, увиденное не обрадовало меня."
-    #цг стул с иглами
+
     $ hide_space_bg()
     $ show_space_bg("bg_stul_s_iglami")
 
@@ -333,7 +339,6 @@ label day_1:
     cutscene "Я аккуратно раздвинул края рваной ткани и, зацепив двумя пальцами, вытащил то, что находилось под обшивкой."
     cutscene "Это был предмет, который, пожалуй, я ожидал там обнаружить меньше всего."
 
-    #раян фото девушки
     call scene_photo_found_cut
 
     scene bg_commander_block_transparent_default
@@ -366,17 +371,18 @@ label day_1:
     R_t thinking ne_ponyal "Очень сомневаюсь, что совершить это мог кто-то из них."
     R_t ear dissatisfied "Собравшись с духом, я вошёл внутрь."
 
+    stop music fadeout 0.5
     stop sfx fadeout 1.0
     play sfx2 sfx_door_creaking
     call scene_vhod_v_lazaret
 
-    #цг вход в лазарет
     scene bg_med_block
     show i pen ozadachen right at left
     show s shy surprised left at right
     with dissolve
 
-    #цг руки вверх
+    #musicа не сильно тревожная но тревожная
+    play music music_daily fadein 0.5 loop
     R_t ear hehe "Я сразу же поднял руки в жесте «Сдаюсь»."
 
     show i pen nervous
@@ -465,8 +471,12 @@ label day_1:
 
     R_t "Ирис перебинтовала ей ногу, обработала мою рану и мы все вышли за дверь медпункта."
 
+    stop music fadeout 0.5
     scene black with dissolve
     pause 0.5
+    #А ТЕПЕРЬ ПРЯМ ТРЕВОЖНАЯ musicА
+    play music music_nervous_ambient
+
     play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene bg_coridor2_default 
     show i profile neutral left at Transform(xalign=0.6, yalign=1.0)
@@ -491,7 +501,9 @@ label day_1:
     pause 1.0
     show i profile osharashen right at Transform(xalign=0.4, yalign=1.0)
     show s profile despair right at Transform(xalign=0, yalign=1.0)
-
+    
+    stop music fadeout 0.5
+    #тишина. без musicи. тише мыши кот на крыше
     R_t serious think "Мы уже приблизились к развилке коридоров, один из путей которой вёл к радиорубке, когда вдалеке показалась фигура."
 
     play sfx sfx_strem_steps_david fadein 0.5 fadeout 1.0 loop
@@ -511,7 +523,6 @@ label day_1:
     R_t "Софи старалась держаться, но морщилась от боли."
     R_t ear dissatisfied "Я показал рукой всем держаться сзади и не издавать ни звука."
 
-    #цг кэп в конце коридора +
     call scene_coridor
 
     stop sfx fadeout 1.0
@@ -533,6 +544,7 @@ label day_1:
     R_t thinking osharashen "Мы услышали шум падающих вещей."
     R_t neutral "Скрываться дальше смысла не было. Я включил свет."
     play sfx sfx_click2
+    play sfx2 sfx_drama
     $ show_space_bg("bg_room_viktor_default")
     show i profile osharashen left at right
     show s shy surprised right at left
@@ -556,6 +568,8 @@ label day_1:
     
     cutscene "Лоскуты ткани, рисунки."
 
+    #а теперь ТРЕВОЖНАЯ musicА!
+    play music music_nervous_ambient loop
     $ show_space_bg("bg_room_viktor_default")
     show i pen ozadachen left at right
     show s shy surprised right at left
@@ -605,6 +619,7 @@ label day_1:
     R_t ear dissatisfied "Я собрался с духом, взял в руки шокер и направился в сторону комнаты видеонаблюдения."
     R_t "Если капитана нигде не видно, я должен взять на себя решение проблемы."
 
+    stop music fadeout 0.5
     scene bg_coridor2_default
     show i profile neutral left at Transform(xalign=0.6, yalign=1.0)
     show s profile neutral left at Transform(xalign=1.0, yalign=1.0)
@@ -622,7 +637,7 @@ label day_1:
     stop sfx fadeout 0.5
     stop sfx2 fadeout 0.5
     $ renpy.music.set_volume(1.0, delay=0.5, channel="sfx")
-
+    stop music fadeout 0.5
     play sfx3 sfx_heat_metal
 
     R_t thinking osharashen "Резкий удар."
@@ -644,6 +659,7 @@ label day_1:
     show expression Solid("#000000") as overlay_light at alpha_mask_fade(0.6)
 
     R_t serious fainting "Я ударился затылком о стену, и в глазах на миг потемнело." with hpunch
+    play sfx2 sfx_stun
     play sfx sfx_steps_fast
     scene bg_black
     with fade
@@ -678,14 +694,14 @@ label day_1:
     R_t "Ирис на дрожащих ногах подошла к двери и сразу же рухнула на пол, зажав рот руками в ужасе."
     R_t thinking osharashen "Перед нами открылась картина:"
 
-    #цг Дэвид с ножом +
     hide i
     hide s
     scene bg_monitors_block
     play sfx sfx_drama
     call scene_david_potracheno
 
-    
+    #musicа
+    play music music_nervous_ambient fadein 0.5 loop
     show i profile ahui left at Transform(xalign=0.7, yalign=1.0)
     show s profile cry left at Transform(xalign=1.1, yalign=1.0)
     show d fist fainting_blood right at Transform(xalign=0, yalign=4.0)
@@ -722,6 +738,7 @@ label day_1:
     show s shy surprised
     pause 1.0
 
+    stop music fadeout 0.5
     R_t "Ирис резко прервала меня."
 
     play sfx sfx_drama_boom
@@ -732,6 +749,8 @@ label day_1:
     R serious angry "Ты шутишь?"
     R serious very_angry "Мы должны бороться за жизни экипажа и за любую информацию!"
 
+    #musicа немножко грустная но все еще тревожная
+    play music music_in_the_mirror fadein 0.5 loop
     scene bg_monitors_block
     show i normal crazy left at Transform(xalign=0.8, yalign=1.0)
     show s shy surprised left at Transform(xalign=1.2, yalign=1.0)
@@ -752,7 +771,6 @@ label day_1:
     D "Райан,{w=0.4} я передаю тебе свои полномочия… {w=0.4}Теперь ты командир этого отряда."
     R ear dissatisfied "Так точно, капитан…"
 
-    #цг Дэвид потрачено +
     call scene_david_potracheno_2
     R_t serious very_angry "Если бы мы не потратили время…"
 
@@ -760,7 +778,6 @@ label day_1:
 
     R_t "Ирис холодно наблюдала за Дэвидом, лежавшим на полу."
 
-    #цг время в блокноте +
     play sfx sfx_writing fadeout 1.0
     call scene_password
     show s cry with dissolve
@@ -769,9 +786,13 @@ label day_1:
     R_t "Мы вышли из комнаты видеонаблюдения. Я бросил последний взгляд на Дэвида."
     R ear neutral "Мы вернёмся, дружище…"
 
+    stop music fadeout 0.5
+
     scene black with dissolve
     pause 0.5
     scene bg_coridor2_default
+    #musicа напряженная (тревожная)
+    play music music_nervous_ambient loop
     show i smoke calm right at Transform(xalign=-0.1, yalign=1.0)
     show s profile despair right at Transform(xalign=0.4, yalign=1.0)
     with dissolve
@@ -796,6 +817,7 @@ label day_1:
     R_t neutral "Поэтому ничего хорошего я не ожидал."
     pause 1.0
     play sfx sfx_pisk_one
+    stop music fadeout 0.5
     R_t serious think "Я нажал на кнопку входа в отсек."
 
     play sfx sfx_metal_door
@@ -804,11 +826,14 @@ label day_1:
     scene bg_engine
     play sfx3 sfx_fon_generator2 fadein 0.5 fadeout 0.5 loop
     with dissolve
+
     R_t "На первый взгляд никого видно не было, но стоило мне посветить фонариком — я увидел его."
 
-    #цг Виктор у панели +
     play sfx sfx_drama_boom
     call scene_viktor_dal_ebu
+
+    #musicа давящий эмбиент 
+    play music music_nervous_ambient loop
 
     show v ruki crazy_down left at Transform(xalign=1.1, yalign=4.0) with dissolve
     show i profile osharashen right at Transform(xalign=0.1, yalign=1.0)
@@ -853,6 +878,8 @@ label day_1:
 
     I ahui "Он просто съехал с катушек, мы должны что-то сделать!"
 
+    #musicа?
+    play music music_make_this_right
     call scene_viktor
 
     jump day_2

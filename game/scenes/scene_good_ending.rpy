@@ -239,6 +239,7 @@ label scene_good_ending:
     $ renpy.pause(1.0, hard=True)
     $ unlock_achievement(ACHIEVEMENT_COMPLETE)
     
+    stop music fadeout 1.0
     scene bg_black
     with Dissolve(3.0)
 

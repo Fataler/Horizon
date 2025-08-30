@@ -1,4 +1,5 @@
 label day_5_2_2_dont_belive:
+    stop music fadeout 1.0
     scene bg_black 
     with dissolve
     pause 1.0
@@ -76,6 +77,7 @@ label day_5_2_2_dont_belive:
     R_t beard_on thinking suspicious "То, что на камерах не было ни одного человека, я уже понял."
     R_t "Но я просто должен проверить записи."
     play sfx sfx_drama_boom
+    #music чето сюда возможно надо вставить триллерное подстать цгшке
     call scene_monitory
     cutscene "Вот я иду к двигателю и… Бью его ножом?"
     cutscene "Следующая запись… Всё в красном свете. Тревога?"
@@ -83,6 +85,7 @@ label day_5_2_2_dont_belive:
     cutscene "Лежу в коридоре… Вокруг дымка."
     cutscene "В лазарете в окружении пустых блистеров?.."
 
+    stop music fadeout 1.0
     scene bg_black
     with dissolve
     pause 1.0
@@ -91,6 +94,7 @@ label day_5_2_2_dont_belive:
     scene bg_black
     with dissolve
     pause 1.0
+    #music чето безнадежное, смирение
     $ show_space_bg("bg_commander_block_transparent_default")
     with dissolve
     pause 1.0
@@ -154,10 +158,13 @@ label day_5_2_2_dont_belive:
     show layer master at screen_step_zoom(zoom1=1.15, zoom_str=0.05)
     pause 2.0
 
+    #music может немного раньше надо посмтреть
+    play music Theme_Bad_ending_cosmos fadein 1.0
     scene bg_black 
     with Dissolve(3.0)
     pause 3.0
 
     $ unlock_achievement(ACHIEVEMENT_DREAM)
     pause 0.5
+    stop music fadeout 1.0
     return

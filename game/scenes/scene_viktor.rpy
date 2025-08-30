@@ -11,9 +11,13 @@ label scene_viktor:
     #Выбор:
     menu:
         "Побежать и обезвредить Виктора":
+            stop music fadeout 0.5
             hide viktor_scene
             with dissolve
+            pause 0.5
 
+            #musicа ну сами знаете...
+            play music music_nervous_ambient loop
             play sfx sfx_steps_two
             $ unlock_achievement(ACHIEVEMENT_PEACEMAKER)
             show layer master at screen_step_zoom(zoom1=1.0)
@@ -22,13 +26,15 @@ label scene_viktor:
             show v crazy_down
 
         "Выстрелить":
+            stop music fadeout 0.5
             hide viktor_scene
             with dissolve
+            pause 0.5
+            #musicа ну сами знаете...
+            play music music_nervous_ambient loop
             $ unlock_achievement(ACHIEVEMENT_ATTACK)
             R_t serious angry "Я резко достал пистолет из кобуры."
             R_t "Пистолет Дэвида."
-
-            #цг CG Victor shooting
             R_t "Наставив дуло на радиста, я процедил:"
             R serious very_angry "Сложи руки за головой, иначе я буду вынужден выстрелить!"
             R serious angry "Я не хочу этого, но не позволю тебе сорвать нашу экспедицию."
@@ -76,6 +82,7 @@ label scene_viktor:
     play sfx sfx_hit_sword
     R_t "Виктор с размаху ударил ножом в открытый отсек двигателя, где тянулись разноцветные провода."
     
+    stop music fadeout 0.5
     stop sfx3 fadeout 0.5
     play sfx sfx_electrisity1 fadeout 0.5
     pause 1.0
@@ -89,7 +96,6 @@ label scene_viktor:
     scene bg_black
     with fade
     pause 1.0
-    #возможно цг
 
     show screen waveform_show()
     R_t serious fainting_blood "Сквозь темноту я услышал тихий женский голос:"

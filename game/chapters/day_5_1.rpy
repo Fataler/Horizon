@@ -11,7 +11,8 @@ label day_5:
     $ show_space_bg("bg_room_rayan_default")
     with dissolve
 
-    play music music_theme_5day fadein 1.0 loop
+    #может ничего и не надо что бы было сиротливо тихо
+    #play music music_theme_5day fadein 1.0 loop
     R_t thinking osharashen "Я резко открыл глаза и сел на кровати."
     R_t ear surprised "Огляделся."
     R_t "Снова она, моя каюта."
@@ -36,6 +37,7 @@ label day_5:
     with dissolve
     pause 0.5
     scene bg_coridor1_default
+    play sfx3 sfx_ventilation fadein 0.5 fadeout 0.5 loop
     with dissolve
 
     R_t ear sick "Шум вентиляции давил на меня, мешая сосредоточиться."
@@ -61,6 +63,7 @@ label day_5:
 
     stop sfx fadeout 0.5
 
+    stop sfx3 fadeout 1.0
     scene bg_med_block
     with dissolve
     R_t ear neutral "Ирис нет."
@@ -139,6 +142,8 @@ label day_5:
     R_t "Дэвид слетел с катушек."
     R_t ear dissatisfied "Говорил, что все мы — бесполезные неразумные дети, не способные выполнять указания."
     R_t hehe "Я усмехнулся про себя."
+    #music
+    play music music_theme_cosmos fadein 0.5 fadeout 1.0 loop
     #цг 18 начало
     $ show_scene_cosmos("18")
     cutscene "Это пробудило во мне воспоминания о моём дедушке."
@@ -160,9 +165,11 @@ label day_5:
     cutscene "Думаю, вряд ли в этом есть хоть какой-то смысл."
     $ hide_scene_cosmos()
     #цг 14 конец
-
+    stop music fadeout 0.5
     play sfx sfx_morse fadein 0.5 fadeout 0.5 loop
     scene bg_monitors_block with dissolve
+    #music
+    play music music_nervous_ambient loop
 
     R_t thinking osharashen "Внезапно ход моих мыслей прервал писк."
     R_t "Это было пищание приборной панели видеонаблюдения."
@@ -187,6 +194,7 @@ label day_5:
     R_t ear dissatisfied "Нужно было рискнуть."
 
     stop sfx2 fadeout 0.5
+    stop music fadeout 1.0
     scene bg_black
     with dissolve
     pause 0.5
@@ -292,6 +300,7 @@ label day_5:
     scene bg_black
     with dissolve
 
+    play music Make_this_right fadein 1.0 fadein 1.0 loop
     $ renpy.force_autosave()
     $ renpy.transition(Dissolve(0.5), layer="master")
     $ result = renpy.call_screen("screen_final_choise")
