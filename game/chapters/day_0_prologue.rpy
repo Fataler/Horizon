@@ -138,7 +138,6 @@ label day_0_prologue:
     play sfx sfx_burning_fire fadein 0.5 fadeout 1.0 loop
     play sfx2 sfx_screaming fadein 0.5 fadeout 1.0 loop
     call scene_nightmare
-    hide screen not_main_menu with dissolve
     stop sfx fadeout 1.0
     stop sfx2 fadeout 1.0
     scene bg_black

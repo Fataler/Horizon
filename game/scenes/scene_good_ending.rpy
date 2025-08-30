@@ -248,15 +248,4 @@ label scene_good_ending:
     $ renpy.pause(3.0, hard=True)
     $ unlock_achievement(ACHIEVEMENT_COMPLETE)
 
-    return
-
-label scene_good_ending_doroga:
-    show scene_good_ending_chely at gentle_wind zorder 8
-    show scene_good_ending_effecty at soot_drift_bottom() zorder 9:
-        alpha 0.5
-    show scene_good_ending_ramka zorder 10
-    show scene_good_ending_doroga at soot_drift_bottom(speed=0.3, amplitude=1, x_amplitude=0), truecenter
-    with dissolve
-    pause
-
-    return
+    call label_credits
