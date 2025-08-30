@@ -405,7 +405,7 @@ label day_4:
     with dissolve
 
 #music
-play music music_escape_room_full fadein 1.0 loop
+    play music music_escape_room_full fadein 1.0 loop
 # эскейп рум
 #ГЕЙМДЕЗИГН
 
