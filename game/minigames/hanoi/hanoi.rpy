@@ -1,16 +1,18 @@
-image pole = "minigames/hanoi/pole.png"
+image hanoi_bg = "minigames/hanoi/fon.png"
 
-define texture1 = "minigames/hanoi/texture1.png"
-define texture2 = "minigames/hanoi/texture2.png"
-define texture3 = "minigames/hanoi/texture3.png"
-define texture4 = "minigames/hanoi/texture4.png"
+image block_1 = "minigames/hanoi/1.png"
+image block_2 = "minigames/hanoi/2.png"
+image block_3 = "minigames/hanoi/3.png"
+image block_4 = "minigames/hanoi/4.png"
+image block_5 = "minigames/hanoi/5.png"
+
 
 define min_blocks_for_game = 1
 define blocks_number = 5
 define size_restrictions_enabled = True
 define allow_same_tower_moves = False
-define max_hints = 5
-define hint_restore_time = 5.0
+define max_hints = 8
+define hint_restore_time = 2.0
 define no_tower_selected = -1
 define control_panel_position = (0.02, 0.05)
 define control_panel_spacing = 10
@@ -22,18 +24,20 @@ define tower_label_size = 25
 define moves_counter_size = 28
 define block_frame_padding = 10
 define block_width_multiplier = 2
-define interactive_area_width = 180
-define interactive_area_height = 400
-define selected_tower_highlight = "#ffffff20"
-define valid_move_highlight = "#00ff0020"
-define transparent_background = "#00000000"
+define interactive_area_width = 390
+define interactive_area_height = 580
+define selected_tower_highlight = "#624c4c35"
+define valid_move_highlight = "#00ff0022"
+define transparent_background = "#ff000000"
 define empty_tower_display_height = 1
 define total_towers_in_game = 3
 define base_block_size = 20
-define tower_positions = [(0.25, 0.65), (0.5, 0.65), (0.75, 0.65)]
+define tower_positions = [(660, 0.80), (1125, 0.80), (1583, 0.80)]
 define hint_ready_color = "#00ff00"
 define hint_used_color = "#ff0000"
 define hint_size = (20, 20)
+
+default reset_blocks_number = None
 
 init python:
     def update_hint_timer():
@@ -50,6 +54,8 @@ init python:
 
 screen hanoi_game_screen(towers):
     timer 0.06 action [Function(update_hint_timer), renpy.restart_interaction] repeat True
+    layer "master"
+    add "hanoi_bg"
 
     hbox:
         align (0.02, 0.02)
@@ -75,40 +81,33 @@ screen hanoi_game_screen(towers):
         textbutton "Подсказка" action Return("hint") text_size button_text_size
         textbutton "Сброс" action Return("reset") text_size button_text_size
         textbutton "Сдаться" action Jump("give_up") text_size button_text_size
-        textbutton "Правила" action Show("hanoi_rules_debug") text_size button_text_size
+        textbutton "Правила" action Function(renpy.call_in_new_context, "hanoi_rules_explanation") text_size button_text_size
 
-    text "Ходы: [player_moves]" size moves_counter_size align moves_display_position
+    text "Ходы: [player_moves]" size moves_counter_size align moves_display_position font gui.interface_text_font
     
     for i, each_tower in enumerate(towers):
-        vbox:
-            pos each_tower["tower_pos"]
-            anchor tower_anchor_point
+        # vbox:
+        #     pos each_tower["tower_pos"]
+        #     anchor tower_anchor_point
 
-            if each_tower["mark"] == "start":
-                text "Старт" size 25 xalign 0.5
-                null height (block_size*1)
-            elif each_tower["mark"] == "finish":
-                text "Цель" size 25 xalign 0.5
-                null height (block_size*1)
-            else:
-                text "" size 25 xalign 0.5
-                null height (block_size*1)
-
-            add "pole"
+        #     # if each_tower["mark"] == "start":
+        #     #     text "Старт" size 25 xalign 0.5
+        #     #     null height (block_size*1)
+        #     # elif each_tower["mark"] == "finish":
+        #     #     text "Цель" size 25 xalign 0.5
+        #     #     null height (block_size*1)
+        #     # else:
+        #     #     text "" size 25 xalign 0.5
+        #     #     null height (block_size*1)
 
         vbox:
             pos each_tower["tower_pos"]
             anchor tower_anchor_point
             yoffset blocks_vertical_offset
+            spacing 10
             
             for each_block in each_tower["blocks"]:
-                frame:
-                    xpadding 0 ypadding 0
-                    xmargin 0 ymargin 0
-                    background Frame(each_block["color"], block_frame_padding, block_frame_padding)
-                    xminimum (block_size*(each_block["size"]+block_width_multiplier)) xmaximum (block_size*(each_block["size"]+block_width_multiplier))
-                    yminimum block_size ymaximum block_size
-                    xalign 0.5
+                add each_block["image"] xalign 0.5
                         
         if can_click:
             button:
@@ -147,27 +146,6 @@ screen hanoi_game_screen(towers):
                 background transparent_background
                 action []
                 tooltip "Взаимодействие отключено"
-            
-
-
-screen hanoi_rules_debug():
-    modal True
-
-    frame:
-        align (0.5, 0.5)
-        xmaximum 600
-        padding (20, 20)
-        vbox:
-            spacing 15
-            text "Правила игры" size 24 xalign 0.5
-            null height 10
-
-            text "Цель игры: переместить все блоки со стартовой башни на целевую." size 18
-            text "Правила: нельзя класть блок большего размера на блок меньшего размера." size 18
-            text "Управление: кликните по башне чтобы выбрать блок, затем по другой башне чтобы переместить." size 18
-
-            null height 20
-            textbutton "Закрыть" action Hide("hanoi_rules_debug") xalign 0.5 text_size 18
 
 
 init python:
@@ -299,15 +277,14 @@ init python:
             return 0
 
 label hanoi_game(blocks_number=5):
-    $ block_colors = [texture1, texture2, texture3, texture4, texture1, texture2, texture3, texture4]
-
-    if blocks_number > len(block_colors):
-        $ blocks_number = len(block_colors)
-
+    if hasattr(renpy.store, 'reset_blocks_number') and reset_blocks_number is not None:
+        $ blocks_number = reset_blocks_number
+        $ reset_blocks_number = None
+    $ blocks_number = min(blocks_number, 5)
     $ blocks_set = []
     python:
         for b in range(1, blocks_number+1):
-            blocks_set.append({"size": b, "color":block_colors[b-1]} )
+            blocks_set.append({"size": b, "image": "block_%d" % b})
 
     $ start_tower = 0
     $ finish_tower = 2
@@ -358,7 +335,7 @@ label hanoi_loop:
 
     $ can_click = False
 
-    if start_from_tower == no_tower_selected or finish_to_tower < 0:
+    if start_from_tower == no_tower_selected or finish_to_tower < 0 or not towers[start_from_tower]["blocks"]:
         jump hanoi_loop
 
     $ block_to_move = towers[start_from_tower]["blocks"][0]
@@ -380,10 +357,26 @@ label win:
         "Идеальная победа!\nЗатрачено ходов: [player_moves]"
 
     hide screen hanoi_game_screen
-    return
+    return True
 
 label give_up:
     $ can_click = False
     "Удачи в следующий раз!"
     hide screen hanoi_game_screen
+    return False
+
+label hanoi_rules_explanation:
+
+    R_t thinking neutral "Хорошо, нужно сосредоточиться и вспомнить, что я должен сделать."
+    R_t "Видимо, на этом экране я смогу переписать код для взлома системы, как сказала Элис."
+    R_t "Передо мной три файла (MAIN.EXE, BUFFER.EXE, PATCH.EXE). В левом находятся данные разных размеров."
+
+    R_t thinking not_sure "Цель - переместить все данные с MAIN.EXE на PATCH.EXE."
+    R_t "Но есть важное правило, которое нельзя нарушать..."
+
+    R_t thinking suspicious "Блок данных можно класть только на данные большего размера или на пустое место."
+    R_t "Запомнить: больший блок не может лежать на меньшем!"
+
+    R_t "Я смогу взломать систему, когда все блоки окажутся в файле PATCH.EXE."
+
     return

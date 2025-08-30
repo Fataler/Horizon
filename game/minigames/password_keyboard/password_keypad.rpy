@@ -1,5 +1,3 @@
-# Password keypad screen with dynamic code and hints
-
 init python:
     def _ui_play_click():
         try:
@@ -18,6 +16,7 @@ init python:
             renpy.play(sfx_ui_achieve, channel="ui")
         except Exception:
             pass
+
 
 transform keypad_appear:
     alpha 0.0
