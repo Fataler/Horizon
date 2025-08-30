@@ -68,6 +68,7 @@ label scene_good_ending:
     
     # Дорога старт
     play sfx music_waves fadein 0.5 fadeout 1.0 loop
+    play music music_quite_ambient2 fadein 0.5 fadeout 1.0 loop
 
     show scene_good_ending_doroga at truecenter zorder 7
     show scene_good_ending_chely at gentle_wind zorder 8
