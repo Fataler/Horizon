@@ -36,7 +36,7 @@ init python:
             self.hidden = hidden
             self.icon = icon
             
-            self.gray_icon = Transform(self.icon, matrixcolor=SaturationMatrix(0.1))
+            self.lock_icon = "gui/achievements/lock.png"#Transform(self.icon, matrixcolor=SaturationMatrix(0.1))
             
         @property
         def unlocked(self):

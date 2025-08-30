@@ -486,8 +486,8 @@ transform light_hurt:
 transform alpha_mask(a=0.4):
     alpha a
 
-transform alpha_mask_fade(a=0.4, time=1.0):
-    alpha 0
+transform alpha_mask_fade(a=0.4, time=1.0, initial_alpha=0.0):
+    alpha initial_alpha
     linear time alpha a
 
 transform alpha_mask_fade_inverse(a=0.4, time=1.0):
@@ -546,3 +546,13 @@ transform space_drift(speed=8.0, intensity=0.3, pulse_speed=3.0):
             linear (pulse_speed*0.3) zoom 0.998
             linear (pulse_speed*0.3) zoom 1.001
             repeat
+
+    
+transform space_door_open(speed=1):
+    xalign 0.5
+    yalign 0.5
+    zoom 1.0
+    
+    linear 1 zoom 0.95
+    pause 1
+    linear speed * 3 xoffset 600

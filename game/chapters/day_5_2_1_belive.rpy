@@ -123,6 +123,7 @@ label day_5_2_1_belive:
     call scene_earthquake_hard
     R_t "Корабль набрал обороты и начал прорываться сквозь кокон аномалии с такой силой, что я едва держался на ногах."
     R_t "Включив фонарик, я смог осмотреть помещение."
+    call scene_earthquake 
     #цг трупиков
     play sfx sfx_drama
     call scene_corpses

@@ -7,6 +7,4 @@ label scene_pogrom_v_lazarete:
     show scene_pogrom_v_lazarete_glaza at infinite_shake(x_amplitude=4, y_amplitude=4, frequency=0.9)
     show scene_pogrom_v_lazarete_cherkash at soot_drift_bottom(speed=0.2, zoom=1.001, amplitude=4, x_amplitude=3), truecenter
     with dissolve
-
-    pause
     return

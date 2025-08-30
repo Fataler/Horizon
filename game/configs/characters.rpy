@@ -91,17 +91,6 @@ layeredimage r_f:
         attribute pizdec:
             "images/Rayan/Rayan_crazy_pizdec.png"
 
-    group beard:
-        attribute beard_off default:
-            Null()
-        attribute beard_on if_any "serious":
-            "images/Rayan/Rayan_seryoznii_boroda.png"
-        attribute beard_on if_any "thinking":
-            "images/Rayan/Rayan_thinking_boroda.png"
-        attribute beard_on if_any "ear":
-            xoffset -20
-            "images/Rayan/Rayan_yxo_boroda.png"
-
     group mouth if_any "serious" if_not "fainting_blood":
         attribute talk:
             WhileSpeaking('r_f', 'rayan_talk_seryoznii', Null())
@@ -118,6 +107,17 @@ layeredimage r_f:
     group mouth if_any "crazy":
         attribute talk:
             Null()
+
+    group beard:
+        attribute beard_off default:
+            Null()
+        attribute beard_on if_any "serious":
+            "images/Rayan/Rayan_seryoznii_boroda.png"
+        attribute beard_on if_any "thinking":
+            "images/Rayan/Rayan_thinking_boroda.png"
+        attribute beard_on if_any "ear":
+            xoffset -20
+            "images/Rayan/Rayan_yxo_boroda.png"
 
 image rayan_talk_seryoznii:
     'images/Rayan/Rayan_seryoznii_rot1.png'
@@ -148,7 +148,7 @@ image rayan_talk_ear:
 #region Iris
 layeredimage i:
     yoffset 2
-    zoom 0.95
+    zoom 0.90
     at auto_flip("i", "left")
 
     group direction:
@@ -350,6 +350,10 @@ layeredimage v:
             "images/Viktor/Viktor_sutuliy_suspects.png"
         attribute think default:
             "images/Viktor/Viktor_sutuliy_think.png"
+
+    group zatichka if_any "pockets":
+        attribute zatichka_on default:
+            "images/Viktor/zatychka_dlya_viktora.png"
     
     group mouth if_any "profile":
         attribute talk:

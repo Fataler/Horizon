@@ -20,12 +20,12 @@ transform crazy_shake(speed=0.2):
         linear speed*2 zoom 1.00
         repeat
             
-image monitor_flicker:
-    "monitory_GG1"
-    0.08
-    "monitory_GG2"
-    0.06
-    repeat
+layeredimage monitor_flicker:
+    always:
+        "monitory_GG1"
+    always:
+        "monitory_GG2"
+        at fade_in_out(0.4)
 
 label scene_monitory:
     show monitor_flicker

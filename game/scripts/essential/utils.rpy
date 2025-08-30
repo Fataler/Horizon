@@ -1,3 +1,4 @@
+#region robot say
 init -1 python:
     import random
 
@@ -42,14 +43,18 @@ transform parametric_blink(open_img, closed_img, min_wait=2.0, max_wait=4.0, bli
         pause 0.1
         open_img
         repeat
+#endregion
 
+#region eye_effect
+#with eye_on
 init python:
     eye_on = ImageDissolve("gui/masks/eye_mask.png", 0.3, 10, reverse=False)
     #eye_off = ImageDissolve("gui/masks/eye_mask.png", 0.3, 10, reverse=True)
     def eye_off(duration=0.3):
         return ImageDissolve("gui/masks/eye_mask.png", duration, 10, reverse=True)
+#endregion
 
-# glitch text
+# region glitch text
 # button:
 #     xalign 0.5
 #     xsize 750
@@ -129,3 +134,18 @@ init :
             container.add(cyan_t)
             container.add(base_t)
             return container, frame_time
+#endregion
+
+#region автомультики
+
+# init python:
+#     define_numbered_animation("scene_good_ending_mayak_mult", "CG/CG_lighthouse", 1, 13, mayak_speed)
+
+init -1 python:
+    def define_numbered_animation(image_name, folder, start, end, delay, ext=".png", padding=0):
+        frames = []
+        for i in range(start, end):
+            n = str(i).zfill(padding)
+            frames.extend([f"{folder}/{n}{ext}", delay])
+        renpy.image(image_name, Animation(*frames))
+#endregion

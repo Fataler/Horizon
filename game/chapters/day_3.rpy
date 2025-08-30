@@ -54,7 +54,7 @@ label day_3:
     cutscene "С такими ожогами не живут. Я всё ещё сплю, не иначе."
     
     show bg_black
-    with eye_off
+    with eye_off()
 
     cutscene "Я крепко зажмурил глаза, подождал пару секунд и снова взглянул на своё отражение."
     stop sfx2 fadeout 0.5
@@ -242,6 +242,7 @@ label day_3:
     R_t "Никаких аномальных данных, радиация в норме."
     R_t serious think "Это помогло мне немного успокоиться."
     R_t thinking ne_ponyal "Я взглянул в своё огромное окно — этот вид умиротворяет."
+    $ hide_space_bg()
 
     #цг 15 начало
     $ show_scene_cosmos("15")
@@ -275,7 +276,11 @@ label day_3:
     $ hide_scene_cosmos()
     #цг 16 конец
 
+    scene black 
+    with dissolve
+    
     $ show_space_bg("bg_commander_block_transparent_default")
+    pause 1.0
 
     play sfx3 sfx_stun
     
@@ -728,14 +733,25 @@ label day_3:
     R_t "Больше спешить было некуда."
     R_t "Часы показывали 20:59…"
     call scene_clock
-    R_t ear surprised "Но движутся… В обратную сторону?"
+    show bg_black at alpha_mask_fade(a=1.0, initial_alpha=0.4)
+    with dissolve
 
-    show bg_black at alpha_mask_fade(a=0.8)
+    pause 1.0
+
+    show scene_talk_in_end_18
+    with dissolve
+
+    show screen waveform_show()
+    with dissolve
+
     R_t serious fainting "Мой разум начал медленно отключаться, но сквозь глухую темноту я смог расслышать:"
     
     play sfx3 sfx_hiss_with_voice1
     N "Ты должен понять."
     N "Никто не поможет тебе, кроме тебя самого."
+
+    hide screen waveform_show
+    with dissolve
 
     play sfx sfx_fall_body
     stop sfx2 fadeout 1.0
