@@ -286,9 +286,15 @@ label day_5:
     R_t serious angry "Неужели это всё правда…"
     stop sfx fadeout 0.5
     stop sfx2 fadeout 0.5
-    menu:
-        "Поверить спасителю и возобновить контакт":
-            jump day_5_2_1_belive
 
-        "Не идти на поводу у подозрительного голоса":
-            jump day_5_2_2_dont_belive
+    scene bg_black
+    $ renpy.transition(Dissolve(0.5), layer="master")
+    $ result = renpy.call_screen("screen_final_choise")
+
+    if result:
+        jump day_5_2_1_belive
+    else:
+        jump day_5_2_2_dont_belive
+
+    
+

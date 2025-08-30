@@ -460,6 +460,17 @@ transform screen_fade_effect(time=0.5):
         alpha 1.0
         linear time alpha 0.0
 
+transform screen_fade_effect_in_out(time=0.5, start_alpha=0.0, end_alpha=1.0, initial_alpha=0.0):
+    on show:
+        alpha initial_alpha
+        block:
+            linear time alpha end_alpha
+            linear time alpha start_alpha
+            repeat
+    on hide:
+        alpha end_alpha
+        linear time alpha initial_alpha
+
 transform fade_in_out(fade_time=2.0, max_alpha=1.0, min_alpha=0.0, delay=0.0):
     alpha 0
     pause delay

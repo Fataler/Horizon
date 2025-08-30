@@ -1,5 +1,6 @@
 label day_5_2_2_dont_belive:
-    scene bg_black with dissolve
+    scene bg_black 
+    with dissolve
     pause 1.0
     $ unlock_achievement(ACHIEVEMENT_CRITICAL_MIND)
     pause 1.0

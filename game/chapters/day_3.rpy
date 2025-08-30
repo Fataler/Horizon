@@ -742,14 +742,12 @@ label day_3:
     show scene_talk_in_end_18
     with dissolve
 
-    show screen waveform_show()
-    with dissolve
-
     R_t serious fainting "Мой разум начал медленно отключаться, но сквозь глухую темноту я смог расслышать:"
     
     scene bg_red with dissolve
     pause 1.0
     show scene_talk_in_end_18
+    show screen waveform_show()
     with Dissolve(2)
     pause 2.0
 
