@@ -98,7 +98,7 @@ label day_1:
     V think "Словно кто-то специально прятал голос в плазме."
 
     play sfx sfx_push_button
-    stop music fadeout 1.0
+    $ renpy.music.set_volume(0.3, delay=0.5, channel="music")
     show v happy
 
     R_t "Он нажал «Play»."
@@ -108,9 +108,10 @@ label day_1:
     show i smoke surprised
     show d fear
     show s shy worried
-    pause 2.0
+    pause 4.0
     R_t "Из динамиков выползло металлическое шипение, будто струна скребла по железу, затем — обрывочное неразборчивое пищание и протяжные повторяющиеся звуки."
     R_t thinking not_sure "Как по мне, звучало сомнительно: в нём не могло быть никакой информации."
+    $ renpy.music.set_volume(1.0, delay=0.5, channel="music")
     D fear "Мы все ждали определённого сообщения. Неужели командный центр пытается достучаться до нас, но не получается?"
     V ruki puzzled "На мой взгляд, в этом сообщении что-то есть. Его необходимо изучить. Вам не кажется, что в нём закодирован голос?"
     
@@ -299,10 +300,11 @@ label day_1:
     R_t "Всего лишь необходимо следить за датчиками."
     R_t serious think "Вот-вот должен был вернуться капитан после утреннего обхода."
     R_t "Я решил достать заранее заготовленную книгу, чтобы продолжить чтение."
+    stop music fadeout 0.5
     R_t angry "Оперевшись рукой на подлокотник, чтобы дотянуться до небольшого отсека с личными вещами, я почувствовал резкую боль в руке."
 
-    stop music fadeout 0.5
     $ hide_space_bg()
+    play sfx sfx_drama_boom
     call scene_hand_needle
     with dissolve
 
@@ -339,6 +341,7 @@ label day_1:
     cutscene "Я аккуратно раздвинул края рваной ткани и, зацепив двумя пальцами, вытащил то, что находилось под обшивкой."
     cutscene "Это был предмет, который, пожалуй, я ожидал там обнаружить меньше всего."
 
+    play sfx sfx_drama_boom
     call scene_photo_found_cut
 
     scene bg_commander_block_transparent_default
@@ -369,11 +372,13 @@ label day_1:
     R_t "Подходя к помещению, я услышал, что внутри кто-то был — они разговаривали."
     R_t "Судя по голосам, это были Ирис и Софи."
     R_t thinking ne_ponyal "Очень сомневаюсь, что совершить это мог кто-то из них."
-    R_t ear dissatisfied "Собравшись с духом, я вошёл внутрь."
-
     stop music fadeout 0.5
     stop sfx fadeout 1.0
+
+    R_t ear dissatisfied "Собравшись с духом, я вошёл внутрь."
+
     play sfx2 sfx_door_creaking
+    play sfx sfx_scream_women_ah
     call scene_vhod_v_lazaret
 
     scene bg_med_block
@@ -503,6 +508,7 @@ label day_1:
     show s profile despair right at Transform(xalign=0, yalign=1.0)
     
     stop music fadeout 0.5
+    play sfx2 sfx_drama_boom
     #тишина. без musicи. тише мыши кот на крыше
     R_t serious think "Мы уже приблизились к развилке коридоров, один из путей которой вёл к радиорубке, когда вдалеке показалась фигура."
 
@@ -659,7 +665,7 @@ label day_1:
     show expression Solid("#000000") as overlay_light at alpha_mask_fade(0.6)
 
     R_t serious fainting "Я ударился затылком о стену, и в глазах на миг потемнело." with hpunch
-    play sfx2 sfx_stun
+    play sfx2 sfx_stun fadeout 2.0
     play sfx sfx_steps_fast
     scene bg_black
     with fade
@@ -817,7 +823,6 @@ label day_1:
     R_t neutral "Поэтому ничего хорошего я не ожидал."
     pause 1.0
     play sfx sfx_pisk_one
-    stop music fadeout 0.5
     R_t serious think "Я нажал на кнопку входа в отсек."
 
     play sfx sfx_metal_door
@@ -833,7 +838,6 @@ label day_1:
     call scene_viktor_dal_ebu
 
     #musicа давящий эмбиент 
-    play music music_nervous_ambient loop
 
     show v ruki crazy_down left at Transform(xalign=1.1, yalign=4.0) with dissolve
     show i profile osharashen right at Transform(xalign=0.1, yalign=1.0)

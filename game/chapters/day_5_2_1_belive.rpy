@@ -60,6 +60,8 @@ label day_5_2_1_belive:
     pause 1.0
     scene bg_generator_blue_screen
     with dissolve
+    #music
+    play music music_hope_ambient fadein 0.5 loop
     R beard_on serious think "Так…"
     R thinking not_sure "Что там нужно было сделать в первую очередь?"
     R_t "Подсказкой мне была бумажка, которую я прихватил из каюты."
@@ -84,6 +86,7 @@ label day_5_2_1_belive:
     R happy "У меня получилось!"
     R_t ear smile "Даже не верится."
     pause 1.0
+    stop music fadeout 0.5
     scene bg_generator_red
     play sfx3 sfx_alarm2 fadein 0.5 fadeout 0.5 loop
     call scene_earthquake 
@@ -131,12 +134,14 @@ label day_5_2_1_belive:
     call scene_corpses
     cutscene "Кто… Все эти люди?.."
     cutscene "Это не моя команда…"
-    stop sfx2 fadeout 1.0
-    stop sfx3 fadeout 1.0
     pause 1.0
-    $ renpy.music.set_volume(1.0, delay=0.5, channel="sfx3")
     scene bg_black
-    with fade
+    stop sfx fadeout 2.0
+    stop sfx2 fadeout 2.0
+    stop sfx3 fadeout 2.0
+    $ renpy.music.set_volume(1.0, delay=0.5, channel="sfx3")
+
+    with Dissolve(2.0)
     pause 1.0
     $ unlock_achievement(ACHIEVEMENT_CREW)
     pause 1.0

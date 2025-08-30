@@ -5,7 +5,6 @@ image scene_viktor_dal_ebu_nozh = "CG/CG_Victor_dal_eby/Nozh.png"
 image scene_viktor_dal_ebu_zrachki = "CG/CG_Victor_dal_eby/zrachki.png"
 
 label scene_viktor_dal_ebu:
-    play music music_action_fight fadein 0.5 loop
     show scene_viktor_dal_ebu_fon
     show scene_viktor_dal_ebu_bez_nozha
     show scene_viktor_dal_ebu_zrachki at infinite_shake(frequency=0.5, x_amplitude=5, y_amplitude=1.0, jitter=1), truecenter
@@ -24,5 +23,4 @@ label scene_viktor_dal_ebu:
     hide scene_viktor_dal_ebu_cherkashi
     hide scene_viktor_dal_ebu_nozh
     with dissolve
-    stop music fadeout 1.0
     return

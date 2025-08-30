@@ -4,7 +4,7 @@ label day_2:
     scene bg_black
     with dissolve
     play sfx sfx_crunch_whoosh
-    call test_clock
+    call test_clock(start_time="22/43/00")
     scene bg_black
     with dissolve
     pause 1.0
@@ -52,15 +52,15 @@ label day_2:
 
     call scene_mirror_dark
 
-    R_t ear neutral "Поэтому, как обычно, я решил начать утро с созерцания своего хмурого лица."
+    cutscene "Поэтому, как обычно, я решил начать утро с созерцания своего хмурого лица."
     play sfx click2
-    R_t "Но лампа у зеркала с умывальником не работала."
+    cutscene "Но лампа у зеркала с умывальником не работала."
     play sfx click2
     pause 0.2
     play sfx click2
-    R_t thinking suspicious "Я проверил остальные приборы — никаких признаков жизни."
-    R_t ne_ponyal "Опять выбило генератор."
-    R_t neutral "Бывает."
+    cutscene "Я проверил остальные приборы — никаких признаков жизни."
+    cutscene "Опять выбило генератор."
+    cutscene "Бывает."
 
     scene black with dissolve
     play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
@@ -302,13 +302,14 @@ label day_2:
 
     show d calm with dissolve
     pause 0.5
+    stop music fadeout 1.0
+
     show d left at exit_left
 
     play sfx sfx_steps_short
 
     R_t serious think "Пожав плечами, я пошёл на выход. Дэвид догнал меня."
     R_t "Мы ничего не сказали друг другу, но обменялись многозначительными взглядами."
-    stop music fadeout 0.5
 
     stop sfx3 fadeout 0.5
     scene black with dissolve

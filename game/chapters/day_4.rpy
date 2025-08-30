@@ -45,6 +45,7 @@ label day_4:
 
     R_t "Быстро накинув форму, я выдвинулся в сторону кухни. Нужно быть начеку и понять, что происходит."
     
+    stop music fadeout 0.5
     stop sfx fadeout 0.5
     scene bg_black with dissolve
     pause 0.5
@@ -88,6 +89,7 @@ label day_4:
     play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     stop sfx2 fadeout 0.5
     scene bg_coridor1_default
+    play music music_nervous_ambient loop
     with dissolve
     
     R_t serious think "Но я уже улизнул с кухни, первым делом нужно было проверить генератор."
@@ -140,9 +142,6 @@ label day_4:
     play sfx sfx_steps_short fadein 0.5 fadeout 0.5
 
     R_t "За дверью послышались шаги."
-
-    stop sfx fadeout 0.5
-
     I "Ладно, мне пора, увидимся за обедом!.."
     R_t ear dissatisfied "В голосе Ирис слышалась смешинка."
     I "Если, конечно, ты снова не поранишься."
@@ -182,7 +181,7 @@ label day_4:
     R_t "Цифры и графики плыли перед глазами. Облегчение приносил только вид из окна."
 
     #play sfx sfx_heart_beat_neutral fadein 0.5 fadeout 0.5 loop
-
+    stop music fadeout 0.5
     scene bg_black_t_90
     with dissolve
     play music music_theme_cosmos fadein 1.0 loop
@@ -511,10 +510,10 @@ label day_4:
     stop sfx3 fadeout 0.5
     show d fist fainting right at Transform(xalign=-0.1, yalign=4.0) with dissolve
     stop sfx2 fadeout 1.0
+    stop music fadeout 1.0
 
     R_t surprised "Со временем видимость ухудшилась; в лёгкой дымке мы разглядели капитана — он лежал на полу и не двигался."
     
-    stop music fadeout 0.5
     call scene_pulse
     play sfx2 sfx_heart_beat_neutral loop
 
@@ -529,9 +528,18 @@ label day_4:
     with fade
 
     R_t serious fainting "Уже теряя сознание, я услышал:"
+    pause 1.0
     play sfx sfx_hiss_with_voice1
+
+    show scene_talk_in_end_18
+
+    show screen waveform_show()
+    with Dissolve(2)
+    pause 2.0
     N "Возвращаем назад… Он почти смог… Ещё раз…"
     N "Это последний шанс для него!.. Дайте мне попробовать! Пустите!.."
+    hide screen waveform_show
+    with dissolve
     stop sfx fadeout 0.5
     scene bg_black with dissolve
     pause 1.0

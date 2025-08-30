@@ -4,12 +4,13 @@ label day_3:
     scene bg_black
     with dissolve
     play sfx sfx_crunch_whoosh
-    call test_clock
+    call test_clock(start_time="22/43/00")
     scene bg_black
     with dissolve
     pause 1.0
     #music тревога
     $ show_space_bg("bg_room_rayan_default")
+    play music music_nervous_ambient loop
     
     R_t serious angry "Очнуться мне пришлось в холодном поту."
     R_t ear sick "Очередной неприятный сон."
@@ -86,6 +87,7 @@ label day_3:
     R_t sick "Я инстинктивно прикрыл глаза рукой."
     R_t "Экипаж уже собрался за завтраком."
 
+    stop music fadeout 1.0
     scene bg_black with dissolve
     pause 0.5
     scene bg_dinner_block
@@ -164,7 +166,7 @@ label day_3:
 
     show s shy neutral at fear with dissolve
     pause 0.5
-
+    stop sfx fadeout 0.5
     stop music fadeout 1.0
     R_t "Софи внезапно засуетилась и встала из-за стола."
 
@@ -200,7 +202,6 @@ label day_3:
 
     pause 1.0
     stop sfx2 fadeout 3.0
-    stop music fadeout 3.0
 
 
     R_t "Народ начал потихоньку расходиться."
@@ -246,6 +247,7 @@ label day_3:
     R_t surprised "Я проверил показания приборов — всё было в порядке."
     R_t "Никаких аномальных данных, радиация в норме."
     R_t serious think "Это помогло мне немного успокоиться."
+    stop music fadeout 1.0
     R_t thinking ne_ponyal "Я взглянул в своё огромное окно — этот вид умиротворяет."
     $ hide_space_bg()
 
@@ -445,6 +447,8 @@ label day_3:
 
     stop sfx2 fadeout 0.5
     scene bg_black with dissolve
+    play sfx3 sfx_ventilation fadein 1.0 fadeout 0.5 loop
+
     pause 0.5
     $ show_space_bg("bg_room_rayan_dark")
 
@@ -458,7 +462,6 @@ label day_3:
     stop music fadeout 1.0
     stop sfx fadeout 0.5
     scene bg_black
-    play sfx3 sfx_ventilation fadein 1.0 fadeout 0.5 loop
     with eye_off()
     pause 0.5
 
@@ -731,7 +734,6 @@ label day_3:
     show v pockets fainting right at Transform(xalign=0.7, yalign=4.0)
     with dissolve
 
-    play sfx2 sfx_drama_boom
     R_t serious angry "Никого из членов экипажа больше не было в сознании."
     R_t "Голова Ирис поникла и упала на грудь."
     R_t "Всё, что помогало ей держаться сидя — рука, прикованная к кровати."
@@ -752,20 +754,19 @@ label day_3:
     with dissolve
 
     pause 1.0
-
-    show scene_talk_in_end_18
-    with dissolve
+    scene bg_black with dissolve
 
     R_t serious fainting "Мой разум начал медленно отключаться, но сквозь глухую темноту я смог расслышать:"
-    
+    stop sfx2 fadeout 0.5
     scene bg_red with dissolve
     pause 1.0
     show scene_talk_in_end_18
+    play sfx3 sfx_hiss_with_voice1
+
     show screen waveform_show()
     with Dissolve(2)
     pause 2.0
 
-    play sfx3 sfx_hiss_with_voice1
     N "Ты должен понять."
     N "Никто не поможет тебе, кроме тебя самого."
 

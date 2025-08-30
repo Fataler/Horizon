@@ -219,9 +219,9 @@ label day_5:
     pause 2.0
     
     play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
-    show screen waveform_show()
-    pause 1.0
     show scene_talk_in_end_17
+    show screen waveform_show()
+
     with Dissolve(2)
     N "Райан, приём! Ты меня слышишь?"  
     N "Райан?"
@@ -269,10 +269,14 @@ label day_5:
     stop sfx fadeout 0.5
     N "…"
     pause 1.0
-    play sfx2 sfx_drama_boom
+    hide scene_talk_in_end_17
     show scene_talk_in_end_18
     with Dissolve(1.0)
+    show screen waveform_show()
+
     pause 1.5
+    play sfx2 sfx_drama_boom
+
     play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
 
     N "О каком Дэвиде ты вообще говоришь?"
@@ -292,15 +296,15 @@ label day_5:
     play sfx2 sfx_drama
     call scene_mirror_beard
     with dissolve
-    R_t beard_on ear surprised "Оттуда на меня смотрел уставший мужчина, обзаведшийся некоторыми морщинами, парой шрамов и щетиной."
-    R_t serious angry "Неужели это всё правда…"
+    cutscene "Оттуда на меня смотрел уставший мужчина, обзаведшийся некоторыми морщинами, парой шрамов и щетиной."
+    cutscene "Неужели это всё правда…"
     stop sfx fadeout 0.5
     stop sfx2 fadeout 0.5
 
     scene bg_black
     with dissolve
 
-    play music Make_this_right fadein 1.0 fadein 1.0 loop
+    play music music_make_this_right fadein 1.0 fadein 1.0 loop
     $ renpy.force_autosave()
     $ renpy.transition(Dissolve(0.5), layer="master")
     $ result = renpy.call_screen("screen_final_choise")

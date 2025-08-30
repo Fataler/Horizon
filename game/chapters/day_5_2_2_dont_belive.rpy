@@ -49,6 +49,8 @@ label day_5_2_2_dont_belive:
     R crazy nemnogo "Я уже сошёл с ума! Разве не ясно…"
     R "За миллионы световых лет от Земли я разговариваю не с диспетчером, ха-ха, а со своей девушкой, не имеющей ничего общего с наукой?"
     pause 1.0
+    stop sfx2 fadeout 0.5
+    hide screen waveform_show with dissolve
     R_t suspicious "Голос вдруг замолчал."
     pause 1.5
     R_t "Спустя небольшую паузу она сказала:"
@@ -57,6 +59,7 @@ label day_5_2_2_dont_belive:
     show scene_talk_in_end_18
     with Dissolve(1.0)
     pause 1.5
+    show screen waveform_show() with dissolve
     play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
     N "Все твои члены экипажа давно мертвы."
     N "Долгое время мы наблюдали за тобой."
@@ -95,6 +98,7 @@ label day_5_2_2_dont_belive:
     with dissolve
     pause 1.0
     #music чето безнадежное, смирение
+    play music music_quite_ambient2 fadein 0.5 fadeout 0.5 loop
     $ show_space_bg("bg_commander_block_transparent_default")
     with dissolve
     pause 1.0
@@ -121,6 +125,7 @@ label day_5_2_2_dont_belive:
     R_t crazy nemnogo "…"
     pause 1.0
     call scene_photo
+    stop music fadeout 1.0
     
     pause 1.0
     $ show_space_bg("bg_commander_block_transparent_default")
@@ -145,6 +150,7 @@ label day_5_2_2_dont_belive:
     play sfx sfx_metal_door
     show exit_door at space_door_open() zorder 9
     R_t "С медленным звуком большая железная дверь шлюза начала отворяться."
+    play music music_theme_bad_ending_cosmos fadein 1.0
     
     show layer master at screen_step_zoom(zoom1=1.00, zoom_str=0.05)
     pause 2.0
@@ -152,19 +158,20 @@ label day_5_2_2_dont_belive:
     
     R_t mnogo "Впереди — только бесконечность."
     
-    pause 1.0
+    $ renpy.pause(1.0, hard=True)
     show layer master at screen_step_zoom(zoom1=1.1, zoom_str=0.05)
-    pause 2.0
+    $ renpy.pause(2.0, hard=True)
     show layer master at screen_step_zoom(zoom1=1.15, zoom_str=0.05)
-    pause 2.0
+    $ renpy.pause(2.0, hard=True)
 
     #music может немного раньше надо посмтреть
-    play music Theme_Bad_ending_cosmos fadein 1.0
+    show cosmos_fon
+    $ renpy.pause(1.5, hard=True)
     scene bg_black 
     with Dissolve(3.0)
-    pause 3.0
+    $ renpy.pause(3.0, hard=True)
 
     $ unlock_achievement(ACHIEVEMENT_DREAM)
-    pause 0.5
+    $ renpy.pause(0.5, hard=True)
     stop music fadeout 1.0
     return
