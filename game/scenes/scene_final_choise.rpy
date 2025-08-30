@@ -20,18 +20,6 @@ screen screen_final_choise():
         add "ending_bad" at screen_fade_effect_in_out(2.0, start_alpha=0.75, end_alpha=1.0, initial_alpha=0.0)
 
     button:
-        background None#"#e9d20774"
-        xpos 0.5
-        ypos 1.0
-        anchor (0.5, 1.0)
-        xsize 1530
-        ysize 460
-        hovered SetScreenVariable("hover_bad", True)
-        unhovered SetScreenVariable("hover_bad", False)
-        action Return(True)
-        #hover_sound Null()
-
-    button:
         background None#"#07b4e974"
         xpos 0.45
         anchor (0.5, 0.0)
@@ -40,6 +28,18 @@ screen screen_final_choise():
         ysize 430
         hovered SetScreenVariable("hover_good", True)
         unhovered SetScreenVariable("hover_good", False)
+        action Return(True)
+        #hover_sound Null()
+
+    button:
+        background None#"#e9d20774"
+        xpos 0.5
+        ypos 1.0
+        anchor (0.5, 1.0)
+        xsize 1530
+        ysize 460
+        hovered SetScreenVariable("hover_bad", True)
+        unhovered SetScreenVariable("hover_bad", False)
         action Return(False)
         #hover_sound Null()
 

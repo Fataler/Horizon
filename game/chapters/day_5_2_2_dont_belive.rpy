@@ -150,11 +150,11 @@ label day_5_2_2_dont_belive:
     play sfx sfx_metal_door
     show exit_door at space_door_open() zorder 9
     R_t "С медленным звуком большая железная дверь шлюза начала отворяться."
-    play music music_theme_bad_ending_cosmos fadein 1.0
     
     show layer master at screen_step_zoom(zoom1=1.00, zoom_str=0.05)
-    pause 2.0
+    $ renpy.pause(2.0, hard=True)
     show layer master at screen_step_zoom(zoom1=1.05, zoom_str=0.05)
+    play music music_theme_bad_ending_cosmos fadein 1.0
     
     R_t mnogo "Впереди — только бесконечность."
     
@@ -165,13 +165,13 @@ label day_5_2_2_dont_belive:
     $ renpy.pause(2.0, hard=True)
 
     #music может немного раньше надо посмтреть
-    show cosmos_fon
+    scene cosmos_fon with Dissolve(1.5)
     $ renpy.pause(1.5, hard=True)
     scene bg_black 
     with Dissolve(3.0)
     $ renpy.pause(3.0, hard=True)
 
     $ unlock_achievement(ACHIEVEMENT_DREAM)
-    $ renpy.pause(0.5, hard=True)
     stop music fadeout 1.0
+    $ renpy.pause(1.0, hard=True)
     return
