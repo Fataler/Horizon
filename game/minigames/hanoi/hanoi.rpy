@@ -19,7 +19,7 @@ define control_panel_spacing = 10
 define moves_display_position = (0.5, 0.02)
 define tower_anchor_point = (0.5, 1.0)
 define blocks_vertical_offset = -20
-define button_text_size = 20
+define button_text_size = 55
 define tower_label_size = 25
 define moves_counter_size = 28
 define block_frame_padding = 10
@@ -82,6 +82,9 @@ screen hanoi_game_screen(towers):
         textbutton "Сброс" action [Play("ui", sfx_click_pick_up), Return("reset")] text_size button_text_size
         textbutton "Сдаться" action [Play("ui", sfx_click_pick_up), Jump("give_up")] text_size button_text_size
         textbutton "Правила" action [Play("ui", sfx_click_pick_up), Function(renpy.call_in_new_context, "hanoi_rules_explanation")] text_size button_text_size
+
+        if config.developer:
+            textbutton "SKIP" action Jump("win") text_size button_text_size
 
     text "Ходы: [player_moves]" size moves_counter_size align moves_display_position font gui.interface_text_font
     
