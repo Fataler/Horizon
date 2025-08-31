@@ -116,7 +116,6 @@ default keypad_screen_font_size = 55
 #endregion
 
 label scene_password_keypad:
-    $ renpy.force_autosave()
     "Тест экрана ввода пароля"
     $ expected = "1008"
     $ result = renpy.call_screen("password_keypad", expected_code=expected, mask_input=False)

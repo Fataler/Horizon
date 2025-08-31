@@ -277,7 +277,6 @@ init python:
             return 0
 
 label hanoi_game(blocks_number=5):
-    $ renpy.force_autosave()
     if hasattr(renpy.store, 'reset_blocks_number') and reset_blocks_number is not None:
         $ blocks_number = reset_blocks_number
         $ reset_blocks_number = None
