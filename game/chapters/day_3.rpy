@@ -76,7 +76,7 @@ label day_3:
     play sfx2 sfx_push_button
 
     #music тревога
-    play music music_in_the_mirror fadein 0.5 loop
+    play music music_reflections fadein 0.5 loop
     scene bg_coridor1_default
     with dissolve
     play sfx sfx_steps_slow fadein 0.5 fadeout 0.5 loop
@@ -87,7 +87,6 @@ label day_3:
     R_t sick "Я инстинктивно прикрыл глаза рукой."
     R_t "Экипаж уже собрался за завтраком."
 
-    stop music fadeout 1.0
     scene bg_black with dissolve
     pause 0.5
     scene bg_dinner_block
@@ -128,7 +127,8 @@ label day_3:
     show v ruki shy
     show d serious neutral
     #music
-    play music music_kitchen_daily fadein 0.5 loop
+    stop music fadeout 1.0
+    play music2 music_kitchen_daily fadein 0.5 loop
     R_t "Пахло очень вкусно — причиной был омлет с помидорами, который приготовила Ирис из наших небольших запасов органической пищи."
     R_t thinking ne_ponyal "Нам приходится чередовать органику с пищей из тюбиков, чтобы растянуть её на более долгий срок."
     R_t neutral "Ведь иногда хочется поесть нормальной человеческой пищи."
@@ -167,7 +167,7 @@ label day_3:
     show s shy neutral at fear with dissolve
     pause 0.5
     stop sfx fadeout 0.5
-    stop music fadeout 1.0
+    stop music2 fadeout 1.0
     R_t "Софи внезапно засуетилась и встала из-за стола."
 
     show s profile happy left at move_step(-50)
@@ -228,7 +228,7 @@ label day_3:
     with dissolve
     play sfx sfx_steps_coridor fadein 0.5 fadeout 1.0 loop
     #music
-    play music music_in_the_mirror fadein 1.0 loop
+    play music music_reflections fadein 1.0 loop
     R_t serious think "День начинался как обычно."
     R_t "Можно даже сказать, что неплохо."
     R_t "Экипаж был явно в приподнятом настроении."
@@ -353,7 +353,7 @@ label day_3:
     R_t ear sick "Я держался, как мог."
 
     #фон коридор 2
-    scene bg_coridor2_default
+    scene bg_coridor2_dark
     call scene_pulse
     
 
@@ -380,11 +380,12 @@ label day_3:
     stop sfx2 fadeout 1.5
 
     R_t ear sick "Я с трудом присел на койку. Боль немного утихла."
+    play music music_anxiety loop
+
     R "Мне кажется… Ты знаешь, такое чувство, как будто…"
 
     show i normal bychit
     #music где-то, не уверена что тут
-    play music music_nervous_ambient loop
     R_t "Ирис снисходительно посмотрела на меня, ожидая продолжения."
     R_t thinking osharashen "Я посмотрел ей прямо в глаза."
     R "Я горю?.."
@@ -678,7 +679,8 @@ label day_3:
     with dissolve
     
     #music
-    play music music_escape_room_full fadein 1.0 loop
+    stop music fadeout 1.0
+    play music2 music_escape_room_full fadein 1.0 loop
 #     Выбор:
 # 		Попытаться взломать сейф
 # 		Я понял, что медлить нельзя. 
@@ -727,7 +729,7 @@ label day_3:
     R_t "Но и бездействие было равно смерти."
     R_t serious think "Я оглянулся."
     
-    stop music fadeout 0.5
+    stop music2 fadeout 0.5
     show i normal bychit left at Transform(xalign=1.15, yalign=3.0)
     show d fist fainting right at Transform(xalign=0.2, yalign=4.0)
     show s shy fainting right at Transform(xalign=-0.15, yalign=4.0)

@@ -23,6 +23,17 @@ define music_theme_bad_ending_cosmos = "audio/bg/Endings/Theme_Bad_ending_cosmos
 define music_bad_end_after_talk = "audio/bg/Endings/Bad_end_after_talk.mp3"
 define music_epilogue = "audio/bg/Endings/Epilogue.mp3"
 define music_action_fight = "audio/bg/Action/Fight.mp3"
+define music_anxiety = "audio/bg/Anxiety/anxiety.mp3"
+define music_creepy_tuc_tuc = "audio/bg/Anxiety/creepy_tuc_tuc.mp3"
+define music_creepy_without_tuc_tuc = "audio/bg/Anxiety/creepy_without_tuc_tuc.mp3"
+define music_perd_dolbej = "audio/bg/Anxiety/perd_dolbej.mp3"
+define music_perd_quite_ambient = "audio/bg/Anxiety/perd_quite_ambient.mp3"
+define music_perd_sad_ambient = "audio/bg/Anxiety/perd_sad_ambient.mp3"
+define music_perd_sad_ambient2 = "audio/bg/Anxiety/perd_sad_ambient2.mp3"
+define music_reflections = "audio/bg/Anxiety/reflections.mp3"
+define music_Xtonicheskoe_creepy = "audio/bg/Anxiety/Xtonicheskoe_creepy.mp3"
+define music_Xtonicheskoe_fon = "audio/bg/Anxiety/Xtonicheskoe_fon.mp3"
+define music_Xtonicheskoe_fon_dinamika = "audio/bg/Anxiety/Xtonicheskoe_fon_dinamika+.mp3"
 
 # Игра
 define sfx_alarm1 = "audio/sfx/alarm.ogg"
@@ -144,3 +155,4 @@ init python:
     renpy.music.register_channel("sfx", mixer="sfx", loop=False, stop_on_mute=True, tight=True, buffer_queue=True)
     renpy.music.register_channel("sfx2", mixer="sfx", loop=False, stop_on_mute=True, tight=True, buffer_queue=True)
     renpy.music.register_channel("sfx3", mixer="sfx", loop=False, stop_on_mute=True, tight=True, buffer_queue=True)
+    renpy.music.register_channel("music2", mixer="music", loop=False, stop_on_mute=True, tight=True, buffer_queue=True)

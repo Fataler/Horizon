@@ -92,26 +92,26 @@ CG
         at show_screen_transform
         
         # Картинки
-        timer (credits_duration * 0.33) action Show("credits_image", img_name="credits_img_1", is_left=True)
+        timer (credits_duration * 0.22) action Show("credits_image", img_name="credits_img_2", is_left=True)
+        timer (credits_duration * 0.30) action Hide("credits_image")
+
+        timer (credits_duration * 0.32) action Show("credits_image", img_name="credits_img_1", is_left=False)
         timer (credits_duration * 0.40) action Hide("credits_image")
 
-        timer (credits_duration * 0.42) action Show("credits_image", img_name="credits_img_2", is_left=False)
+        timer (credits_duration * 0.42) action Show("credits_image", img_name="credits_img_4", is_left=True)
         timer (credits_duration * 0.50) action Hide("credits_image")
 
-        timer (credits_duration * 0.52) action Show("credits_image", img_name="credits_img_3", is_left=True)
+        timer (credits_duration * 0.52) action Show("credits_image", img_name="credits_img_3", is_left=False)
         timer (credits_duration * 0.60) action Hide("credits_image")
 
-        timer (credits_duration * 0.62) action Show("credits_image", img_name="credits_img_4", is_left=False)
+        timer (credits_duration * 0.62) action Show("credits_image", img_name="credits_img_5", is_left=True)
         timer (credits_duration * 0.70) action Hide("credits_image")
 
-        timer (credits_duration * 0.72) action Show("credits_image", img_name="credits_img_5", is_left=True)
+        timer (credits_duration * 0.72) action Show("credits_image", img_name="credits_img_6", is_left=False)
         timer (credits_duration * 0.80) action Hide("credits_image")
 
-        timer (credits_duration * 0.82) action Show("credits_image", img_name="credits_img_6", is_left=False)
-        timer (credits_duration * 0.88) action Hide("credits_image")
-
-        timer (credits_duration * 0.89) action Show("credits_image", img_name="credits_img_7", is_left=True)
-        timer (credits_duration * 1.05) action Hide("credits_image")
+        timer (credits_duration * 0.82) action Show("credits_image", img_name="credits_img_7", is_left=True)
+        timer (credits_duration * 1.00) action Hide("credits_image")
         
         add credits_obj xalign 0.5
 

@@ -12,11 +12,11 @@ label day_5_2_1_belive:
     scene bg_black with eye_off()
     pause 1.0
     R_t beard_on "Спустя некоторое время у меня получилось настроиться."
-    show screen waveform_show() zorder 10
-    pause 1.0
     show scene_talk_in_end_17
     with Dissolve(2)
-    play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
+    show screen waveform_show() with dissolve
+    play sfx2 sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
+    pause 1.0
 
     N "Ты вернулся!"
     N "Я думала, мы больше не сможем связаться с тобой…"

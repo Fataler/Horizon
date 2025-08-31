@@ -18,7 +18,7 @@ label day_0_prologue:
     scene black with dissolve
     pause 0.5
     #musicа
-    play music music_nervous_ambient fadein 1.0 loop
+    play music music_in_the_mirror fadein 1.0 loop
     scene bg_dinner_block
     stop sfx fadeout 1.0
     show i smoke puzzled left at Transform(xalign=0.7, yalign=1.0)
@@ -128,10 +128,10 @@ label day_0_prologue:
     R_t not_sure "Я же тосковал о странном — вдохнуть дым сигареты вместе с запахом моря. Поэтому сегодня выберу Хемингуэя."
     
     $ show_space_bg("bg_room_rayan_dark")
+    stop music fadeout 1.0
     
     R_t neutral "Во время чтения незаметно и вкрадчиво сон накрывал меня с головой, поэтому лишь в полудрёме я заметил, как погас ночник."
 
-    stop music fadeout 1.0
     scene bg_black
     with dissolve
     pause 2.0

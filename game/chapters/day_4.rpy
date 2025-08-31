@@ -20,6 +20,7 @@ label day_4:
 
     stop music fadeout 1.0
     $ show_space_bg("bg_room_rayan_default")
+    play music2 music_reflections fadein 1.0 loop
 
     R_t ear surprised "Я сразу открыл глаза. Сна не было ни в одном глазу."
     R_t "Часы показывали 08:00 — время, когда я просыпаюсь каждый день."
@@ -28,7 +29,6 @@ label day_4:
     play sfx sfx_click2
     pause 0.2
     play sfx sfx_click2
-    play music music_in_the_mirror fadein 1.0 loop
     call scene_mirror_water
     with dissolve
     cutscene "В зеркале — мой обычный вид: всё тот же усталый и измождённый парень вдали от дома."
@@ -45,7 +45,7 @@ label day_4:
 
     R_t "Быстро накинув форму, я выдвинулся в сторону кухни. Нужно быть начеку и понять, что происходит."
     
-    stop music fadeout 0.5
+    stop music2 fadeout 1.0
     stop sfx fadeout 0.5
     scene bg_black with dissolve
     pause 0.5
@@ -85,11 +85,12 @@ label day_4:
 
     S "О, Райан! Доброе утро!"
 
-    stop music fadeout 0.5
+    stop music fadeout 0.1
     play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     stop sfx2 fadeout 0.5
     scene bg_coridor1_default
-    play music music_nervous_ambient loop
+    play music2 music_reflections fadein 1.0 loop
+
     with dissolve
     
     R_t serious think "Но я уже улизнул с кухни, первым делом нужно было проверить генератор."
@@ -181,7 +182,7 @@ label day_4:
     R_t "Цифры и графики плыли перед глазами. Облегчение приносил только вид из окна."
 
     #play sfx sfx_heart_beat_neutral fadein 0.5 fadeout 0.5 loop
-    stop music fadeout 0.5
+    stop music2 fadeout 0.5
     scene bg_black_t_90
     with dissolve
     play music music_theme_cosmos fadein 1.0 loop
@@ -229,7 +230,7 @@ label day_4:
     show d serious angry with dissolve
 
     #music
-    play music music_nervous_ambient loop
+    play music music_anxiety loop
     R_t "Лицо Дэвида побагровело."
     D "Что ты сказал? Почему я узнаю об этом только сейчас?"    
     R_t "Капитан яростно зашипел себе под нос."
@@ -357,6 +358,8 @@ label day_4:
     R_t "Дэвид опрокинул шкафы и держал Ирис."
 
     play sfx sfx_drama
+    stop music fadeout 1.0
+    play music2 music_creepy_without_tuc_tuc 
     call scene_pogrom_v_lazarete
 
     cutscene "Нет, прекрати!"
@@ -389,7 +392,8 @@ label day_4:
     $ renpy.transition(hpunch)
     pause 0.7
     play sfx2 sfx_pisk_one
-
+    stop music2 fadeout 1.0
+    play music music_creepy_tuc_tuc fadein 0.5 fadeout 1.0 loop
     R_t "Дверь захлопнулась: он успел воспользоваться карточкой командира."
     V ruki osharashen "С тобой всё в порядке?"
     I oooops "Д-да… Небольшая ссадина, ничего страшного."
@@ -478,7 +482,7 @@ label day_4:
     pause 1.0
     scene bg_coridor2_red_smoke
     #music 
-    play music music_nervous_ambient loop
+    play music music_anxiety loop
     play sfx3 sfx_noise_banging fadein 0.5 fadeout 0.5 loop
     show i profile neutral left at Transform(xalign=1.15, yalign=1.0)
     show s profile sad left at Transform(xalign=0.85, yalign=1.0)

@@ -13,6 +13,7 @@ label day_5:
 
     #может ничего и не надо что бы было сиротливо тихо
     #play music music_theme_5day fadein 1.0 loop
+    play music music_reflections loop
     R_t thinking osharashen "Я резко открыл глаза и сел на кровати."
     R_t ear surprised "Огляделся."
     R_t "Снова она, моя каюта."
@@ -26,7 +27,8 @@ label day_5:
     cutscene "С этой экспедицией явно было что-то не так, и я должен это выяснить."
     cutscene "Глупо скрывать, необходимо обсудить это с экипажем."
     cutscene "Пусть они лучше примут меня за сумасшедшего, но мы все вместе найдём решение."
-
+    scene bg_black
+    with dissolve
     $ show_space_bg("bg_room_rayan_default")
     with dissolve
 
@@ -195,6 +197,7 @@ label day_5:
 
     stop sfx2 fadeout 0.5
     stop music fadeout 1.0
+    play sfx3 sfx_ventilation fadein 0.5 fadeout 1.0 loop
     scene bg_black
     with dissolve
     pause 0.5
@@ -217,6 +220,7 @@ label day_5:
     scene bg_black
     with eye_off()
     pause 2.0
+    stop sfx3 fadeout 1.0
     
     play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
     show scene_talk_in_end_17
