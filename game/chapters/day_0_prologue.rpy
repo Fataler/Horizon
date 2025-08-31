@@ -1,5 +1,6 @@
 label day_0_prologue:
-
+    stop music fadeout 1.0
+    pause 0.5
     scene bg_black
     with dissolve
     $ renpy.force_autosave()
