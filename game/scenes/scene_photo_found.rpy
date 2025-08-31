@@ -29,7 +29,7 @@ label scene_photo_found_cut:
     play music2 music_nervous_ambient loop
 
     cutscene "В середине портрета красовалась приличная дыра."
-    cutscene "Она была такой величины, что черты лица по краям уже не удавалось разобрать."
+    cutscene "Она была такой величины, что черты лица уже не удавалось разобрать."
     
     hide scene_photo_full
     with dissolve
