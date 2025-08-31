@@ -35,18 +35,23 @@ init python:
 label label_credits:
     call screen credits
 
-    pause
+    #pause
+    scene bg_black
+    with dissolve
     return
 
 screen credits():
     modal True
+    default skip_visible = False
+    default skip_fading = False
+    default skip_time = 0.0
     default credits_obj = Credits(
 """{image=logo_short}
 
 {size=65}{i}Команда:{/i}{/size}
 
 
-{size=45}{i}Featharine{/i}{/size}
+{size=45}{b}{k=5}Featharine{/k}{/b}{/size}
 оригинальная идея
 лидер
 сценарий
@@ -54,14 +59,14 @@ screen credits():
 CG
 дизайн UI
 
-{size=45}{i}Fataler{/i}{/size}
+{size=45}{b}{k=5}Fataler{/k}{/b}{/size}
 код
 мини игры
 верстка
 анимации
 музыка
 
-{size=45}{i}Kapushishin{/i}{/size}
+{size=45}{b}{k=5}Kapushishin{/k}{/b}{/size}
 фоны
 сборка эпизодов
 режиссура
@@ -71,7 +76,7 @@ CG
 {size=65}{i}Отдельная 
 благодарность:{/i}{/size}
 
-{size=45}{i}Коты Тигр и Лиса{/i}{/size}
+{size=45}{b}{k=5}Коты Тигр и Лиса{/k}{/b}{/size}
 
 катание по клавиатуре
 моральная поддержка
@@ -116,10 +121,31 @@ CG
         add credits_obj xalign 0.5
 
         timer credits_duration + 5 action Show("credits_end")
-        
-        textbutton "Пропустить" action Return() xalign 0.95 yalign 0.05 at delay_appear(40.0)
+
+        #Click blocker
+        button:
+            xfill True
+            yfill True
+            background None
+            action [SetScreenVariable("skip_visible", True), SetScreenVariable("skip_fading", False), SetScreenVariable("skip_time", 0.0)]
+            hover_sound None
+            activate_sound None
+
+        if skip_visible:
+            textbutton "Пропустить" action Return() xalign 0.95 yalign 0.05 at (skip_button_fadeout if skip_fading else skip_button_appear)
+
+        if skip_visible and not skip_fading:
+            timer 9.5 action SetScreenVariable("skip_fading", True)
+            timer 10.0 action [SetScreenVariable("skip_visible", False), SetScreenVariable("skip_fading", False)]
+
+
+    key "K_RETURN" action If(not skip_visible, [SetScreenVariable("skip_visible", True), SetScreenVariable("skip_fading", False), SetScreenVariable("skip_time", 0.0)], NullAction())  # Enter
+    key "K_SPACE" action If(not skip_visible, [SetScreenVariable("skip_visible", True), SetScreenVariable("skip_fading", False), SetScreenVariable("skip_time", 0.0)], NullAction())   # Пробел
+    key "K_ESCAPE" action If(not skip_visible, [SetScreenVariable("skip_visible", True), SetScreenVariable("skip_fading", False), SetScreenVariable("skip_time", 0.0)], NullAction()) # Escape
+    key "mouseup_3" action If(not skip_visible, [SetScreenVariable("skip_visible", True), SetScreenVariable("skip_fading", False), SetScreenVariable("skip_time", 0.0)], NullAction())  # Правая кнопка мыши
 
 screen credits_end():
+    layer "master"
     text "Спасибо за игру!":
         size 95 
         align (0.5, 0.5)
@@ -134,6 +160,7 @@ transform credits_thanks:
     ease 1.0 alpha 1.0
 
 screen credits_image(img_name=None, is_left=True):
+    layer "master"
     fixed:
         xfill True
         yfill True
@@ -145,9 +172,19 @@ screen credits_image(img_name=None, is_left=True):
             add img_name at trans xalign xpos yalign 0.5 xsize 640 ysize 360
 
 transform credits_left_appear:
+    subpixel True
     alpha 0.0 xoffset -50
     ease 3 alpha 1.0 xoffset 0
 
 transform credits_right_appear:
+    subpixel True
     alpha 0.0 xoffset 50
     ease 3 alpha 1.0 xoffset 0
+
+transform skip_button_appear:
+    alpha 0.0
+    ease 0.5 alpha 1.0
+
+transform skip_button_fadeout:
+    alpha 1.0
+    ease 0.5 alpha 0.0
