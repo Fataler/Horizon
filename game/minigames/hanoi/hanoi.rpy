@@ -78,10 +78,10 @@ screen hanoi_game_screen(towers):
         align control_panel_position
         spacing control_panel_spacing
 
-        textbutton "Подсказка" action Return("hint") text_size button_text_size
-        textbutton "Сброс" action Return("reset") text_size button_text_size
-        textbutton "Сдаться" action Jump("give_up") text_size button_text_size
-        textbutton "Правила" action Function(renpy.call_in_new_context, "hanoi_rules_explanation") text_size button_text_size
+        textbutton "Подсказка" action [Play("ui", sfx_click_put_down), Return("hint")] text_size button_text_size
+        textbutton "Сброс" action [Play("ui", sfx_click_pick_up), Return("reset")] text_size button_text_size
+        textbutton "Сдаться" action [Play("ui", sfx_click_pick_up), Jump("give_up")] text_size button_text_size
+        textbutton "Правила" action [Play("ui", sfx_click_pick_up), Function(renpy.call_in_new_context, "hanoi_rules_explanation")] text_size button_text_size
 
     text "Ходы: [player_moves]" size moves_counter_size align moves_display_position font gui.interface_text_font
     
@@ -123,19 +123,23 @@ screen hanoi_game_screen(towers):
                     background transparent_background
 
                 if start_from_tower < 0 and can_select_tower(each_tower["blocks"]):
-                    action SetVariable("start_from_tower", i)
+                    action [Play("ui", sfx_click_pick_up), 
+                    SetVariable("start_from_tower", i)]
                     tooltip "Выбрать башню для взятия блока"
 
                 elif start_from_tower == i:
-                    action SetVariable("start_from_tower", no_tower_selected)
+                    action [Play("ui", sfx_click_deselect),
+                    SetVariable("start_from_tower", no_tower_selected)]
                     tooltip "Отменить выбор"
 
                 elif start_from_tower >= 0 and check_move_with_rules(start_from_tower, i):
-                    action [SetVariable("finish_to_tower", i), Return("move_done")]
+                    action [Play("ui", sfx_click_put_down),
+                    SetVariable("finish_to_tower", i), 
+                    Return("move_done")]
                     tooltip "Поместить блок сюда"
 
                 else:
-                    action []
+                    action [Play("ui", sfx_error2)]
                     tooltip "Недопустимый ход"
 
         else:
@@ -277,6 +281,7 @@ init python:
             return 0
 
 label hanoi_game(blocks_number=5):
+    play ui sfx_connect3
     if hasattr(renpy.store, 'reset_blocks_number') and reset_blocks_number is not None:
         $ blocks_number = reset_blocks_number
         $ reset_blocks_number = None
@@ -350,7 +355,7 @@ label hanoi_loop:
     jump hanoi_loop
 label win:
     $ can_click = False
-
+    play ui sfx_win
     if player_moves > minimal_moves:
         "Победа!\nЗатрачено ходов: [player_moves]"
     else:
@@ -360,6 +365,7 @@ label win:
     return True
 
 label give_up:
+    play ui sfx_disconnect
     $ can_click = False
     "Удачи в следующий раз!"
     hide screen hanoi_game_screen

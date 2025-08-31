@@ -27,6 +27,8 @@ transform _pz_dim_out:
 screen puzzle_grid_pure(image, grid=4, size=720):
     modal True
 
+    on "show" action Play("ui", sfx_connect3)
+
     default g = int(grid)
     default n = g * g
     default cell = int(size) // g
@@ -105,8 +107,9 @@ screen puzzle_grid_pure(image, grid=4, size=720):
                             hover_background None
                             action If(
                                 selection is None,
-                                true=SetScreenVariable("selection", pos),
-                                false=[
+                                true=[Play("ui", sfx_click_pick_up), 
+                                SetScreenVariable("selection", pos)],
+                                false=[Play("ui", sfx_click_deselect),
                                     SetScreenVariable(
                                         "lock_hits",
                                         [ i for i in range(n) if (_pz_swap(order, selection, pos))[i] == i and order[i] != i ]
@@ -151,7 +154,7 @@ screen puzzle_grid_pure(image, grid=4, size=720):
             timer 0.45 action SetScreenVariable("lock_hits", []) repeat False
 
         if just_completed:
-            timer 0.55 action [ SetScreenVariable("was_complete", True), SetScreenVariable("win_fade", True) ] repeat False
+            timer 0.55 action [ Play("ui", sfx_win), SetScreenVariable("was_complete", True), SetScreenVariable("win_fade", True) ] repeat False
         if win_fade:
             timer PZ_DIM_FADE action SetScreenVariable("win_fade", False) repeat False
 
@@ -160,9 +163,10 @@ screen puzzle_grid_pure(image, grid=4, size=720):
             xalign 0.5
 
             if not is_complete:
-                textbutton _("Уйти") action Return(False)
+                textbutton _("Уйти") action [Play("ui", sfx_disconnect), Return(False)]
 
                 textbutton _("Сбросить") action [
+                    Play("ui", sfx_error4), 
                     SetScreenVariable("order", renpy.random.sample(range(n), n)),
                     SetScreenVariable("selection", None),
                     SetScreenVariable("lock_hits", []),
@@ -171,7 +175,7 @@ screen puzzle_grid_pure(image, grid=4, size=720):
                 ]
 
             if is_complete:
-                textbutton _("Окей") action Return(True)
+                textbutton _("Окей") action [Play("ui", sfx_disconnect), Return(True)]
 
     key "game_menu" action NullAction()
 

@@ -145,6 +145,23 @@ define sfx_water_splash = "audio/sfx/water_splash.ogg"
 define sfx_whistling = "audio/sfx/whistling.ogg"
 define sfx_writing = "audio/sfx/writing.ogg"
 
+# Мини игры
+define sfx_safe_button = "audio/sfx/mini_games/safe_button.ogg"
+define sfx_error2 = "audio/sfx/mini_games/error2.ogg"
+define sfx_error4 = "audio/sfx/mini_games/error4.ogg"
+define sfx_safe_open_lock = "audio/sfx/mini_games/safe_open_lock.ogg"
+define sfx_click_pick_up = "audio/sfx/mini_games/click_pick_up.ogg"
+define sfx_click_put_down = "audio/sfx/mini_games/click_put_down.ogg"
+define sfx_click_deselect = "audio/sfx/mini_games/click_deselect.ogg"
+define sfx_connect3 = "audio/sfx/mini_games/connect3.ogg"
+define sfx_win = "audio/sfx/mini_games/win.ogg"
+define sfx_disconnect = "audio/sfx/mini_games/disconnect.ogg"
+define sfx_lock_moving = "audio/sfx/mini_games/lock_moving.ogg"
+define sfx_lock_moving_back = "audio/sfx/mini_games/lock_moving_back.ogg"
+define sfx_lock_pick_break = "audio/sfx/mini_games/lock_pick_break.ogg"
+define sfx_lock_unlock = "audio/sfx/mini_games/lock_unlock.ogg"
+
+
 # Интерфейс
 define sfx_ui_achieve = "audio/sfx/UI 01 Achive.ogg"
 define sfx_ui_click = "audio/sfx/UI 02 Click.ogg"
