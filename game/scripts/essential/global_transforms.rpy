@@ -1,4 +1,7 @@
 init -1:
+    transform set_bright_hovered(brightness_level=0.1):
+        matrixcolor BrightnessMatrix(brightness_level)
+
     transform appear(time = 1.0, delay = 0.0):
         alpha 0
         pause delay

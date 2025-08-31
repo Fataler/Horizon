@@ -4,6 +4,7 @@ label day_1:
     call test_clock()
     scene bg_black
     with dissolve
+    $ renpy.force_autosave()
     pause 0.5
     play music music_reflections fadein 0.5 fadeout 0.5 loop
     $ show_space_bg("bg_room_rayan_default")
@@ -86,7 +87,7 @@ label day_1:
     play sfx sfx_slurp
     show d calm
 
-    R_t calm "Командир отхлебнул из кружки и прислушался:"
+    R_t thinking neutral "Командир отхлебнул из кружки и прислушался:"
 
     show i smoke calm
 
@@ -905,4 +906,5 @@ label day_1:
     play music2 music_make_this_right
     call scene_viktor
 
+    $ renpy.force_autosave()
     jump day_2

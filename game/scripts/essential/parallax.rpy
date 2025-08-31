@@ -62,7 +62,6 @@ image space_bg_image = At("images/Backgrounds/Cosmos.png", space_drift(intensity
 screen space_bg(image_name, space_bg_name = "space_bg_image"):
     zorder 0
 
-    add Parallax(space_bg_name, 0.0) at truecenter:
-        zoom 1.00
+    add "space_bg_image" at truecenter
 
     add image_name at truecenter

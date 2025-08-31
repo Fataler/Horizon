@@ -8,6 +8,7 @@ layeredimage viktor_scene:
 label scene_viktor:
     show viktor_scene
     with dissolve
+    $ renpy.force_autosave()
     #Выбор:
     menu:
         "Побежать и обезвредить Виктора":

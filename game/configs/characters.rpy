@@ -119,7 +119,7 @@ layeredimage r_f:
             xoffset -20
             "images/Rayan/Rayan_yxo_boroda.png"
         attribute beard_on if_any "crazy":
-            "images/Rayan/Rayan_crazy_boroda.png"
+            Null()
 
 image rayan_talk_seryoznii:
     'images/Rayan/Rayan_seryoznii_rot1.png'

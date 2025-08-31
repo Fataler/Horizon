@@ -22,13 +22,13 @@ layeredimage time_passed_img:
     always:
         "time_animation_colored"
 
-transform show_screen_transform:
+transform show_screen_transform(show_time=0.5, hide_time=0.5):
     on show:
         parallel:
             alpha 0.0
-            linear 0.5 alpha 1.0
+            linear show_time alpha 1.0
     on hide:
-        linear 0.5 alpha 0.0
+        linear hide_time alpha 0.0
 
 transform loading_move:
     xzoom -1.0

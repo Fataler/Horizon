@@ -36,6 +36,7 @@ screen room1():
         imagebutton idle Null() hover "monitor" action [SetVariable("inspect", "monitor"), Jump("room_1")] focus_mask "monitor" mouse "inspect" at hover_effect()
 
 label room_1:
+    $ renpy.force_autosave()
     show screen room1
     $ renpy.block_rollback()
 

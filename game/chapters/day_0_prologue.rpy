@@ -2,6 +2,7 @@ label day_0_prologue:
 
     scene bg_black
     with dissolve
+    $ renpy.force_autosave()
     pause 2.0
     play sfx sfx_click2
     # Пролог
@@ -144,4 +145,5 @@ label day_0_prologue:
     with dissolve
     $ unlock_achievement(ACHIEVEMENT_PROLOGUE)
     pause 1.0
+    $ renpy.force_autosave()
     jump day_1

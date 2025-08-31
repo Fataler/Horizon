@@ -34,6 +34,8 @@ init python:
 
 label label_credits:
     call screen credits
+    with dissolve
+    
 
     #pause
     scene bg_black
@@ -41,7 +43,6 @@ label label_credits:
     return
 
 screen credits():
-    modal True
     default skip_visible = False
     default skip_fading = False
     default skip_time = 0.0
@@ -87,14 +88,15 @@ CG
 
 """)
     layer "master"
-    use not_main_menu
-    add "bg_black":
-        alpha 0.5
     
     fixed:
         xfill True
         yfill True
-        at show_screen_transform
+        at show_screen_transform(show_time=1.0, hide_time=1.0)
+
+        use not_main_menu
+        add "bg_black":
+            alpha 0.5
         
         # Картинки
         timer (credits_duration * 0.22) action Show("credits_image", img_name="credits_img_2", is_left=True)

@@ -38,7 +38,7 @@ transform r_hand_shake:
 label scene_photo:
 
     show scene_photo_fon
-    show scene_photo_cherkashi at soot_drift_bottom(2, 1.1)
+    show scene_photo_cherkashi at soot_drift_bottom(2, 1.1), truecenter
     show scene_photo_light_for_scale at fade_in_out(1.0)
 
     show scene_photo_hand_2 at hand_appear_from_bottom
