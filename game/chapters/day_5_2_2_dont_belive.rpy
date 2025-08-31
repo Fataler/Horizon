@@ -172,7 +172,8 @@ label day_5_2_2_dont_belive:
 
     #music может немного раньше надо посмтреть
 
-    scene cosmos_fon with Dissolve(1.5)
+    scene cosmos_fon 
+    with Dissolve(1.5)
     $ renpy.pause(1.5, hard=True)
     scene bg_black 
     with Dissolve(3.0)

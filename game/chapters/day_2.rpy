@@ -7,6 +7,7 @@ label day_2:
     call test_clock(start_time="22/43/00")
     scene bg_black
     with dissolve
+    $ renpy.force_autosave()
     pause 1.0
     $ show_space_bg("bg_room_rayan_dark")
     pause 1.0
@@ -701,4 +702,5 @@ label day_2:
     $ unlock_achievement(ACHIEVEMENT_ELECTRIC)
     $ renpy.pause(1.0, hard=True)
     with dissolve
+    $ renpy.force_autosave()
     jump day_3

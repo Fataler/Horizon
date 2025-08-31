@@ -12,7 +12,6 @@ label scene_mirror:
     show scene_mirror_cherk
     with dissolve
 
-    pause
     return
 
 label scene_mirror_water:
@@ -20,7 +19,6 @@ label scene_mirror_water:
     show scene_mirror_cherk
     with dissolve
 
-    pause
     return
 
 label scene_mirror_dark:
@@ -28,19 +26,16 @@ label scene_mirror_dark:
     show scene_mirror_cherk
     with dissolve
 
-    pause
     return
 
 label scene_mirror_red:
     show scene_mirror_red
     show scene_mirror_cherk
 
-    pause
     return
 
 label scene_mirror_beard:
     show scene_mirror_beard
     with dissolve
 
-    pause
     return

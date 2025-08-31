@@ -6,6 +6,7 @@ label day_4:
     call test_clock("20/59/00")
     scene bg_black
     with dissolve
+    $ renpy.force_autosave()
     pause 1.0
     show cosmos_fon with dissolve
     #music
@@ -549,4 +550,5 @@ label day_4:
     pause 1.0
     $ unlock_achievement(ACHIEVEMENT_DYSPNEA)
     pause 0.5
+    $ renpy.force_autosave()
     jump day_5
