@@ -148,6 +148,7 @@ define sfx_writing = "audio/sfx/writing.ogg"
 # Мини игры
 define sfx_safe_button = "audio/sfx/mini_games/safe_button.ogg"
 define sfx_error2 = "audio/sfx/mini_games/error2.ogg"
+define sfx_error4 = "audio/sfx/mini_games/error4.ogg"
 define sfx_safe_open_lock = "audio/sfx/mini_games/safe_open_lock.ogg"
 define sfx_click_pick_up = "audio/sfx/mini_games/click_pick_up.ogg"
 define sfx_click_put_down = "audio/sfx/mini_games/click_put_down.ogg"
