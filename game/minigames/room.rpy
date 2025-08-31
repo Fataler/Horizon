@@ -1,4 +1,4 @@
-default room1 = {"solved":[], "safe":0, "computer":0, "key":0, "door":0, "puzzle":0}
+default room1 = {"solved":[], "safe":0, "computer":0, "key":0, "door":0, "puzzle":0, "hanoi":0}
 default inspect = None
 
 define check_color = Color("#0022ff")
@@ -50,7 +50,7 @@ label room_1:
 
     elif inspect == "computer":
         if room1["puzzle"] == 0:
-            call screen puzzle_grid_pure("images/test_puzzle_2.png", grid=5, size=1000)
+            call screen puzzle_grid_pure("game/minigames/puzzle/puzzle.png", grid=5, size=1000)
             if _return:
                 "Пазл собран!"
                 $ room1["puzzle"] += 1
@@ -58,7 +58,15 @@ label room_1:
             "Здесь больше ничего нет."
 
     elif inspect == "monitor":
-        "Я посмотрел на монитор и увидел, что на нём высветилось: \"СИСТЕМНАЯ ОШИБКА\""
+        if room1["hanoi"] == 0:
+            call hanoi_game (blocks_number=5)
+            if _return:
+                "Башня собрана!"
+                $ room1["hanoi"] = 1
+            else:
+                "Не вышло... Можно попробовать снова."
+        else:
+            "Здесь больше ничего нет."
 
     elif inspect == "door":
         if room1["key"] == 0:
