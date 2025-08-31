@@ -194,21 +194,6 @@ screen debug_bounds_overlay():
         python:
             displayables = []
             try:
-                # Method 1: renpy.get_displayables()
-                all_displayables = renpy.get_displayables()
-                log_debug(f"[DebugBounds] Method 1 - Found {len(all_displayables)} displayables")
-
-                for d in all_displayables:
-                    try:
-                        placement = renpy.get_placement(d)
-                        if placement and len(placement) >= 4:
-                            x, y, width, height = placement[:4]
-                            if (width > 0 and height > 0 and width < config.screen_width and height < config.screen_height):
-                                displayables.append((x, y, width, height, str(type(d).__name__)))
-                                log_debug(f"[DebugBounds] ADDED: {type(d).__name__} at ({x}, {y}, {width}, {height})")
-                    except:
-                        pass
-
                 # Method 2: Try scene lists if method 1 didn't work
                 if not displayables:
                     try:
