@@ -247,5 +247,7 @@ label scene_good_ending:
 
     $ renpy.pause(3.0, hard=True)
     $ unlock_achievement(ACHIEVEMENT_COMPLETE)
+    $ persistent.game_completed = True
+    $ renpy.save_persistent()
 
     call label_credits

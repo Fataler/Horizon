@@ -11,6 +11,9 @@ init -1 python:
     elif persistent._achievement_unlocked is None:
         persistent._achievement_unlocked = {}
 
+    if not hasattr(persistent, 'igroteka_progress'):
+        persistent.igroteka_progress = {}
+
 # ID достижений
 define ACHIEVEMENT_PROLOGUE = "prologue"
 define ACHIEVEMENT_ATTACK = "attack"
@@ -26,6 +29,7 @@ define ACHIEVEMENT_CRITICAL_MIND = "critical"
 define ACHIEVEMENT_DREAM = "dream"
 define ACHIEVEMENT_CREW = "crew"
 define ACHIEVEMENT_COMPLETE = "complete"
+define ACHIEVEMENT_GAME_SPECIALIST = "game_specialist"
 
 init python:
     class Achievement(object):
@@ -152,6 +156,13 @@ init python:
             False,
             "gui/achievements/done.png"
         ),
+        ACHIEVEMENT_GAME_SPECIALIST: Achievement(
+            ACHIEVEMENT_GAME_SPECIALIST,
+            "Игровой специалист",
+            "Пройти все игры в игротеке",
+            True,
+            "gui/achievements/done.png",
+        ),
     }
 
     def unlock_achievement(id):
@@ -167,3 +178,13 @@ init python:
     def unlock_all_achievements():
         for ach in achievements.values():
             ach.unlock()
+
+    def mark_igroteka_completed(id):
+        # Инициализируем прогресс если не существует
+        if not hasattr(persistent, 'igroteka_progress') or persistent.igroteka_progress is None:
+            persistent.igroteka_progress = {}
+
+        persistent.igroteka_progress[id] = True
+        renpy.save_persistent()
+        if len(persistent.igroteka_progress) >= 9:
+            unlock_achievement(ACHIEVEMENT_GAME_SPECIALIST)

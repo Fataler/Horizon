@@ -173,29 +173,40 @@ screen main_menu(from_game_menu=False):
 
     style_prefix "main_menu"
 
-    vbox at delay_appear(1, elements_apperar_time):
-        spacing 10
+    hbox at delay_appear(1, elements_apperar_time):
+        spacing 50
         align (0.92, 0.75)
-    
-        textbutton _("Начать") action Start():
-            text_size 90
 
-        textbutton _("Загрузить") action ShowMenu("load"):
-            text_size 55
-            
-        
-        textbutton _("Достижения") action ShowMenu("achievements_screen"):
-            text_size 55
+        vbox:
+            spacing 10
+            yalign 0.0
 
-        textbutton _("Настройки") action ShowMenu("preferences"):
-            text_size 55
+            if persistent.game_completed or True:
+                textbutton _("Экстра") action ShowMenu("extra_menu"):
+                    text_size 90
+                    right_margin 50
 
-        textbutton _("Об игре") action [ShowMenu("about")]: #Function(unlock_achievement, THANK_YOU),
-            text_size 55
+        vbox:
+            spacing 10
 
-        if renpy.variant("pc"):
-            textbutton _("Выход") action Quit(confirm=not main_menu):
-                text_size 50
+            textbutton _("Начать") action Start():
+                text_size 90
+
+            textbutton _("Загрузить") action ShowMenu("load"):
+                text_size 55
+
+            textbutton _("Достижения") action ShowMenu("achievements_screen"):
+                text_size 55
+
+            textbutton _("Настройки") action ShowMenu("preferences"):
+                text_size 55
+
+            textbutton _("Об игре") action [ShowMenu("about")]: #Function(unlock_achievement, THANK_YOU),
+                text_size 55
+
+            if renpy.variant("pc"):
+                textbutton _("Выход") action Quit(confirm=not main_menu):
+                    text_size 50
 
     if show_main_menu_fade:
         add "bg_black" at menu_alpha_out(1)
@@ -230,6 +241,8 @@ style main_menu_title is main_menu_text:
 
 style main_menu_version is main_menu_text:
     properties gui.text_properties("version")
+
+
 
 transform hover_scale:
     anchor (0.5, 0.5)
