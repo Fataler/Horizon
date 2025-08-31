@@ -156,6 +156,11 @@ define sfx_click_deselect = "audio/sfx/mini_games/click_deselect.ogg"
 define sfx_connect3 = "audio/sfx/mini_games/connect3.ogg"
 define sfx_win = "audio/sfx/mini_games/win.ogg"
 define sfx_disconnect = "audio/sfx/mini_games/disconnect.ogg"
+define sfx_lock_moving = "audio/sfx/mini_games/lock_moving.ogg"
+define sfx_lock_moving_back = "audio/sfx/mini_games/lock_moving_back.ogg"
+define sfx_lock_pick_break = "audio/sfx/mini_games/lock_pick_break.ogg"
+define sfx_lock_unlock = "audio/sfx/mini_games/lock_unlock.ogg"
+
 
 # Интерфейс
 define sfx_ui_achieve = "audio/sfx/UI 01 Achive.ogg"
