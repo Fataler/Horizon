@@ -11,13 +11,14 @@ label scene_viktor:
     #Выбор:
     menu:
         "Побежать и обезвредить Виктора":
-            stop music fadeout 0.5
+            stop music2 fadeout 1.0
+            play music music_anxiety fadeout 1.0 loop
             hide viktor_scene
             with dissolve
             pause 0.5
 
             #musicа ну сами знаете...
-            play music music_nervous_ambient loop
+            
             play sfx sfx_steps_two
             $ unlock_achievement(ACHIEVEMENT_PEACEMAKER)
             show layer master at screen_step_zoom(zoom1=1.0)
@@ -26,12 +27,12 @@ label scene_viktor:
             show v crazy_down
 
         "Выстрелить":
-            stop music fadeout 0.5
+            stop music2 fadeout 0.5
+            play music music_anxiety fadeout 1.0 loop
             hide viktor_scene
             with dissolve
             pause 0.5
             #musicа ну сами знаете...
-            play music music_nervous_ambient loop
             $ unlock_achievement(ACHIEVEMENT_ATTACK)
             R_t serious angry "Я резко достал пистолет из кобуры."
             R_t "Пистолет Дэвида."
@@ -96,11 +97,11 @@ label scene_viktor:
     scene bg_black
     with fade
     pause 1.0
+    play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0
 
     show screen waveform_show()
     R_t serious fainting_blood "Сквозь темноту я услышал тихий женский голос:"
 
-    play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0
     
 
     N "Нет, так не должно быть… Необходимо вернуть в исходную точку…"

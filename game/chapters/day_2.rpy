@@ -136,7 +136,7 @@ label day_2:
     V tricky "Вот видишь?"
     pause 1.5
 
-    stop music fadeout 0.5
+    $ renpy.music.set_volume(0, delay=0.5, channel="music")
     scene bg_dinner_block_dark
     show i profile ahui right at left
     show v ruki osharashen left at right
@@ -159,7 +159,7 @@ label day_2:
     V ruki puzzled "Нам тоже необходимо заниматься своими делами."
     #sfx водичька
     #music 
-    play music music_kitchen_daily fadein 0.5 loop
+    $ renpy.music.set_volume(1.0, delay=0.5, channel="music")
     R_t serious think "Я налил себе невкусного пресного кофе и потягивал его маленькими глотками."
     V pockets dream "Райан, представляешь, я сегодня поймал сигнал."
     V "Правда, не уверен, что он действительно что-то значит — очень уж похоже на обычный космический шум."
@@ -208,7 +208,7 @@ label day_2:
     R_t serious neutral "Ещё на подходе к отсеку с генератором я услышал стук металла, скрежет и тихие разговоры."
 
     #music
-    play music music_nervous_ambient loop
+    play music music_Xtonicheskoe_fon loop
     scene bg_generator_red
     show s ruki ozadachen left at right
     show d serious neutral right at Transform(xalign=0.5, yalign=1.0)
@@ -266,6 +266,8 @@ label day_2:
     R_t neutral "Люк выглядел вполне заполненным, но даже сквозь обувь я чувствовал, как пол обжигает ступни."
     R not_sure "Думаю, нам необходимо открыть люк и взять пробу для проверки."
 
+    stop music fadeout 1.0
+    play music2 music_Xtonicheskoe_creepy loop
     show s shy nedovolen at fear
     show d serious osharashen
 
@@ -302,7 +304,7 @@ label day_2:
 
     show d calm with dissolve
     pause 0.5
-    stop music fadeout 1.0
+    stop music2 fadeout 1.0
 
     show d left at exit_left
 
@@ -461,6 +463,7 @@ label day_2:
 
     $ show_space_bg("bg_commander_block_red")
     play sound sfx_alarm2 fadein 0.5 fadeout 0.5 loop
+    play music music_nervous_ambient loop
 
     R_t thinking osharashen "Только я встал со своего кресла, как включилась аварийная тревога."
 
@@ -476,7 +479,6 @@ label day_2:
     pause 0.5
     #анимация аварийной тревоги coridor1
     #music
-    play music music_nervous_ambient loop
     scene bg_coridor1_red with dissolve
     show i profile ahui right with dissolve
     R_t serious angry "Сразу на выходе я заметил Ирис."
@@ -607,7 +609,7 @@ label day_2:
     $ renpy.music.set_volume(0.3, delay=0.5, channel="sound")
 
     #music
-    play music music_nervous_ambient loop
+    play music music_anxiety loop
     call scene_sofi_tonet
 
     scene bg_generator_red 
@@ -624,7 +626,6 @@ label day_2:
 
     R_t think "Дэвид резко откинул нас с Виктором от люка и запер крышку."
     #music стресс
-    play music music_nervous_ambient loop
     show v at fear
     R angry "Что ты делаешь?"
 
@@ -687,10 +688,10 @@ label day_2:
 
     show screen waveform_show()
     with dissolve
-    
-    R_t serious fainting_blood "И снова этот уже знакомый голос:"
 
     play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0
+    
+    R_t serious fainting_blood "И снова этот уже знакомый голос:"
 
     N "Опять… Ну что же ты, давай, давай… Ты же слышишь меня?.."
     hide screen waveform_show
