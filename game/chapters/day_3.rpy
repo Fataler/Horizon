@@ -222,14 +222,15 @@ label day_3:
     R_t "Дэвид, как обычно, направился на обход."
     R_t ear neutral "И мне стоило пойти к себе."
 
-    stop music fadeout 1.0
+    stop music fadeout 2.0
+    play music2 music_reflections fadein 1.0 loop
+
     scene black with dissolve
     pause 0.5
     scene bg_coridor1_default
     with dissolve
     play sfx sfx_steps_coridor fadein 0.5 fadeout 1.0 loop
     #music
-    play music music_reflections fadein 1.0 loop
     R_t serious think "День начинался как обычно."
     R_t "Можно даже сказать, что неплохо."
     R_t "Экипаж был явно в приподнятом настроении."
@@ -248,7 +249,7 @@ label day_3:
     R_t surprised "Я проверил показания приборов — всё было в порядке."
     R_t "Никаких аномальных данных, радиация в норме."
     R_t serious think "Это помогло мне немного успокоиться."
-    stop music fadeout 1.0
+    stop music2 fadeout 1.0
     R_t thinking ne_ponyal "Я взглянул в своё огромное окно — этот вид умиротворяет."
     $ hide_space_bg()
 

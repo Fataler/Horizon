@@ -55,7 +55,7 @@ label day_5_2_1_belive:
     R_t suspicious "Мне было сложно принять, что моя жизнь на исходе."
     R_t "Действовать нужно было быстро и без права на ошибку."
     hide screen waveform_show with dissolve
-    stop sfx fadeout 0.5
+    stop sfx2 fadeout 0.5
     scene bg_black with dissolve
     pause 1.0
     scene bg_generator_blue_screen

@@ -273,13 +273,11 @@ label day_5:
     stop sfx fadeout 0.5
     N "…"
     pause 1.0
-    hide scene_talk_in_end_17
+    play sfx2 sfx_drama_boom
     show scene_talk_in_end_18
     with Dissolve(1.0)
-    show screen waveform_show()
-
     pause 1.5
-    play sfx2 sfx_drama_boom
+    show screen waveform_show() with dissolve
 
     play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
 

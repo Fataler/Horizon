@@ -369,7 +369,7 @@ label day_4:
     stop sfx fadeout 0.5
     scene bg_med_block_red
     show d fist confused right at Transform(xalign=0.8, yalign=1.0)
-    show i profile osharashen left at Transform(xalign=1.1, yalign=1.0)
+    show i profile ahui left at Transform(xalign=1.1, yalign=1.0)
     show s shy surprised right at Transform(xalign=0.3, yalign=1.0)
     show v profile angry right at Transform(xalign=-0.1, yalign=1.0)
     with dissolve

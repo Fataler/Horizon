@@ -101,10 +101,10 @@ label day_1:
     V think "Словно кто-то специально прятал голос в плазме."
 
     play sfx sfx_push_button
-    $ renpy.music.set_volume(0.3, delay=0.5, channel="music2")
     show v happy
 
     R_t "Он нажал «Play»."
+    $ renpy.music.set_volume(0.3, delay=0.5, channel="music2")
 
     play sfx sfx_glitch
 
@@ -305,9 +305,15 @@ label day_1:
     R_t serious think "Вот-вот должен был вернуться капитан после утреннего обхода."
     R_t "Я решил достать заранее заготовленную книгу, чтобы продолжить чтение."
     stop music2 fadeout 1.0
+    play sfx2 sfx_stun
+    show expression Solid("#ff0000") as overlay_light at light_hurt
+    pause 2.0
+    show expression Solid("#ff0000") as overlay_light at alpha_mask_fade_inverse
+    pause 1.0
     R_t angry "Оперевшись рукой на подлокотник, чтобы дотянуться до небольшого отсека с личными вещами, я почувствовал резкую боль в руке."
 
     $ hide_space_bg()
+    stop sfx2 fadeout 1.0
     play sfx sfx_drama_boom
     play music music_creepy_tuc_tuc fadein 1.0 fadeout 1.0 loop
 
@@ -319,7 +325,7 @@ label day_1:
     
     $ show_space_bg("bg_commander_block_transparent_default")
     
-    R_t "Брак обшивки кресла?"
+    R_t serious angry "Брак обшивки кресла?"
     R_t serious think "Сжав пальцами рану на ладони, я хотел было поспешить в медпункт."
     R_t "Рана была пустяковой, по протоколу я обязан сообщать обо всех изменениях в моём теле, включая небольшие раны."
     R_t "Как минимум, стоило обеззаразить её."
@@ -341,20 +347,19 @@ label day_1:
     cutscene "Особенно много странных металлических шипов находилось у основания спинки стула."
     cutscene "Вынимая одну иглу за другой, я заметил, что кожаная обивка рядом с этим местом располосована ножом."
     stop music fadeout 1.0
-    play music2 music_nervous_ambient fadein 1.0 fadeout 1.0 loop
     cutscene "И внутри явно что-то спрятано."
+    play music2 music_nervous_ambient loop
+
     cutscene "Ком встал в горле."
     cutscene "Сказать честно, я никогда не был из пугливых, но данная ситуация выходила за рамки рядовых приключений космонавта."
     cutscene "Я аккуратно раздвинул края рваной ткани и, зацепив двумя пальцами, вытащил то, что находилось под обшивкой."
     cutscene "Это был предмет, который, пожалуй, я ожидал там обнаружить меньше всего."
-
-    $ renpy.music.set_volume(0, delay=0.5, channel="music2")
+    stop music2 fadeout 1.0
     play sfx sfx_drama_boom
     call scene_photo_found_cut
 
     scene bg_commander_block_transparent_default
     $ show_space_bg("bg_commander_block_transparent_default")
-    $ renpy.music.set_volume(1.0, delay=1.0, channel="music2")
     R_t serious very_angry "Внутри меня росла злость."
     R_t "Какого чёрта кто-то копался в моих вещах? В моей каюте?!"
     R_t "Это фото явно не лежало на самом видном месте."
@@ -363,7 +368,7 @@ label day_1:
     play sfx sfx_steps_coridor fadein 0.5 fadeout 0.5 loop
     scene black with dissolve
     pause 0.5
-    scene bg_coridor2_default with dissolve
+    scene bg_coridor1_default with dissolve
 
     R_t serious angry "Первым делом — лазарет для фиксации, а там будем решать ситуацию."
 
@@ -374,6 +379,7 @@ label day_1:
     R_t "Неужели лично я чем-то не угодил одному из членов экипажа?"
     R_t ear sick "Рука саднила."
     R_t "Рана была небольшой, но всё ещё достаточно неприятной — прямо на сгибе ладони."
+    scene bg_coridor2_default with dissolve
     R_t neutral "Я тихо следовал по коридорам в сторону лазарета."
     R_t "Было опасно привлекать внимание."
     R_t serious think "В лазарете горел свет. Его было видно сквозь прикрытую дверь."
@@ -638,7 +644,7 @@ label day_1:
     R_t ear dissatisfied "Я собрался с духом, взял в руки шокер и направился в сторону комнаты видеонаблюдения."
     R_t "Если капитана нигде не видно, я должен взять на себя решение проблемы."
 
-    stop music fadeout 0.5
+    stop music2 fadeout 0.5
     scene bg_coridor2_default
     show i profile neutral left at Transform(xalign=0.6, yalign=1.0)
     show s profile neutral left at Transform(xalign=1.0, yalign=1.0)
@@ -647,6 +653,7 @@ label day_1:
     pause 1.0
 
     $ renpy.music.set_volume(0.1, delay=0, channel="sfx")
+    
     play sfx sfx_pisk fadein 0.5 fadeout 1.0 loop
     play sfx2 sfx_noise_banging fadein 0.5 fadeout 1.0 loop
 
@@ -731,8 +738,7 @@ label day_1:
 
     show i at move_step(-300), fear
     play sfx2 sfx_steps_fast_two
-    stop music2 fadeout 1.0
-    play music music_creepy_tuc_tuc fadein 1.0 fadeout 1.0 loop
+
     I "Дэв, что случилось? Он напал на тебя?"
     R serious angry "Окажи ему помощь, срочно!"
 
@@ -740,7 +746,8 @@ label day_1:
     play sfx sfx_steps_two
     pause 0.5
     show s despair at Transform(xalign=1.15, yalign=1.0), move_step(50), fear
-
+    stop music2 fadeout 1.0
+    play music music_creepy_tuc_tuc fadein 1.0 fadeout 1.0 loop
     R_t "Софи сделала пару шагов назад. Лицо её позеленело."
     I osharashen "Оцениваю ситуацию!"
     D "Он… {w=0.4} Он сошёл… {w=0.4} C ума…"

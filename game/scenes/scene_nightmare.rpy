@@ -54,10 +54,12 @@ screen not_main_menu(from_game_menu=False):
 
 label scene_nightmare:
     show screen not_main_menu with dissolve
-    pause 8.0
+    $ renpy.pause(4.0, hard=True)
 
     scene bg_black
-    with Dissolve(8.0)
-    pause 5.0
-    hide screen not_main_menu with dissolve
+    with Dissolve(5.0)
+    hide screen not_main_menu 
+    with Dissolve(5.0)
+
+    $ renpy.pause(1.5, hard=True)
     return

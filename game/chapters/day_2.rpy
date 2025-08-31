@@ -75,12 +75,13 @@ label day_2:
     R_t "Значит, ребята уже собрались."
     R_t hehe "Об этом говорил и запах разогретой пищи."
 
-    stop music fadeout 1.0
     stop sfx fadeout 2.0
     scene black with dissolve
     pause 0.5
     #music не сильно тревожная
-    play music music_kitchen_daily fadein 0.5 loop
+    stop music fadeout 1.0
+
+    play music2 music_kitchen_daily fadein 0.5 loop
     scene bg_dinner_block_dark with dissolve
     show i profile neutral right at left
     show v profile neutral left at right
@@ -137,7 +138,7 @@ label day_2:
     V tricky "Вот видишь?"
     pause 1.5
 
-    $ renpy.music.set_volume(0, delay=0.5, channel="music")
+    $ renpy.music.set_volume(0, delay=0.5, channel="music2")
     scene bg_dinner_block_dark
     show i profile ahui right at left
     show v ruki osharashen left at right
@@ -160,7 +161,7 @@ label day_2:
     V ruki puzzled "Нам тоже необходимо заниматься своими делами."
     #sfx водичька
     #music 
-    $ renpy.music.set_volume(1.0, delay=0.5, channel="music")
+    $ renpy.music.set_volume(1.0, delay=0.5, channel="music2")
     R_t serious think "Я налил себе невкусного пресного кофе и потягивал его маленькими глотками."
     V pockets dream "Райан, представляешь, я сегодня поймал сигнал."
     V "Правда, не уверен, что он действительно что-то значит — очень уж похоже на обычный космический шум."
@@ -199,12 +200,13 @@ label day_2:
     
     play sfx steps
     #фон бокового коридора
-    stop music fadeout 1.0
+    stop music2 fadeout 1.0
     scene black with dissolve
     pause 1.0
 
     scene bg_coridor3_red_cylinders with dissolve
     play sfx2 sfx_metal_hits_grinding fadein 0.5 fadeout 0.5
+    stop sfx fadeout 1.0
 
     R_t serious neutral "Ещё на подходе к отсеку с генератором я услышал стук металла, скрежет и тихие разговоры."
 
@@ -214,7 +216,6 @@ label day_2:
     show s ruki ozadachen left at right
     show d serious neutral right at Transform(xalign=0.5, yalign=1.0)
     with dissolve
-    stop sfx fadeout 1.0
     stop sfx2 fadeout 1.0
     play sfx3 sfx_alarm3 fadein 0.5 fadeout 0.5 loop
 
@@ -305,7 +306,7 @@ label day_2:
 
     show d calm with dissolve
     pause 0.5
-    stop music2 fadeout 1.0
+    stop music2 fadeout 2.0
 
     show d left at exit_left
 
@@ -373,11 +374,11 @@ label day_2:
     pause 1.0
     play sfx sfx_power_up fadeout 2.0
     $ show_space_bg("bg_commander_block_transparent_default")
-    pause 0.3
+    pause 0.2
     $ show_space_bg("bg_commander_block_transparent_dark")
-    pause 0.3
+    pause 0.2
     $ show_space_bg("bg_commander_block_transparent_default")
-    pause 0.3
+    pause 0.2
 
     R_t thinking ne_ponyal "Свет в кабине пару раз моргнул и наконец устаканился. Похоже, Софи справилась."
     R_t suspicious "Сверив показания приборов с картами, я убедился, что мы движемся в верном направлении."
@@ -392,6 +393,7 @@ label day_2:
 
     #music Anxious space ambient
     play music music_waves fadein 1.0 fadeout 0.5 loop
+    play music2 music_theme_cosmos fadein 1.0 fadeout 0.5 loop
 
     cutscene "Сегодня космическая гладь особенно завораживала: она переливалась цветами, и чем дольше я вглядывался, тем отчётливее видел за иллюминатором волны."
     
@@ -456,6 +458,7 @@ label day_2:
     scene bg_commander_block_default
     $ show_space_bg("bg_commander_block_transparent_default")
     stop music fadeout 1.0
+    stop music2 fadeout 1.0
 
     R_t thinking ne_ponyal "За всеми этими размышлениями я не заметил, как в помещении стало очень жарко."
     R_t "По ощущениям, воздух нагрелся градусов на десять."
