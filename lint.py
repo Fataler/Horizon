@@ -4,22 +4,17 @@
 Usage: python lint.py
 
 Setup:
-1. Set RENPY env var: export RENPY=/path/to/renpy.sh
-2. Or set RENPY_PATH below
-3. Or add renpy.sh to PATH:
+1. Set RENPY env var to the Ren'Py executable path:
+   - Windows (CMD): set RENPY=C:/Path/To/renpy-8.x.x-sdk/renpy.exe
+   - Windows (PowerShell): $env:RENPY = "C:/Path/To/renpy-8.x.x-sdk/renpy.exe"
+   - macOS/Linux: export RENPY=/path/to/renpy-8.x.x-sdk/renpy.sh
 
-   Windows (CMD):
-   set PATH=%PATH%;C:\\Path\\To\\RenPy\\SDK
+2. Or set RENPY_PATH below to the executable path
 
-   Windows (PowerShell):
-   $env:Path += ";C:\\Path\\To\\RenPy\\SDK"
-
-   macOS/Linux:
-   echo 'export PATH="/path/to/renpy-8.x.x-sdk:$PATH"' >> ~/.zshrc
-   source ~/.zshrc
-
-   macOS temp session:
-   export PATH="/path/to/renpy-8.x.x-sdk:$PATH"
+3. Or add Ren'Py SDK to PATH:
+   - Windows (CMD): set PATH=%PATH%;C:/Path/To/renpy-8.x.x-sdk
+   - Windows (PowerShell): $env:Path += ";C:/Path/To/renpy-8.x.x-sdk"
+   - macOS/Linux: export PATH="/path/to/renpy-8.x.x-sdk:$PATH"
 """
 
 import os
@@ -31,7 +26,7 @@ from typing import Optional
 
 # Fallback if RENPY env var not set
 # RENPY_PATH = "/path/to/renpy.sh"
-RENPY_PATH: Optional[str] = None
+RENPY_PATH: Optional[str] = "C:/Users/r.kucherenko/Downloads/renpy-8.3.4-sdk/renpy.exe"
 
 
 def main() -> int:
