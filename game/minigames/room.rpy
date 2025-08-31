@@ -41,16 +41,17 @@ label room_1:
 
     if inspect == "safe":
         if room1["safe"] == 0:
-            "Я впервые открыл сейф."
-            "Опа! Нашёл ключ!"
-            $ room1["key"] = 1
+            call scene_password_keypad
+            if _return:
+                "Сейф открыт!"
+                "А вот и ключик!"
         else:
             "Здесь больше ничего нет."
         $ room1["safe"] += 1
 
     elif inspect == "computer":
         if room1["puzzle"] == 0:
-            call screen puzzle_grid_pure("game/minigames/puzzle/puzzle.png", grid=5, size=1000)
+            call screen puzzle_grid_pure("minigames/puzzle/puzzle.png", grid=5, size=1000)
             if _return:
                 "Пазл собран!"
                 $ room1["puzzle"] += 1
