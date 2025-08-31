@@ -87,7 +87,7 @@ label day_1:
     play sfx sfx_slurp
     show d calm
 
-    R_t calm "Командир отхлебнул из кружки и прислушался:"
+    R_t thinking neutral "Командир отхлебнул из кружки и прислушался:"
 
     show i smoke calm
 
