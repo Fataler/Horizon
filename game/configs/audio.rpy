@@ -167,6 +167,11 @@ define sfx_ui_achieve = "audio/sfx/UI 01 Achive.ogg"
 define sfx_ui_click = "audio/sfx/UI 02 Click.ogg"
 define sfx_ui_over = "audio/sfx/UI 03 Over.ogg"
 
+# Puzzle defaults
+define sfx_puzzle_click_rotate = sfx_ui_click
+define sfx_puzzle_place = sfx_click_put_down
+define sfx_puzzle_win = sfx_win
+
 # каналы
 init python:
     renpy.music.register_channel("ui", mixer="sfx", loop=False, stop_on_mute=True, tight=True, buffer_queue=True)
