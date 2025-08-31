@@ -1,16 +1,25 @@
 #!/usr/bin/env python3
-"""Run Ren'Py lint for the current project and print output.
+"""Run Ren'Py lint for the current project.
 
-Usage::
+Usage: python lint.py
 
-    python lint.py
+Setup:
+1. Set RENPY env var: export RENPY=/path/to/renpy.sh
+2. Or set RENPY_PATH below
+3. Or add renpy.sh to PATH:
 
-The script looks for a ``renpy`` executable.
+   Windows (CMD):
+   set PATH=%PATH%;C:\\Path\\To\\RenPy\\SDK
 
-- Set :data:`RENPY_PATH` below to the absolute path of the executable
-  to hardcode it.
-- Or set the ``RENPY`` environment variable to point to the executable
-  (``renpy`` or ``renpy.sh``).
+   Windows (PowerShell):
+   $env:Path += ";C:\\Path\\To\\RenPy\\SDK"
+
+   macOS/Linux:
+   echo 'export PATH="/path/to/renpy-8.x.x-sdk:$PATH"' >> ~/.zshrc
+   source ~/.zshrc
+
+   macOS temp session:
+   export PATH="/path/to/renpy-8.x.x-sdk:$PATH"
 """
 
 import os
@@ -20,13 +29,13 @@ import sys
 from typing import Optional
 
 
-# Absolute path to the Ren'Py executable. Leave as ``None`` to fall back to
-# the RENPY environment variable or to searching ``renpy`` in ``PATH``.
-RENPY_PATH: Optional[str] = "C:/Users/r.kucherenko/Downloads/renpy-8.3.4-sdk/renpy.exe"
+# Fallback if RENPY env var not set
+# RENPY_PATH = "/path/to/renpy.sh"
+RENPY_PATH: Optional[str] = None
 
 
 def main() -> int:
-    renpy_executable = RENPY_PATH or os.environ.get("RENPY", "renpy")
+    renpy_executable = os.environ.get("RENPY") or RENPY_PATH or "renpy"
     if shutil.which(renpy_executable) is None:
         print(
             f"Ren'Py executable '{renpy_executable}' not found. Set RENPY_PATH "

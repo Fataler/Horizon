@@ -1,5 +1,5 @@
 #region images
-image safe_open_with_dust = "minigames/password_keyboard/Safe_open_with_dust.jpg"
+image safe_open_with_dust = "minigames/password_keyboard/Safe_open_with_dust.png"
 image safe_fon = "minigames/password_keyboard/Safe_fon.png"
 
 image safe_enter = "minigames/password_keyboard/Safe_enter_dark.png"
