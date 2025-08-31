@@ -44,7 +44,7 @@ label scene_sofi_tonet:
     # hide scene_sofi_tonet_cherkash
     # with dissolve
 
-    cutscene "Виктор схватился за меня, чтобы помочь удержаться."
+    cutscene "Виктор вцепился в меня, чтобы помочь удержаться."
     show scene_sofi_tonet_ruka at soot_drift_bottom(speed=0.3, amplitude= -12, x_amplitude=-6)
     show scene_sofi_tonet_red at fade_in_out_blend(fade_time=1, max_alpha=0.7, min_alpha=0.4, from_zero=False, blend_type="min")
     cutscene "Я опускал руку всё ниже и ниже."
