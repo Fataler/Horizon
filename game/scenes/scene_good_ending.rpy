@@ -217,7 +217,6 @@ label scene_good_ending:
     with dissolve
     $ renpy.pause(0.5, hard=True)
     cutscene "Мы подошли к четырём каменным плитам."
-    #cutscene "У моей смерти было много лиц, но все они были мои."
     
     # цг с букетом
     show scene_mogila_fon

@@ -82,7 +82,6 @@ label scene_photo:
     with dissolve
 
     cutscene "Они все остались на Земле."
-    #cutscene "У моей смерти было много лиц, но все они были мои."
     
     scene bg_black with dissolve
     return

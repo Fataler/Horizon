@@ -31,19 +31,19 @@ image safe_enter_hover = "minigames/password_keyboard/Safe_enter.png"
 init python:
     def _ui_play_click():
         try:
-            renpy.play(sfx_ui_click, channel="ui")
+            renpy.play(sfx_safe_button, channel="ui")
         except Exception:
             pass
 
     def _ui_play_error():
         try:
-            renpy.play(sfx_ui_over, channel="ui")
+            renpy.play(sfx_error2, channel="ui")
         except Exception:
             pass
 
     def _ui_play_ok():
         try:
-            renpy.play(sfx_ui_achieve, channel="ui")
+            renpy.play(sfx_safe_open_lock, channel="ui")
         except Exception:
             pass
 
