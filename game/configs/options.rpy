@@ -15,7 +15,7 @@
 define config.name = _("BEyONd thE event horizon")
 define config.image_cache_size_mb = 512
 
-define config.developer = True
+define config.developer = False
 define config.fast_skipping = True if config.developer else False
 
 define config.menu_include_disabled = True
