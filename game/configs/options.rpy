@@ -46,11 +46,12 @@ define gui.about = _p("""
 Дата релиза: 01.09.2025
 
 Использованные сторонние ресурсы лежат в файле {i}external_resources.txt{/i}.
+Музыка сделана с помощью нейросети {a=https://suno.com}https://suno.com.{/a}
 
 Авторы: \n
-{w=0}     - Featharine ({a=https://vk.com/sweet_sour_figures}ВК{/a}) - сценарий, концепт, персонажи, CG\n
+{w=0}     - Featharine ({a=https://vk.com/sweet_sour_figures}ВК{/a}) - сценарий, концепт, персонажи, CG, UI, музыка\n
 {w=0}     - Fataler ({a=https://steamcommunity.com/id/fataler}Steam{/a}) - код, мини-игры, редактура, анимации\n
-{w=0}     - Kapushishin ({a=https://steamcommunity.com/id/Kapushishin}Steam{/a}) - фоны, сборка новеллы, макеты UI, сбор референсов, режиссура\n
+{w=0}     - Kapushishin ({a=https://steamcommunity.com/id/Kapushishin}Steam{/a}) - фоны, сборка новеллы, сбор референсов, режиссура, звуки\n
 """% {"jam": URL_JAM})
 
 
