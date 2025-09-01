@@ -412,6 +412,7 @@ label day_4:
     play music music_escape_room_full fadein 1.0 loop
 
 # escape room 1
+    call room_1
 
     stop music fadeout 0.5
     scene bg_black with dissolve

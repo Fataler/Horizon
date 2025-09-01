@@ -78,14 +78,14 @@ init python:
         ACHIEVEMENT_ELECTRIC: Achievement(
             ACHIEVEMENT_ELECTRIC,
             "Электрический ток",
-            "Умереть в 1 день",
+            "Умереть в первый раз",
             True,
             "gui/achievements/electricity.png"
         ),
         ACHIEVEMENT_HELL: Achievement(
             ACHIEVEMENT_HELL,
             "Я в аду?",
-            "Умереть во 2 день",
+            "Умереть во второй раз",
             True,
             "gui/achievements/hell.png"
         ),
@@ -99,7 +99,7 @@ init python:
         ACHIEVEMENT_OMLET: Achievement(
             ACHIEVEMENT_OMLET,
             "Омлет был несвежим",
-            "Умереть в 3 день",
+            "Умереть в третий раз",
             True,
             "gui/achievements/omlet.png"
         ),
@@ -113,7 +113,7 @@ init python:
         ACHIEVEMENT_DYSPNEA: Achievement(
             ACHIEVEMENT_DYSPNEA,
             "Одышка",
-            "Умереть в 4 день",
+            "Умереть в четвёртый раз",
             True,
             "gui/achievements/dyspnea.png"
         ),
@@ -134,7 +134,7 @@ init python:
         ACHIEVEMENT_DREAM: Achievement(
             ACHIEVEMENT_DREAM,
             "Исполнить мечту",
-            "Умереть в 5 день",
+            "Умереть в пятый раз",
             True,
             "gui/achievements/dream.png"
         ),
