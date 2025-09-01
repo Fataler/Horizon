@@ -13,6 +13,7 @@ label day_5_2_2_dont_belive:
     pause 2.0
 
     R_t beard_on "Спустя некоторое время у меня получилось настроиться."
+    call scene_elis
     show screen waveform_show
     show scene_talk_in_end_7
     with Dissolve(2.0)
