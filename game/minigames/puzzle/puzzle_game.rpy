@@ -24,7 +24,7 @@ transform _pz_dim_out:
     alpha 0.50
     linear PZ_DIM_FADE alpha 0.0
 
-screen puzzle_grid_pure(image, grid=4, size=720):
+screen puzzle_grid_pure(image_path, grid=4, size=720):
     modal True
 
     on "show" action Play("ui", sfx_connect3)
@@ -89,7 +89,7 @@ screen puzzle_grid_pure(image, grid=4, size=720):
                         fixed:
                             xfill True
                             yfill True
-                            add Transform(image, xoffset = -sc * cell, yoffset = -sr * cell)
+                            add Transform(image_path, xoffset = -sc * cell, yoffset = -sr * cell)
 
                             if is_locked:
                                 if win_fade:

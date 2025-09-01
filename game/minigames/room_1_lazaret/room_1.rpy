@@ -64,12 +64,13 @@ label room_1:
     elif inspect == "computer":
         if not room1_data["computer_hacked"]:
             S "Кажется, я могу попробовать взломать систему. Немного."
-            $ result = renpy.call_screen("puzzle_grid_pure", image="minigames/puzzle/Puzzle.png", grid=5, size=1000)
+            $ result = renpy.call_screen("puzzle_grid_pure", image_path="minigames/puzzle/Puzzle.png", grid=5, size=1000)
             if result:
                 $ room1_data["computer_hacked"] = True
                 $ room1_data["door_unlocked"] = True
                 $ unlock_achievement(ACHIEVEMENT_HACKER)
                 R "Есть! Система приняла изменения."
+                S "Дверь должна быть открыта. Давайте проверим."
             else:
                 V "Ладно, поищем альтернативу."
         else:

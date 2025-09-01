@@ -23,7 +23,7 @@ screen room2():
 
 label room_2:
     $ renpy.force_autosave()
-    show screen room2 with dissolve
+    show screen room2
     $ renpy.block_rollback()
 
     if inspect == "generator_top":

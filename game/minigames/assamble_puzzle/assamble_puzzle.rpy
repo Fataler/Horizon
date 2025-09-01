@@ -705,7 +705,6 @@ screen room1_puzzle(b=None, interactable=True):
 
         if puzzle.is_solved() and not completion_pending:
             $ completion_pending = True
-            $ renpy.music.play(sfx_puzzle_win, channel="sfx")
 
         # Control buttons
         hbox xalign 1.0 yalign 0.95 spacing 30:
