@@ -238,4 +238,4 @@ label scene_good_ending:
     $ renpy.pause(3.0, hard=True)
     $ unlock_achievement(ACHIEVEMENT_COMPLETE)
 
-    call label_credits
+    call label_credits from _call_label_credits_1

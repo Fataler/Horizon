@@ -4,7 +4,7 @@ label day_3:
     scene bg_black
     with dissolve
     play sfx sfx_crunch_whoosh
-    call test_clock(start_time="22/43/00")
+    call test_clock(start_time="22/43/00") from _call_test_clock_2
     scene bg_black
     with dissolve
     $ renpy.force_autosave()
@@ -329,7 +329,7 @@ label day_3:
     stop sfx3 fadeout 2.0
     show expression Solid("#000000") as overlay_light at alpha_mask_fade
     pause 1.0
-    call scene_pulse
+    call scene_pulse from _call_scene_pulse
     play sfx sfx_heart_beat_neutral loop
 
     R_t ear sick "Он поддержал меня под локоть, но от этого боль только усилилась."
@@ -347,7 +347,7 @@ label day_3:
     scene black with dissolve
     pause 0.5
     scene bg_coridor1_default
-    call scene_pulse
+    call scene_pulse from _call_scene_pulse_1
     show expression Solid("#000000") at alpha_mask(a=0.6)
 
     R_t ear sick "Ноги плохо слушались."
@@ -356,7 +356,7 @@ label day_3:
 
     #фон коридор 2
     scene bg_coridor2_dark
-    call scene_pulse
+    call scene_pulse from _call_scene_pulse_2
     
 
     with dissolve
@@ -369,7 +369,7 @@ label day_3:
     pause 0.5
     scene bg_med_block
     show i profile neutral
-    call scene_pulse
+    call scene_pulse from _call_scene_pulse_3
     show expression Solid("#000000") at alpha_mask(a=0.6)
 
     R serious fainting "Ирис…"
@@ -442,7 +442,7 @@ label day_3:
     scene bg_black with dissolve
     pause 0.5
     scene bg_coridor1_default
-    call scene_pulse
+    call scene_pulse from _call_scene_pulse_4
     show expression Solid("#000000") at alpha_mask(a=0.6)
 
     R_t ear dissatisfied "Крепко сжимая драгоценный блистер в кулаке, так, что края металлической оболочки врезались в руку, я брёл по коридору."
@@ -454,7 +454,7 @@ label day_3:
     pause 0.5
     $ show_space_bg("bg_room_rayan_dark")
 
-    call scene_pulse
+    call scene_pulse from _call_scene_pulse_5
 
     R_t ear dissatisfied "Уже в своей комнате я решил принять лекарство."
     R_t "Набрав воды в стакан прямо из умывальника, я прочитал название на упаковке."
@@ -479,7 +479,7 @@ label day_3:
     R_t "Но вместо этого услышал голос."
     stop sfx3 fadeout 0.5
     play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
-    call scene_elis
+    call scene_elis from _call_scene_elis
     show scene_talk_in_end_17
     show screen waveform_show()
     with Dissolve(2.0)
@@ -635,7 +635,7 @@ label day_3:
     pause 1.0
     R_t "В полном молчании члены экипажа читали записи, заглядывая через моё плечо."
     play sfx sfx_drama_boom
-    call scene_dnevnik
+    call scene_dnevnik from _call_scene_dnevnik
     cutscene "Никто не ожидал такого от Ирис…"
 
     scene bg_med_block
@@ -698,7 +698,7 @@ label day_3:
             
             if result:
                 R_t thinking osharashen "Сейф замигал зеленым светом и открылся."
-                call scene_photo_found_full
+                call scene_photo_found_full from _call_scene_photo_found_full
             
         "Не пытаться взломать сейф":
             R_t "Я не мог терять время на глупости."
@@ -728,14 +728,14 @@ label day_3:
 
     show bg_white at alpha_mask_fade_inverse
     play sfx2 sfx_heart_beat_neutral loop
-    call scene_pulse
+    call scene_pulse from _call_scene_pulse_6
     pause 1.0
     show bg_black at alpha_mask_fade
 
     R_t ear sick "Я почувствовал лёгкое головокружение и присел на кровать."
     R_t "Больше спешить было некуда."
     R_t "Часы показывали 20:59…"
-    call scene_clock
+    call scene_clock from _call_scene_clock
     show bg_black at alpha_mask_fade(a=1.0, initial_alpha=0.4)
     with dissolve
 
@@ -746,7 +746,7 @@ label day_3:
     stop sfx2 fadeout 0.5
     scene bg_red with dissolve
     pause 1.0
-    call scene_elis
+    call scene_elis from _call_scene_elis_1
     show scene_talk_in_end_12
     show screen waveform_show()
     with Dissolve(2.0)

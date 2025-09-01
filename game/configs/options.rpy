@@ -247,4 +247,4 @@ init python:
 ## Имя пользователя и название проекта, ассоциированные с проектом на itch.io,
 ## разделённые дробью.
 
-# define build.itch_project = "renpytom/test-project"
+define build.itch_project = "featharine/beyond-the-event-horizon"

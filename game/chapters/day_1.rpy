@@ -1,7 +1,7 @@
 label day_1:
     #День 1—перебивка
     play sfx sfx_crunch_whoosh
-    call test_clock()
+    call test_clock() from _call_test_clock
     scene bg_black
     with dissolve
     $ renpy.force_autosave()
@@ -16,7 +16,7 @@ label day_1:
     R_t neutral "Впечатлило? Ни капли."
     R_t "Умывшись прохладной водой, я взглянул в своё отражение в зеркале."
 
-    call scene_mirror_water
+    call scene_mirror_water from _call_scene_mirror_water
 
     cutscene "Из него уставшим взглядом на меня смотрел обычный парень лет двадцати пяти."
     cutscene "Капли воды стекали по лицу, охлаждая кожу. Вода всегда напоминала мне о доме."
@@ -317,7 +317,7 @@ label day_1:
     play sfx sfx_drama_boom
     play music music_creepy_tuc_tuc fadein 1.0 fadeout 1.0 loop
 
-    call scene_hand_needle
+    call scene_hand_needle from _call_scene_hand_needle
     with dissolve
 
     #опять тревожная musicа 
@@ -357,7 +357,7 @@ label day_1:
     cutscene "Это был предмет, который, пожалуй, я ожидал там обнаружить меньше всего."
     stop music2 fadeout 1.0
     play sfx sfx_drama_boom
-    call scene_photo_found_cut
+    call scene_photo_found_cut from _call_scene_photo_found_cut
 
     scene bg_commander_block_transparent_default
     $ show_space_bg("bg_commander_block_transparent_default")
@@ -396,7 +396,7 @@ label day_1:
     play sfx sfx_scream_women_ah
     play music music_anxiety fadein 0.5 loop
 
-    call scene_vhod_v_lazaret
+    call scene_vhod_v_lazaret from _call_scene_vhod_v_lazaret
 
     scene bg_med_block
     show i pen ozadachen right at left
@@ -547,7 +547,7 @@ label day_1:
     R_t "Софи старалась держаться, но морщилась от боли."
     R_t ear dissatisfied "Я показал рукой всем держаться сзади и не издавать ни звука."
 
-    call scene_coridor
+    call scene_coridor from _call_scene_coridor
 
     stop sfx fadeout 1.0
     hide i
@@ -727,7 +727,7 @@ label day_1:
     play sfx sfx_drama
     play music2 music_creepy_without_tuc_tuc fadeout 1.0
 
-    call scene_david_potracheno
+    call scene_david_potracheno from _call_scene_david_potracheno
 
     #musicа
     show i profile ahui left at Transform(xalign=0.7, yalign=1.0)
@@ -773,7 +773,7 @@ label day_1:
     R_t "Ирис резко прервала меня."
 
     play sfx sfx_drama
-    call scene_Iris_zlaya
+    call scene_Iris_zlaya from _call_scene_Iris_zlaya
 
     cutscene "Запрещено по протоколу."
     scene bg_monitors_block
@@ -803,7 +803,7 @@ label day_1:
     D "Райан,{w=0.4} я передаю тебе свои полномочия… {w=0.4}Теперь ты командир этого отряда."
     R ear dissatisfied "Так точно, капитан…"
 
-    call scene_david_potracheno_2
+    call scene_david_potracheno_2 from _call_scene_david_potracheno_2
     R_t serious very_angry "Если бы мы не потратили время…"
 
     show i calm
@@ -811,7 +811,7 @@ label day_1:
     R_t "Ирис холодно наблюдала за Дэвидом, лежавшим на полу."
 
     play sfx sfx_writing fadeout 1.0
-    call scene_password
+    call scene_password from _call_scene_password
     show s cry with dissolve
    
     R_t serious think "Забрал карточку доступа из кармана капитана, а также небольшой пистолет."
@@ -862,7 +862,7 @@ label day_1:
 
     play sfx sfx_drama_boom
     play music music_anxiety fadeout 1.0 loop
-    call scene_viktor_dal_ebu
+    call scene_viktor_dal_ebu from _call_scene_viktor_dal_ebu
 
     #musicа давящий эмбиент 
 
@@ -912,7 +912,7 @@ label day_1:
     #musicа?
     stop music fadeout 1.0
     play music2 music_make_this_right
-    call scene_viktor
+    call scene_viktor from _call_scene_viktor
 
     $ renpy.force_autosave()
     jump day_2

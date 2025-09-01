@@ -310,7 +310,7 @@ label hanoi_game(blocks_number=5):
 
     show screen hanoi_game_screen(towers=towers)
 
-    call hanoi_rules_explanation
+    call hanoi_rules_explanation from _call_hanoi_rules_explanation
 
     jump hanoi_loop
 

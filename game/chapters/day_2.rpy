@@ -4,7 +4,7 @@ label day_2:
     scene bg_black
     with dissolve
     play sfx sfx_crunch_whoosh
-    call test_clock(start_time="22/43/00")
+    call test_clock(start_time="22/43/00") from _call_test_clock_1
     scene bg_black
     with dissolve
     $ renpy.force_autosave()
@@ -51,7 +51,7 @@ label day_2:
     R_t serious think "Пора приниматься за работу."
     R_t "В комнате было довольно душно — нужно было немного освежиться."
 
-    call scene_mirror_dark
+    call scene_mirror_dark from _call_scene_mirror_dark
 
     cutscene "Поэтому, как обычно, я решил начать утро с созерцания своего хмурого лица."
     play sfx click2
@@ -615,7 +615,7 @@ label day_2:
 
     #music
     play music music_anxiety loop
-    call scene_sofi_tonet
+    call scene_sofi_tonet from _call_scene_sofi_tonet
 
     scene bg_generator_red 
     show i profile ahui right at Transform(xalign=-0.15, yalign=1.0)
@@ -675,7 +675,7 @@ label day_2:
     play sfx2 sfx_burning_fire fadein 0.5 fadeout 1.0 loop
 
     #цг огонь взрыв
-    call scene_fire
+    call scene_fire from _call_scene_fire
 
     R_t serious fainting_blood "Жаркий воздух и вентиляция мгновенно разнесли искры по помещению."
     play sfx3 sfx_cough_man2

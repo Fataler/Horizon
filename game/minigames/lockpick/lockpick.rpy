@@ -325,7 +325,7 @@ screen lockpicking(lock):
 style lockpick_button is gui_button
 
 label lockpick_game:
-    call lockpick_start
+    call lockpick_start from _call_lockpick_start
     if _return:
         "Открылся"
     else:

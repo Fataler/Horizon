@@ -4,7 +4,7 @@ label day_5:
     scene bg_black
     with dissolve
     play sfx sfx_crunch_whoosh
-    call test_clock("22/31/00")
+    call test_clock("22/31/00") from _call_test_clock_4
     scene bg_black
     with dissolve
     pause 1.0
@@ -19,7 +19,7 @@ label day_5:
     R_t "Снова она, моя каюта."
     R_t neutral "И никаких следов газа в воздухе."
 
-    call scene_mirror
+    call scene_mirror from _call_scene_mirror
     with dissolve
 
     cutscene "Казалось, всё в порядке."
@@ -223,7 +223,7 @@ label day_5:
     stop sfx3 fadeout 1.0
     
     play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
-    call scene_elis
+    call scene_elis from _call_scene_elis_3
     show screen waveform_show
     show scene_talk_in_end_3
     with Dissolve(2.0)
@@ -334,7 +334,7 @@ label day_5:
     R_t serious fainting "На дрожащих ногах я подошёл к зеркалу."
     #цг бородатого
     play sfx2 sfx_drama
-    call scene_mirror_beard
+    call scene_mirror_beard from _call_scene_mirror_beard
     with dissolve
     cutscene "Оттуда на меня смотрел уставший мужчина, обзаведшийся некоторыми морщинами, парой шрамов и щетиной."
     cutscene "Неужели это всё правда…"

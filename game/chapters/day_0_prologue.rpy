@@ -7,7 +7,7 @@ label day_0_prologue:
     pause 2.0
     play sfx sfx_click2
     # Пролог
-    call scene_shelk
+    call scene_shelk from _call_scene_shelk
     
     scene bg_coridor2_default
     with dissolve
@@ -139,7 +139,7 @@ label day_0_prologue:
     pause 2.0
     play sfx sfx_burning_fire fadein 0.5 fadeout 1.0 loop
     play sfx2 sfx_screaming fadein 0.5 fadeout 1.0 loop
-    call scene_nightmare
+    call scene_nightmare from _call_scene_nightmare
     stop sfx fadeout 1.0
     stop sfx2 fadeout 1.0
     scene bg_black
