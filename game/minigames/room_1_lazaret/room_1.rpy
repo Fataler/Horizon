@@ -4,7 +4,7 @@ default inspect = None
 define check_color = Color("#0022ff")
 define use_color = Color("#00ff2f")
 
-image bg room1 = "minigames/room_1_lazaret/lazaret.png"
+image bg room1 = "minigames/room_1_lazaret/lazaret.jpg"
 
 image safe = "minigames/room_1_lazaret/safe.png"
 image computer = "minigames/room_1_lazaret/computer.png"
