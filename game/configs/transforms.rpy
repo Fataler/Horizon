@@ -567,3 +567,11 @@ transform space_door_open(speed=1):
     linear 1 zoom 0.95
     pause 1
     linear speed * 3 xoffset 600
+
+transform fade_on_show(t=1.0):
+    on show:
+        alpha 0.0
+        linear t alpha 1.0
+    on hide:
+        alpha 1.0
+        linear t alpha 0.0
