@@ -80,7 +80,7 @@ label day_5_2_1_belive:
     scene bg_generator_blue_screen
     with dissolve
     #music
-    play music music_hope_ambient fadein 0.5 loop
+    play music music_escape_room_full fadein 0.5 loop
     R beard_on serious think "Так…"
     R thinking not_sure "Что там нужно было сделать в первую очередь?"
     R_t "Подсказкой мне была бумажка, которую я прихватил из каюты."
@@ -88,6 +88,8 @@ label day_5_2_1_belive:
 
     call scene_zapiska
 
+    scene bg_black with dissolve
+    pause 0.5
 # escape room 2
     call room_2
     
