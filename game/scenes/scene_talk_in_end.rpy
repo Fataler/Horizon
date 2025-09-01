@@ -18,6 +18,11 @@ image scene_talk_in_end_17 = "CG/CG_talk_in_the_end/17.png"
 image scene_talk_in_end_18 = "CG/CG_talk_in_the_end/18.png"
 image scene_talk_in_end_19 = "CG/CG_talk_in_the_end/19.png"
 image scene_talk_in_end_cherk = "CG/CG_talk_in_the_end/cherk.png"
+#image scene_talk_in_end_cherk = At("CG/CG_talk_in_the_end/cherk.png", soot_drift_bottom(speed=0.5, amplitude= 1, x_amplitude=-1, zoom=1.01))
+
+label scene_elis:
+    show scene_talk_in_end_cherk at soot_drift_bottom(speed=0.5, amplitude= 1, x_amplitude=-1, zoom=1.001), truecenter zorder 10
+    return
 
 label scene_talk_in_end:
     play music music_bad_end_after_talk fadein 1.0 loop

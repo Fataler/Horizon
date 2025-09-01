@@ -189,7 +189,7 @@ style achievement_popup_frame:
     xalign 1.0
     yalign 0.0
     xsize 800
-    background Frame("gui/frame_achievement.png", 80, 80, 80, 80)
+    background Frame("gui/frame_achievement.png", 80, 40, 80, 40)
     padding (80, 40)
 
 style achievement_popup_title:
