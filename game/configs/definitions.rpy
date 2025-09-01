@@ -7,7 +7,7 @@ define URL_JAM = "https://vk.com/jamof100flowers"
 default MAIN_MENU_SCREEN = "main_menu"
 default PAUSE_MENU_SCREEN = "pause_menu"
 
-define splash_enabled = False
+define splash_enabled = True
 
 default textbox_style = "gui/textbox.png"
 default came_from_pause_menu = False

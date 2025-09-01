@@ -240,84 +240,69 @@ label day_5:
     N "Мы уже долгое время пытаемся связаться с тобой."
     hide scene_talk_in_end_5
     show scene_talk_in_end_4
-    with Dissolve(1.0)
     R ear surprised "Кто вы? Это диспетчер?"
     R "Как у вас это удалось? Я… Буквально разговариваю сам с собой."
     N "Сейчас это не важно."
     hide scene_talk_in_end_4
     show scene_talk_in_end_3
-    with Dissolve(1.0)
     N "Ты застрял."
     N "Эта аномалия не даёт тебе выбраться."
     R thinking osharashen "Аномалия?"
     hide scene_talk_in_end_3
     show scene_talk_in_end_6
-    with Dissolve(1.0)
     N "В неё почти невозможно зайти, и выйти из неё тоже."
     N "Всё, что сейчас находится в ней, остаётся в том же состоянии."
     N "Ничего не может измениться."
     hide scene_talk_in_end_6
     show scene_talk_in_end_2
-    with Dissolve(1.0)
     N "Поэтому раз за разом ты… Ты умираешь…"
     R "Каким образом?!"
     hide scene_talk_in_end_2
     show scene_talk_in_end_5
-    with Dissolve(1.0)
     N "Имея доступ к навигационному компьютеру, мы вели корабль максимально близко к краю аномалии."
     N "Врезаясь в её оболочку, мы запускали вспять ход времени, чтобы сохранить тебе жизнь."
     hide scene_talk_in_end_5
     show scene_talk_in_end_4
-    with Dissolve(1.0)
     N "Мы делали это уже много… Очень много раз."
     R "А как же все остальные?"
     hide scene_talk_in_end_6
     show scene_talk_in_end_3
-    with Dissolve(1.0)
     R "Они тоже проходят этот… цикл вместе со мной."
     R not_sure "Это длится уже… Дней пять, наверное?"
     R "Но сегодня я не смог никого найти."
     hide scene_talk_in_end_3
     show scene_talk_in_end_4
-    with Dissolve(1.0)
     N "…"
     N "Это последствия."
     N "Нельзя слишком долго находиться там."
     hide scene_talk_in_end_4
     show scene_talk_in_end_5
-    with Dissolve(1.0)
     N "Но мы ничего не могли сделать до этого дня."
     N "Мы были за пределами горизонта событий этой аномалии."
     N "Мы долго добивались устойчивой связи, а затем ты не мог — или не хотел — выходить на контакт."
     R osharashen "Но почему я? Вы пробовали связаться с капитаном?"
     hide scene_talk_in_end_5
     show scene_talk_in_end_4
-    with Dissolve(1.0)
     N "…"
     hide scene_talk_in_end_4
     show scene_talk_in_end_7
-    with Dissolve(1.0)
     N "Я расскажу тебе, как разорвать этот круг."
     R "Но…"
     hide scene_talk_in_end_7
     show scene_talk_in_end_5
-    with Dissolve(1.0)
     N "Не перебивай."
     N "Корабль находится внутри большого кокона."
     N "Аномалия обволакивает его словно плёнка."
     hide scene_talk_in_end_5
     show scene_talk_in_end_3
-    with Dissolve(1.0)
     N "Он пытается двигаться, но мягко бьётся об эту оболочку. Не может её преодолеть."
     N "Ускорь генератор и выведи двигатель на максимум, внедрив фрагмент кода, который я продиктую."
     hide scene_talk_in_end_3
     show scene_talk_in_end_4
-    with Dissolve(1.0)
     N "К сожалению, у нас нет возможности прислать его тебе файлом."
     N "Это чудо, что вообще удалось связаться с тобой."
     hide scene_talk_in_end_4
     show scene_talk_in_end_3
-    with Dissolve(1.0)
     R serious angry "Всё это звучит как какой-то бред. Я должен обсудить это с Дэвидом."
     stop sfx fadeout 0.5
     hide screen waveform_show

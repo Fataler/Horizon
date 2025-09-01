@@ -479,20 +479,14 @@ label day_3:
     R_t "Но вместо этого услышал голос."
     stop sfx3 fadeout 0.5
     play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
-
+    call scene_elis
     show scene_talk_in_end_17
     show screen waveform_show()
     with Dissolve(2.0)
     R_t "Это были обрывки слов."
     R_t "Ненадолго я перестал ощущать что-либо и сосредоточился ещё сильнее."
-
     #незнакомка
-    hide screen waveform_show
     show scene_talk_in_end_4
-    call scene_elis
-    with Dissolve(1.0)
-
-
     R_t "Женский голос пробивался сквозь моё сознание."
     #голос девушки
     N "Райан, ты меня слышишь?.."
@@ -500,13 +494,14 @@ label day_3:
     N "…Разорви круг…"
     #голос девушки
     N "Ты можешь ответить мне?.."
+    hide scene_talk_in_end_4
+    show scene_talk_in_end_2
     R_t "Незнакомка звучала растерянно, но настойчиво."
     R_t "Голос был подозрительно знакомым…"
     R_t "Но я не смог разобрать личность говорящей."
     stop sfx fadeout 1.0
     hide screen waveform_show
     show scene_talk_in_end_19
-    show scene_talk_in_end_cherk
     with dissolve
     R_t thinking neutral "В растерянности я провалился в сон."
 
@@ -751,8 +746,9 @@ label day_3:
     stop sfx2 fadeout 0.5
     scene bg_red with dissolve
     pause 1.0
-    show scene_talk_in_end_12
     call scene_elis
+    show scene_talk_in_end_12
+    show screen waveform_show()
     with Dissolve(2.0)
     play sfx3 sfx_hiss_with_voice1
 
@@ -761,7 +757,6 @@ label day_3:
 
     hide screen waveform_show
     show scene_talk_in_end_19
-    show scene_talk_in_end_cherk
     with dissolve
 
     play sfx sfx_fall_body

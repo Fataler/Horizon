@@ -1,27 +1,37 @@
-image scene_talk_in_end_1 = "CG/CG_talk_in_the_end/1.png"
-image scene_talk_in_end_2 = "CG/CG_talk_in_the_end/2.png"
-image scene_talk_in_end_3 = "CG/CG_talk_in_the_end/3.png"
-image scene_talk_in_end_4 = "CG/CG_talk_in_the_end/4.png"
-image scene_talk_in_end_5 = "CG/CG_talk_in_the_end/5.png"
-image scene_talk_in_end_6 = "CG/CG_talk_in_the_end/6.png"
-image scene_talk_in_end_7 = "CG/CG_talk_in_the_end/7.png"
-image scene_talk_in_end_8 = "CG/CG_talk_in_the_end/8.png"
-image scene_talk_in_end_9 = "CG/CG_talk_in_the_end/9.png"
-image scene_talk_in_end_10 = "CG/CG_talk_in_the_end/10.png"
-image scene_talk_in_end_11 = "CG/CG_talk_in_the_end/11.png"
-image scene_talk_in_end_12 = "CG/CG_talk_in_the_end/12.png"
-image scene_talk_in_end_13 = "CG/CG_talk_in_the_end/13.png"
-image scene_talk_in_end_14 = "CG/CG_talk_in_the_end/14.png"
-image scene_talk_in_end_15 = "CG/CG_talk_in_the_end/15.png"
-image scene_talk_in_end_16 = "CG/CG_talk_in_the_end/16.png"
-image scene_talk_in_end_17 = "CG/CG_talk_in_the_end/17.png"
-image scene_talk_in_end_18 = "CG/CG_talk_in_the_end/18.png"
-image scene_talk_in_end_19 = "CG/CG_talk_in_the_end/19.png"
-image scene_talk_in_end_cherk = "CG/CG_talk_in_the_end/cherk.png"
+image scene_talk_in_end_1 = At("CG/CG_talk_in_the_end/1.png", fade_on_show)
+image scene_talk_in_end_2 = At("CG/CG_talk_in_the_end/2.png", fade_on_show)
+image scene_talk_in_end_3 = At("CG/CG_talk_in_the_end/3.png", fade_on_show)
+image scene_talk_in_end_4 = At("CG/CG_talk_in_the_end/4.png", fade_on_show)
+image scene_talk_in_end_5 = At("CG/CG_talk_in_the_end/5.png", fade_on_show)
+image scene_talk_in_end_6 = At("CG/CG_talk_in_the_end/6.png", fade_on_show)
+image scene_talk_in_end_7 = At("CG/CG_talk_in_the_end/7.png", fade_on_show)
+image scene_talk_in_end_8 = At("CG/CG_talk_in_the_end/8.png", fade_on_show)
+image scene_talk_in_end_9 = At("CG/CG_talk_in_the_end/9.png", fade_on_show)
+image scene_talk_in_end_10 = At("CG/CG_talk_in_the_end/10.png", fade_on_show)
+image scene_talk_in_end_11 = At("CG/CG_talk_in_the_end/11.png", fade_on_show)
+image scene_talk_in_end_12 = At("CG/CG_talk_in_the_end/12.png", fade_on_show)
+image scene_talk_in_end_13 = At("CG/CG_talk_in_the_end/13.png", fade_on_show)
+image scene_talk_in_end_14 = At("CG/CG_talk_in_the_end/14.png", fade_on_show)
+image scene_talk_in_end_15 = At("CG/CG_talk_in_the_end/15.png", fade_on_show)
+image scene_talk_in_end_16 = At("CG/CG_talk_in_the_end/16.png", fade_on_show)
+image scene_talk_in_end_17 = At("CG/CG_talk_in_the_end/17.png", fade_on_show)
+image scene_talk_in_end_18 = At("CG/CG_talk_in_the_end/18.png", fade_on_show)
+image scene_talk_in_end_19 = At("CG/CG_talk_in_the_end/19.png", fade_on_show)
+image scene_talk_in_end_cherk = At("CG/CG_talk_in_the_end/cherk.png", soot_drift_bottom(speed=0.5, amplitude= 1, x_amplitude=-1, zoom=1.001), fade_on_show)
 #image scene_talk_in_end_cherk = At("CG/CG_talk_in_the_end/cherk.png", soot_drift_bottom(speed=0.5, amplitude= 1, x_amplitude=-1, zoom=1.01))
 
 label scene_elis:
     show scene_talk_in_end_cherk at soot_drift_bottom(speed=0.5, amplitude= 1, x_amplitude=-1, zoom=1.001), truecenter zorder 10
+    return
+
+label test_elis:
+    scene bg_white
+    pause 3.0
+    show scene_talk_in_end_19
+    show scene_talk_in_end_cherk
+    "..."
+    show scene_talk_in_end_10
+    pause
     return
 
 label scene_talk_in_end:
