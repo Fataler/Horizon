@@ -89,4 +89,4 @@ style say_dialogue:
 style say_textframe:
     background None
     xfill True
-    padding (140, 30, 140, 30)
+    padding (150, 30, 140, 30)

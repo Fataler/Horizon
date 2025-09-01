@@ -85,6 +85,7 @@ screen waveform_show(
     yalign_val=0.5
 ):
     layer "master"
+    zorder 10
     
     default viewport_w = width if width is not None else config.screen_width
     default time_sec = 0.0
