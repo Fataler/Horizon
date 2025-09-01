@@ -46,10 +46,9 @@ label room_1:
     if inspect == "safe":
         if not room1_data["safe_opened"]:
             $ expected_code = 1734
-            $ result = renpy.call_screen("password_keypad", expected_code=expected_code, hints=["Число связано с Дэвидом."], title="СЕЙФ")
+            $ result = renpy.call_screen("password_keypad", expected_code=expected_code)
             if result:
                 $ room1_data["safe_opened"] = True
-                $ unlock_achievement(ACHIEVEMENT_SHERLOCK)
                 "Внутри пусто… Но видно чистое место — тут что-то лежало недавно."
             else:
                 "Код не подошёл. Нужна подсказка."

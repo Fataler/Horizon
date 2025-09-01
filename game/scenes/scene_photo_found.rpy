@@ -47,6 +47,7 @@ label scene_photo_found_full:
     cutscene "Внутри не было никаких лекарств… Только фото. Это было фото… Моего близкого человека."
     cutscene "Как оно оказалось здесь. В сейфе Ирис?.."
     cutscene "Некогда сейчас об этом думать."
+    $ unlock_achievement(ACHIEVEMENT_SHERLOCK)
 
     scene bg_black
     with dissolve
