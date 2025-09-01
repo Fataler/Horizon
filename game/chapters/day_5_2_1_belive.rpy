@@ -39,11 +39,11 @@ label day_5_2_1_belive:
     with Dissolve(1.0)
     N "Райан. Эти люди… Мы поговорим об этом позже."
     N "Не переживай о них."
-    N "С ними всё В ПОРЯДКЕ!"
+    N "С ними всё… будет В ПОРЯДКЕ!"
     hide scene_talk_in_end_1
     show scene_talk_in_end_3
     with Dissolve(1.0)
-    N "Если ты поступишь, как я скажу — ты спасёшь… всех."
+    N "Если ты поступишь, как я скажу."
     R thinking osharashen "Какого чёрта… И кто же ты?!"
     hide scene_talk_in_end_3
     show scene_talk_in_end_4
