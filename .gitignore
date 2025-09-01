@@ -31,7 +31,7 @@ game/renpy_warp_*.rpe.py
 .LSOverride
 
 # IDE specific files
-.vscode/
+#.vscode/
 .idea/
 *.swp
 *.swo
