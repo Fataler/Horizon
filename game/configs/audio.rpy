@@ -144,6 +144,8 @@ define sfx_ventilation = "audio/sfx/ventilation.ogg"
 define sfx_water_splash = "audio/sfx/water_splash.ogg"
 define sfx_whistling = "audio/sfx/whistling.ogg"
 define sfx_writing = "audio/sfx/writing.ogg"
+define sfx_intro = "audio/sfx/intro.ogg"
+define sfx_disclamer = "audio/sfx/disclamer.ogg"
 
 # Мини игры
 define sfx_safe_button = "audio/sfx/mini_games/safe_button.ogg"

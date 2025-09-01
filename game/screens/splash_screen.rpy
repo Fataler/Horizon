@@ -27,9 +27,10 @@ label splashscreen:
 
     if not splash_enabled:
         return
-
+    
     scene black
     with Dissolve(1.0)
+    play ui sfx_disclamer
 
     if (persistent.first_start or debug_splash):
         call screen splash_first()
@@ -37,6 +38,7 @@ label splashscreen:
     stop music
 
     show screen splash_second
+    play ui sfx_intro
     $ renpy.pause(8.0, hard=True)
     hide screen splash_second
     with Dissolve(1.0)
