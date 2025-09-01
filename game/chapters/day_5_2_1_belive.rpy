@@ -104,6 +104,7 @@ label day_5_2_1_belive:
     pause 1.0
     stop music fadeout 0.5
     scene bg_generator_red
+    with dissolve
     play sfx3 sfx_alarm2 fadein 0.5 fadeout 0.5 loop
     call scene_earthquake 
     play sfx2 sfx_earthquake_boosted fadein 0.5 fadeout 0.5 loop

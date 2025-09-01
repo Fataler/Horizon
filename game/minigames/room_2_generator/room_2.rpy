@@ -27,63 +27,62 @@ label room_2:
     $ renpy.block_rollback()
 
     if inspect == "generator_top":
-        R "Вряд ли я смогу добраться дотуда. Не стоит терять время."
+        R beard_on "Вряд ли я смогу добраться дотуда. Не стоит терять время."
 
     elif inspect == "monitor":
         if not room2_data["system_hacked"]:
-            R_t thinking suspicious "Кажется, здесь мне необходимо взломать систему."
-            R "Выглядит несложно."
-            R suspicious "Посмотрим…"
+            R beard_on thinking suspicious "Кажется, здесь мне необходимо взломать систему."
+            R beard_on "Выглядит несложно."
+            R beard_on suspicious "Посмотрим…"
             call assemble_puzzle
             if _return:
                 $ room2_data["system_hacked"] = True
-                R ear smile "Отлично!"
+                R beard_on ear smile "Отлично!"
                 R ear neutral "Осталось совсем немного…"
             else:
-                R_t "Для начала мне нужно взломать систему."
+                R beard_on "Хм, возможно стоит ещё тут осмотреться."
         else:
-            R_t "Тут я всё сделал."
+            R beard_on "Тут я всё сделал."
 
     elif inspect == "generator":
         "Просто щиток, ничего интересного."
 
     elif inspect == "terminal_left":
         if not room2_data["system_hacked"]:
-            R_t "Перед этим я должен взломать систему."
+            R beard_on "Перед этим я должен взломать систему."
         elif not room2_data["code_replaced"]:
-            R "Нужно заменить часть кода на другой."
-            R "Так, что там было на уроках информатики..."
+            R beard_on "Нужно заменить часть кода на другой."
+            R beard_on "Так, что там было на уроках информатики..."
             call hanoi_game(blocks_number=5)
             if _return:
                 $ room2_data["code_replaced"] = True
-                R thinking suspicious "Хмм…"
+                R beard_on thinking suspicious "Хмм…"
                 R happy "У меня получилось!"
-                R_t ear smile "Даже не верится."
+                R ear smile "Даже не верится."
                 R "Осталось ещё немного..."
             else:
-                R_t "Попробую позже."
+                R beard_on "Попробую позже."
         else:
-            R_t "Тут я всё сделал."
+            R beard_on "Тут я всё сделал."
 
     elif inspect == "pressure_left":
         if not room2_data["system_hacked"]:
-            R_t "Перед этим я должен заменить исходный код."
+            R beard_on "Перед этим я должен заменить исходный код."
         elif not room2_data["code_replaced"]:
-            R_t "Перед этим я должен заменить исходный код."
+            R beard_on "Перед этим я должен заменить исходный код."
         elif not room2_data["pressure_locked"]:
-            R ear surprised "Так... Тут можно выровнять давление в поршнях двигателя."
-            R "Знаю, что ничего сложного - просто пару раз щелкнуть переключателем, но..."
+            R beard_on ear surprised "Так... Тут можно выровнять давление в поршнях двигателя."
+            R beard_on "Знаю, что ничего сложного - просто пару раз щелкнуть переключателем, но..."
             R "Закрыто на замок."
             R "Придется взломать."
+            R "Естественно, отмычек у меня нет."
+            R "Пришлось импровизировать."
+            R "Рядом с терминалом валяются куски пластика, попробую поковырять замок ими."
             call lockpick_start
             if _return:
                 $ room2_data["pressure_locked"] = True
-                R "Я сделал это!"
+                R beard_on "Я сделал это!"
                 return
-            else:
-                R_t "Придется взломать."
-        else:
-            R_t "Придется взломать."
 
     $ inspect = None
     $ renpy.block_rollback()

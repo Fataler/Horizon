@@ -11,7 +11,7 @@ define min_blocks_for_game = 1
 define blocks_number = 5
 define size_restrictions_enabled = True
 define allow_same_tower_moves = False
-define max_hints = 8
+define max_hints = 10
 define hint_restore_time = 2.0
 define no_tower_selected = -1
 define control_panel_position = (0.02, 0.05)
@@ -58,7 +58,7 @@ screen hanoi_game_screen(towers):
     add "hanoi_bg"
 
     hbox:
-        align (0.02, 0.02)
+        align (0.025, 0.09)
         spacing 5
 
         for i in range(max_hints):
@@ -78,30 +78,21 @@ screen hanoi_game_screen(towers):
         align control_panel_position
         spacing control_panel_spacing
 
+        null height 100
+
         textbutton "Подсказка" action [Play("ui", sfx_click_put_down), Return("hint")] text_size button_text_size
         textbutton "Сброс" action [Play("ui", sfx_click_pick_up), Return("reset")] text_size button_text_size
-        textbutton "Сдаться" action [Play("ui", sfx_click_pick_up), Jump("give_up")] text_size button_text_size
         textbutton "Правила" action [Play("ui", sfx_click_pick_up), Function(renpy.call_in_new_context, "hanoi_rules_explanation")] text_size button_text_size
+        
+        null height 500
+        # textbutton "Сдаться" action [Play("ui", sfx_click_pick_up), Jump("give_up")] text_size button_text_size
 
         if config.developer:
             textbutton "SKIP" action Jump("win") text_size button_text_size
 
-    text "Ходы: [player_moves]" size moves_counter_size align moves_display_position font gui.interface_text_font
+    text "Ходы: [player_moves]" size button_text_size align moves_display_position font gui.interface_text_font
     
     for i, each_tower in enumerate(towers):
-        # vbox:
-        #     pos each_tower["tower_pos"]
-        #     anchor tower_anchor_point
-
-        #     # if each_tower["mark"] == "start":
-        #     #     text "Старт" size 25 xalign 0.5
-        #     #     null height (block_size*1)
-        #     # elif each_tower["mark"] == "finish":
-        #     #     text "Цель" size 25 xalign 0.5
-        #     #     null height (block_size*1)
-        #     # else:
-        #     #     text "" size 25 xalign 0.5
-        #     #     null height (block_size*1)
 
         vbox:
             pos each_tower["tower_pos"]
@@ -315,8 +306,13 @@ label hanoi_game(blocks_number=5):
     $ available_hints = max_hints
     $ hint_restore_timer = 0.0
     $ last_hint_time = renpy.get_game_runtime()
+    $ can_click = False
 
     show screen hanoi_game_screen(towers=towers)
+
+    call hanoi_rules_explanation
+
+    jump hanoi_loop
 
 label hanoi_loop:
     $ start_from_tower = no_tower_selected
@@ -376,7 +372,7 @@ label give_up:
 
 label hanoi_rules_explanation:
 
-    R_t thinking neutral "Хорошо, нужно сосредоточиться и вспомнить, что я должен сделать."
+    R_t thinking neutral beard_on "Хорошо, нужно сосредоточиться и вспомнить, что я должен сделать."
     R_t "Видимо, на этом экране я смогу переписать код для взлома системы, как сказала Элис."
     R_t "Передо мной три файла (MAIN.EXE, BUFFER.EXE, PATCH.EXE). В левом находятся данные разных размеров."
 
