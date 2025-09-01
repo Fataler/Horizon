@@ -34,7 +34,7 @@ label room_2:
             R beard_on thinking suspicious "Кажется, здесь мне необходимо взломать систему."
             R beard_on "Выглядит несложно."
             R beard_on suspicious "Посмотрим…"
-            call assemble_puzzle
+            call assemble_puzzle from _call_assemble_puzzle
             if _return:
                 $ room2_data["system_hacked"] = True
                 R beard_on ear smile "Отлично!"
@@ -53,7 +53,7 @@ label room_2:
         elif not room2_data["code_replaced"]:
             R beard_on "Нужно заменить часть кода на другой."
             R beard_on "Так, что там было на уроках информатики..."
-            call hanoi_game(blocks_number=5)
+            call hanoi_game(blocks_number=5) from _call_hanoi_game
             if _return:
                 $ room2_data["code_replaced"] = True
                 R beard_on thinking suspicious "Хмм…"
@@ -78,7 +78,7 @@ label room_2:
             R "Естественно, отмычек у меня нет."
             R "Пришлось импровизировать."
             R "Рядом с терминалом валяются куски пластика, попробую поковырять замок ими."
-            call lockpick_start
+            call lockpick_start from _call_lockpick_start_1
             if _return:
                 $ room2_data["pressure_locked"] = True
                 R beard_on "Я сделал это!"

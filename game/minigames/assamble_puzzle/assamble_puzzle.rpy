@@ -581,7 +581,7 @@ label init_puzzle:
 
 label assemble_puzzle:
     $ puzzle_level = 1
-    call init_puzzle
+    call init_puzzle from _call_init_puzzle
     call screen room1_puzzle(puzzle, interactable=True)
     return _return
 
@@ -589,7 +589,7 @@ label test_puzzle:
     scene bg room1
     "test"
     $ puzzle_level = 1
-    call init_puzzle
+    call init_puzzle from _call_init_puzzle_1
 
     call screen room1_puzzle(puzzle, interactable=True)
     "test end"
@@ -597,7 +597,7 @@ label test_puzzle:
     return
 
 label test_puzzle_start:
-    call init_puzzle
+    call init_puzzle from _call_init_puzzle_2
 
     # # Show instructions
     # "Testing assembly puzzle - Level [puzzle_level]"
@@ -629,7 +629,7 @@ label puzzle_game_over:
     # Return to main menu or restart
     menu:
         "Попробовать снова":
-            call init_puzzle
+            call init_puzzle from _call_init_puzzle_3
             call screen room1_puzzle(puzzle, interactable=True)
 
         "Вернуться в комнату":

@@ -13,7 +13,7 @@ label day_5_2_2_dont_belive:
     pause 2.0
 
     R_t beard_on "Спустя некоторое время у меня получилось настроиться."
-    call scene_elis
+    call scene_elis from _call_scene_elis_5
     show screen waveform_show
     show scene_talk_in_end_7
     with Dissolve(2.0)
@@ -98,7 +98,7 @@ label day_5_2_2_dont_belive:
     R_t "Но я просто должен проверить записи."
     play sfx sfx_drama_boom
     #music чето сюда возможно надо вставить триллерное подстать цгшке
-    call scene_monitory
+    call scene_monitory from _call_scene_monitory
     cutscene "Вот я иду к двигателю и… Бью его ножом?"
     cutscene "Следующая запись… Всё в красном свете. Тревога?"
     cutscene  "Перематываю время. Вот я… В отсеке генератора. Падаю в люк?!"
@@ -141,7 +141,7 @@ label day_5_2_2_dont_belive:
     pause 1.0
     R_t crazy nemnogo "…"
     pause 1.0
-    call scene_photo
+    call scene_photo from _call_scene_photo
     stop music fadeout 1.0
     
     pause 1.0
@@ -196,4 +196,4 @@ label day_5_2_2_dont_belive:
 
     $ unlock_achievement(ACHIEVEMENT_DREAM)
     $ renpy.pause(1.0, hard=True)
-    call label_credits
+    call label_credits from _call_label_credits

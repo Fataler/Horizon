@@ -12,7 +12,7 @@ label day_5_2_1_belive:
     scene bg_black with eye_off()
     pause 1.0
     R_t beard_on "Спустя некоторое время у меня получилось настроиться."
-    call scene_elis
+    call scene_elis from _call_scene_elis_4
     show screen waveform_show
     show scene_talk_in_end_7
     with Dissolve(2.0)
@@ -86,12 +86,12 @@ label day_5_2_1_belive:
     R_t "Подсказкой мне была бумажка, которую я прихватил из каюты."
     R_t "Там я записал все указания."
 
-    call scene_zapiska
+    call scene_zapiska from _call_scene_zapiska
 
     scene bg_black with dissolve
     pause 0.5
 # escape room 2
-    call room_2
+    call room_2 from _call_room_2
     
 
     pause 1.0
@@ -99,7 +99,7 @@ label day_5_2_1_belive:
     scene bg_generator_red
     with dissolve
     play sfx3 sfx_alarm2 fadein 0.5 fadeout 0.5 loop
-    call scene_earthquake 
+    call scene_earthquake from _call_scene_earthquake 
     play sfx2 sfx_earthquake_boosted fadein 0.5 fadeout 0.5 loop
     R_t beard_on thinking osharashen "Пол под ногами задрожал."
     R_t ear sick "Гул двигателя так возрос, что пришлось прикрыть уши руками."
@@ -115,10 +115,10 @@ label day_5_2_1_belive:
     stop sfx fadeout 0.5
 
     scene bg_black with dissolve
-    call scene_earthquake
+    call scene_earthquake from _call_scene_earthquake_1
     pause 0.5
     $ show_space_bg("bg_commander_block_transparent_red")
-    call scene_earthquake
+    call scene_earthquake from _call_scene_earthquake_2
     with dissolve
     R_t beard_on serious think "Наконец-то дело сделано."
     R_t thinking ne_ponyal "Весь корабль трясло, но я был уверен: всё идёт так, как должно быть."
@@ -132,16 +132,16 @@ label day_5_2_1_belive:
     R_t "Разобрав беспорядок у входа, я заглянул внутрь."
 
     scene bg_warehouse with dissolve
-    call scene_earthquake 
+    call scene_earthquake from _call_scene_earthquake_3 
     R_t beard_on ear dissatisfied "Здесь было темно и сыро."
     R_t ear sick "Едкий сладковатый запах ударил мне в ноздри."
-    call scene_earthquake_hard
+    call scene_earthquake_hard from _call_scene_earthquake_hard
     R_t "Корабль набрал обороты и начал прорываться сквозь кокон аномалии с такой силой, что я едва держался на ногах."
     R_t "Включив фонарик, я смог осмотреть помещение."
-    call scene_earthquake 
+    call scene_earthquake from _call_scene_earthquake_4 
     #цг трупиков
     play sfx sfx_drama
-    call scene_corpses
+    call scene_corpses from _call_scene_corpses
     cutscene "Кто… Все эти люди?.."
     cutscene "Это не моя команда…"
     pause 1.0

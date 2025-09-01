@@ -3,7 +3,7 @@ label day_4:
     scene bg_black
     with dissolve
     play sfx sfx_crunch_whoosh
-    call test_clock("20/59/00")
+    call test_clock("20/59/00") from _call_test_clock_3
     scene bg_black
     with dissolve
     $ renpy.force_autosave()
@@ -30,7 +30,7 @@ label day_4:
     play sfx sfx_click2
     pause 0.2
     play sfx sfx_click2
-    call scene_mirror_water
+    call scene_mirror_water from _call_scene_mirror_water_1
     with dissolve
     cutscene "В зеркале — мой обычный вид: всё тот же усталый и измождённый парень вдали от дома."
     cutscene "Не было и следа той боли, что преследовала меня — во сне или вчера."
@@ -361,7 +361,7 @@ label day_4:
     play sfx sfx_drama
     stop music fadeout 1.0
     play music2 music_creepy_without_tuc_tuc 
-    call scene_pogrom_v_lazarete
+    call scene_pogrom_v_lazarete from _call_scene_pogrom_v_lazarete
 
     cutscene "Нет, прекрати!"
     cutscene "Отпусти меня!.."
@@ -410,7 +410,7 @@ label day_4:
     play music music_escape_room_full fadein 1.0 loop
 
 # escape room 1
-    call room_1
+    call room_1 from _call_room_1
 
     stop music fadeout 0.5
     scene bg_black with dissolve
@@ -453,7 +453,7 @@ label day_4:
 
     R_t surprised "Со временем видимость ухудшилась; в лёгкой дымке мы разглядели капитана — он лежал на полу и не двигался."
     
-    call scene_pulse
+    call scene_pulse from _call_scene_pulse_7
     play sfx2 sfx_heart_beat_neutral loop
 
     R_t serious fainting "Похоже, слишком поздно. Ноги подкашивались — я не был уверен, что доберусь до баллонов…"
@@ -469,7 +469,7 @@ label day_4:
     R_t serious fainting "Уже теряя сознание, я услышал:"
     pause 1.0
     play sfx sfx_hiss_with_voice1
-    call scene_elis
+    call scene_elis from _call_scene_elis_2
     show scene_talk_in_end_9
     show screen waveform_show()
     with Dissolve(2)
