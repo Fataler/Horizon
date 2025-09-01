@@ -2,11 +2,6 @@ init -1 python:
     LOCK_CHANNEL_MOVE = "Lock_Move"
     LOCK_CHANNEL_CLICK = "Lock_Click"
 
-    SFX_UNLOCK = "audio/lock_unlock.mp3"
-    SFX_MOVE = "audio/lock_moving.mp3"
-    SFX_MOVE_BACK = "audio/lock_moving_back.mp3"
-    SFX_BREAK = "audio/lock_pick_break.mp3"
-
     UI_TEXT_OPENED = "Отлично!"
     UI_TEXT_BROKE = "Черт, сломалась. Возьму другую!"
 

@@ -174,6 +174,12 @@ define sfx_puzzle_click_rotate = sfx_ui_click
 define sfx_puzzle_place = sfx_click_put_down
 define sfx_puzzle_win = sfx_win
 
+# lockpick
+define SFX_UNLOCK = sfx_lock_unlock
+define SFX_MOVE = sfx_lock_moving
+define SFX_MOVE_BACK = sfx_lock_moving_back
+define SFX_BREAK = sfx_lock_pick_break
+
 # каналы
 init python:
     renpy.music.register_channel("ui", mixer="sfx", loop=False, stop_on_mute=True, tight=True, buffer_queue=True)
