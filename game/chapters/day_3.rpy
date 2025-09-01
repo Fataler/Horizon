@@ -487,6 +487,11 @@ label day_3:
     R_t "Ненадолго я перестал ощущать что-либо и сосредоточился ещё сильнее."
 
     #незнакомка
+    hide screen waveform_show
+    show scene_talk_in_end_4
+    call scene_elis
+    with Dissolve(1.0)
+
 
     R_t "Женский голос пробивался сквозь моё сознание."
     #голос девушки
@@ -501,6 +506,7 @@ label day_3:
     stop sfx fadeout 1.0
     hide screen waveform_show
     show scene_talk_in_end_19
+    show scene_talk_in_end_cherk
     with dissolve
     R_t thinking neutral "В растерянности я провалился в сон."
 
@@ -745,17 +751,17 @@ label day_3:
     stop sfx2 fadeout 0.5
     scene bg_red with dissolve
     pause 1.0
-    show scene_talk_in_end_18
+    show scene_talk_in_end_12
+    call scene_elis
+    with Dissolve(2.0)
     play sfx3 sfx_hiss_with_voice1
-
-    show screen waveform_show()
-    with Dissolve(2)
-    pause 2.0
 
     N "Ты должен понять."
     N "Никто не поможет тебе, кроме тебя самого."
 
     hide screen waveform_show
+    show scene_talk_in_end_19
+    show scene_talk_in_end_cherk
     with dissolve
 
     play sfx sfx_fall_body

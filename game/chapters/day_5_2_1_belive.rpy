@@ -12,40 +12,68 @@ label day_5_2_1_belive:
     scene bg_black with eye_off()
     pause 1.0
     R_t beard_on "Спустя некоторое время у меня получилось настроиться."
-    show scene_talk_in_end_17
-    with Dissolve(2)
-    show screen waveform_show() with dissolve
+    call scene_elis
+    show screen waveform_show
+    show scene_talk_in_end_7
+    with Dissolve(2.0)
     play sfx2 sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
     pause 1.0
 
     N "Ты вернулся!"
     N "Я думала, мы больше не сможем связаться с тобой…"
+    hide scene_talk_in_end_7
+    show scene_talk_in_end_3
+    with Dissolve(1.0)
     R thinking not_sure "Почему?"
     N "Ресурсы твоего тела на исходе."
     N "По расчётам наших учёных, ты не протянешь больше, чем ещё несколько дней, если останешься в аномалии."
     N "Всего несколько дней…"
+    hide scene_talk_in_end_3
+    show scene_talk_in_end_4
+    with Dissolve(1.0)
     R ne_ponyal "Но где остальные мои члены экипажа?"
     R "Ещё вчера всё было в порядке… Насколько это возможно."
     R ear dissatisfied "Ирис, Дэвид, Софи, Виктор… Без них я бы точно свихнулся."
+    hide scene_talk_in_end_4
+    show scene_talk_in_end_1
+    with Dissolve(1.0)
     N "Райан. Эти люди… Мы поговорим об этом позже."
     N "Не переживай о них."
     N "С ними всё… будет В ПОРЯДКЕ!"
+    hide scene_talk_in_end_1
+    show scene_talk_in_end_3
+    with Dissolve(1.0)
     N "Если ты поступишь, как я скажу."
     R thinking osharashen "Какого чёрта… И кто же ты?!"
+    hide scene_talk_in_end_3
+    show scene_talk_in_end_4
+    with Dissolve(1.0)
     N "Ты забыл меня?"
     N "Что ж… Я не злюсь."
     N "Я рада, что мне удалось с тобой поговорить."
+    hide scene_talk_in_end_4
+    show scene_talk_in_end_5
+    with Dissolve(1.0)
     R ear surprised "Я не понимаю…"
     N "Учёные пригласили меня, потому что тональность моего голоса тебе знакома."
     N "Технология не безупречна. Их голоса не пробивались через барьер в твой разум."
     N "А со мной была хоть какая-то вероятность успеха."
     R_t thinking osharashen "Наконец я узнал её…"
+    hide scene_talk_in_end_5
+    show scene_talk_in_end_7
+    with Dissolve(1.0)
     R "Элис…"
     R "Ты ждала меня всё это время? Эти два года?"
     R "Я ведь планировал отправиться всего на месяц…"
+    hide scene_talk_in_end_7
+    show scene_talk_in_end_4
+    with Dissolve(1.0)
     E "Да… Это были долгие месяцы: никто не знал, что с тобой и где ты…"
     E "Когда мы поняли, что ваш корабль попал в аномалию, и смогли подключиться к камерам, я снова обрела надежду!"
     E "На твоё возвращение."
+    hide scene_talk_in_end_4
+    show scene_talk_in_end_3
+    with Dissolve(1.0)
     R ear hehe "Я так скучал…"
     R_t serious angry "Я крепко сжал кулаки. Я больше не имею права раскисать как тряпка."
     R_t "Я должен найти выход."

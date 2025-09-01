@@ -471,14 +471,16 @@ label day_4:
     pause 1.0
     play sfx sfx_hiss_with_voice1
 
-    show scene_talk_in_end_18
-
-    show screen waveform_show()
+    show scene_talk_in_end_9
+    call scene_elis
     with Dissolve(2)
     pause 2.0
     N "Возвращаем назад… Он почти смог… Ещё раз…"
     N "Это последний шанс для него!.. Дайте мне попробовать! Пустите!.."
     hide screen waveform_show
+    show scene_talk_in_end_19
+    show scene_talk_in_end_cherk
+    with dissolve
     with dissolve
     stop sfx fadeout 0.5
     scene bg_black with dissolve

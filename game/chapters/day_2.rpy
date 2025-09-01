@@ -125,8 +125,8 @@ label day_2:
     R_t "Он завёл руки за голову и расслабленно откинулся назад."
 
     scene bg_dinner_block
-    show i pen ozadachen right at left
-    show v ruki puzzled left at right
+    show i profile neutral right at left
+    show v profile tricky left at right
     play sfx sfx_light_on
     #$ renpy.music.set_volume(0.5, delay=0, channel="sfx2")
     play sfx2 sfx_fon_generator2 fadein 0.5 fadeout 1.0 loop
@@ -135,6 +135,7 @@ label day_2:
     R_t not_sure "В этот момент появилось электричество, и в помещении снова стало приятно находиться."
     
     show i normal neutral_happy
+    show v ruki tricky
     V tricky "Вот видишь?"
     pause 1.5
 
@@ -645,10 +646,10 @@ label day_2:
     show d fist angry at move_step(50)
     R_t "Он вскрыл баллон с составом и попытался вылить его прямо на огромную, пышущую жаром машину."
     V pockets nedovolen "Ты уверен, что это поможет?!"
-    D serious calm "Я… Я уже ни в чём не уверен!"
+    D confused  "Я… {w=0.4}Я уже ни в чём не уверен!"
 
     play sfx sfx_evaporating_water
-
+    show d fist angry
     R_t "Я вскрыл второй баллон и вылил его с другой стороны генератора."
     R_t think "На мгновение показалось, что это помогло."
     R_t "Возможно, мы хотели, чтобы это было так."
@@ -660,7 +661,7 @@ label day_2:
 
     stop music fadeout 0.5
     show v ruki osharashen
-    show d osharashen
+    show d serious osharashen
     R_t thinking osharashen "Не сразу, но мы почувствовали запах гари."
     R_t "Огонь?.."
     R_t "Секунда{w}, две."
@@ -687,6 +688,7 @@ label day_2:
     scene bg_red with dissolve
     pause 1.0
     show scene_talk_in_end_18
+    
     with Dissolve(2)
     pause 2.0
 
