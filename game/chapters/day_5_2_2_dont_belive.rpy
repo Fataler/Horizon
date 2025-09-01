@@ -83,7 +83,7 @@ label day_5_2_2_dont_belive:
     pause 1.5
     show screen waveform_show() with dissolve
     play sfx sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
-    N "Все твои члены экипажа давно мертвы."
+    N "Все члены экипажа твоей миссии давно мертвы."
     N "Долгое время мы наблюдали за тобой."
     N "И раз за разом ты умирал в полном одиночестве."
     R_t thinking osharashen "Члены экипажа… Всё это время они были лишь фикцией?"

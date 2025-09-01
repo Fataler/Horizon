@@ -29,7 +29,7 @@ label scene_photo_found_cut:
     play music2 music_nervous_ambient loop
 
     cutscene "В середине портрета красовалась приличная дыра."
-    cutscene "Она была такой величины, что черты лица по краям уже не удавалось разобрать."
+    cutscene "Она была такой величины, что черты лица уже не удавалось разобрать."
     
     hide scene_photo_full
     with dissolve
@@ -44,5 +44,9 @@ label scene_photo_found_full:
     show scene_photo_found_cherkash at soot_drift_bottom(zoom=1.05, speed=0.60, amplitude=-3, x_amplitude=-3, blink = True), truecenter
     with dissolve
 
-    pause
+    cutscene "Внутри не было никаких лекарств… Только фото. Это было фото… Моего близкого человека."
+    cutscene "Как оно оказалось здесь. В сейфе Ирис?.."
+
+    scene bg_black
+    with dissolve
     return

@@ -267,6 +267,7 @@ screen password_keypad(expected_code, hints=[], title=None, mask_input=False, au
     hbox:
         spacing 14
         pos (0.5, 0.95)
+        xfill True
 
         if hints:
             textbutton "Подсказка":
