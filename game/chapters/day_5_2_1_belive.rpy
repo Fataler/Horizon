@@ -77,7 +77,7 @@ label day_5_2_1_belive:
     stop sfx2 fadeout 0.5
     scene bg_black with dissolve
     pause 1.0
-    scene bg_generator_blue_screen
+    scene bg_generator
     with dissolve
     #music
     play music music_escape_room_full fadein 0.5 loop
