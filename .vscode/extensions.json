@@ -4,9 +4,8 @@
         "ms-python.python",
         "ms-vscode.vscode-json",
         "ms-vscode.vscode-markdown",
-        "esbenp.prettier-vscode",
-        "formulahendry.auto-rename-tag",
-        "ms-vscode.vscode-git-graph", 
+        "ms-vscode.vscode-git-graph",
+        
         "gruntfuggly.todo-tree",
         "paisleysoftworks.renpywarp",
         "kisstkondoros.vscode-gutter-preview"
