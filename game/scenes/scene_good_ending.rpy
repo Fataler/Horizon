@@ -195,28 +195,17 @@ label scene_good_ending:
     with Dissolve(1.0)
     $ renpy.pause(1.0, hard=True)
 
-    show scene_good_ending_mogoly at gentle_wind, truecenter
-    show scene_good_ending_effecty 
-    show scene_good_ending_ramka
-    with Dissolve(1.0)
-    $ renpy.pause(1.0, hard=True)
-
-    cutscene "На заднем дворе больше не было огорода."
-    cutscene "Земля растрескалась, выжили только редкие сорняки."
-    hide scene_good_ending_mogoly
-    hide scene_good_ending_effecty 
-    hide scene_good_ending_ramka
-    with dissolve
-    $ renpy.pause(0.5, hard=True)
-
-    # цг могилы с челами
-        
     show scene_mogily_fon
     show scene_good_ending_chely
     show scene_good_ending_effecty 
     show scene_good_ending_ramka
     with dissolve
     $ renpy.pause(0.5, hard=True)
+
+    cutscene "На заднем дворе больше не было огорода."
+    cutscene "Земля растрескалась, выжили только редкие сорняки."
+
+    # цг могилы с челами
     cutscene "Мы подошли к четырём каменным плитам."
     $ unlock_achievement(ACHIEVEMENT_CREW)
     

@@ -2,15 +2,18 @@
 # Game board grid
 define block_size = 80
 define offset_x = 1100
-define offset_y = 100
+define offset_y = 200
 
 # Target shape mask (1 = must be filled)
 define puzzle_mask_1 = [
-    [0, 1, 1, 1, 1, 0],
-    [1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1],
-    [0, 1, 1, 1, 1, 0]
+    [0, 0, 1, 1, 1, 1, 1, 0, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [0, 1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [0, 1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 0, 1, 1, 1, 1, 1, 0, 0]
 ]
 
 # State
@@ -32,167 +35,88 @@ default c3 = "#454545"  # Neutral gray
 
 image handle:
     Solid("#fff", xsize=block_size, ysize=block_size)
-    alpha 0.6
+    alpha 0.0
 
-image puzzle_borders_1 = "minigames/assamble_puzzle/bomb_borders_1.png"
-image puzzle_borders_2 = "minigames/assamble_puzzle/bomb_borders_2.png"
-image puzzle_borders_3 = "minigames/assamble_puzzle/bomb_borders_3.png"
+image puzzle_borders_1 = "minigames/assamble_puzzle/fon5.png"
+image puzzle_background = "minigames/assamble_puzzle/Fon.png"
 
-# Basic shapes
-image long_shape = "minigames/assamble_puzzle/long_shape.png"
-image corner_shape = "minigames/assamble_puzzle/corner_shape.png"
-image square_shape = "minigames/assamble_puzzle/square_shape.png"
-image z_shape = "minigames/assamble_puzzle/z_shape.png"
-
-image o_z_shape = Transform("z_shape", xzoom=-1.0)
-
-image t_shape = "minigames/assamble_puzzle/t_shape.png"
-
-# Extended shapes
-image shape_1 = "minigames/assamble_puzzle/shape_1.png"
-image shape_2 = "minigames/assamble_puzzle/shape_2.png"
-image shape_3 = "minigames/assamble_puzzle/shape_3.png"
-image shape_4 = "minigames/assamble_puzzle/shape_4.png"
-image shape_5 = "minigames/assamble_puzzle/shape_5.png"
-image shape_6 = "minigames/assamble_puzzle/shape_6.png"
-image shape_7 = "minigames/assamble_puzzle/shape_7.png"
-image shape_8 = "minigames/assamble_puzzle/shape_8.png"
-image shape_9 = "minigames/assamble_puzzle/shape_9.png"
-image shape_10 = "minigames/assamble_puzzle/shape_10.png"
-image shape_11 = "minigames/assamble_puzzle/shape_11.png"
-image shape_12 = "minigames/assamble_puzzle/shape_12.png"
-image shape_13 = "minigames/assamble_puzzle/shape_13.png"
-image shape_14 = "minigames/assamble_puzzle/shape_14.png"
-
-# Variants used by level 2 configs
-image shape_2_1 = "minigames/assamble_puzzle/shape_2_1.png"
-image shape_2_2 = "minigames/assamble_puzzle/shape_2_2.png"
-image shape_2_3 = "minigames/assamble_puzzle/shape_2_3.png"
+# New shapes
+image shape_1 = "minigames/assamble_puzzle/1_green.png"
+image shape_2 = "minigames/assamble_puzzle/2_pig.png"
+image shape_3 = "minigames/assamble_puzzle/3_brown.png"
+image shape_4 = "minigames/assamble_puzzle/4_orange.png"
+image shape_5 = "minigames/assamble_puzzle/5_fiolet.png"
+image shape_6 = "minigames/assamble_puzzle/6_pink.png"
+image shape_7 = "minigames/assamble_puzzle/7_blue.png"
+image shape_8 = "minigames/assamble_puzzle/8_siren.png"
+image shape_9 = "minigames/assamble_puzzle/9_flamingo.png"
+image shape_10 = "minigames/assamble_puzzle/10_red.png"
 
 #endregion
 #region Shape templates
 
 init python:
-    # Basic piece masks (1 = occupied cell)
-    long_shape = [
-        [1, 1, 1, 1]
-    ]
-
-    corner_shape = [
-        [1, 1],
-        [0, 1]
-    ]
-
-    square_shape = [
-        [1, 1],
-        [1, 1]
-    ]
-
-    z_shape = [
-        [0, 1],
-        [1, 1],
-        [1, 0]
-    ]
-
-    o_z_shape = [
-        [1, 0],
-        [1, 1],
-        [0, 1]
-    ]
-
-    t_shape = [
-        [1, 1, 1],
-        [0, 1, 0]
-    ]
-
-    # Extended set for level 3 (distinct shapes)
+    # New piece masks (1 = occupied cell)
     shape_1 = [
-        [1, 1, 1],
-        [1, 0, 0]
+        [0, 0, 1, 1],
+        [0, 1, 1, 0],
+        [1, 1, 0, 0]
     ]
 
     shape_2 = [
-        [1, 1, 1],
-        [0, 0, 1]
+        [0, 0, 1, 1],
+        [0, 1, 1, 0],
+        [1, 1, 0, 0]
     ]
 
     shape_3 = [
-        [1, 1, 1],
-        [0, 1, 0]
-    ]
-
-    shape_4 = [
-        [0, 1, 1],
-        [1, 1, 0]
-    ]
-
-    shape_5 = [
+        [1, 1, 1, 0],
         [1, 1, 1, 1]
     ]
 
-    shape_6 = [
-        [1, 0],
+    shape_4 = [
+        [1, 1],
         [1, 1]
     ]
 
-    shape_7 = [
-        [1],
-        [1],
-        [1]
+    shape_5 = [
+        [0, 1],
+        [0, 1],
+        [1, 1],
+        [0, 1]
     ]
 
-    shape_8 = [
-        [1, 1, 0],
-        [0, 1, 1]
-    ]
-
-    shape_9 = [
-        [1, 0, 1],
-        [1, 1, 1]
-    ]
-
-    shape_10 = [
-        [1, 0, 0],
-        [1, 1, 1]
-    ]
-
-    shape_11 = [
-        [0, 1, 0],
-        [1, 1, 1],
-        [0, 1, 0]
-    ]
-
-    shape_12 = [
-        [1, 1, 0],
-        [0, 1, 0],
-        [0, 1, 1]
-    ]
-
-    shape_13 = [
-        [1, 0, 0],
-        [1, 0, 0],
-        [1, 1, 1]
-    ]
-
-    shape_14 = [
-        [1, 1, 0],
-        [0, 1, 0],
-        [0, 1, 1]
-    ]
-
-    # Level 2 additional shapes
-    shape_2_1 = [
-        [1, 1, 1]
-    ]
-
-    shape_2_2 = [
+    shape_6 = [
+        [0, 1],
+        [1, 1],
         [1, 1],
         [1, 0]
     ]
 
-    shape_2_3 = [
-        [0, 1, 0],
-        [1, 1, 1]
+    shape_7 = [
+        [1, 1, 1],
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0]
+    ]
+
+    shape_8 = [
+        [1, 1, 1],
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0]
+    ]
+
+    shape_9 = [
+        [0, 1, 1],
+        [1, 1, 1],
+        [0, 0, 1],
+        [0, 0, 1]
+    ]
+
+    shape_10 = [
+        [1, 1],
+        [1, 0]
     ]
 
 #endregion
@@ -233,8 +157,8 @@ init python:
                     # Create draggable placeholder for valid positions
                     if self.mask[row][col]:
                         drag_element = Drag(
-                            Fixed("#fff",
-                                    Fixed("#000", xysize=(self.block_size-2, self.block_size-2), align=(0.5, 0.5)),
+                            Fixed("#ffffff",
+                                    Fixed("#9da6d3ff", xysize=(self.block_size-2, self.block_size-2), align=(0.5, 0.5)),
                                     xysize=(self.block_size, self.block_size)),
                             pos=(self.ox + col * self.block_size, self.oy + row * self.block_size),
                             draggable=False,
@@ -340,7 +264,10 @@ init python:
             # Visual properties
             self.color = color
             # Use the Ren'Py image with the same name as shape for visuals
-            self.img = Transform(self.shape_name, matrixcolor=TintMatrix(color))
+            if color == None:
+                self.img = Transform(self.shape_name)
+            else:
+                self.img = Transform(self.shape_name, matrixcolor=TintMatrix(color))
             self.last_filled = []  # Track which board positions this piece occupies
 
             # Drag handles for each filled cell in the shape
@@ -561,13 +488,16 @@ init python:
 define level_configs = {
     1: {
         "parts": [
-            ("long_shape", (363, 173), "#E97B9A", 90),
-            ("corner_shape", (679, 171), "#00E6E3"),
-            ("square_shape", (606, 246), "#52CD6A"),
-            ("z_shape", (762, 251), "#E3615A"),
-            ("corner_shape", (451, 249), "#0087E8"),
-            ("o_z_shape", (372, 250), "#E88D26"),
-            ("z_shape", (211, 252), "#51A35B")
+            ("shape_1", (120, 150), None),    
+            ("shape_2", (450, 100), None),     
+            ("shape_3", (720, 200), None),    
+            ("shape_4", (80, 400), None),     
+            ("shape_5", (350, 350), None),    
+            ("shape_6", (650, 380), None, 90),
+            ("shape_7", (150, 600), None),    
+            ("shape_8", (540, 570), None),    
+            ("shape_9", (780, 600), None),    
+            ("shape_10", (320, 750), None)    
         ],
         "mask": puzzle_mask_1
     }
@@ -657,26 +587,22 @@ label assemble_puzzle:
 
 label test_puzzle:
     scene bg room1
-
-    # Test menu for different difficulty levels
-    menu:
-        "Test Difficulty Level 1":
-            $ puzzle_level = 1
-            jump test_puzzle_start
-
-        "Return to Main Menu":
-            return
-
-label test_puzzle_start:
-    """
-    Start the bomb puzzle test with current difficulty level.
-    """
+    "test"
+    $ puzzle_level = 1
     call init_puzzle
 
-    # Show instructions
-    "Testing assembly puzzle - Level [puzzle_level]"
-    "Drag and drop the pieces to fill the target shape."
-    "Right-click pieces to rotate them."
+    call screen room1_puzzle(puzzle, interactable=True)
+    "test end"
+    
+    return
+
+label test_puzzle_start:
+    call init_puzzle
+
+    # # Show instructions
+    # "Testing assembly puzzle - Level [puzzle_level]"
+    # "Drag and drop the pieces to fill the target shape."
+    # "Right-click pieces to rotate them."
 
     # Start the puzzle
     call screen room1_puzzle(puzzle, interactable=True)
@@ -754,12 +680,15 @@ screen room1_puzzle(b=None, interactable=True):
 
     layer "master"
 
+    add "puzzle_background"
+
     default completion_pending = False
 
     if puzzle_level != current_puzzle_level:
         timer 0.1 action Function(init_puzzle_function, None)
 
     frame:
+        background None
         padding 20,20,40,50
 
         fixed:
@@ -777,20 +706,11 @@ screen room1_puzzle(b=None, interactable=True):
         if puzzle.is_solved() and not completion_pending:
             $ completion_pending = True
             $ renpy.music.play(sfx_puzzle_win, channel="sfx")
-        
-        # frame:
-        #     align (0.0, 1.0) padding 30,30 offset (0, 30)
-        #     xsize 1000
-        #     ymaximum 350
-        #     has vbox spacing 20
-        #     xalign 0.5
-        #     label _("Instructions")
-        #     text _("Assemble the bomb by placing all pieces correctly on the grid.\nRight-click pieces to rotate them.\nAll valid positions must be filled exactly once.")
 
         # Control buttons
-        hbox xalign 1.0 yalign 1.0 spacing 30:
-            textbutton "RESET" style "confirm_button" action [ SetScreenVariable("completion_pending", False), Function(init_puzzle_function, _("Restarting...")) ] xalign 0.0 yalign 0.5 sensitive interactable at Transform(zoom=0.75)
-            textbutton "RETURN" style "confirm_button" action [Return(False), With(Dissolve(0.5))]
+        hbox xalign 1.0 yalign 0.95 spacing 30:
+            textbutton "Сброс" style "confirm_button" action [ SetScreenVariable("completion_pending", False), Function(init_puzzle_function, _("Сброс...")) ] xalign 0.0 yalign 0.5 sensitive interactable
+            textbutton "Уйти" style "confirm_button" action [Return(False), With(Dissolve(0.5))]
 
     if completion_pending:
         timer 2.0 action [Function(clear_puzzle, "room1_1"), Return(True)]
@@ -798,5 +718,4 @@ screen room1_puzzle(b=None, interactable=True):
     if config.developer:
         vbox:
             textbutton _("Skip Puzzle") action [SetDict(room2_data, "system_hacked", "true"), Return()] style "confirm_button"
-            textbutton _("Game Over") action [Jump("puzzle_game_over")] style "confirm_button"
 #endregion
