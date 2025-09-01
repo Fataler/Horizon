@@ -393,8 +393,6 @@ label day_4:
     $ renpy.transition(hpunch)
     pause 0.7
     play sfx2 sfx_pisk_one
-    stop music2 fadeout 1.0
-    play music music_creepy_tuc_tuc fadein 0.5 fadeout 1.0 loop
     R_t "Дверь захлопнулась: он успел воспользоваться карточкой командира."
     V ruki osharashen "С тобой всё в порядке?"
     I oooops "Д-да… Небольшая ссадина, ничего страшного."
@@ -407,8 +405,8 @@ label day_4:
     hide i
     hide v
     with dissolve
-
 #music
+    stop music2 fadeout 1.0
     play music music_escape_room_full fadein 1.0 loop
 
 # escape room 1
