@@ -13,39 +13,60 @@ label day_5_2_2_dont_belive:
     pause 2.0
 
     R_t beard_on "Спустя некоторое время у меня получилось настроиться."
-    show scene_talk_in_end_17
-    with Dissolve(2)
-    show screen waveform_show() with dissolve
+    show screen waveform_show
+    show scene_talk_in_end_7
+    with Dissolve(2.0)
     play sfx2 sfx_hiss_with_voice1 fadein 0.5 fadeout 1.0 loop
     pause 1.0
     N "Ты вернулся!"
     N "Я думала, мы больше не сможем связаться с тобой…"
     R serious angry "Почему?"
+    hide scene_talk_in_end_7
+    show scene_talk_in_end_9
+    with Dissolve(1.0)
     R "Что ты несёшь?"
     R "В ваших записях явно какая-то ошибка!"
     R "Членов моей экспедиции зовут Дэвид, Ирис, Виктор и Софи."
     R "Впятером мы направляемся на базу N117 для выгрузки контейнеров с запасами расходных материалов."
     R "Затем планируем вернуться на Землю."
+    hide scene_talk_in_end_9
+    show scene_talk_in_end_15
+    with Dissolve(1.0)
     N "Частично это так…"
     R "Частично?!"
     R "О чём вы умалчиваете? Кто вы?!"
+    hide scene_talk_in_end_15
+    show scene_talk_in_end_13
+    with Dissolve(1.0)
     N "Райан, это я, Элис."
     N "Знаю, это внезапно, но…"
     N "Я рада, что мне удалось с тобой поговорить."
     R ear dissatisfied "Я не понимаю…"
+    hide scene_talk_in_end_13
+    show scene_talk_in_end_14
+    with Dissolve(1.0)
     N "Учёные пригласили меня, потому что тональность моего голоса тебе знакома."
     N "Технология не безупречна. Их голоса не пробивались через барьер в твой разум."
     N "А со мной была хоть какая-то вероятность успеха."
     R_t thinking osharashen "Наконец я узнал её…"
+    hide scene_talk_in_end_14
+    show scene_talk_in_end_10
+    with Dissolve(1.0)
     R serious angry "Это какая-то злобная шутка!"
     R "Вы имитируете голос моей девушки, чтобы навязать своё мнение."
     R_t serious think "Я резко осёкся."
     R_t thinking suspicious"Вообще, какого чёрта, какой-то голос в моей голове пытается диктовать мне, что делать?"
     R_t neutral "Возможно, я медленно схожу с ума."
+    hide scene_talk_in_end_10
+    show scene_talk_in_end_15
+    with Dissolve(1.0)
     N "Нет, послушай…"
     N "Твоё время на исходе. Мы больше не можем помогать тебе… воскресать."
     N "Раз за разом аномалия доводит тебя до помешательства, нельзя долго оставаться в её поле!"
     N "Это чудо, что ты всё ещё жив…"
+    hide scene_talk_in_end_15
+    show scene_talk_in_end_10
+    with Dissolve(1.0)
     R crazy nemnogo "Я уже сошёл с ума! Разве не ясно…"
     R "За миллионы световых лет от Земли я разговариваю не с диспетчером, ха-ха, а со своей девушкой, не имеющей ничего общего с наукой?"
     pause 1.0
@@ -56,7 +77,8 @@ label day_5_2_2_dont_belive:
     R_t "Спустя небольшую паузу она сказала:"
     pause 1.0
     play sfx2 sfx_drama_boom
-    show scene_talk_in_end_18
+    hide scene_talk_in_end_10
+    show scene_talk_in_end_19
     with Dissolve(1.0)
     pause 1.5
     show screen waveform_show() with dissolve
