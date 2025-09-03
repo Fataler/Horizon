@@ -12,7 +12,6 @@ init -999 python:
         GL_REPEAT = None
 
     def _register_wave_shader_guarded():
-        import renpy
         if hasattr(renpy, "register_shader"):
             renpy.register_shader(
                 "watt.wave",

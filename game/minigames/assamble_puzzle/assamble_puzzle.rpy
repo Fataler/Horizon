@@ -23,6 +23,7 @@ default parts = []
 default current_puzzle_level = 1
 default puzzle_level = 1
 default puzzle_win_played = False
+default room1 = {}
 
 # Color scheme for UI elements
 default c1 = "#1d96db"  # Primary blue
@@ -535,7 +536,14 @@ init python:
             puzzle_id: Puzzle identifier to clear
         """
         if puzzle_id == "system_hacked":
-            room2_data["system_hacked"] = "True"
+            try:
+                renpy.store.SetDict(room2_data, "system_hacked", "true")
+            except Exception:
+                room2_data["system_hacked"] = "true"
+            try:
+                renpy.force_autosave()
+            except Exception:
+                pass
 
     def init_puzzle_function(txt=None):
         """
@@ -544,6 +552,7 @@ init python:
         Args:
             txt: Optional notification message to display
         """
+        store.puzzle = None
         store.parts = []
         store.puzzle_win_played = False
 
@@ -565,6 +574,9 @@ init python:
 
         store.puzzle = PuzzleBoard(len(bm[0]), len(bm), parts, level=puzzle_level, mask=bm)
         store.current_puzzle_level = puzzle_level
+
+        renpy.block_rollback()
+        renpy.retain_after_load()
 
         if txt:
             renpy.notify(txt)
@@ -614,6 +626,27 @@ label test_puzzle_start:
         "Puzzle test completed."
 
     jump test_puzzle
+
+label skip_puzzle:
+    R_t beard_on "Ого, всё таки это оказалось действительно сложно!"
+    R_t "Мне нужно немного времени, чтобы разобраться."
+
+    
+    show bg_black zorder 10
+    with dissolve
+
+    pause 3.0
+
+    hide bg_black
+    with dissolve
+
+    pause 1.0
+
+    R_t "Получилось!"
+
+    $ SetDict(room2_data, "system_hacked", "true")
+
+    return True
 
 label puzzle_game_over:
     """
@@ -675,7 +708,8 @@ screen skip_button(room_dict, puzzle_name, puzzle_id, yoffset=0, xalign=1.0, xof
             at Transform(zoom=0.75)
 
 screen room1_puzzle(b=None, interactable=True):
-    sensitive (interactable and not _menu) tag puzzle
+    sensitive (interactable and not _menu) 
+    tag puzzle
     modal True
 
     layer "master"
@@ -699,22 +733,19 @@ screen room1_puzzle(b=None, interactable=True):
                 for y in range(len(puzzle.data)):
                     for x in range(len(puzzle.data[0])):
                         if puzzle.data[y][x] == 1:
-                            add "#ffffff55" xysize (block_size, block_size) pos (x*block_size, y*block_size)
+                            add "#ffffff18" xysize (block_size, block_size) pos (x*block_size, y*block_size)
                         elif puzzle.data[y][x] > 1:
-                            add "#ff000088" xysize (block_size, block_size) pos (x*block_size, y*block_size)
+                            add "#ff000018" xysize (block_size, block_size) pos (x*block_size, y*block_size)
 
         if puzzle.is_solved() and not completion_pending:
             $ completion_pending = True
 
         # Control buttons
         hbox xalign 1.0 yalign 0.95 spacing 30:
-            textbutton "Сброс" style "confirm_button" action [ SetScreenVariable("completion_pending", False), Function(init_puzzle_function, _("Сброс...")) ] xalign 0.0 yalign 0.5 sensitive interactable
-            textbutton "Уйти" style "confirm_button" action [Return(False), With(Dissolve(0.5))]
+            textbutton "Сброс" style "gui_button" action [ SetScreenVariable("completion_pending", False), Function(init_puzzle_function, "Сброс...") ] xalign 0.0 yalign 0.5 sensitive interactable selected False
+            textbutton "Пропустить" style "gui_button" action [Jump("skip_puzzle"), With(Dissolve(0.5))] xalign 0.5 yalign 0.5 sensitive interactable
+            textbutton "Уйти" style "gui_button" action [Return(False), With(Dissolve(0.5))] sensitive interactable
 
     if completion_pending:
         timer 2.0 action [Function(clear_puzzle, "room1_1"), Return(True)]
-
-    if config.developer:
-        vbox:
-            textbutton _("Skip Puzzle") action [SetDict(room2_data, "system_hacked", "true"), Return()] style "confirm_button"
 #endregion

@@ -5,8 +5,6 @@
         "ms-vscode.vscode-json",
         "ms-vscode.vscode-markdown",
         "ms-vscode.vscode-git-graph",
-        
-        "gruntfuggly.todo-tree",
         "paisleysoftworks.renpywarp",
         "kisstkondoros.vscode-gutter-preview"
     ]
