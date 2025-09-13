@@ -1,0 +1,196 @@
+{
+    "files.exclude": {
+        "**/*.rpyc": true,
+        "**/*.rpa": true,
+        "**/*.rpymc": true,
+        "**/cache/": true
+    },
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "renpy.meta.plain",
+                "settings": {
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": "renpy.meta.i",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": "renpy.meta.b",
+                "settings": {
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": [
+                    "renpy.meta.u",
+                    "renpy.meta.a"
+                ],
+                "settings": {
+                    "fontStyle": "underline"
+                }
+            },
+            {
+                "scope": "renpy.meta.s",
+                "settings": {
+                    "fontStyle": "strikethrough"
+                }
+            },
+            {
+                "scope": "renpy.meta.i renpy.meta.b",
+                "settings": {
+                    "fontStyle": "italic bold"
+                }
+            },
+            {
+                "scope": "renpy.meta.i renpy.meta.u",
+                "settings": {
+                    "fontStyle": "italic underline"
+                }
+            },
+            {
+                "scope": "renpy.meta.i renpy.meta.s",
+                "settings": {
+                    "fontStyle": "italic strikethrough"
+                }
+            },
+            {
+                "scope": "renpy.meta.b renpy.meta.u",
+                "settings": {
+                    "fontStyle": "bold underline"
+                }
+            },
+            {
+                "scope": "renpy.meta.b renpy.meta.s",
+                "settings": {
+                    "fontStyle": "bold strikethrough"
+                }
+            },
+            {
+                "scope": "renpy.meta.u renpy.meta.s",
+                "settings": {
+                    "fontStyle": "underline strikethrough"
+                }
+            },
+            {
+                "scope": "renpy.meta.i renpy.meta.b renpy.meta.u",
+                "settings": {
+                    "fontStyle": "italic bold underline"
+                }
+            },
+            {
+                "scope": "renpy.meta.i renpy.meta.b renpy.meta.s",
+                "settings": {
+                    "fontStyle": "italic bold strikethrough"
+                }
+            },
+            {
+                "scope": "renpy.meta.i renpy.meta.u renpy.meta.s",
+                "settings": {
+                    "fontStyle": "italic underline strikethrough"
+                }
+            },
+            {
+                "scope": "renpy.meta.b renpy.meta.u renpy.meta.s",
+                "settings": {
+                    "fontStyle": "bold underline strikethrough"
+                }
+            },
+            {
+                "scope": "renpy.meta.i renpy.meta.b renpy.meta.u  renpy.meta.s",
+                "settings": {
+                    "fontStyle": "italic bold underline strikethrough"
+                }
+            },
+            {
+                "scope": "renpy.meta.color.text",
+                "settings": {
+                    "foreground": "#ffffff"
+                }
+            },
+            {
+                "scope": "renpy.meta.color.#7fffd4",
+                "settings": {
+                    "foreground": "#7fffd4"
+                }
+            },
+            {
+                "scope": "renpy.meta.color.#ffffff",
+                "settings": {
+                    "foreground": "#ffffff"
+                }
+            },
+            {
+                "scope": "renpy.meta.color.#fff",
+                "settings": {
+                    "foreground": "#fff"
+                }
+            },
+            {
+                "scope": "renpy.meta.color.#fcc",
+                "settings": {
+                    "foreground": "#fcc"
+                }
+            },
+            {
+                "scope": "renpy.meta.color.#cfc",
+                "settings": {
+                    "foreground": "#cfc"
+                }
+            }
+        ]
+    },
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "files.autoSave": "afterDelay",
+    "renpyWarp.renpyExtensionsEnabled": "Enabled",
+    "renpyWarp.autoConnectExternalProcesses": "Always connect",
+    "renpyWarp.setAutoReloadOnSave": true,
+    "gutterpreview.sourceFolders": [
+        "game/images",
+        "game/gui",
+        "game"
+    ],
+    "git.autorefresh": true,
+    "git.confirmSync": false,
+    "workbench.editor.restoreViewState": false,
+    "todo-tree.general.enableFileWatcher": true,
+    "todo-tree.general.statusBar": "total",
+    "todo-tree.filtering.includeGlobs": [
+        "**/*.rpy",
+        "**/*.py"
+    ],
+    "todo-tree.filtering.excludeGlobs": [
+        "**/cache/**",
+        "**/*.rpyc"
+    ],
+    "todo-tree.filtering.useBuiltInExcludes": "file excludes",
+    "todo-tree.regex.regex": "#.*(TODO|BUG|REFACTOR|OPTIMIZE)(\\s*?:?)",
+    "todo-tree.regex.regexCaseSensitive": false,
+    "todo-tree.highlights.defaultHighlight": {
+        "foreground": "#ffffff",
+        "background": "#ff6600",
+        "iconColour": "#ff6600",
+        "type": "tag-and-comment",
+        "gutterIcon": true
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "foreground": "#ffffff",
+            "background": "#ff6600",
+            "iconColour": "#ff6600"
+        },
+        "BUG": {
+            "foreground": "#ffffff",
+            "background": "#ff0000",
+            "iconColour": "#ff0000"
+        }
+    },
+    "todo-tree.tree.showCountsInTree": true,
+    "todo-tree.tree.showBadges": true,
+    "todo-tree.tree.sort": true,
+}

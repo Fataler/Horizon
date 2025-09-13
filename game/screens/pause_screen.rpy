@@ -6,6 +6,9 @@ init -2:
     $_game_menu_screen = "pause_menu"
 
 screen pause_menu(from_game_menu=False):
+    on "show" action Function(pause_sfx, True)
+    on "hide" action Function(pause_sfx, False)
+
     tag menu
 
     $ elements_apperar_time = 2.0 if not from_game_menu else 1.0

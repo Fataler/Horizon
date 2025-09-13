@@ -12,7 +12,7 @@ define blocks_number = 5
 define size_restrictions_enabled = True
 define allow_same_tower_moves = False
 define max_hints = 10
-define hint_restore_time = 2.0
+define hint_restore_time = 1.5
 define no_tower_selected = -1
 define control_panel_position = (0.02, 0.05)
 define control_panel_spacing = 10
@@ -38,6 +38,7 @@ define hint_used_color = "#ff0000"
 define hint_size = (20, 20)
 
 default reset_blocks_number = None
+default hanoi_rules_once_shown = False
 
 init python:
     def update_hint_timer():
@@ -147,6 +148,74 @@ screen hanoi_game_screen(towers):
 
 
 init python:
+    def _serialize_towers_state(towers):
+        return tuple(tuple(block["size"] for block in t["blocks"]) for t in towers)
+
+    def _apply_move_to_state(state, from_idx, to_idx):
+        lists = [list(col) for col in state]
+        if not lists[from_idx]:
+            return None
+        moving = lists[from_idx].pop(0)
+        lists[to_idx].insert(0, moving)
+        return tuple(tuple(col) for col in lists)
+
+    def _is_move_valid_in_state(state, from_idx, to_idx, has_size_restrictions):
+        if from_idx == to_idx:
+            return False
+        if len(state[from_idx]) == 0:
+            return False
+        if not has_size_restrictions:
+            return True
+        if len(state[to_idx]) == 0:
+            return True
+        return state[from_idx][0] < state[to_idx][0]
+
+    def _bfs_next_move_to_goal(towers, finish_tower, has_size_restrictions):
+        try:
+            from collections import deque
+        except Exception:
+            return None
+
+        start_state = _serialize_towers_state(towers)
+        total_blocks = sum(len(s) for s in start_state)
+        goal_state = tuple(tuple(range(1, total_blocks+1)) if i == finish_tower else tuple() for i in range(total_towers_in_game))
+
+        if start_state == goal_state:
+            return None
+
+        queue = deque([start_state])
+        prev = {start_state: None}
+        prev_move = {start_state: None}
+
+        while queue:
+            cur = queue.popleft()
+            if cur == goal_state:
+                break
+            for i in range(total_towers_in_game):
+                if not cur[i]:
+                    continue
+                for j in range(total_towers_in_game):
+                    if not _is_move_valid_in_state(cur, i, j, has_size_restrictions):
+                        continue
+                    nxt = _apply_move_to_state(cur, i, j)
+                    if nxt is None or nxt in prev:
+                        continue
+                    prev[nxt] = cur
+                    prev_move[nxt] = (i, j)
+                    queue.append(nxt)
+
+        if goal_state not in prev:
+            return None
+
+        cur = goal_state
+        path = []
+        while cur is not None and prev[cur] is not None:
+            path.append(prev_move[cur])
+            cur = prev[cur]
+        if not path:
+            return None
+        return path[-1]
+
     def check_game_state():
         global towers, finish_tower, blocks_number
         return len(towers[finish_tower]["blocks"]) == blocks_number
@@ -186,84 +255,13 @@ init python:
 
 
     def get_hint(towers, finish_tower, has_size_restrictions=False):
-        global allow_same_tower_moves, player_moves
+        global allow_same_tower_moves
 
-        total_blocks = sum(len(t["blocks"]) for t in towers)
-        if len(towers[finish_tower]["blocks"]) == total_blocks and total_blocks > 0:
-            return None
+        next_move = _bfs_next_move_to_goal(towers, finish_tower, has_size_restrictions)
+        if next_move is not None:
+            return next_move
 
-        start_tower = None
-        for i, t in enumerate(towers):
-            if t.get("mark") == "start":
-                start_tower = i
-                break
-        if start_tower is None:
-            return None
-
-        aux_tower = next((i for i in range(total_towers_in_game) if i not in (start_tower, finish_tower)), None)
-        if aux_tower is None:
-            return None
-
-        smallest_pos = None
-        for i in range(total_towers_in_game):
-            if towers[i]["blocks"] and towers[i]["blocks"][0]["size"] == 1:
-                smallest_pos = i
-                break
-        if smallest_pos is None:
-            return None
-
-        should_move_smallest = (player_moves % 2 == 0)
-
-        order = [start_tower, finish_tower, aux_tower] if (total_blocks % 2 == 1) else [start_tower, aux_tower, finish_tower]
-
-        if should_move_smallest:
-            try:
-                idx = order.index(smallest_pos)
-            except ValueError:
-                idx = 0
-            target = order[(idx + 1) % 3]
-
-            if is_valid_move(smallest_pos, target, allow_same_tower_moves, has_size_restrictions):
-                return (smallest_pos, target)
-
-            for candidate in [t for t in range(total_towers_in_game) if t != smallest_pos]:
-                if is_valid_move(smallest_pos, candidate, allow_same_tower_moves, has_size_restrictions):
-                    return (smallest_pos, candidate)
-
-            return None
-        else:
-            other_towers = [t for t in range(total_towers_in_game) if t != smallest_pos]
-            t1, t2 = other_towers[0], other_towers[1]
-
-            top1 = towers[t1]["blocks"][0] if towers[t1]["blocks"] else None
-            top2 = towers[t2]["blocks"][0] if towers[t2]["blocks"] else None
-
-            if top1 is None and top2 is None:
-                for candidate in [t for t in range(total_towers_in_game) if t != smallest_pos]:
-                    if is_valid_move(smallest_pos, candidate, allow_same_tower_moves, has_size_restrictions):
-                        return (smallest_pos, candidate)
-                return None
-
-            if top1 is None and top2 is not None:
-                if is_valid_move(t2, t1, allow_same_tower_moves, has_size_restrictions):
-                    return (t2, t1)
-            elif top2 is None and top1 is not None:
-                if is_valid_move(t1, t2, allow_same_tower_moves, has_size_restrictions):
-                    return (t1, t2)
-            else:
-                if top1["size"] < top2["size"]:
-                    if is_valid_move(t1, t2, allow_same_tower_moves, has_size_restrictions):
-                        return (t1, t2)
-                else:
-                    if is_valid_move(t2, t1, allow_same_tower_moves, has_size_restrictions):
-                        return (t2, t1)
-
-            if is_valid_move(t1, t2, allow_same_tower_moves, has_size_restrictions):
-                return (t1, t2)
-            if is_valid_move(t2, t1, allow_same_tower_moves, has_size_restrictions):
-                return (t2, t1)
-
-            return None
+        return None
 
 
     def hanoi_moves_count(x):
@@ -310,7 +308,9 @@ label hanoi_game(blocks_number=5):
 
     show screen hanoi_game_screen(towers=towers)
 
-    call hanoi_rules_explanation from _call_hanoi_rules_explanation
+    if not hanoi_rules_once_shown:
+        call hanoi_rules_explanation from _call_hanoi_rules_explanation
+        $ hanoi_rules_once_shown = True
 
     jump hanoi_loop
 

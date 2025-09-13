@@ -13,24 +13,33 @@ init -1 python:
 
     from functools import partial as curry
 
-    try:
-        overlays = list(getattr(config, "overlay_screens", []))
-        to_add = ["dev_hotkeys", "dev_hud", "debug_bounds_info", "debug_bounds_overlay"]
-        for name in to_add:
-            if name not in overlays:
-                overlays.append(name)
-        config.overlay_screens = overlays
+    if renpy.config.developer:
+        try:
+            overlay_attr = getattr(config, "overlay_screens", None)
+            overlays = list(overlay_attr) if overlay_attr is not None and hasattr(overlay_attr, '__iter__') else []
 
-        if hasattr(config, "always_shown_screens"):
-            always = list(getattr(config, "always_shown_screens", []))
-            for name in ["dev_hotkeys", "dev_hud"]:
-                if name not in always:
-                    always.append(name)
-            config.always_shown_screens = always
-    except Exception as e:
-        config.overlay_screens += ["dev_hotkeys", "dev_hud", "debug_bounds_info", "debug_bounds_overlay"]
-        if hasattr(config, "always_shown_screens"):
-            config.always_shown_screens += ["dev_hotkeys", "dev_hud"]
+            to_add = ["dev_hotkeys", "dev_hud", "debug_bounds_info", "debug_bounds_overlay"]
+            for name in to_add:
+                if name not in overlays:
+                    overlays.append(name)
+            config.overlay_screens = overlays
+
+            if hasattr(config, "always_shown_screens"):
+                always_attr = getattr(config, "always_shown_screens", None)
+                always = list(always_attr) if always_attr is not None and hasattr(always_attr, '__iter__') else []
+
+                for name in ["dev_hotkeys", "dev_hud"]:
+                    if name not in always:
+                        always.append(name)
+                config.always_shown_screens = always
+        except Exception as e:
+            log_debug(f"[Debug] Error setting up screens: {e}")
+            try:
+                config.overlay_screens += ["dev_hotkeys", "dev_hud", "debug_bounds_info", "debug_bounds_overlay"]
+                if hasattr(config, "always_shown_screens"):
+                    config.always_shown_screens += ["dev_hotkeys", "dev_hud"]
+            except Exception as fallback_e:
+                log_debug(f"[Debug] Fallback failed: {fallback_e}")
 
     class DebugBorder(renpy.Displayable):
         """Draws a rectangular border using Solid without filling the center."""
@@ -149,7 +158,6 @@ init -1 python:
                     if sname not in _bounds_saved_foregrounds:
                         _bounds_saved_foregrounds[sname] = s.foreground
                     s.foreground = DebugBorder("#ff0000ff", 4)
-                    log_debug(f"[DebugBounds] applied border to {sname}")
                 except Exception as e:
                     log_debug(f"[DebugBounds] skip {sname}: {e}")
                     continue
@@ -158,7 +166,6 @@ init -1 python:
             for sname, fg in list(_bounds_saved_foregrounds.items()):
                 try:
                     getattr(style, sname).foreground = fg
-                    log_debug(f"[DebugBounds] reverted border for {sname}")
                 except Exception as e:
                     log_debug(f"[DebugBounds] revert error {sname}: {e}")
                     pass
@@ -184,7 +191,10 @@ init -1 python:
 screen dev_hud():
     if _show_hud:
         frame align (1.0, 1.0) padding (6, 4) background "#0008":
-            text "%d × %d" % renpy.get_mouse_pos() style "debug_text"
+            $ mouse_x, mouse_y = renpy.get_mouse_pos()
+            $ rel_x = round(mouse_x / config.screen_width, 3)
+            $ rel_y = round(mouse_y / config.screen_height, 3)
+            text str(mouse_x) + " × " + str(mouse_y) + " (" + str(rel_x) + ", " + str(rel_y) + ")" style "debug_text"
         timer 0.33 action renpy.restart_interaction repeat True
 
 screen debug_bounds_overlay():

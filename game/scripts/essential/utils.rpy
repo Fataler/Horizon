@@ -149,3 +149,9 @@ init -1 python:
             frames.extend([f"{folder}/{n}{ext}", delay])
         renpy.image(image_name, Animation(*frames))
 #endregion
+#region pause_sfx
+init -1 python:
+    def pause_sfx(enable):
+        for ch in ("sfx", "sfx2", "sfx3", "sound"):
+            renpy.music.set_pause(enable, channel=ch)
+#endregion
