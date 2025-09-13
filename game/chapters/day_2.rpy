@@ -704,7 +704,7 @@ label day_2:
     scene bg_black with dissolve
     stop sfx fadeout 1.0
     $ renpy.pause(0.5, hard=True)
-    $ unlock_achievement(ACHIEVEMENT_ELECTRIC)
+    $ unlock_achievement(ACHIEVEMENT_HELL)
     $ renpy.pause(1.0, hard=True)
     with dissolve
     $ renpy.force_autosave()
