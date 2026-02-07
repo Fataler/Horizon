@@ -63,6 +63,7 @@ screen pause_menu(from_game_menu=False):
             textbutton _("Сохранить") action [SetVariable("came_from_pause_menu", True), Hide("pause_menu"), ShowMenu("save")]
             textbutton _("Загрузить") action [SetVariable("came_from_pause_menu", True), Hide("pause_menu"), ShowMenu("load")]
             textbutton _("История") action [SetVariable("came_from_pause_menu", True), Hide("pause_menu"), ShowMenu("history")]
+            textbutton _("Экстра") action [SetVariable("came_from_pause_menu", True), Hide("pause_menu"), ShowMenu("extra_menu")]
             textbutton _("Настройки") action [SetVariable("came_from_pause_menu", True), Hide("pause_menu"), ShowMenu("preferences")]
             textbutton _("Главное меню") action MainMenu()
             textbutton _("Вернуться") action Return()

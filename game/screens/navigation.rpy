@@ -21,7 +21,7 @@ screen navigation():
 
         textbutton _("Загрузить") action ShowMenu("load")
         
-        textbutton _("Достижения") action ShowMenu("achievements_screen")
+        textbutton _("Экстра") action ShowMenu("extra_menu")
 
         textbutton _("Настройки") action ShowMenu("preferences")
 

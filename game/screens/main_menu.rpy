@@ -184,7 +184,7 @@ screen main_menu(from_game_menu=False):
             text_size 55
             
         
-        textbutton _("Достижения") action ShowMenu("achievements_screen"):
+        textbutton _("Экстра") action ShowMenu("extra_menu"):
             text_size 55
 
         textbutton _("Настройки") action ShowMenu("preferences"):

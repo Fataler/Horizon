@@ -2,149 +2,154 @@ screen achievements_screen():
     tag menu
     
     use game_menu(_("Достижения"), scroll="viewport"):
-        
-        vbox:
-            spacing 10
+        use achievements_content(content_width=1050)
 
-            if (config.developer):
-                textbutton _("Cброс") action Function(reset_achievements)
-                textbutton _("Test") action Function(unlock_achievement, ACHIEVEMENT_ATTACK)
-                textbutton _("Unlock All") action Function(unlock_all_achievements)
-            
-            frame:
-                style "achievements_stats_frame"
-                
-                python:
-                    total = len(achievements)
-                    unlocked = sum(1 for ach in achievements.values() if ach.unlocked)
-                    percentage = (unlocked * 100) // total
-                
-                vbox:
-                    spacing 20
-                    xfill True
-                    
-                    text "Прогресс достижений: [unlocked]/[total] ([percentage]%)" style "achievements_stats_text"
-                    
-                    bar:
-                        value percentage
-                        range 100
-                        xfill True
-                        style "achievements_progress_bar"
+
+screen achievements_content(content_width=900):
+    $ name_block_width = max(420, int(content_width * 0.76))
+
+    vbox:
+        spacing 10
+
+        if (config.developer):
+            textbutton _("Cброс") action Function(reset_achievements)
+            textbutton _("Test") action Function(unlock_achievement, ACHIEVEMENT_ATTACK)
+            textbutton _("Unlock All") action Function(unlock_all_achievements)
+        
+        frame:
+            style "achievements_stats_frame"
             
             python:
-                unlocked_achievements = [ach for ach in achievements.values() if ach.unlocked]
-                locked_achievements = [ach for ach in achievements.values() if not ach.unlocked]
-
-            if unlocked_achievements:
-                text "Полученные достижения:" style "achievements_group_header"
+                total = len(achievements)
+                unlocked = sum(1 for ach in achievements.values() if ach.unlocked)
+                percentage = (unlocked * 100) // total
+            
+            vbox:
+                spacing 20
+                xfill True
                 
-                for ach in unlocked_achievements:
-                    frame:
-                        style "achievement_item_frame"
-                        
-                        hbox:
-                            spacing 10
-                            xfill True
-                            
-                            # Иконка
-                            frame:
-                                style "achievement_icon_frame"
-                                xsize ACHIEVEMENT_ICON_SIZE + 20
-                                ysize ACHIEVEMENT_ICON_SIZE + 20
-                                
-                                add ach.icon:
-                                    size (ACHIEVEMENT_ICON_SIZE, ACHIEVEMENT_ICON_SIZE)
-                                    fit "contain"
-                                    xalign 0.5
-                                    yalign 0.5
+                text "Прогресс достижений: [unlocked]/[total] ([percentage]%)" style "achievements_stats_text"
+                
+                bar:
+                    value percentage
+                    range 100
+                    xfill True
+                    style "achievements_progress_bar"
+        
+        python:
+            unlocked_achievements = [ach for ach in achievements.values() if ach.unlocked]
+            locked_achievements = [ach for ach in achievements.values() if not ach.unlocked]
 
-                            vbox:
-                                spacing 40
+        if unlocked_achievements:
+            text "Полученные достижения:" style "achievements_group_header"
+            
+            for ach in unlocked_achievements:
+                frame:
+                    style "achievement_item_frame"
+                    
+                    hbox:
+                        spacing 10
+                        xfill True
+                        
+                        # Иконка
+                        frame:
+                            style "achievement_icon_frame"
+                            xsize ACHIEVEMENT_ICON_SIZE + 20
+                            ysize ACHIEVEMENT_ICON_SIZE + 20
+                            
+                            add ach.icon:
+                                size (ACHIEVEMENT_ICON_SIZE, ACHIEVEMENT_ICON_SIZE)
+                                fit "contain"
+                                xalign 0.5
+                                yalign 0.5
+
+                        vbox:
+                            spacing 40
+                            xfill True
+
+                            hbox:
+                                spacing 5
                                 xfill True
 
-                                hbox:
-                                    spacing 5
-                                    xfill True
+                                frame:
+                                    background None
+                                    xsize name_block_width
+                                    ysize 50
+                                    text ach.name style "achievement_name":
+                                        xalign 0.0
+                                        yalign 0.5
 
-                                    frame:
-                                        background None
-                                        xsize 750
-                                        ysize 50
+                                fixed:
+                                    xsize 50
+                                    ysize 50
+                                    xoffset -10
+                                    add "check_bg":
+                                        xalign 0.5
+                                        yalign 0.5
+                                    add "check":
+                                        xalign 0.5
+                                        yalign 0.5
+
+                            text ach.description style "achievement_description"
+                        
+                
+
+        if locked_achievements:
+            text "Неполученные достижения:" style "achievements_group_header"
+            
+            for ach in locked_achievements:
+                frame:
+                    style "achievement_item_frame"
+
+                    hbox:
+                        spacing 10
+                        xfill True
+                        
+                        frame:
+                            style "achievement_icon_frame"
+                            xsize ACHIEVEMENT_ICON_SIZE + 20
+                            ysize ACHIEVEMENT_ICON_SIZE + 20
+                            
+                            add ach.lock_icon:
+                                size (ACHIEVEMENT_ICON_SIZE, ACHIEVEMENT_ICON_SIZE)
+                                fit "contain"
+                                xalign 0.5
+                                yalign 0.5
+
+                        vbox:
+                            spacing 40
+                            xfill True
+
+                            hbox:
+                                spacing 5
+                                xfill True
+
+                                frame:
+                                    background None
+                                    xsize name_block_width
+                                    ysize 50
+                                    if ach.hidden:
+                                        text "???" style "achievement_name":
+                                            xalign 0.0
+                                            yalign 0.5
+                                    else:
                                         text ach.name style "achievement_name":
                                             xalign 0.0
                                             yalign 0.5
 
-                                    fixed:
-                                        xsize 50
-                                        ysize 50
-                                        xoffset -10
-                                        add "check_bg":
-                                            xalign 0.5
-                                            yalign 0.5
-                                        add "check":
-                                            xalign 0.5
-                                            yalign 0.5
+                                fixed:
+                                    xsize 50
+                                    ysize 50
+                                    xoffset -10
 
+                                    add "check_bg":
+                                        xalign 0.5
+                                        yalign 0.5
+
+                            if ach.hidden:
+                                text "Секретное достижение" style "achievement_description"
+                            else:
                                 text ach.description style "achievement_description"
-                            
-                    
-
-            if locked_achievements:
-                text "Неполученные достижения:" style "achievements_group_header"
-                
-                for ach in locked_achievements:
-                    frame:
-                        style "achievement_item_frame"
-
-                        hbox:
-                            spacing 10
-                            xfill True
-                            
-                            frame:
-                                style "achievement_icon_frame"
-                                xsize ACHIEVEMENT_ICON_SIZE + 20
-                                ysize ACHIEVEMENT_ICON_SIZE + 20
-                                
-                                add ach.lock_icon:
-                                    size (ACHIEVEMENT_ICON_SIZE, ACHIEVEMENT_ICON_SIZE)
-                                    fit "contain"
-                                    xalign 0.5
-                                    yalign 0.5
-
-                            vbox:
-                                spacing 40
-                                xfill True
-
-                                hbox:
-                                    spacing 5
-                                    xfill True
-
-                                    frame:
-                                        background None
-                                        xsize 750
-                                        ysize 50
-                                        if ach.hidden:
-                                            text "???" style "achievement_name":
-                                                xalign 0.0
-                                                yalign 0.5
-                                        else:
-                                            text ach.name style "achievement_name":
-                                                xalign 0.0
-                                                yalign 0.5
-
-                                    fixed:
-                                        xsize 50
-                                        ysize 50
-                                        xoffset -10
-
-                                        add "check_bg":
-                                            xalign 0.5
-                                            yalign 0.5
-
-                                if ach.hidden:
-                                    text "Секретное достижение" style "achievement_description"
-                                else:
-                                    text ach.description style "achievement_description"
 
 style achievements_stats_frame:
     background None #Frame("gui/frame.png", 40, 40)

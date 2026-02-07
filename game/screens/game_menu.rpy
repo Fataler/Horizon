@@ -12,7 +12,16 @@ transform menu_move:
     parallel:
         ease 0.5 xoffset -390
 
-screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
+screen game_menu(
+    title,
+    scroll=None,
+    yinitial=0.0,
+    spacing=0,
+    outer_width=1390,
+    content_width=1200,
+    content_left_margin=220,
+    outer_xpos=None
+):
     
     style_prefix "game_menu"
     add "bg_black"
@@ -48,13 +57,17 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     frame at menu_items_appear:
         top_margin 15
-        xsize 1390
+        xsize outer_width
         style "game_menu_outer_frame"
+        if outer_xpos is not None:
+            xpos outer_xpos
 
         hbox:
 
             frame:
                 style "game_menu_content_frame"
+                left_margin content_left_margin
+                xsize content_width
 
                 if scroll == "viewport":
 

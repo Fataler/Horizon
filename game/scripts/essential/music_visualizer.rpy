@@ -35,6 +35,28 @@ init python:
         r,g,b = pts[-1][1]
         return mv_rgb_to_hex(r,g,b)
 
+    def mv_grad_color_custom(i, n, points=None):
+        if not points:
+            return mv_grad_color(i, n)
+        try:
+            pts = sorted([(float(t), mv_hex_to_rgb(c)) for t, c in points], key=lambda x: x[0])
+        except Exception:
+            return mv_grad_color(i, n)
+        if len(pts) < 2:
+            return mv_grad_color(i, n)
+        x = 0.0 if n <= 1 else i/float(n-1)
+        t0, c0 = pts[0]
+        for t1, c1 in pts[1:]:
+            if x <= t1:
+                k = 0.0 if t1 == t0 else (x-t0)/(t1-t0)
+                r = int(c0[0] + (c1[0]-c0[0])*k)
+                g = int(c0[1] + (c1[1]-c0[1])*k)
+                b = int(c0[2] + (c1[2]-c0[2])*k)
+                return mv_rgb_to_hex(r, g, b)
+            t0, c0 = t1, c1
+        r, g, b = pts[-1][1]
+        return mv_rgb_to_hex(r, g, b)
+
     def mv_blackman(n):
         w = mv_blackman_cache.get(n)
         if w is not None:
@@ -210,17 +232,22 @@ screen music_visualizer(
     window_ms=mv_window_ms,
     smoothing=mv_smoothing,
     gamma=mv_gamma,
+    palette_points=None,
     yalign_val=0.5
 ):
-    default viewport_w = width if width is not None else config.screen_width
     default tick = 0
     default last_pos = 0.0
-    default bands_smooth = [0.0]*bands
+    default bands_smooth = []
     default norm_level = 0.01
     timer 0.016 repeat True action SetScreenVariable("tick", tick + 1)
 
-    $ total_w = bands*bar_w + (bands-1)*gap
-    $ x0 = (viewport_w - total_w) / 2.0
+    $ bands_count = max(1, int(bands))
+    if len(bands_smooth) != bands_count:
+        $ bands_smooth = (bands_smooth[:bands_count] + [0.0] * bands_count)[:bands_count]
+
+    $ viewport_w_now = width if width is not None else config.screen_width
+    $ total_w = bands_count * bar_w + (bands_count - 1) * gap
+    $ x0 = (viewport_w_now - total_w) / 2.0
 
     $ audio_id = renpy.music.get_playing(channel)
     if isinstance(audio_id,(list,tuple)) and audio_id:
@@ -231,37 +258,38 @@ screen music_visualizer(
         $ last_pos = float(pos)
     $ t = last_pos
 
-    $ amps = [0.0]*bands
+    $ amps = [0.0] * bands_count
     if wav_id:
         $ info = mv_load_wav(wav_id)
         if info:
-            $ lvals, rvals = mv_compute_bands_lr(info, t, bands, min_freq, max_freq, window_ms)
+            $ lvals, rvals = mv_compute_bands_lr(info, t, bands_count, min_freq, max_freq, window_ms)
             $ cur_max = 0.0001
-            for i in range(bands):
-                $ v = 0.6*((1.0 - (i/float(bands-1))) * lvals[i] + (i/float(bands-1)) * rvals[i]) + 0.4*((lvals[i]+rvals[i])*0.5)
+            for i in range(bands_count):
+                $ ratio = (i / float(bands_count - 1)) if bands_count > 1 else 0.0
+                $ v = 0.6 * ((1.0 - ratio) * lvals[i] + ratio * rvals[i]) + 0.4 * ((lvals[i] + rvals[i]) * 0.5)
                 $ amps[i] = v
                 if v > cur_max:
                     $ cur_max = v
-            $ norm_level = max(norm_level*0.95, cur_max)
-            for i in range(bands):
-                $ a = min(1.0, max(0.0, amps[i] / (norm_level if norm_level>1e-6 else 1e-6)))
-                $ bands_smooth[i] = smoothing*bands_smooth[i] + (1.0-smoothing)*a
+            $ norm_level = max(norm_level * 0.95, cur_max)
+            for i in range(bands_count):
+                $ a = min(1.0, max(0.0, amps[i] / (norm_level if norm_level > 1e-6 else 1e-6)))
+                $ bands_smooth[i] = smoothing * bands_smooth[i] + (1.0 - smoothing) * a
     else:
-        for i in range(bands):
-            $ p = i/float(bands-1)
-            $ a = 0.5*(math.sin((t*3.0)+p*4.0)*0.5+0.5)*(1.0-p*0.6)
-            $ bands_smooth[i] = smoothing*bands_smooth[i] + (1.0-smoothing)*a
+        for i in range(bands_count):
+            $ p = (i / float(bands_count - 1)) if bands_count > 1 else 0.0
+            $ a = 0.5 * (math.sin((t * 3.0) + p * 4.0) * 0.5 + 0.5) * (1.0 - p * 0.6)
+            $ bands_smooth[i] = smoothing * bands_smooth[i] + (1.0 - smoothing) * a
 
     fixed:
-        xysize (viewport_w, height)
+        xysize (viewport_w_now, height)
         align (0.5, yalign_val)
-        for i in range(bands):
+        for i in range(bands_count):
             $ a = max(0.0, min(1.0, bands_smooth[i]))
-            $ a = a**gamma
-            $ h = max(1, int(base + max_h*a))
-            $ col = mv_grad_color(i, bands)
-            $ x = int(x0 + i*(bar_w + gap))
-            $ y = int((height - h)/2)
+            $ a = a ** gamma
+            $ h = max(1, int(base + max_h * a))
+            $ col = mv_grad_color_custom(i, bands_count, palette_points)
+            $ x = int(x0 + i * (bar_w + gap))
+            $ y = int((height - h) / 2)
             if glow_px > 0:
                 add Solid(col + "40") xysize (bar_w + glow_px, h) xpos (x - glow_px // 2) ypos y
             add Solid(col) xysize (bar_w, h) xpos x ypos y
@@ -273,5 +301,3 @@ label music_visualizer_demo:
     "Music visualizer"
     hide screen music_visualizer
     return
-
-
