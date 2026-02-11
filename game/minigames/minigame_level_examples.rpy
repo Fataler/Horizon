@@ -1,5 +1,4 @@
 init python:
-    # Примеры конфигов уровней для повторного использования в сюжете.
 
     memory_pairs_level_story_a = {
         "id": "bridge_memory_a",
@@ -11,8 +10,6 @@ init python:
     pipes_level_story_a = {
         "id": "generator_pipes_a",
         "preset": "fixed_demo",
-        # Можно переопределять отдельные поля пресета:
-        # "initial_rotations": [[0,1,2,3,0,1], ...]
     }
 
     valves_level_story_a = {
