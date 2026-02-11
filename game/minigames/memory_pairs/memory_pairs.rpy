@@ -17,8 +17,15 @@ init python:
                 cfg.update(MEMORY_PAIRS_LEVELS[level])
                 level_id = str(level)
         elif isinstance(level, dict):
-            cfg.update(level)
-            level_id = str(level.get("id", "custom"))
+            preset = level.get("preset")
+            if isinstance(preset, str) and preset in MEMORY_PAIRS_LEVELS:
+                cfg.update(MEMORY_PAIRS_LEVELS[preset])
+                level_id = str(preset)
+            for key, val in level.items():
+                if key in ("id", "preset"):
+                    continue
+                cfg[key] = val
+            level_id = str(level.get("id", level_id if level_id else "custom"))
 
         if rows is not None:
             cfg["rows"] = rows
@@ -40,8 +47,15 @@ init python:
             cfg["cols"] += 1
 
         cfg["hide_delay"] = max(0.15, float(cfg.get("hide_delay", 0.7)))
-        cfg["level_id"] = level_id
-        return cfg
+        return {
+            "rows": cfg["rows"],
+            "cols": cfg["cols"],
+            "hide_delay": cfg["hide_delay"],
+            "symbols": cfg.get("symbols"),
+            "deck": cfg.get("deck"),
+            "seed": cfg.get("seed"),
+            "level_id": level_id,
+        }
 
 
     class MemoryPairsGame(object):
@@ -189,7 +203,7 @@ init python:
                 self.opened = []
                 self.message = "Пара найдена."
 
-                if self.matches >= len(self.symbols):
+                if self.matches >= (self.size // 2):
                     self.completed = True
                     self.message = "Все пары собраны."
             else:

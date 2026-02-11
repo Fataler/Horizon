@@ -183,7 +183,7 @@ init python:
                 cfg = copy.deepcopy(REPAIR_MATRIX_LEVELS[preset])
                 level_id = str(preset)
             for key, val in level.items():
-                if key in ("preset",):
+                if key in ("id", "preset"):
                     continue
                 cfg[key] = copy.deepcopy(val)
             level_id = str(level.get("id", level_id if level_id else "custom"))
@@ -224,8 +224,18 @@ init python:
 
         cfg["solution"] = _repair_norm_solution(cfg.get("solution"), len(cfg["blocks"]))
         cfg["require_all_blocks"] = bool(cfg.get("require_all_blocks", True))
-        cfg["level_id"] = level_id
-        return cfg
+        return {
+            "width": cfg["width"],
+            "height": cfg["height"],
+            "shapes": cfg["shapes"],
+            "blocks": cfg["blocks"],
+            "solution": cfg["solution"],
+            "target_rows": cfg["target_rows"],
+            "target_cols": cfg["target_cols"],
+            "cell": cfg["cell"],
+            "require_all_blocks": cfg["require_all_blocks"],
+            "level_id": level_id,
+        }
 
 
     class RepairMatrixGame(object):

@@ -64,7 +64,7 @@ init python:
                 cfg = copy.deepcopy(VALVE_SYNC_LEVELS[preset])
                 level_id = str(preset)
             for key, val in level.items():
-                if key in ("preset",):
+                if key in ("id", "preset"):
                     continue
                 cfg[key] = copy.deepcopy(val)
             level_id = str(level.get("id", level_id if level_id else "custom"))
@@ -88,8 +88,15 @@ init python:
         cfg["ops"] = _valve_norm_ops(cfg.get("ops")) or [[1, 1, 2], [2, 1, 1], [1, 2, 1]]
         cfg["start_values"] = _valve_norm_values(cfg.get("start_values"))
         cfg["scramble"] = bool(cfg.get("scramble", True))
-        cfg["level_id"] = level_id
-        return cfg
+        return {
+            "marks": cfg["marks"],
+            "scramble_steps": cfg["scramble_steps"],
+            "target": cfg["target"],
+            "ops": cfg["ops"],
+            "start_values": cfg["start_values"],
+            "scramble": cfg["scramble"],
+            "level_id": level_id,
+        }
 
 
     class ValveSyncGame(object):

@@ -17,5 +17,14 @@ label test_new_minigames_pack:
         "4) Ремонт матрицы":
             call test_repair_matrix_minigame
             jump test_new_minigames_pack
+        "5) Шифр-коммутатор":
+            call test_cipher_switch_minigame
+            jump test_new_minigames_pack
+        "6) Охота на сигнал":
+            call test_signal_hunt_minigame
+            jump test_new_minigames_pack
+        "8) Спектральная калибровка":
+            call test_spectral_calibration_minigame
+            jump test_new_minigames_pack
         "Выход":
             return

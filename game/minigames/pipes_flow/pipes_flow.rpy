@@ -145,7 +145,7 @@ init python:
                 cfg = copy.deepcopy(PIPES_FLOW_LEVELS[preset])
                 level_id = str(preset)
             for key, val in level.items():
-                if key in ("preset",):
+                if key in ("id", "preset"):
                     continue
                 cfg[key] = copy.deepcopy(val)
             level_id = str(level.get("id", level_id if level_id else "custom"))
@@ -189,8 +189,19 @@ init python:
         cfg["end"] = _pipes_norm_pos(cfg.get("end"))
         cfg["locked_positions"] = _pipes_norm_positions(cfg.get("locked_positions"))
 
-        cfg["level_id"] = level_id
-        return cfg
+        return {
+            "width": cfg["width"],
+            "height": cfg["height"],
+            "mode": cfg["mode"],
+            "target_masks": cfg["target_masks"],
+            "start": cfg["start"],
+            "end": cfg["end"],
+            "initial_rotations": cfg["initial_rotations"],
+            "locked_positions": cfg["locked_positions"],
+            "min_path_ratio": cfg["min_path_ratio"],
+            "min_path_extra": cfg["min_path_extra"],
+            "level_id": level_id,
+        }
 
 
     class PipesFlowGame(object):
